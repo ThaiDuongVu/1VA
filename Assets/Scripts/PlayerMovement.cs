@@ -98,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -179,16 +179,17 @@ public class PlayerMovement : MonoBehaviour
 
         yield return new WaitForSeconds(DashDuration);
 
-        // Stop dash animation
-        if (_player.isInCombat) _player.animator.SetTrigger("enterCombat");
-        else _player.animator.SetTrigger("exitCombat");
-
         // Stop player movement
         _rigidbody2D.velocity = Vector2.zero;
 
         // Reset running state
         _player.isDashing = false;
         _player.isRunning = wasRunning;
+
+        // Stop dash animation
+        _player.animator.ResetTrigger("enterDash");
+        if (_player.isInCombat) _player.animator.SetTrigger("enterCombat");
+        else _player.animator.SetTrigger("exitCombat");
 
         yield return new WaitForSeconds(_player.trail.time);
 
