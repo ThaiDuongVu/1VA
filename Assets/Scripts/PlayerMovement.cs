@@ -182,19 +182,19 @@ public class PlayerMovement : MonoBehaviour
         // Stop player movement
         _rigidbody2D.velocity = Vector2.zero;
 
-        // Reset running state
-        _player.isDashing = false;
-        _player.isRunning = wasRunning;
-
         // Stop dash animation
         _player.animator.ResetTrigger("enterDash");
         if (_player.isInCombat) _player.animator.SetTrigger("enterCombat");
         else _player.animator.SetTrigger("exitCombat");
 
+        // Reset running state
+        _player.isRunning = wasRunning;
+        _player.isDashing = false;
+
         yield return new WaitForSeconds(_player.trail.time);
 
         // Disable player trail
-        _player.trail.enabled = false;
+        if (!_player.isDashing) _player.trail.enabled = false;
     }
 
     private void Look()

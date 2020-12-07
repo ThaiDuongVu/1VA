@@ -87,11 +87,11 @@ PrefabInstance:
     - target: {fileID: 253857981, guid: 3c1ab21dfd1042b408aff102ba64b135, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 984a7c1b05751c74da9c3a093075cfe2, type: 2}
     - target: {fileID: 253857981, guid: 3c1ab21dfd1042b408aff102ba64b135, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: -4132731240909833422, guid: 984a7c1b05751c74da9c3a093075cfe2, type: 2}
     - target: {fileID: 440255131031239736, guid: 3c1ab21dfd1042b408aff102ba64b135, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -110,7 +110,7 @@ PrefabInstance:
       objectReference: {fileID: -4132731240909833422, guid: 984a7c1b05751c74da9c3a093075cfe2, type: 2}
     - target: {fileID: 440255132116386787, guid: 3c1ab21dfd1042b408aff102ba64b135, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 440255132116386787, guid: 3c1ab21dfd1042b408aff102ba64b135, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
@@ -342,7 +342,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8233593083286753182, guid: 3c1ab21dfd1042b408aff102ba64b135, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: CountdownMode
+      value: TestLevel
       objectReference: {fileID: 0}
     - target: {fileID: 8233593083286753182, guid: 3c1ab21dfd1042b408aff102ba64b135, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
