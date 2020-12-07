@@ -13,6 +13,7 @@ public class SceneLoader : MonoBehaviour
     // Awake is called when an object is initialized
     private void Awake()
     {
+        // Get component references
         if (!(Camera.main is null)) _cameraAnimator = Camera.main.GetComponent<Animator>();
         _canvas = FindObjectOfType<Canvas>();
     }
@@ -37,11 +38,15 @@ public class SceneLoader : MonoBehaviour
         // Play transition animation
         _cameraAnimator.SetTrigger(Outro);
 
+        // Load scene in the background while camera is transitioning
+        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(scene, LoadSceneMode.Single);
+        asyncOperation.allowSceneActivation = false;
+
         // Delay the load for animation to play
         yield return new WaitForSeconds(30f * Time.unscaledDeltaTime);
 
-        // Once delayed, load scene
-        SceneManager.LoadScene(scene, LoadSceneMode.Single);
+        // Once camera done transition, move to new scene
+        asyncOperation.allowSceneActivation = true;
     }
 
     // Quit game

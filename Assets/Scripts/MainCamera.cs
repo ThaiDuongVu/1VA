@@ -13,7 +13,7 @@ public class MainCamera : MonoBehaviour
 
     private void Follow(Transform target)
     {
-        if (target == null) return;
+        if (!target) return;
 
         // Lerp to target position
         Vector2 targetPosition = target.position;

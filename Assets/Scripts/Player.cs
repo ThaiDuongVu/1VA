@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public Animator animator { get; set; }
 
     public TrailRenderer trail;
+    public Transform rayPoint;
 
     private void Awake()
     {
@@ -31,7 +32,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-
+        RaycastHit2D hit2D = Physics2D.Raycast(rayPoint.position, transform.up, 20f);
+        if (hit2D.collider != null)
+        {
+            if (hit2D.transform.CompareTag("Enemy")) hit2D.transform.GetComponent<Enemy>().LockOn(true);
+        }
     }
 
     #region Trigger Methods
@@ -43,6 +48,8 @@ public class Player : MonoBehaviour
         {
             movement.Stop();
             combat.EnterCombat();
+
+            other.GetComponent<CombatZone>().StartCombat(this);
         }
     }
 
@@ -52,6 +59,8 @@ public class Player : MonoBehaviour
         if (other.CompareTag("CombatZone"))
         {
             combat.ExitCombat();
+
+            other.GetComponent<CombatZone>().EndCombat();
         }
     }
 

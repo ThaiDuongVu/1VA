@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class Enemy : MonoBehaviour
 {
@@ -9,11 +10,17 @@ public class Enemy : MonoBehaviour
 
     public SpriteRenderer head;
     public SpriteRenderer body;
-    public SpriteRenderer[] hands;
-    public SpriteRenderer[] feet;
+    public SpriteRenderer handRight;
+    public SpriteRenderer handLeft;
+    public SpriteRenderer footRight;
+    public SpriteRenderer footLeft;
 
     public Animator animator { get; set; }
     public bool isInCombat { get; set; }
+
+    public bool isLockedOn { get; set; }
+
+    public Light2D light2D;
 
     private void Awake()
     {
@@ -24,6 +31,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        LockOn(false);
         GenerateAppearance();
     }
 
@@ -39,13 +47,18 @@ public class Enemy : MonoBehaviour
         head.sprite = headVariation[Random.Range(0, headVariation.Length)];
         body.sprite = bodyVariation[Random.Range(0, bodyVariation.Length)];
 
-        foreach (SpriteRenderer hand in hands)
-        {
-            hand.sprite = handVariation[Random.Range(0, handVariation.Length)];
-        }
-        foreach (SpriteRenderer foot in feet)
-        {
-            foot.sprite = footVariation[Random.Range(0, footVariation.Length)];
-        }
+        Sprite handSprite = handVariation[Random.Range(0, handVariation.Length)];
+        handLeft.sprite = handSprite;
+        handRight.sprite = handSprite;
+
+        Sprite footSprite = footVariation[Random.Range(0, footVariation.Length)];
+        footLeft.sprite = footSprite;
+        footRight.sprite = footSprite;
+    }
+
+    public void LockOn(bool value)
+    {
+        isLockedOn = value;
+        light2D.enabled = value;
     }
 }

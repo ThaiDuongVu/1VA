@@ -5,6 +5,8 @@ public class PlayerCombat : MonoBehaviour
 {
     private Player _player;
 
+    private Animator _cameraAnimator;
+
     private InputManager _inputManager;
 
     private void OnEnable()
@@ -47,6 +49,7 @@ public class PlayerCombat : MonoBehaviour
     {
         // Get component references
         _player = GetComponent<Player>();
+        _cameraAnimator = Camera.main.GetComponent<Animator>();
     }
 
     // Start is called before the first frame update
@@ -68,6 +71,10 @@ public class PlayerCombat : MonoBehaviour
         _player.animator.ResetTrigger("exitCombat");
         _player.animator.SetTrigger("enterCombat");
 
+        // Camera enter combat state
+        _cameraAnimator.ResetTrigger("exitCombat");
+        _cameraAnimator.SetTrigger("enterCombat");
+
         // Set state
         _player.isInCombat = true;
     }
@@ -78,6 +85,10 @@ public class PlayerCombat : MonoBehaviour
         // Stop combat animation
         _player.animator.ResetTrigger("enterCombat");
         _player.animator.SetTrigger("exitCombat");
+
+        // Camera exit combat state
+        _cameraAnimator.ResetTrigger("enterCombat");
+        _cameraAnimator.SetTrigger("exitCombat");
 
         // Set state
         _player.isInCombat = false;
