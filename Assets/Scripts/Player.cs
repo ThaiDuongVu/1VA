@@ -12,7 +12,9 @@ public class Player : MonoBehaviour
     public Animator animator { get; set; }
 
     public TrailRenderer trail;
+
     public Transform rayPoint;
+    private const float RaycastDistance = 20f;
 
     private void Awake()
     {
@@ -32,10 +34,20 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        RaycastHit2D hit2D = Physics2D.Raycast(rayPoint.position, transform.up, 20f);
-        if (hit2D.collider != null)
+        RayLock();
+    }
+
+    // Perform raycast for enemies to lock on
+    private void RayLock()
+    {
+        // Ray cast from player forward
+        RaycastHit2D hit2D = Physics2D.Raycast(rayPoint.position, transform.up, RaycastDistance);
+
+        // If raycast hit an enemy collider
+        if (hit2D.collider && hit2D.transform.CompareTag("Enemy"))
         {
-            if (hit2D.transform.CompareTag("Enemy")) hit2D.transform.GetComponent<Enemy>().LockOn(true);
+            Enemy raycastedEnemy = hit2D.transform.GetComponent<Enemy>();
+            if (hit2D.transform.CompareTag("Enemy")) raycastedEnemy.combatZone.LockOn(raycastedEnemy);
         }
     }
 
@@ -61,6 +73,7 @@ public class Player : MonoBehaviour
             combat.ExitCombat();
 
             other.GetComponent<CombatZone>().EndCombat();
+            other.GetComponent<CombatZone>().UnlockAll();
         }
     }
 

@@ -5,6 +5,8 @@ using System.Collections;
 public class SceneLoader : MonoBehaviour
 {
     private Animator _cameraAnimator;
+    [SerializeField] private AnimationClip cameraOutroAnimation;
+
     private Canvas _canvas;
 
     // Cached string for triggering animations
@@ -43,7 +45,7 @@ public class SceneLoader : MonoBehaviour
         asyncOperation.allowSceneActivation = false;
 
         // Delay the load for animation to play
-        yield return new WaitForSeconds(30f * Time.unscaledDeltaTime);
+        yield return new WaitForSeconds(cameraOutroAnimation.averageDuration);
 
         // Once camera done transition, move to new scene
         asyncOperation.allowSceneActivation = true;

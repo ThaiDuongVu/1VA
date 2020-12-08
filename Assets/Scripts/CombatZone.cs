@@ -20,6 +20,8 @@ public class CombatZone : MonoBehaviour
             _enemies[i] = transform.GetChild(i).GetComponent<Enemy>();
             _enemyCombats[i] = _enemies[i].GetComponent<EnemyCombat>();
             _enemyMovements[i] = _enemies[i].GetComponent<EnemyMovement>();
+
+            _enemies[i].combatZone = this;
         }
     }
 
@@ -62,10 +64,16 @@ public class CombatZone : MonoBehaviour
     // Lock on an enemy
     public void LockOn(Enemy other)
     {
+        UnlockAll();
+        other.LockOn(true);
+    }
+
+    // Unlock all enemies
+    public void UnlockAll()
+    {
         foreach (Enemy enemy in _enemies)
         {
             enemy.LockOn(false);
         }
-        other.LockOn(true);
     }
 }

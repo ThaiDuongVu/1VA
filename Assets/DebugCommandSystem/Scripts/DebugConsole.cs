@@ -7,7 +7,7 @@ using System.Linq;
 public class DebugConsole : MonoBehaviour
 {
     [SerializeField] private TMP_InputField inputField;
-    private bool _isConsoleVisible;
+    private bool _isVisible;
 
     // List of debug commands
     public List<object> debugCommands;
@@ -31,7 +31,7 @@ public class DebugConsole : MonoBehaviour
 
     private void OnShowPerformed(InputAction.CallbackContext context)
     {
-        if (_isConsoleVisible)
+        if (_isVisible)
             HideConsole();
         else
             ShowConsole();
@@ -69,10 +69,10 @@ public class DebugConsole : MonoBehaviour
 
     private void Awake()
     {
-        _showFPS = new DebugCommand("show-fps", "Show game time in frames per second", "show_fps",
+        _showFPS = new DebugCommand("showFps", "Show game time in frames per second", "showFps",
             () => { UIController.Instance.ShowFPS(); });
 
-        _hideFPS = new DebugCommand("hide-fps", "Hide game fps", "hide_fps",
+        _hideFPS = new DebugCommand("hideFps", "Hide game fps", "hideFps",
             () => { UIController.Instance.HideFPS(); });
 
         // Add all commands to list
@@ -92,8 +92,8 @@ public class DebugConsole : MonoBehaviour
     // Show and hide input console
     private void ShowConsole()
     {
-        _isConsoleVisible = true;
-        inputField.gameObject.SetActive(_isConsoleVisible);
+        _isVisible = true;
+        inputField.gameObject.SetActive(_isVisible);
 
         // Make input field available to type
         inputField.ActivateInputField();
@@ -103,8 +103,8 @@ public class DebugConsole : MonoBehaviour
 
     private void HideConsole()
     {
-        _isConsoleVisible = false;
-        inputField.gameObject.SetActive(_isConsoleVisible);
+        _isVisible = false;
+        inputField.gameObject.SetActive(_isVisible);
 
         // Unfreeze game
         Time.timeScale = 1f;

@@ -20,6 +20,8 @@ public class Enemy : MonoBehaviour
 
     public bool isLockedOn { get; set; }
 
+    public CombatZone combatZone { get; set; }
+
     public Light2D light2D;
 
     private void Awake()
