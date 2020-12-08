@@ -76,6 +76,7 @@ public class GameController : MonoBehaviour
         {
             menu.Disable();
         }
+        menus[0].SetInteractable(true);
 
         _isPaused = false;
     }
