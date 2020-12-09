@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
 
     public Transform rayPoint;
     private const float RaycastDistance = 20f;
+
+    public Transform lockArrow;
     public Enemy LockedOnEnemy { get; set; }
 
     private void Awake()
@@ -32,26 +34,26 @@ public class Player : MonoBehaviour
     private void Start()
     {
         trail.enabled = false;
+        Unlock();
     }
 
     // Update is called once per frame
     private void Update()
     {
-        RayLock();
+        if (LockedOnEnemy) Lock();
     }
 
-    // Perform raycast for enemies to lock on
-    private void RayLock()
+    private void Lock()
     {
-        // Ray cast from player forward
-        RaycastHit2D hit2D = Physics2D.Raycast(rayPoint.position, transform.up, RaycastDistance);
+        lockArrow.gameObject.SetActive(true);
+        lockArrow.position = LockedOnEnemy.transform.position + (LockedOnEnemy.transform.position - transform.position).normalized * 1.5f;
 
-        // If raycast hit an enemy collider
-        if (!hit2D.collider || !hit2D.transform.CompareTag("Enemy")) return;
+        lockArrow.rotation = Quaternion.LookRotation(Vector3.forward, (LockedOnEnemy.transform.position - transform.position).normalized);
+    }
 
-        Enemy raycastEnemy = hit2D.transform.GetComponent<Enemy>();
-        LockedOnEnemy = raycastEnemy;
-        raycastEnemy.CombatZone.LockOn(raycastEnemy);
+    private void Unlock()
+    {
+        lockArrow.gameObject.SetActive(false);
     }
 
     #region Trigger Methods
@@ -78,6 +80,7 @@ public class Player : MonoBehaviour
             other.GetComponent<CombatZone>().EndCombat();
             other.GetComponent<CombatZone>().UnlockAll();
 
+            Unlock();
             LockedOnEnemy = null;
         }
     }

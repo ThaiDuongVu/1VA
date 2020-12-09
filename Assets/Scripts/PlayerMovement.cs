@@ -241,7 +241,7 @@ public class PlayerMovement : MonoBehaviour
         _player.trail.enabled = true;
 
         // Set snap position
-        _snapPosition = other.transform.position - 2f * (other.transform.position - transform.position).normalized;
+        _snapPosition = other.transform.position - 2.5f * (other.transform.position - transform.position).normalized;
     }
 
     // Stop snapping

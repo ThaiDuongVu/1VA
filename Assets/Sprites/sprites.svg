@@ -17,6 +17,15 @@
   <defs
      id="defs2">
     <inkscape:path-effect
+       effect="powerclip"
+       id="path-effect911"
+       is_visible="true"
+       lpeversion="1"
+       inverse="true"
+       flatten="false"
+       hide_clip="false"
+       message="Use fill-rule evenodd on &lt;b&gt;fill and stroke&lt;/b&gt; dialog if no flatten result after convert clip to paths." />
+    <inkscape:path-effect
        message="Use fill-rule evenodd on &lt;b&gt;fill and stroke&lt;/b&gt; dialog if no flatten result after convert clip to paths."
        hide_clip="false"
        flatten="false"
@@ -215,6 +224,25 @@
          style="fill:#ff6600;stroke:none;stroke-width:0.499997;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
          id="lpe_path-effect968" />
     </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipath_lpe_path-effect911">
+      <ellipse
+         style="display:none;fill:#ff6600;stroke:none;stroke-width:0.499997;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+         id="ellipse913"
+         cx="-613.89288"
+         cy="-146.75716"
+         inkscape:export-xdpi="25.399998"
+         inkscape:export-ydpi="25.399998"
+         rx="111.48938"
+         ry="229.85318"
+         d="M -502.4035,-146.75716 A 111.48938,229.85318 0 0 1 -613.89288,83.096024 111.48938,229.85318 0 0 1 -725.38226,-146.75716 111.48938,229.85318 0 0 1 -613.89288,-376.61034 111.48938,229.85318 0 0 1 -502.4035,-146.75716" />
+      <path
+         id="lpe_path-effect911"
+         style="fill:#ff6600;stroke:none;stroke-width:0.499997;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+         class="powerclip"
+         d="m -711.6937,-472.48695 h 195.60158 v 172.59766 H -711.6937 Z m 209.2902,325.72979 a 111.48938,229.85318 0 0 0 -111.48938,-229.85318 111.48938,229.85318 0 0 0 -111.48938,229.85318 111.48938,229.85318 0 0 0 111.48938,229.853184 111.48938,229.85318 0 0 0 111.48938,-229.853184" />
+    </clipPath>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -224,8 +252,8 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497475"
-     inkscape:cx="351.99279"
-     inkscape:cy="-2878.8848"
+     inkscape:cx="-162.05119"
+     inkscape:cy="-24.624261"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -430,7 +458,9 @@
        height="100"
        width="100"
        id="rect879"
-       style="fill:#222831;stroke-width:4.99998;stroke-linecap:round;stroke-linejoin:round" />
+       style="fill:#eeeeee;stroke-width:4.99998;stroke-linecap:round;stroke-linejoin:round;fill-opacity:1"
+       inkscape:export-xdpi="65.019997"
+       inkscape:export-ydpi="65.019997" />
     <path
        inkscape:path-effect="#path-effect968"
        clip-path="url(#clipPath964)"
@@ -772,5 +802,28 @@
          inkscape:export-xdpi="25.399998"
          inkscape:export-ydpi="25.399998" />
     </g>
+    <path
+       inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Player\LockArrow.png"
+       sodipodi:type="star"
+       style="fill:#ff9f43;fill-opacity:1;stroke:#eeeeed;stroke-width:13.1262;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path909"
+       sodipodi:sides="3"
+       sodipodi:cx="-613.83331"
+       sodipodi:cy="-361.34525"
+       sodipodi:r1="99.57933"
+       sodipodi:r2="49.789665"
+       sodipodi:arg1="0.52479577"
+       sodipodi:arg2="1.5719933"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m -527.65474,-311.45239 -86.23817,-0.10323 -86.23817,-0.10322 43.20848,-74.63283 43.20848,-74.63283 43.02969,74.73605 z"
+       inkscape:transform-center-x="0.032416937"
+       inkscape:transform-center-y="6.6269914"
+       transform="matrix(0.54393859,0,0,-0.26675301,383.91791,-21.330137)"
+       inkscape:export-xdpi="65.019997"
+       inkscape:export-ydpi="65.019997"
+       clip-path="url(#clipath_lpe_path-effect911)"
+       inkscape:path-effect="#path-effect911" />
   </g>
 </svg>
