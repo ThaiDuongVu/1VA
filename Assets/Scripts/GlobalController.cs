@@ -5,6 +5,7 @@ using UnityEngine.Rendering.Universal;
 public class GlobalController : MonoBehaviour
 {
     // Use a singleton pattern to make the class globally accessible
+
     #region Singleton
 
     private static GlobalController _instance;

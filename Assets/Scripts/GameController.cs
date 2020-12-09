@@ -42,7 +42,6 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        
     }
 
     // Pause game
@@ -74,15 +73,14 @@ public class GameController : MonoBehaviour
         // Disable pause menu
         foreach (Menu menu in menus)
         {
+            menu.SetInteractable(true);
             menu.Disable();
         }
-        menus[0].SetInteractable(true);
 
         _isPaused = false;
     }
 
     public void GameOver()
     {
-        
     }
 }

@@ -4,7 +4,7 @@ public class MainCamera : MonoBehaviour
 {
     private const float InterpolationRatio = 0.1f;
     [SerializeField] private Transform followTarget;
-    
+
     // Update is called once per frame
     private void FixedUpdate()
     {
@@ -17,6 +17,7 @@ public class MainCamera : MonoBehaviour
 
         // Lerp to target position
         Vector2 targetPosition = target.position;
-        transform.position = Vector3.Lerp(transform.position, new Vector3(targetPosition.x, targetPosition.y, -10f), InterpolationRatio);
+        transform.position = Vector3.Lerp(transform.position, new Vector3(targetPosition.x, targetPosition.y, -10f),
+            InterpolationRatio);
     }
 }

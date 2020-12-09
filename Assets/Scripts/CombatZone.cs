@@ -21,20 +21,8 @@ public class CombatZone : MonoBehaviour
             _enemyCombats[i] = _enemies[i].GetComponent<EnemyCombat>();
             _enemyMovements[i] = _enemies[i].GetComponent<EnemyMovement>();
 
-            _enemies[i].combatZone = this;
+            _enemies[i].CombatZone = this;
         }
-    }
-
-    // Start is called before the first frame update
-    private void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-
     }
 
     // Start combat
@@ -71,9 +59,6 @@ public class CombatZone : MonoBehaviour
     // Unlock all enemies
     public void UnlockAll()
     {
-        foreach (Enemy enemy in _enemies)
-        {
-            enemy.LockOn(false);
-        }
+        foreach (Enemy enemy in _enemies) enemy.LockOn(false);
     }
 }

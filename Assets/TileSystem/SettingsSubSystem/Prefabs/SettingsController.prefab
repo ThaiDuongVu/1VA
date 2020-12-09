@@ -52,11 +52,13 @@ MonoBehaviour:
   resolution: {fileID: 5886990730442993625}
   quality: {fileID: 5985458793452649940}
   targetFPS: {fileID: 5886990728651725893}
+  motionBlur: {fileID: 1528987767}
   font: {fileID: 1037097982}
   fonts:
   - {fileID: 11400000, guid: 984a7c1b05751c74da9c3a093075cfe2, type: 2}
   - {fileID: 11400000, guid: d068212bc4ff71f4ab472355e03e7b85, type: 2}
   audio: {fileID: 5790102960641344347}
+  volumeProfile: {fileID: 11400000, guid: 25c8b3b835ef1244dbac5f6c61e9d269, type: 2}
 --- !u!1001 &664842387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -118,11 +120,11 @@ PrefabInstance:
       objectReference: {fileID: 189808622842258208}
     - target: {fileID: 2088906980, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
       propertyPath: toggles.Array.data[0]
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2088906980, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
       propertyPath: toggles.Array.data[1]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 189808621957790048, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
       propertyPath: settingsController
@@ -139,11 +141,11 @@ PrefabInstance:
     - target: {fileID: 691804612662843952, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
       propertyPath: downTile
       value: 
-      objectReference: {fileID: 691804612789404938}
+      objectReference: {fileID: 9063010867174869367}
     - target: {fileID: 691804613219366297, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
       propertyPath: upTile
       value: 
-      objectReference: {fileID: 691804611998018211}
+      objectReference: {fileID: 9063010867174869367}
     - target: {fileID: 691804613219366297, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
       propertyPath: downTile
       value: 
@@ -170,7 +172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3849823170217744822, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3849823170566436483, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
       propertyPath: tiles.Array.size
@@ -179,7 +181,7 @@ PrefabInstance:
     - target: {fileID: 3849823170566436483, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
       propertyPath: tiles.Array.data[0]
       value: 
-      objectReference: {fileID: 691804612789404938}
+      objectReference: {fileID: 9063010867174869367}
     - target: {fileID: 3849823170972709246, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
       propertyPath: m_text
       value: Motion Blur
@@ -396,6 +398,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea245c6c931fc0c45a739a0d95052cde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9063010867174869367 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9063010866593937892, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
+  m_PrefabInstance: {fileID: 664842387}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 780d2217f8bcd9f4493bdaf7f21924da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1528987767 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2088906980, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
+  m_PrefabInstance: {fileID: 664842387}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 211d16e19448fa843b8480d0e051abd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &691804612789404938 stripped

@@ -16,7 +16,6 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -30,7 +29,8 @@ public class EnemyMovement : MonoBehaviour
         if (!lookTarget) return;
 
         // New look rotation
-        Quaternion lookRotation = Quaternion.LookRotation(Vector3.forward, (target.position - transform.position).normalized);
+        Quaternion lookRotation =
+            Quaternion.LookRotation(Vector3.forward, (target.position - transform.position).normalized);
 
         // Lerp current rotation to new look rotation
         transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, LookInterpolationRatio * Time.timeScale);

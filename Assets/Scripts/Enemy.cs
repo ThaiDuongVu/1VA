@@ -15,19 +15,19 @@ public class Enemy : MonoBehaviour
     public SpriteRenderer footRight;
     public SpriteRenderer footLeft;
 
-    public Animator animator { get; set; }
-    public bool isInCombat { get; set; }
+    public Animator Animator { get; set; }
+    public bool IsInCombat { get; set; }
 
-    public bool isLockedOn { get; set; }
+    public bool IsLockedOn { get; set; }
 
-    public CombatZone combatZone { get; set; }
+    public CombatZone CombatZone { get; set; }
 
     public Light2D light2D;
 
     private void Awake()
     {
         // Get component references
-        animator = GetComponent<Animator>();
+        Animator = GetComponent<Animator>();
     }
 
     // Start is called before the first frame update
@@ -40,7 +40,6 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-
     }
 
     // Generate a random appearance
@@ -60,7 +59,7 @@ public class Enemy : MonoBehaviour
 
     public void LockOn(bool value)
     {
-        isLockedOn = value;
+        IsLockedOn = value;
         light2D.enabled = value;
     }
 }

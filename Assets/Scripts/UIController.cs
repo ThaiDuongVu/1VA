@@ -4,6 +4,7 @@ using UnityEngine;
 public class UIController : MonoBehaviour
 {
     // Use a singleton pattern to make the class globally accessible
+
     #region Singleton
 
     private static UIController _instance;
@@ -40,7 +41,7 @@ public class UIController : MonoBehaviour
     // Show game framerate
     private void DisplayFPS()
     {
-        UpdateText(fpsText, ((int)(1f / Time.unscaledDeltaTime)).ToString(), 1f);
+        UpdateText(fpsText, ((int) (1f / Time.unscaledDeltaTime)).ToString(), 1f);
     }
 
     // Show fps text

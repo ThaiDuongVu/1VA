@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 public class PlayerCombat : MonoBehaviour
 {
     private Player _player;
+    private static readonly int ExitCombatTrigger = Animator.StringToHash("exitCombat");
+    private static readonly int EnterCombatTrigger = Animator.StringToHash("enterCombat");
 
     private Animator _cameraAnimator;
 
@@ -25,17 +27,14 @@ public class PlayerCombat : MonoBehaviour
 
     private void StrikeOnPerformed(InputAction.CallbackContext context)
     {
-
     }
 
     private void CounterOnPerformed(InputAction.CallbackContext context)
     {
-
     }
 
     private void StunOnPerformed(InputAction.CallbackContext context)
     {
-
     }
 
     #endregion
@@ -49,48 +48,46 @@ public class PlayerCombat : MonoBehaviour
     {
         // Get component references
         _player = GetComponent<Player>();
-        _cameraAnimator = Camera.main.GetComponent<Animator>();
+        if (!(Camera.main is null)) _cameraAnimator = Camera.main.GetComponent<Animator>();
     }
 
     // Start is called before the first frame update
     private void Start()
     {
-
     }
 
     // Update is called once per frame
     private void Update()
     {
-
     }
 
     // Player enter combat state
     public void EnterCombat()
     {
         // Play combat animation
-        _player.animator.ResetTrigger("exitCombat");
-        _player.animator.SetTrigger("enterCombat");
+        _player.Animator.ResetTrigger(ExitCombatTrigger);
+        _player.Animator.SetTrigger(EnterCombatTrigger);
 
         // Camera enter combat state
-        _cameraAnimator.ResetTrigger("exitCombat");
-        _cameraAnimator.SetTrigger("enterCombat");
+        _cameraAnimator.ResetTrigger(ExitCombatTrigger);
+        _cameraAnimator.SetTrigger(EnterCombatTrigger);
 
         // Set state
-        _player.isInCombat = true;
+        _player.IsInCombat = true;
     }
 
     // Player exit combat state
     public void ExitCombat()
     {
         // Stop combat animation
-        _player.animator.ResetTrigger("enterCombat");
-        _player.animator.SetTrigger("exitCombat");
+        _player.Animator.ResetTrigger(EnterCombatTrigger);
+        _player.Animator.SetTrigger(ExitCombatTrigger);
 
         // Camera exit combat state
-        _cameraAnimator.ResetTrigger("enterCombat");
-        _cameraAnimator.SetTrigger("exitCombat");
+        _cameraAnimator.ResetTrigger(EnterCombatTrigger);
+        _cameraAnimator.SetTrigger(ExitCombatTrigger);
 
         // Set state
-        _player.isInCombat = false;
+        _player.IsInCombat = false;
     }
 }

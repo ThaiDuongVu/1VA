@@ -3,6 +3,7 @@
 public class CameraShake : MonoBehaviour
 {
     // Use the singleton pattern to make the class globally accessible
+
     #region Singleton
 
     private static CameraShake _instance;

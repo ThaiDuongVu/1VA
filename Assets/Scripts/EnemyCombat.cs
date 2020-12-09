@@ -3,6 +3,8 @@
 public class EnemyCombat : MonoBehaviour
 {
     private Enemy _enemy;
+    private static readonly int ExitCombatTrigger = Animator.StringToHash("exitCombat");
+    private static readonly int EnterCombatTrigger = Animator.StringToHash("enterCombat");
 
     private void Awake()
     {
@@ -13,34 +15,32 @@ public class EnemyCombat : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-
     }
 
     // Update is called once per frame
     private void Update()
     {
-
     }
 
     // Enemy enter combat state
     public void EnterCombat()
     {
         // Play combat animation
-        _enemy.animator.ResetTrigger("exitCombat");
-        _enemy.animator.SetTrigger("enterCombat");
+        _enemy.Animator.ResetTrigger(ExitCombatTrigger);
+        _enemy.Animator.SetTrigger(EnterCombatTrigger);
 
         // Set state
-        _enemy.isInCombat = true;
+        _enemy.IsInCombat = true;
     }
 
     // Enemy exit combat state
     public void ExitCombat()
     {
         // Stop combat animation
-        _enemy.animator.ResetTrigger("enterCombat");
-        _enemy.animator.SetTrigger("exitCombat");
+        _enemy.Animator.ResetTrigger(EnterCombatTrigger);
+        _enemy.Animator.SetTrigger(ExitCombatTrigger);
 
         // Set state
-        _enemy.isInCombat = false;
+        _enemy.IsInCombat = false;
     }
 }

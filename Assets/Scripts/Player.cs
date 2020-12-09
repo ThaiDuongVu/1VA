@@ -2,14 +2,14 @@
 
 public class Player : MonoBehaviour
 {
-    public PlayerCombat combat { private set; get; }
-    public PlayerMovement movement { private set; get; }
+    public PlayerCombat Combat { private set; get; }
+    public PlayerMovement Movement { private set; get; }
 
-    public bool isInCombat { get; set; } = false;
-    public bool isRunning { get; set; } = false;
-    public bool isDashing { get; set; } = false;
+    public bool IsInCombat { get; set; } = false;
+    public bool IsRunning { get; set; } = false;
+    public bool IsDashing { get; set; } = false;
 
-    public Animator animator { get; set; }
+    public Animator Animator { get; set; }
 
     public TrailRenderer trail;
 
@@ -19,10 +19,10 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         // Get component references
-        combat = GetComponent<PlayerCombat>();
-        movement = GetComponent<PlayerMovement>();
+        Combat = GetComponent<PlayerCombat>();
+        Movement = GetComponent<PlayerMovement>();
 
-        animator = GetComponent<Animator>();
+        Animator = GetComponent<Animator>();
     }
 
     // Start is called before the first frame update
@@ -44,11 +44,10 @@ public class Player : MonoBehaviour
         RaycastHit2D hit2D = Physics2D.Raycast(rayPoint.position, transform.up, RaycastDistance);
 
         // If raycast hit an enemy collider
-        if (hit2D.collider && hit2D.transform.CompareTag("Enemy"))
-        {
-            Enemy raycastedEnemy = hit2D.transform.GetComponent<Enemy>();
-            if (hit2D.transform.CompareTag("Enemy")) raycastedEnemy.combatZone.LockOn(raycastedEnemy);
-        }
+        if (!hit2D.collider || !hit2D.transform.CompareTag("Enemy")) return;
+
+        Enemy raycastEnemy = hit2D.transform.GetComponent<Enemy>();
+        if (hit2D.transform.CompareTag("Enemy")) raycastEnemy.CombatZone.LockOn(raycastEnemy);
     }
 
     #region Trigger Methods
@@ -58,8 +57,8 @@ public class Player : MonoBehaviour
         // Enter combat zone
         if (other.CompareTag("CombatZone"))
         {
-            movement.Stop();
-            combat.EnterCombat();
+            Movement.Stop();
+            Combat.EnterCombat();
 
             other.GetComponent<CombatZone>().StartCombat(this);
         }
@@ -70,7 +69,7 @@ public class Player : MonoBehaviour
         // Exit combat zone
         if (other.CompareTag("CombatZone"))
         {
-            combat.ExitCombat();
+            Combat.ExitCombat();
 
             other.GetComponent<CombatZone>().EndCombat();
             other.GetComponent<CombatZone>().UnlockAll();

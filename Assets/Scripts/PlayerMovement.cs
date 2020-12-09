@@ -23,6 +23,11 @@ public class PlayerMovement : MonoBehaviour
     private const float LookInterpolationRatio = 0.15f;
 
     private InputManager _inputManager;
+    private static readonly int IsRunningTrigger = Animator.StringToHash("isRunning");
+    private static readonly int IsCombatWalkingTrigger = Animator.StringToHash("isCombatWalking");
+    private static readonly int EnterDashTrigger = Animator.StringToHash("enterDash");
+    private static readonly int EnterCombatTrigger = Animator.StringToHash("enterCombat");
+    private static readonly int ExitCombatTrigger = Animator.StringToHash("exitCombat");
 
     private void OnEnable()
     {
@@ -47,16 +52,16 @@ public class PlayerMovement : MonoBehaviour
     private void MoveOnPerformed(InputAction.CallbackContext context)
     {
         // If player is in a middle of a dash then return
-        if (_player.isDashing || Time.timeScale == 0f) return;
+        if (_player.IsDashing || Time.timeScale == 0f) return;
 
         // Set movement vector
         _movement = context.ReadValue<Vector2>();
 
         // Play run animation
-        _player.animator.SetBool("isRunning", true);
-        _player.animator.SetBool("isCombatWalking", true);
+        _player.Animator.SetBool(IsRunningTrigger, true);
+        _player.Animator.SetBool(IsCombatWalkingTrigger, true);
 
-        _player.isRunning = true;
+        _player.IsRunning = true;
     }
 
     private void MoveOnCanceled(InputAction.CallbackContext context)
@@ -67,10 +72,10 @@ public class PlayerMovement : MonoBehaviour
         _movement = Vector2.zero;
 
         // Stop run animation
-        _player.animator.SetBool("isRunning", false);
-        _player.animator.SetBool("isCombatWalking", false);
+        _player.Animator.SetBool(IsRunningTrigger, false);
+        _player.Animator.SetBool(IsCombatWalkingTrigger, false);
 
-        _player.isRunning = false;
+        _player.IsRunning = false;
     }
 
     private void DashOnPerformed(InputAction.CallbackContext context)
@@ -78,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
         if (Time.timeScale == 0f) return;
 
         // Start dashing if not already
-        if (!_player.isDashing) StartCoroutine(Dash());
+        if (!_player.IsDashing) StartCoroutine(Dash());
     }
 
     #endregion
@@ -95,19 +100,13 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
-    // Start is called before the first frame update
-    private void Start()
-    {
-
-    }
-
     // Update is called once per frame
     private void Update()
     {
         if (Time.timeScale == 0f) return;
 
         // If player is running then accelerate
-        if (_player.isRunning) Accelerate();
+        if (_player.IsRunning) Accelerate();
         // If not then decelerate
         else Decelerate();
 
@@ -118,7 +117,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Time.timeScale == 0f) return;
 
-        if (_player.isRunning) Run();
+        if (_player.IsRunning) Run();
     }
 
     // Move player to movement vector
@@ -130,7 +129,7 @@ public class PlayerMovement : MonoBehaviour
     private void Accelerate()
     {
         // Accelerate if current velocity is less than max velocity
-        if (!_player.isInCombat)
+        if (!_player.IsInCombat)
         {
             if (_currentVelocity < MaxVelocity) _currentVelocity += Acceleration * Time.deltaTime;
         }
@@ -162,17 +161,17 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator Dash()
     {
         // Whether player was running at time of dash
-        bool wasRunning = _player.isRunning;
+        bool wasRunning = _player.IsRunning;
 
         // Set to dash state
-        _player.isRunning = false;
-        _player.isDashing = true;
+        _player.IsRunning = false;
+        _player.IsDashing = true;
 
         // Enable player trail
         _player.trail.enabled = true;
 
         // Play dash animation
-        _player.animator.SetTrigger("enterDash");
+        _player.Animator.SetTrigger(EnterDashTrigger);
 
         // Add force forward
         _rigidbody2D.AddForce(transform.up.normalized * DashForce, ForceMode2D.Impulse);
@@ -183,18 +182,17 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody2D.velocity = Vector2.zero;
 
         // Stop dash animation
-        _player.animator.ResetTrigger("enterDash");
-        if (_player.isInCombat) _player.animator.SetTrigger("enterCombat");
-        else _player.animator.SetTrigger("exitCombat");
+        _player.Animator.ResetTrigger(EnterDashTrigger);
+        _player.Animator.SetTrigger(_player.IsInCombat ? EnterCombatTrigger : ExitCombatTrigger);
 
         // Reset running state
-        _player.isRunning = wasRunning;
-        _player.isDashing = false;
+        _player.IsRunning = wasRunning;
+        _player.IsDashing = false;
 
         yield return new WaitForSeconds(_player.trail.time);
 
         // Disable player trail
-        if (!_player.isDashing) _player.trail.enabled = false;
+        if (!_player.IsDashing) _player.trail.enabled = false;
     }
 
     private void Look()
@@ -209,15 +207,16 @@ public class PlayerMovement : MonoBehaviour
     private void Animate()
     {
         // If player is not running then set animation speed to 1
-        if (!_player.isRunning)
+        if (!_player.IsRunning)
         {
-            _player.animator.speed = 1f;
+            _player.Animator.speed = 1f;
             return;
         }
+
         // If not then set animation speed to velocity length
-        if (!_player.isInCombat)
-            _player.animator.speed = _currentVelocity / MaxVelocity;
+        if (!_player.IsInCombat)
+            _player.Animator.speed = _currentVelocity / MaxVelocity;
         else
-            _player.animator.speed = _currentVelocity / CombatVelocity;
+            _player.Animator.speed = _currentVelocity / CombatVelocity;
     }
 }

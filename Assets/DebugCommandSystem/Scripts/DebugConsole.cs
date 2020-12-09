@@ -43,7 +43,8 @@ public class DebugConsole : MonoBehaviour
         string[] properties = inputField.text.Split(' ');
 
         // Iterate through list of commands
-        foreach (DebugCommandBase debugCommand in debugCommands.Cast<DebugCommandBase>().Where(debugCommand => inputField.text.Contains(debugCommand.Format)))
+        foreach (DebugCommandBase debugCommand in debugCommands.Cast<DebugCommandBase>()
+            .Where(debugCommand => inputField.text.Contains(debugCommand.Format)))
             switch (debugCommand)
             {
                 case DebugCommand command:

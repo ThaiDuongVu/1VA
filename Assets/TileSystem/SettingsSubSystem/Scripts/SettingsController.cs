@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections.Generic;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using TMPro;
 
 public class SettingsController : MonoBehaviour
@@ -9,16 +10,20 @@ public class SettingsController : MonoBehaviour
 
     public Settings quality;
     public Settings targetFPS;
-    
+
+    public Settings motionBlur;
     public Settings font;
     public TMP_FontAsset[] fonts;
 
     public new Settings audio;
 
+    public VolumeProfile volumeProfile;
+    private MotionBlur _motionBlur;
+
     // Awake is called when an object is initialized
     private void Awake()
     {
-        
+        volumeProfile.TryGet(out _motionBlur);
     }
 
     // Start is called before the first frame update
@@ -30,18 +35,22 @@ public class SettingsController : MonoBehaviour
     public void Apply()
     {
         Screen.SetResolution(resolution.currentState, resolution.currentState / 16 * 9,
-            (FullScreenMode)fullScreen.currentState);
+            (FullScreenMode) fullScreen.currentState);
 
         QualitySettings.SetQualityLevel(quality.currentState);
         Application.targetFrameRate = targetFPS.currentState;
 
-        foreach (TMP_Text text in Resources.FindObjectsOfTypeAll(typeof(TMP_Text)))
+        _motionBlur.active = motionBlur.currentState == 1;
+
+        foreach (Object o in Resources.FindObjectsOfTypeAll(typeof(TMP_Text)))
         {
-            text.font = fonts[font.currentState];
+            TMP_Text text = (TMP_Text) o;
+            if (!text.transform.CompareTag("Title")) text.font = fonts[font.currentState];
         }
 
-        foreach (AudioSource audioSource in Resources.FindObjectsOfTypeAll(typeof(AudioSource)))
+        foreach (Object o in Resources.FindObjectsOfTypeAll(typeof(AudioSource)))
         {
+            AudioSource audioSource = (AudioSource) o;
             audioSource.enabled = false;
         }
     }

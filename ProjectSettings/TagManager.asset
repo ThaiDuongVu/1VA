@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CombatZone
   - Enemy
+  - Title
   layers:
   - Default
   - TransparentFX
@@ -45,6 +46,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 2442319795
+    locked: 0
+  - name: Title
+    uniqueID: 3609410293
     locked: 0
   - name: Objects
     uniqueID: 2270310343
