@@ -5,9 +5,11 @@ public class Player : MonoBehaviour
     public PlayerCombat Combat { private set; get; }
     public PlayerMovement Movement { private set; get; }
 
-    public bool IsInCombat { get; set; } = false;
-    public bool IsRunning { get; set; } = false;
-    public bool IsDashing { get; set; } = false;
+    public bool IsInCombat { get; set; }
+    public bool IsRunning { get; set; }
+    public bool IsDashing { get; set; }
+
+    public bool IsSnapping { get; set; }
 
     public Animator Animator { get; set; }
 
@@ -15,6 +17,7 @@ public class Player : MonoBehaviour
 
     public Transform rayPoint;
     private const float RaycastDistance = 20f;
+    public Enemy LockedOnEnemy { get; set; }
 
     private void Awake()
     {
@@ -47,7 +50,8 @@ public class Player : MonoBehaviour
         if (!hit2D.collider || !hit2D.transform.CompareTag("Enemy")) return;
 
         Enemy raycastEnemy = hit2D.transform.GetComponent<Enemy>();
-        if (hit2D.transform.CompareTag("Enemy")) raycastEnemy.CombatZone.LockOn(raycastEnemy);
+        LockedOnEnemy = raycastEnemy;
+        raycastEnemy.CombatZone.LockOn(raycastEnemy);
     }
 
     #region Trigger Methods
@@ -73,6 +77,8 @@ public class Player : MonoBehaviour
 
             other.GetComponent<CombatZone>().EndCombat();
             other.GetComponent<CombatZone>().UnlockAll();
+
+            LockedOnEnemy = null;
         }
     }
 

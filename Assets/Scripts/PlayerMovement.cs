@@ -5,6 +5,11 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     private Player _player;
+    private static readonly int IsRunningTrigger = Animator.StringToHash("isRunning");
+    private static readonly int IsCombatWalkingTrigger = Animator.StringToHash("isCombatWalking");
+    private static readonly int EnterDashTrigger = Animator.StringToHash("enterDash");
+    private static readonly int EnterCombatTrigger = Animator.StringToHash("enterCombat");
+    private static readonly int ExitCombatTrigger = Animator.StringToHash("exitCombat");
 
     private Rigidbody2D _rigidbody2D;
     private Vector2 _movement;
@@ -20,14 +25,12 @@ public class PlayerMovement : MonoBehaviour
     private const float DashForce = 50f;
     private const float DashDuration = 0.15f;
 
-    private const float LookInterpolationRatio = 0.15f;
+    private Vector2 _snapPosition;
+    private const float SnapInterpolationRatio = 0.2f;
+
+    private const float LookInterpolationRatio = 0.2f;
 
     private InputManager _inputManager;
-    private static readonly int IsRunningTrigger = Animator.StringToHash("isRunning");
-    private static readonly int IsCombatWalkingTrigger = Animator.StringToHash("isCombatWalking");
-    private static readonly int EnterDashTrigger = Animator.StringToHash("enterDash");
-    private static readonly int EnterCombatTrigger = Animator.StringToHash("enterCombat");
-    private static readonly int ExitCombatTrigger = Animator.StringToHash("exitCombat");
 
     private void OnEnable()
     {
@@ -80,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void DashOnPerformed(InputAction.CallbackContext context)
     {
-        if (Time.timeScale == 0f) return;
+        if (Time.timeScale == 0f || _player.IsSnapping) return;
 
         // Start dashing if not already
         if (!_player.IsDashing) StartCoroutine(Dash());
@@ -117,13 +120,18 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Time.timeScale == 0f) return;
 
+        // If player is running then run
         if (_player.IsRunning) Run();
+        // If player is snapping then snap
+        if (_player.IsSnapping) Snap();
     }
 
     // Move player to movement vector
     private void Run()
     {
         _rigidbody2D.MovePosition(_rigidbody2D.position + _movement * _currentVelocity * Time.fixedDeltaTime);
+        // Rotate player to movement direction
+        LookForward();
     }
 
     private void Accelerate()
@@ -137,9 +145,6 @@ public class PlayerMovement : MonoBehaviour
         {
             if (_currentVelocity < CombatVelocity) _currentVelocity += Acceleration * Time.deltaTime;
         }
-
-        // Rotate player to movement direction
-        Look();
     }
 
     private void Decelerate()
@@ -157,7 +162,7 @@ public class PlayerMovement : MonoBehaviour
         _currentVelocity = 0f;
     }
 
-    // Dash move
+    // Perform a dash move
     private IEnumerator Dash()
     {
         // Whether player was running at time of dash
@@ -175,6 +180,9 @@ public class PlayerMovement : MonoBehaviour
 
         // Add force forward
         _rigidbody2D.AddForce(transform.up.normalized * DashForce, ForceMode2D.Impulse);
+
+        // Shake camera
+        CameraShake.Instance.ShakeLight();
 
         yield return new WaitForSeconds(DashDuration);
 
@@ -195,7 +203,8 @@ public class PlayerMovement : MonoBehaviour
         if (!_player.IsDashing) _player.trail.enabled = false;
     }
 
-    private void Look()
+    // Player look at moving direction
+    private void LookForward()
     {
         // New look rotation
         Quaternion lookRotation = Quaternion.LookRotation(Vector3.forward, _movement);
@@ -204,6 +213,7 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, LookInterpolationRatio * Time.timeScale);
     }
 
+    // Scale animation speed to movement speed
     private void Animate()
     {
         // If player is not running then set animation speed to 1
@@ -218,5 +228,44 @@ public class PlayerMovement : MonoBehaviour
             _player.Animator.speed = _currentVelocity / MaxVelocity;
         else
             _player.Animator.speed = _currentVelocity / CombatVelocity;
+    }
+
+    // Start snapping
+    public void StartSnapping(Enemy other)
+    {
+        // Set player snapping to true
+        _player.IsSnapping = true;
+        _player.IsRunning = false;
+
+        // Enable trail
+        _player.trail.enabled = true;
+
+        // Set snap position
+        _snapPosition = other.transform.position - 2f * (other.transform.position - transform.position).normalized;
+    }
+
+    // Stop snapping
+    private void StopSnapping()
+    {
+        // Set player snapping to false
+        _player.IsSnapping = false;
+
+        // Disable trail
+        _player.trail.enabled = false;
+    }
+
+    // Snap to an enemy
+    private void Snap()
+    {
+        // Snap position
+        transform.position = Vector2.Lerp(transform.position, _snapPosition, SnapInterpolationRatio);
+
+        // Snap rotation
+        Quaternion lookRotation = Quaternion.LookRotation(Vector3.forward, ((Vector2)_snapPosition - (Vector2)transform.position).normalized);
+        transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, SnapInterpolationRatio * Time.timeScale);
+
+        // If snapped then stop snapping
+        if (GlobalController.CloseTo(transform.position.x, _snapPosition.x) && GlobalController.CloseTo(transform.position.y, _snapPosition.y))
+            StopSnapping();
     }
 }

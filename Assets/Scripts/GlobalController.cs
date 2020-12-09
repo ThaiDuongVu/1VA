@@ -65,8 +65,8 @@ public class GlobalController : MonoBehaviour
 
     // For logical purposes only
     // Check whether two numbers are close enough to each other
-    public static bool CloseTo(float x, float y, float epsilon)
+    public static bool CloseTo(float x, float y, float epsilon = 0.1f)
     {
-        return Mathf.Abs(x - y) < epsilon;
+        return Mathf.Abs(x - y) <= epsilon;
     }
 }

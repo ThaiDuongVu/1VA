@@ -3,6 +3,7 @@
 public class EnemyCombat : MonoBehaviour
 {
     private Enemy _enemy;
+    
     private static readonly int ExitCombatTrigger = Animator.StringToHash("exitCombat");
     private static readonly int EnterCombatTrigger = Animator.StringToHash("enterCombat");
 

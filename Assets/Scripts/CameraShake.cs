@@ -71,27 +71,27 @@ public class CameraShake : MonoBehaviour
     public void ShakeMicro()
     {
         _shakeDuration = 0.1f;
-        _shakeIntensity = 0.25f;
+        _shakeIntensity = 0.3f;
         _decreaseFactor = 2f;
     }
 
     public void ShakeLight()
     {
         _shakeDuration = 0.15f;
-        _shakeIntensity = 0.35f;
+        _shakeIntensity = 0.4f;
         _decreaseFactor = 2f;
     }
 
     public void ShakeNormal()
     {
-        _shakeDuration = 0.25f;
-        _shakeIntensity = 0.45f;
+        _shakeDuration = 0.2f;
+        _shakeIntensity = 0.5f;
         _decreaseFactor = 2f;
     }
 
     public void ShakeHard()
     {
-        _shakeDuration = 0.4f;
+        _shakeDuration = 0.25f;
         _shakeIntensity = 0.65f;
         _decreaseFactor = 2f;
     }

@@ -54,6 +54,8 @@ public class CombatZone : MonoBehaviour
     {
         UnlockAll();
         other.LockOn(true);
+
+        _lockedOnEnemy = other;
     }
 
     // Unlock all enemies

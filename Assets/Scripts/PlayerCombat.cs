@@ -27,6 +27,7 @@ public class PlayerCombat : MonoBehaviour
 
     private void StrikeOnPerformed(InputAction.CallbackContext context)
     {
+        Strike();
     }
 
     private void CounterOnPerformed(InputAction.CallbackContext context)
@@ -89,5 +90,13 @@ public class PlayerCombat : MonoBehaviour
 
         // Set state
         _player.IsInCombat = false;
+    }
+
+    private void Strike()
+    {
+        if (!_player.LockedOnEnemy) return;
+
+        _player.Movement.StartSnapping(_player.LockedOnEnemy);
+        CameraShake.Instance.ShakeNormal();
     }
 }
