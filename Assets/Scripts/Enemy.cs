@@ -6,17 +6,19 @@ public class Enemy : MonoBehaviour, IDamageable
     public EnemyCombat Combat { private set; get; }
     public EnemyMovement Movement { private set; get; }
 
-    public Sprite[] headVariation;
-    public Sprite[] bodyVariation;
-    public Sprite[] handVariation;
-    public Sprite[] footVariation;
+    [SerializeField] private Sprite[] headVariation;
+    [SerializeField] private Sprite[] bodyVariation;
+    [SerializeField] private Sprite[] handVariation;
+    [SerializeField] private Sprite[] footVariation;
 
-    public SpriteRenderer head;
-    public SpriteRenderer body;
-    public SpriteRenderer handRight;
-    public SpriteRenderer handLeft;
-    public SpriteRenderer footRight;
-    public SpriteRenderer footLeft;
+    [SerializeField] private SpriteRenderer head;
+    [SerializeField] private SpriteRenderer body;
+    [SerializeField] private SpriteRenderer handRight;
+    [SerializeField] private SpriteRenderer handLeft;
+    [SerializeField] private SpriteRenderer footRight;
+    [SerializeField] private SpriteRenderer footLeft;
+
+    [SerializeField] private Light2D light2D;
 
     public Animator Animator { get; set; }
     public bool IsInCombat { get; set; }
@@ -24,8 +26,6 @@ public class Enemy : MonoBehaviour, IDamageable
     public bool IsLockedOn { get; set; }
 
     public bool IsKnockingBack { get; set; }
-
-    public Light2D light2D;
 
     private void Awake()
     {
@@ -41,11 +41,6 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         LockOn(false);
         GenerateAppearance();
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
     }
 
     // Generate a random appearance

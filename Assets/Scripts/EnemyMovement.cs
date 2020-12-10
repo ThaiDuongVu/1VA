@@ -31,7 +31,7 @@ public class EnemyMovement : MonoBehaviour
     private void Update()
     {
         LookAt(LookTarget);
-        
+
         if (!_enemy.IsKnockingBack && _rigidbody2D.velocity != Vector2.zero)
             _rigidbody2D.velocity = Vector2.zero;
     }
@@ -50,7 +50,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void Move()
     {
-        
+
     }
 
     public IEnumerator KnockBack()

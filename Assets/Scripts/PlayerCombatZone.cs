@@ -21,7 +21,7 @@ public class PlayerCombatZone : MonoBehaviour
             player.Combat.EnterCombat();
             player.Movement.Stop();
         }
-        
+
         if (enemies.Count == 0 && player.IsInCombat)
             player.Combat.ExitCombat();
     }
