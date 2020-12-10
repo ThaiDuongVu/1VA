@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private const float DashDuration = 0.15f;
 
     private Vector2 _snapPosition;
-    private const float SnapInterpolationRatio = 0.2f;
+    private const float SnapInterpolationRatio = 0.35f;
 
     private const float LookInterpolationRatio = 0.2f;
 
@@ -252,6 +252,10 @@ public class PlayerMovement : MonoBehaviour
 
         // Disable trail
         _player.trail.enabled = false;
+
+        // Deal damage to locked enemy
+        CameraShake.Instance.ShakeNormal();
+        _player.LockedOnEnemy.GetComponent<IDamageable>().TakeDamage(1f);
     }
 
     // Snap to an enemy
@@ -263,6 +267,7 @@ public class PlayerMovement : MonoBehaviour
         // Snap rotation
         Quaternion lookRotation = Quaternion.LookRotation(Vector3.forward, ((Vector2)_snapPosition - (Vector2)transform.position).normalized);
         transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, SnapInterpolationRatio * Time.timeScale);
+        // transform.rotation = lookRotation;
 
         // If snapped then stop snapping
         if (GlobalController.CloseTo(transform.position.x, _snapPosition.x) && GlobalController.CloseTo(transform.position.y, _snapPosition.y))

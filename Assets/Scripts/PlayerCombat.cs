@@ -97,6 +97,5 @@ public class PlayerCombat : MonoBehaviour
         if (!_player.LockedOnEnemy) return;
 
         _player.Movement.StartSnapping(_player.LockedOnEnemy);
-        CameraShake.Instance.ShakeNormal();
     }
 }

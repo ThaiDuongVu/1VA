@@ -4,24 +4,15 @@ public class PlayerViewCone : MonoBehaviour
 {
     public Player player;
 
-    // Start is called before the first frame update
-    private void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-        
-    }
+    #region Trigger Methods
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Enemy"))
         {
-            player.LockedOnEnemy = other.transform.GetComponent<Enemy>();
-            player.LockedOnEnemy.CombatZone.LockOn(player.LockedOnEnemy);
+            player.StartLock(other.GetComponent<Enemy>());
         }
     }
+
+    #endregion
 }

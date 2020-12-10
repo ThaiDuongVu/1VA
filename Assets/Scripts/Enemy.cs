@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IDamageable
 {
+    public EnemyCombat Combat { private set; get; }
+    public EnemyMovement Movement { private set; get; }
+
     public Sprite[] headVariation;
     public Sprite[] bodyVariation;
     public Sprite[] handVariation;
@@ -20,7 +23,7 @@ public class Enemy : MonoBehaviour
 
     public bool IsLockedOn { get; set; }
 
-    public CombatZone CombatZone { get; set; }
+    public bool IsKnockingBack { get; set; }
 
     public Light2D light2D;
 
@@ -28,6 +31,9 @@ public class Enemy : MonoBehaviour
     {
         // Get component references
         Animator = GetComponent<Animator>();
+
+        Combat = GetComponent<EnemyCombat>();
+        Movement = GetComponent<EnemyMovement>();
     }
 
     // Start is called before the first frame update
@@ -61,5 +67,10 @@ public class Enemy : MonoBehaviour
     {
         IsLockedOn = value;
         light2D.enabled = value;
+    }
+
+    void IDamageable.TakeDamage(float damage)
+    {
+        StartCoroutine(Movement.KnockBack());
     }
 }

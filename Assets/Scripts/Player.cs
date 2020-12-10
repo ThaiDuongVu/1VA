@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDamageable
 {
     public PlayerCombat Combat { private set; get; }
     public PlayerMovement Movement { private set; get; }
+    public PlayerCombatZone CombatZone;
 
     public bool IsInCombat { get; set; }
     public bool IsRunning { get; set; }
@@ -14,9 +15,6 @@ public class Player : MonoBehaviour
     public Animator Animator { get; set; }
 
     public TrailRenderer trail;
-
-    public Transform rayPoint;
-    private const float RaycastDistance = 20f;
 
     public Transform lockArrow;
     public Enemy LockedOnEnemy { get; set; }
@@ -43,16 +41,29 @@ public class Player : MonoBehaviour
         if (LockedOnEnemy) Lock();
     }
 
+    public void StartLock(Enemy other)
+    {
+        // Enable lock arrow
+        lockArrow.gameObject.SetActive(true);
+
+        CombatZone.UnlockAll();
+
+        LockedOnEnemy = other;
+        other.LockOn(true);
+    }
+
+    // Lock on enemy
     private void Lock()
     {
-        lockArrow.gameObject.SetActive(true);
+        // Set arrow position & rotation
         lockArrow.position = LockedOnEnemy.transform.position + (LockedOnEnemy.transform.position - transform.position).normalized * 1.5f;
-
         lockArrow.rotation = Quaternion.LookRotation(Vector3.forward, (LockedOnEnemy.transform.position - transform.position).normalized);
     }
 
+    // Unlock enemy
     private void Unlock()
     {
+        // Disable lock arrow
         lockArrow.gameObject.SetActive(false);
     }
 
@@ -60,30 +71,18 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Enter combat zone
-        if (other.CompareTag("CombatZone"))
-        {
-            Movement.Stop();
-            Combat.EnterCombat();
 
-            other.GetComponent<CombatZone>().StartCombat(this);
-        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        // Exit combat zone
-        if (other.CompareTag("CombatZone"))
-        {
-            Combat.ExitCombat();
 
-            other.GetComponent<CombatZone>().EndCombat();
-            other.GetComponent<CombatZone>().UnlockAll();
-
-            Unlock();
-            LockedOnEnemy = null;
-        }
     }
 
     #endregion
+
+    void IDamageable.TakeDamage(float damage)
+    {
+
+    }
 }
