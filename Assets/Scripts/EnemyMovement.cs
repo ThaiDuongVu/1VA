@@ -7,10 +7,12 @@ public class EnemyMovement : MonoBehaviour
 
     public Transform LookTarget { get; set; }
     private const float LookInterpolationRatio = 0.2f;
-
     public Transform MoveTarget { get; set; }
 
-    private const float KnockBackForce = 10f;
+    private const float CombatVelocity = 5f;
+    private const float PursuitVelocity = 10f;
+
+    private const float KnockBackForce = 20f;
     private const float KnockBackDuration = 0.1f;
 
     private Rigidbody2D _rigidbody2D;
@@ -36,9 +38,20 @@ public class EnemyMovement : MonoBehaviour
             _rigidbody2D.velocity = Vector2.zero;
     }
 
+    private void FixedUpdate()
+    {
+        if (MoveTarget)
+        {
+            if (_enemy.State == EnemyState.CombatWalk)
+                Walk();
+            else if (_enemy.State == EnemyState.Pursuit)
+                Pursuit();
+        }
+    }
+
     private void LookAt(Transform target)
     {
-        if (!LookTarget) return;
+        if (!target) return;
 
         // New look rotation
         Quaternion lookRotation =
@@ -48,13 +61,30 @@ public class EnemyMovement : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, LookInterpolationRatio * Time.timeScale);
     }
 
-    private void Move()
+    private void Walk()
     {
+        // _rigidbody2D.MovePosition(_rigidbody2D.position + (Vector2)(MoveTarget.position - transform.position).normalized * CombatVelocity * Time.fixedDeltaTime);
+        LookAt(MoveTarget);
+    }
 
+    private void Pursuit()
+    {
+        Vector2 targetPosition = new Vector2(MoveTarget.position.x + Random.Range(-2.5f, 2.5f), MoveTarget.position.y + Random.Range(-2.5f, 2.5f));
+        _rigidbody2D.MovePosition(_rigidbody2D.position + (targetPosition - (Vector2)transform.position).normalized * PursuitVelocity * Time.fixedDeltaTime);
+        
+        LookAt(MoveTarget);
+    }
+
+    public void StartPursuit()
+    {
+        _enemy.State = EnemyState.Pursuit;
+        _enemy.Animator.SetBool("isRunning", true);
     }
 
     public IEnumerator KnockBack()
     {
+        _rigidbody2D.velocity = Vector2.zero;
+
         _enemy.IsKnockingBack = true;
         _rigidbody2D.AddForce(-transform.up.normalized * KnockBackForce, ForceMode2D.Impulse);
 

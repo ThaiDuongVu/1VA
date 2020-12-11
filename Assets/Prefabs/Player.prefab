@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 141699927}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.5, z: 0}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8325402927950416130}
@@ -56,7 +56,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 15}
+  m_Size: {x: 4, y: 20}
   m_EdgeRadius: 0
 --- !u!114 &141699930
 MonoBehaviour:
@@ -481,7 +481,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.75
   m_Color: {r: 0, g: 0.6784314, b: 0.70980394, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 0.75
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 00000000b3d79291f53a23d7c72f52875be104680b1704bd
   m_LightCookieSprite: {fileID: 0}
@@ -1082,6 +1082,7 @@ GameObject:
   - component: {fileID: 8325402927950416130}
   - component: {fileID: 8325402927950416134}
   - component: {fileID: 8325402927950416135}
+  - component: {fileID: 658407907}
   - component: {fileID: 8325402927950416133}
   - component: {fileID: 8325402927950416184}
   - component: {fileID: 8325402927950416132}
@@ -1161,6 +1162,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 1}
   m_EdgeRadius: 0
+--- !u!58 &658407907
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8325402927950416131}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3
 --- !u!95 &8325402927950416133
 Animator:
   serializedVersion: 3
@@ -1192,7 +1209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c70a256ba121ea549b629857e8c973f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CombatZone: {fileID: 742507631}
+  combatZone: {fileID: 742507631}
   trail: {fileID: 1102600746}
   lockArrow: {fileID: 327429784}
 --- !u!114 &8325402927950416132

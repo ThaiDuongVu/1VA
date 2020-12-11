@@ -32,10 +32,12 @@ public class PlayerCombat : MonoBehaviour
 
     private void CounterOnPerformed(InputAction.CallbackContext context)
     {
+        Counter();
     }
 
     private void StunOnPerformed(InputAction.CallbackContext context)
     {
+        Stun();
     }
 
     #endregion
@@ -50,16 +52,6 @@ public class PlayerCombat : MonoBehaviour
         // Get component references
         _player = GetComponent<Player>();
         if (!(Camera.main is null)) _cameraAnimator = Camera.main.GetComponent<Animator>();
-    }
-
-    // Start is called before the first frame update
-    private void Start()
-    {
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
     }
 
     // Player enter combat state
@@ -97,5 +89,15 @@ public class PlayerCombat : MonoBehaviour
         if (!_player.LockedOnEnemy) return;
 
         _player.Movement.StartSnapping(_player.LockedOnEnemy);
+    }
+
+    private void Counter()
+    {
+
+    }
+
+    private void Stun()
+    {
+
     }
 }

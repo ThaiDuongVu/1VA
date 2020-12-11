@@ -36,11 +36,12 @@ public class Menu : MonoBehaviour
     {
         tileManager.enabled = interactable;
         background.gameObject.SetActive(!interactable);
+        tileManager.selector.gameObject.SetActive(interactable);
 
         if (!interactable)
         {
             tileSelector.Animator.speed = 0f;
-            tileManager.CurrentSelectedTile.OnDeselected();
+            tileManager.CurrentSelectedTile.OnDeselected();    
         }
         else
         {

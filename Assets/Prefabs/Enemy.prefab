@@ -47,7 +47,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.75
   m_Color: {r: 1, g: 0.62352943, b: 0.2627451, a: 1}
-  m_Intensity: 0.75
+  m_Intensity: 1
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 00000000b3d79291f53a23d7c72f52875be104680b1704bd
   m_LightCookieSprite: {fileID: 0}
@@ -283,6 +283,7 @@ GameObject:
   - component: {fileID: 3472519019879507033}
   - component: {fileID: 1655382923768827860}
   - component: {fileID: 3472519019879507015}
+  - component: {fileID: 818147474}
   - component: {fileID: 3472519019879507032}
   - component: {fileID: 3472519019879507014}
   - component: {fileID: 3972416221237547551}
@@ -357,6 +358,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 1}
   m_EdgeRadius: 0
+--- !u!58 &818147474
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3472519019879507034}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3
 --- !u!95 &3472519019879507032
 Animator:
   serializedVersion: 3

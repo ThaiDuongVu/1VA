@@ -3,8 +3,7 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class Enemy : MonoBehaviour, IDamageable
 {
-    public EnemyCombat Combat { private set; get; }
-    public EnemyMovement Movement { private set; get; }
+    # region Appearance Serializations
 
     [SerializeField] private Sprite[] headVariation;
     [SerializeField] private Sprite[] bodyVariation;
@@ -18,14 +17,25 @@ public class Enemy : MonoBehaviour, IDamageable
     [SerializeField] private SpriteRenderer footRight;
     [SerializeField] private SpriteRenderer footLeft;
 
+    #endregion
+
+    public EnemyCombat Combat { get; private set; }
+    public EnemyMovement Movement { get; private set; }
+
+    public EnemyState State { get; set; }
+
     [SerializeField] private Light2D light2D;
 
     public Animator Animator { get; set; }
+
     public bool IsInCombat { get; set; }
-
     public bool IsLockedOn { get; set; }
-
     public bool IsKnockingBack { get; set; }
+    public bool IsStagger { get; set; }
+
+    public float Health { get; set; } = 5f;
+
+    IDamageable damageable;
 
     private void Awake()
     {
@@ -34,6 +44,8 @@ public class Enemy : MonoBehaviour, IDamageable
 
         Combat = GetComponent<EnemyCombat>();
         Movement = GetComponent<EnemyMovement>();
+
+        damageable = GetComponent<IDamageable>();
     }
 
     // Start is called before the first frame update
@@ -41,6 +53,14 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         LockOn(false);
         GenerateAppearance();
+
+        State = EnemyState.Idle;
+    }
+
+    // Update is called once per frame
+    private void Update()
+    {
+        if (Health <= 0f) damageable.Die();
     }
 
     // Generate a random appearance
@@ -58,6 +78,7 @@ public class Enemy : MonoBehaviour, IDamageable
         footRight.sprite = footSprite;
     }
 
+    // Enable lock on indicator for enemy
     public void LockOn(bool value)
     {
         IsLockedOn = value;
@@ -68,4 +89,25 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         StartCoroutine(Movement.KnockBack());
     }
+
+    void IDamageable.Die()
+    {
+        Destroy(gameObject);
+    }
+
+    #region Trigger Methods
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+            State = EnemyState.CombatAttack;
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+            State = EnemyState.CombatWalk;
+    }
+
+    #endregion
 }
