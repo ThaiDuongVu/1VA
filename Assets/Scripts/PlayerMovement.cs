@@ -26,7 +26,8 @@ public class PlayerMovement : MonoBehaviour
     private const float DashDuration = 0.15f;
 
     private Vector2 _snapPosition;
-    private const float SnapInterpolationRatio = 0.35f;
+    private const float SnapDistance = 2.5f;
+    private const float SnapInterpolationRatio = 0.3f;
 
     private const float LookInterpolationRatio = 0.2f;
 
@@ -241,7 +242,7 @@ public class PlayerMovement : MonoBehaviour
         _player.trail.enabled = true;
 
         // Set snap position
-        _snapPosition = other.transform.position - 2.5f * (other.transform.position - transform.position).normalized;
+        _snapPosition = other.transform.position;
     }
 
     // Stop snapping
@@ -270,7 +271,7 @@ public class PlayerMovement : MonoBehaviour
         // transform.rotation = lookRotation;
 
         // If snapped then stop snapping
-        if (GlobalController.CloseTo(transform.position.x, _snapPosition.x) && GlobalController.CloseTo(transform.position.y, _snapPosition.y))
+        if (GlobalController.CloseTo(transform.position.x, _snapPosition.x, SnapDistance) && GlobalController.CloseTo(transform.position.y, _snapPosition.y, SnapDistance))
             StopSnapping();
     }
 }

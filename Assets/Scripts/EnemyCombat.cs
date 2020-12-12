@@ -32,7 +32,7 @@ public class EnemyCombat : MonoBehaviour
 
         // Set state
         _enemy.IsInCombat = true;
-        _enemy.State = EnemyState.CombatWalk;
+        _enemy.State = EnemyState.CombatWander;
     }
 
     // Enemy exit combat state

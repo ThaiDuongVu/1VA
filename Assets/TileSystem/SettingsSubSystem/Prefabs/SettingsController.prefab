@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fullScreen: {fileID: 5886990728812311632}
   resolution: {fileID: 5886990730442993625}
-  quality: {fileID: 5985458793452649940}
+  effects: {fileID: 5985458793452649940}
   targetFPS: {fileID: 5886990728651725893}
   motionBlur: {fileID: 1528987767}
   font: {fileID: 1037097982}
@@ -1643,10 +1643,38 @@ PrefabInstance:
       propertyPath: settingsController
       value: 
       objectReference: {fileID: 189808622842258208}
+    - target: {fileID: 189808621957790048, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
+      propertyPath: toggles.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 189808621957790048, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
+      propertyPath: properties.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 189808621957790048, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
+      propertyPath: toggles.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 189808621957790048, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
+      propertyPath: toggles.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 189808621957790048, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
+      propertyPath: properties.Array.data[0]
+      value: On
+      objectReference: {fileID: 0}
+    - target: {fileID: 189808621957790048, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
+      propertyPath: properties.Array.data[1]
+      value: Off
+      objectReference: {fileID: 0}
     - target: {fileID: 189808621957790050, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -4132731240909833422, guid: 984a7c1b05751c74da9c3a093075cfe2, type: 2}
+    - target: {fileID: 3023861043744661843, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
+      propertyPath: m_text
+      value: Effects
+      objectReference: {fileID: 0}
     - target: {fileID: 3023861043744661843, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -1655,6 +1683,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -4132731240909833422, guid: 984a7c1b05751c74da9c3a093075cfe2, type: 2}
+    - target: {fileID: 3023861044633799067, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
+      propertyPath: m_Name
+      value: EffectsButton
+      objectReference: {fileID: 0}
     - target: {fileID: 3849823170972709246, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
       propertyPath: m_fontAsset
       value: 

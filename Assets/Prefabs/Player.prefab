@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8325402927950416130}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &141699929
 BoxCollider2D:
@@ -237,7 +237,7 @@ GameObject:
   - component: {fileID: 742507630}
   - component: {fileID: 742507632}
   - component: {fileID: 742507631}
-  m_Layer: 9
+  m_Layer: 2
   m_Name: CombatZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8325402927950416130}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &742507632
 CircleCollider2D:
@@ -316,7 +316,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8325402927950416130}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!96 &1102600746
 TrailRenderer:
@@ -359,10 +359,10 @@ TrailRenderer:
   m_SortingLayerID: -1123805429
   m_SortingLayer: 5
   m_SortingOrder: -3
-  m_Time: 0.1
+  m_Time: 0.15
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 1.2
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -1082,7 +1082,6 @@ GameObject:
   - component: {fileID: 8325402927950416130}
   - component: {fileID: 8325402927950416134}
   - component: {fileID: 8325402927950416135}
-  - component: {fileID: 658407907}
   - component: {fileID: 8325402927950416133}
   - component: {fileID: 8325402927950416184}
   - component: {fileID: 8325402927950416132}
@@ -1108,9 +1107,9 @@ Transform:
   - {fileID: 8325402928324769556}
   - {fileID: 8325402927393651369}
   - {fileID: 327429784}
-  - {fileID: 1102600745}
   - {fileID: 141699928}
   - {fileID: 742507630}
+  - {fileID: 1102600745}
   - {fileID: 8315821811411837641}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1162,22 +1161,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 1}
   m_EdgeRadius: 0
---- !u!58 &658407907
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8325402927950416131}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 3
 --- !u!95 &8325402927950416133
 Animator:
   serializedVersion: 3

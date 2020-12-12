@@ -42,8 +42,8 @@ public class EnemyMovement : MonoBehaviour
     {
         if (MoveTarget)
         {
-            if (_enemy.State == EnemyState.CombatWalk)
-                Walk();
+            if (_enemy.State == EnemyState.CombatWander)
+                Wander();
             else if (_enemy.State == EnemyState.Pursuit)
                 Pursuit();
         }
@@ -61,7 +61,7 @@ public class EnemyMovement : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, LookInterpolationRatio * Time.timeScale);
     }
 
-    private void Walk()
+    private void Wander()
     {
         // _rigidbody2D.MovePosition(_rigidbody2D.position + (Vector2)(MoveTarget.position - transform.position).normalized * CombatVelocity * Time.fixedDeltaTime);
         LookAt(MoveTarget);

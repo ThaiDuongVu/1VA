@@ -83,6 +83,6 @@ public class Player : MonoBehaviour, IDamageable
 
     void IDamageable.Die()
     {
-        
+
     }
 }

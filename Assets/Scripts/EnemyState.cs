@@ -1,7 +1,7 @@
 ﻿public enum EnemyState
 {
     Idle,
-    CombatWalk,
+    CombatWander,
     CombatAttack,
     Stagger,
     Pursuit

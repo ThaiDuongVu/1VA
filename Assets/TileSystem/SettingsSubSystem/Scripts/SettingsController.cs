@@ -8,7 +8,9 @@ public class SettingsController : MonoBehaviour
     public Settings fullScreen;
     public Settings resolution;
 
-    public Settings quality;
+    public Settings effects;
+    private Volume _volume;
+
     public Settings targetFPS;
 
     public Settings motionBlur;
@@ -23,6 +25,7 @@ public class SettingsController : MonoBehaviour
     // Awake is called when an object is initialized
     private void Awake()
     {
+        _volume = FindObjectOfType<Volume>();
         volumeProfile.TryGet(out _motionBlur);
     }
 
@@ -37,7 +40,7 @@ public class SettingsController : MonoBehaviour
         Screen.SetResolution(resolution.currentState, resolution.currentState / 16 * 9,
             (FullScreenMode) fullScreen.currentState);
 
-        QualitySettings.SetQualityLevel(quality.currentState);
+        _volume.enabled = effects.currentState == 1;
         Application.targetFrameRate = targetFPS.currentState;
 
         _motionBlur.active = motionBlur.currentState == 1;

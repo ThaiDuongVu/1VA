@@ -88,6 +88,7 @@ public class Enemy : MonoBehaviour, IDamageable
     void IDamageable.TakeDamage(float damage)
     {
         StartCoroutine(Movement.KnockBack());
+        Health -= damage;
     }
 
     void IDamageable.Die()
@@ -106,7 +107,7 @@ public class Enemy : MonoBehaviour, IDamageable
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
-            State = EnemyState.CombatWalk;
+            State = EnemyState.CombatWander;
     }
 
     #endregion
