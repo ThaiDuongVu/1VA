@@ -65,6 +65,14 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Look"",
+                    ""type"": ""Button"",
+                    ""id"": ""3f7f00b8-4d65-4355-8a1c-1894318b8d39"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -375,6 +383,116 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""action"": ""Stun"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Mouse"",
+                    ""id"": ""bdaf6457-a0bf-4217-bc99-359b951d62c4"",
+                    ""path"": ""2DVector(mode=2)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""e2e0e3ee-8656-4290-9391-5a4656976b2a"",
+                    ""path"": ""<Mouse>/delta/y"",
+                    ""interactions"": """",
+                    ""processors"": ""Normalize(max=1),Scale(factor=0.05)"",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""e271fbee-e359-47c5-a9d0-e34bcef38c69"",
+                    ""path"": ""<Mouse>/delta/y"",
+                    ""interactions"": """",
+                    ""processors"": ""Normalize(min=-1),Scale(factor=0.05)"",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""2276589e-fcc8-45f5-82fe-214ecb77f6a7"",
+                    ""path"": ""<Mouse>/delta/x"",
+                    ""interactions"": """",
+                    ""processors"": ""Normalize(min=-1),Scale(factor=0.05)"",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""e18b485c-48ca-4003-ae5b-b34ad8f72e44"",
+                    ""path"": ""<Mouse>/delta/x"",
+                    ""interactions"": """",
+                    ""processors"": ""Normalize(max=1),Scale(factor=0.05)"",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""RightStick"",
+                    ""id"": ""86bf2e4d-a3ac-4b20-b4ba-125c319d7f53"",
+                    ""path"": ""2DVector(mode=2)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""6e9e0db4-70a9-49fd-9bde-ffb3ad9e2d48"",
+                    ""path"": ""<Gamepad>/rightStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""e7a88b25-b438-46e4-a0c0-42814c0e1a78"",
+                    ""path"": ""<Gamepad>/rightStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""23236941-9250-48a2-a7c1-ea9173ffacaa"",
+                    ""path"": ""<Gamepad>/rightStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""b92f966b-8d10-45df-996d-f3f966215217"",
+                    ""path"": ""<Gamepad>/rightStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -715,6 +833,7 @@ public class @InputManager : IInputActionCollection, IDisposable
         m_Player_Strike = m_Player.FindAction("Strike", throwIfNotFound: true);
         m_Player_Counter = m_Player.FindAction("Counter", throwIfNotFound: true);
         m_Player_Stun = m_Player.FindAction("Stun", throwIfNotFound: true);
+        m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         // Console
         m_Console = asset.FindActionMap("Console", throwIfNotFound: true);
         m_Console_Show = m_Console.FindAction("Show", throwIfNotFound: true);
@@ -779,6 +898,7 @@ public class @InputManager : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Strike;
     private readonly InputAction m_Player_Counter;
     private readonly InputAction m_Player_Stun;
+    private readonly InputAction m_Player_Look;
     public struct PlayerActions
     {
         private @InputManager m_Wrapper;
@@ -789,6 +909,7 @@ public class @InputManager : IInputActionCollection, IDisposable
         public InputAction @Strike => m_Wrapper.m_Player_Strike;
         public InputAction @Counter => m_Wrapper.m_Player_Counter;
         public InputAction @Stun => m_Wrapper.m_Player_Stun;
+        public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -816,6 +937,9 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Stun.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStun;
                 @Stun.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStun;
                 @Stun.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStun;
+                @Look.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
+                @Look.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
+                @Look.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -838,6 +962,9 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Stun.started += instance.OnStun;
                 @Stun.performed += instance.OnStun;
                 @Stun.canceled += instance.OnStun;
+                @Look.started += instance.OnLook;
+                @Look.performed += instance.OnLook;
+                @Look.canceled += instance.OnLook;
             }
         }
     }
@@ -958,6 +1085,7 @@ public class @InputManager : IInputActionCollection, IDisposable
         void OnStrike(InputAction.CallbackContext context);
         void OnCounter(InputAction.CallbackContext context);
         void OnStun(InputAction.CallbackContext context);
+        void OnLook(InputAction.CallbackContext context);
     }
     public interface IConsoleActions
     {

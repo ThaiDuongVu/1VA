@@ -36,6 +36,7 @@ public class Enemy : MonoBehaviour, IDamageable
     public float Health { get; set; } = 5f;
 
     IDamageable damageable;
+    public ParticleSystem bloodSpat;
 
     private void Awake()
     {
@@ -89,6 +90,8 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         StartCoroutine(Movement.KnockBack());
         Health -= damage;
+
+        Instantiate(bloodSpat, transform.position, transform.rotation);
     }
 
     void IDamageable.Die()

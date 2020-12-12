@@ -17,6 +17,7 @@ public class Player : MonoBehaviour, IDamageable
 
     public Transform lockArrow;
     public Enemy LockedOnEnemy { get; set; }
+    public Enemy SnapEnemy { get; set; }
 
     private void Awake()
     {

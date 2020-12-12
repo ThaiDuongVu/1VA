@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     private const float CombatVelocity = 10f;
 
-    private const float DashForce = 50f;
+    private const float DashForce = 60f;
     private const float DashDuration = 0.15f;
 
     private Vector2 _snapPosition;
@@ -243,6 +243,9 @@ public class PlayerMovement : MonoBehaviour
 
         // Set snap position
         _snapPosition = other.transform.position;
+
+        // Set snap enemy
+        _player.SnapEnemy = _player.LockedOnEnemy;
     }
 
     // Stop snapping
@@ -254,9 +257,11 @@ public class PlayerMovement : MonoBehaviour
         // Disable trail
         _player.trail.enabled = false;
 
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, ((Vector2)_snapPosition - (Vector2)transform.position).normalized);
+
         // Deal damage to locked enemy
         CameraShake.Instance.ShakeNormal();
-        _player.LockedOnEnemy.GetComponent<IDamageable>().TakeDamage(1f);
+        _player.SnapEnemy.GetComponent<IDamageable>().TakeDamage(1f);
     }
 
     // Snap to an enemy
@@ -268,7 +273,6 @@ public class PlayerMovement : MonoBehaviour
         // Snap rotation
         Quaternion lookRotation = Quaternion.LookRotation(Vector3.forward, ((Vector2)_snapPosition - (Vector2)transform.position).normalized);
         transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, SnapInterpolationRatio * Time.timeScale);
-        // transform.rotation = lookRotation;
 
         // If snapped then stop snapping
         if (GlobalController.CloseTo(transform.position.x, _snapPosition.x, SnapDistance) && GlobalController.CloseTo(transform.position.y, _snapPosition.y, SnapDistance))

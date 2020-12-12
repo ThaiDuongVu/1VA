@@ -397,6 +397,7 @@ MonoBehaviour:
   footRight: {fileID: 2558710577504769577}
   footLeft: {fileID: 184538091830333660}
   light2D: {fileID: 5468897811945468119}
+  bloodSpat: {fileID: 3827419661170153826, guid: b540bb01746fe674d9d644e9071cf85e, type: 3}
 --- !u!114 &3972416221237547551
 MonoBehaviour:
   m_ObjectHideFlags: 0
