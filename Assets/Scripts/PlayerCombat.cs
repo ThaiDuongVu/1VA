@@ -16,9 +16,9 @@ public class PlayerCombat : MonoBehaviour
         _inputManager = new InputManager();
 
         // Handle combat input
-        _inputManager.Player.Strike.performed += StrikeOnPerformed;
-        _inputManager.Player.Counter.performed += CounterOnPerformed;
-        _inputManager.Player.Stun.performed += StunOnPerformed;
+        _inputManager.Player.Strike.started += StrikeOnPerformed;
+        _inputManager.Player.Counter.started += CounterOnPerformed;
+        _inputManager.Player.Stun.started += StunOnPerformed;
 
         _inputManager.Enable();
     }

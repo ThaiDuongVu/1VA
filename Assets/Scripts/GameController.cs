@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
     {
         _inputManager = new InputManager();
 
-        _inputManager.Game.Escape.performed += EscapeOnPerformed;
+        _inputManager.Game.Escape.started += EscapeOnPerformed;
 
         _inputManager.Enable();
     }

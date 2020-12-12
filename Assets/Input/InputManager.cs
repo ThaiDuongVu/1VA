@@ -35,6 +35,14 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
+                    ""name"": ""Look"",
+                    ""type"": ""Value"",
+                    ""id"": ""3f7f00b8-4d65-4355-8a1c-1894318b8d39"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""Dash"",
                     ""type"": ""Button"",
                     ""id"": ""acbfc31a-f383-4498-9cf8-f372a71a57ea"",
@@ -67,9 +75,9 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Look"",
+                    ""name"": ""ResetRotation"",
                     ""type"": ""Button"",
-                    ""id"": ""3f7f00b8-4d65-4355-8a1c-1894318b8d39"",
+                    ""id"": ""f9ad2909-87a6-41ed-9832-4ddc7f590cd0"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -332,7 +340,7 @@ public class @InputManager : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""5bb35048-bc67-4788-a344-e09d7a140b68"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -343,7 +351,7 @@ public class @InputManager : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ef1336b5-04c6-4011-9ea3-82e836834604"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -376,7 +384,7 @@ public class @InputManager : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""6e9a8a87-9896-438e-8f99-3c962c0a695c"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -385,67 +393,12 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""Mouse"",
-                    ""id"": ""bdaf6457-a0bf-4217-bc99-359b951d62c4"",
-                    ""path"": ""2DVector(mode=2)"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Look"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""e2e0e3ee-8656-4290-9391-5a4656976b2a"",
-                    ""path"": ""<Mouse>/delta/y"",
-                    ""interactions"": """",
-                    ""processors"": ""Normalize(max=1),Scale(factor=0.05)"",
-                    ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""e271fbee-e359-47c5-a9d0-e34bcef38c69"",
-                    ""path"": ""<Mouse>/delta/y"",
-                    ""interactions"": """",
-                    ""processors"": ""Normalize(min=-1),Scale(factor=0.05)"",
-                    ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""2276589e-fcc8-45f5-82fe-214ecb77f6a7"",
-                    ""path"": ""<Mouse>/delta/x"",
-                    ""interactions"": """",
-                    ""processors"": ""Normalize(min=-1),Scale(factor=0.05)"",
-                    ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""e18b485c-48ca-4003-ae5b-b34ad8f72e44"",
-                    ""path"": ""<Mouse>/delta/x"",
-                    ""interactions"": """",
-                    ""processors"": ""Normalize(max=1),Scale(factor=0.05)"",
-                    ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Look"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": ""RightStick"",
                     ""id"": ""86bf2e4d-a3ac-4b20-b4ba-125c319d7f53"",
                     ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Look"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
@@ -455,7 +408,7 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""id"": ""6e9e0db4-70a9-49fd-9bde-ffb3ad9e2d48"",
                     ""path"": ""<Gamepad>/rightStick/up"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""Scale(factor=2)"",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Look"",
                     ""isComposite"": false,
@@ -466,7 +419,7 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""id"": ""e7a88b25-b438-46e4-a0c0-42814c0e1a78"",
                     ""path"": ""<Gamepad>/rightStick/down"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""Scale(factor=2)"",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Look"",
                     ""isComposite"": false,
@@ -477,7 +430,7 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""id"": ""23236941-9250-48a2-a7c1-ea9173ffacaa"",
                     ""path"": ""<Gamepad>/rightStick/left"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""Scale(factor=2),Invert"",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Look"",
                     ""isComposite"": false,
@@ -488,11 +441,33 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""id"": ""b92f966b-8d10-45df-996d-f3f966215217"",
                     ""path"": ""<Gamepad>/rightStick/right"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""Scale(factor=2),Invert"",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bc96d724-33e5-44d9-92c8-a7fc16d275d8"",
+                    ""path"": ""<Gamepad>/rightStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ResetRotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cfb88d54-c58f-421e-ad3e-11674d079d56"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""ResetRotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -829,11 +804,12 @@ public class @InputManager : IInputActionCollection, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_MoveKeyboard = m_Player.FindAction("MoveKeyboard", throwIfNotFound: true);
         m_Player_MoveGamepad = m_Player.FindAction("MoveGamepad", throwIfNotFound: true);
+        m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_Strike = m_Player.FindAction("Strike", throwIfNotFound: true);
         m_Player_Counter = m_Player.FindAction("Counter", throwIfNotFound: true);
         m_Player_Stun = m_Player.FindAction("Stun", throwIfNotFound: true);
-        m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
+        m_Player_ResetRotation = m_Player.FindAction("ResetRotation", throwIfNotFound: true);
         // Console
         m_Console = asset.FindActionMap("Console", throwIfNotFound: true);
         m_Console_Show = m_Console.FindAction("Show", throwIfNotFound: true);
@@ -894,22 +870,24 @@ public class @InputManager : IInputActionCollection, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_MoveKeyboard;
     private readonly InputAction m_Player_MoveGamepad;
+    private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_Strike;
     private readonly InputAction m_Player_Counter;
     private readonly InputAction m_Player_Stun;
-    private readonly InputAction m_Player_Look;
+    private readonly InputAction m_Player_ResetRotation;
     public struct PlayerActions
     {
         private @InputManager m_Wrapper;
         public PlayerActions(@InputManager wrapper) { m_Wrapper = wrapper; }
         public InputAction @MoveKeyboard => m_Wrapper.m_Player_MoveKeyboard;
         public InputAction @MoveGamepad => m_Wrapper.m_Player_MoveGamepad;
+        public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @Strike => m_Wrapper.m_Player_Strike;
         public InputAction @Counter => m_Wrapper.m_Player_Counter;
         public InputAction @Stun => m_Wrapper.m_Player_Stun;
-        public InputAction @Look => m_Wrapper.m_Player_Look;
+        public InputAction @ResetRotation => m_Wrapper.m_Player_ResetRotation;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -925,6 +903,9 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @MoveGamepad.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveGamepad;
                 @MoveGamepad.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveGamepad;
                 @MoveGamepad.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveGamepad;
+                @Look.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
+                @Look.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
+                @Look.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
                 @Dash.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
                 @Dash.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
                 @Dash.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
@@ -937,9 +918,9 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Stun.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStun;
                 @Stun.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStun;
                 @Stun.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStun;
-                @Look.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
-                @Look.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
-                @Look.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLook;
+                @ResetRotation.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnResetRotation;
+                @ResetRotation.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnResetRotation;
+                @ResetRotation.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnResetRotation;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -950,6 +931,9 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @MoveGamepad.started += instance.OnMoveGamepad;
                 @MoveGamepad.performed += instance.OnMoveGamepad;
                 @MoveGamepad.canceled += instance.OnMoveGamepad;
+                @Look.started += instance.OnLook;
+                @Look.performed += instance.OnLook;
+                @Look.canceled += instance.OnLook;
                 @Dash.started += instance.OnDash;
                 @Dash.performed += instance.OnDash;
                 @Dash.canceled += instance.OnDash;
@@ -962,9 +946,9 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Stun.started += instance.OnStun;
                 @Stun.performed += instance.OnStun;
                 @Stun.canceled += instance.OnStun;
-                @Look.started += instance.OnLook;
-                @Look.performed += instance.OnLook;
-                @Look.canceled += instance.OnLook;
+                @ResetRotation.started += instance.OnResetRotation;
+                @ResetRotation.performed += instance.OnResetRotation;
+                @ResetRotation.canceled += instance.OnResetRotation;
             }
         }
     }
@@ -1081,11 +1065,12 @@ public class @InputManager : IInputActionCollection, IDisposable
     {
         void OnMoveKeyboard(InputAction.CallbackContext context);
         void OnMoveGamepad(InputAction.CallbackContext context);
+        void OnLook(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnStrike(InputAction.CallbackContext context);
         void OnCounter(InputAction.CallbackContext context);
         void OnStun(InputAction.CallbackContext context);
-        void OnLook(InputAction.CallbackContext context);
+        void OnResetRotation(InputAction.CallbackContext context);
     }
     public interface IConsoleActions
     {

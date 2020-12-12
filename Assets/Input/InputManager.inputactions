@@ -22,6 +22,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "Look",
+                    "type": "Value",
+                    "id": "3f7f00b8-4d65-4355-8a1c-1894318b8d39",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "Dash",
                     "type": "Button",
                     "id": "acbfc31a-f383-4498-9cf8-f372a71a57ea",
@@ -54,9 +62,9 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Look",
+                    "name": "ResetRotation",
                     "type": "Button",
-                    "id": "3f7f00b8-4d65-4355-8a1c-1894318b8d39",
+                    "id": "f9ad2909-87a6-41ed-9832-4ddc7f590cd0",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -319,7 +327,7 @@
                 {
                     "name": "",
                     "id": "5bb35048-bc67-4788-a344-e09d7a140b68",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -330,7 +338,7 @@
                 {
                     "name": "",
                     "id": "ef1336b5-04c6-4011-9ea3-82e836834604",
-                    "path": "<Gamepad>/buttonNorth",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -363,7 +371,7 @@
                 {
                     "name": "",
                     "id": "6e9a8a87-9896-438e-8f99-3c962c0a695c",
-                    "path": "<Gamepad>/buttonEast",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -372,67 +380,12 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Mouse",
-                    "id": "bdaf6457-a0bf-4217-bc99-359b951d62c4",
-                    "path": "2DVector(mode=2)",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Look",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "e2e0e3ee-8656-4290-9391-5a4656976b2a",
-                    "path": "<Mouse>/delta/y",
-                    "interactions": "",
-                    "processors": "Normalize(max=1),Scale(factor=0.05)",
-                    "groups": "MouseKeyboard",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "e271fbee-e359-47c5-a9d0-e34bcef38c69",
-                    "path": "<Mouse>/delta/y",
-                    "interactions": "",
-                    "processors": "Normalize(min=-1),Scale(factor=0.05)",
-                    "groups": "MouseKeyboard",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "2276589e-fcc8-45f5-82fe-214ecb77f6a7",
-                    "path": "<Mouse>/delta/x",
-                    "interactions": "",
-                    "processors": "Normalize(min=-1),Scale(factor=0.05)",
-                    "groups": "MouseKeyboard",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "e18b485c-48ca-4003-ae5b-b34ad8f72e44",
-                    "path": "<Mouse>/delta/x",
-                    "interactions": "",
-                    "processors": "Normalize(max=1),Scale(factor=0.05)",
-                    "groups": "MouseKeyboard",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "RightStick",
                     "id": "86bf2e4d-a3ac-4b20-b4ba-125c319d7f53",
                     "path": "2DVector(mode=2)",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "Look",
                     "isComposite": true,
                     "isPartOfComposite": false
@@ -442,7 +395,7 @@
                     "id": "6e9e0db4-70a9-49fd-9bde-ffb3ad9e2d48",
                     "path": "<Gamepad>/rightStick/up",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "Scale(factor=2)",
                     "groups": "Gamepad",
                     "action": "Look",
                     "isComposite": false,
@@ -453,7 +406,7 @@
                     "id": "e7a88b25-b438-46e4-a0c0-42814c0e1a78",
                     "path": "<Gamepad>/rightStick/down",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "Scale(factor=2)",
                     "groups": "Gamepad",
                     "action": "Look",
                     "isComposite": false,
@@ -464,7 +417,7 @@
                     "id": "23236941-9250-48a2-a7c1-ea9173ffacaa",
                     "path": "<Gamepad>/rightStick/left",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "Scale(factor=2),Invert",
                     "groups": "Gamepad",
                     "action": "Look",
                     "isComposite": false,
@@ -475,11 +428,33 @@
                     "id": "b92f966b-8d10-45df-996d-f3f966215217",
                     "path": "<Gamepad>/rightStick/right",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "Scale(factor=2),Invert",
                     "groups": "Gamepad",
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "bc96d724-33e5-44d9-92c8-a7fc16d275d8",
+                    "path": "<Gamepad>/rightStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "ResetRotation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cfb88d54-c58f-421e-ad3e-11674d079d56",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "MouseKeyboard",
+                    "action": "ResetRotation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

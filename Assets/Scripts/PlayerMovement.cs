@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     private const float SnapInterpolationRatio = 0.3f;
 
     private const float LookInterpolationRatio = 0.2f;
+    private Camera _mainCamera;
 
     private InputManager _inputManager;
 
@@ -59,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
         if (_player.IsDashing || Time.timeScale == 0f) return;
 
         // Set movement vector
-        _movement = context.ReadValue<Vector2>();
+        _movement = Quaternion.Euler(0f, 0f, _mainCamera.transform.eulerAngles.z) * context.ReadValue<Vector2>();
 
         // Play run animation
         _player.Animator.SetBool(IsRunningTrigger, true);
@@ -102,6 +103,8 @@ public class PlayerMovement : MonoBehaviour
         // Get component references
         _player = GetComponent<Player>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
+
+        _mainCamera = Camera.main;
     }
 
     // Update is called once per frame
@@ -130,7 +133,9 @@ public class PlayerMovement : MonoBehaviour
     // Move player to movement vector
     private void Run()
     {
+        // Vector2 _movementDirection = Quaternion.Euler(0f, 0f, _mainCamera.transform.eulerAngles.z) * _movement;
         _rigidbody2D.MovePosition(_rigidbody2D.position + _movement * _currentVelocity * Time.fixedDeltaTime);
+
         // Rotate player to movement direction
         LookForward();
     }
@@ -213,7 +218,7 @@ public class PlayerMovement : MonoBehaviour
         // Lerp current rotation to new look rotation
         transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, LookInterpolationRatio * Time.timeScale);
     }
-
+    
     // Scale animation speed to movement speed
     private void Animate()
     {
