@@ -86,6 +86,7 @@ public class PlayerCombat : MonoBehaviour
 
     private void Strike()
     {
+        if (Time.timeScale == 0f) return;
         if (!_player.LockedOnEnemy) return;
 
         _player.Movement.StartSnapping(_player.LockedOnEnemy);

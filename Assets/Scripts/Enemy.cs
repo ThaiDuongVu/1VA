@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
+using System.Collections;
 
 public class Enemy : MonoBehaviour, IDamageable
 {
@@ -96,6 +97,13 @@ public class Enemy : MonoBehaviour, IDamageable
 
     void IDamageable.Die()
     {
+        GlobalController.Instance.StartCoroutine(GlobalController.FreezeFrame());
+        StartCoroutine(DestroyDelay());
+    }
+
+    private IEnumerator DestroyDelay(float delay = 0.1f)
+    {
+        yield return new WaitForSeconds(delay);
         Destroy(gameObject);
     }
 

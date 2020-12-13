@@ -57,13 +57,13 @@ public class Player : MonoBehaviour, IDamageable
         LockedOnEnemy = other;
     }
 
-    public void Unlock(Enemy other)
+    public void Unlock()
     {
         // Disable lock arrow
         lockArrow.gameObject.SetActive(false);
 
         // Unlock other
-        other.LockOn(false);
+        combatZone.UnlockAll();
 
         // Set lock enemy to null
         LockedOnEnemy = null;

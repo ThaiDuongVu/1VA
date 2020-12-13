@@ -12,7 +12,7 @@ public class EnemyMovement : MonoBehaviour
     private const float CombatVelocity = 5f;
     private const float PursuitVelocity = 10f;
 
-    private const float KnockBackForce = 20f;
+    private const float KnockBackForce = 30f;
     private const float KnockBackDuration = 0.1f;
 
     private Rigidbody2D _rigidbody2D;

@@ -70,4 +70,11 @@ public class GlobalController : MonoBehaviour
     {
         return Mathf.Abs(x - y) <= epsilon;
     }
+
+    public static IEnumerator FreezeFrame(float scale = 0.5f, float duration = 0.2f)
+    {
+        Time.timeScale = scale;
+        yield return new WaitForSeconds(duration);
+        Time.timeScale = 1f;
+    }
 }

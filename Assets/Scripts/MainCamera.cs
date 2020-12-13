@@ -3,60 +3,12 @@ using UnityEngine.InputSystem;
 
 public class MainCamera : MonoBehaviour
 {
-    private const float InterpolationRatio = 0.1f;
+    private const float FollowInterpolationRatio = 0.1f;
+    private const float YOffset = 10f;
     [SerializeField] private Transform followTarget;
 
-    private float lookVelocity;
-    private const float LookInterpolationRatio = 0.2f;
-
     private Player _player;
-    private bool _isResettingRotation;
-
-    private InputManager _inputManager;
-
-    private void OnEnable()
-    {
-        _inputManager = new InputManager();
-
-        // Look rotation
-        _inputManager.Player.Look.performed += LookOnPerformed;
-        _inputManager.Player.Look.canceled += LookOnCanceled;
-
-        // Reset rotation
-        _inputManager.Player.ResetRotation.started += ResetRotationOnPerformed;
-        _inputManager.Player.ResetRotation.canceled += ResetRotationOnCanceled;
-
-        _inputManager.Enable();
-    }
-
-    #region Input Methods
-
-    private void LookOnPerformed(InputAction.CallbackContext context)
-    {
-        lookVelocity = context.ReadValue<Vector2>().x;
-    }
-
-    private void LookOnCanceled(InputAction.CallbackContext context)
-    {
-        lookVelocity = 0f;
-    }
-
-    private void ResetRotationOnPerformed(InputAction.CallbackContext context)
-    {
-        _isResettingRotation = true;
-    }
-
-    private void ResetRotationOnCanceled(InputAction.CallbackContext context)
-    {
-        _isResettingRotation = false;
-    }
-
-    #endregion
-
-    private void OnDisable()
-    {
-        _inputManager.Disable();
-    }
+    private const float LookInterpolationRatio = 0.2f;
 
     private void Awake()
     {
@@ -67,13 +19,13 @@ public class MainCamera : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (_isResettingRotation) ResetRotation();
-        else Rotate();
+        if (Time.timeScale == 0f) return;
     }
 
     private void FixedUpdate()
     {
         Follow(followTarget);
+        RotateToPlayer();
     }
 
     private void Follow(Transform target)
@@ -82,18 +34,11 @@ public class MainCamera : MonoBehaviour
 
         // Lerp to target position
         Vector2 targetPosition = target.position;
-        transform.position = Vector3.Lerp(transform.position, new Vector3(targetPosition.x, targetPosition.y, -10f),
-            InterpolationRatio);
+        transform.position = Vector3.Lerp(transform.position, new Vector3(targetPosition.x, targetPosition.y, -10f) + transform.up * YOffset,
+            FollowInterpolationRatio);
     }
 
-    // Rotate to look velocity
-    private void Rotate()
-    {
-        transform.Rotate(0f, 0f, lookVelocity, Space.Self);
-    }
-
-    // Rotate camera to player
-    private void ResetRotation()
+    private void RotateToPlayer()
     {
         transform.up = Vector2.Lerp(transform.up, _player.transform.up, LookInterpolationRatio);
     }

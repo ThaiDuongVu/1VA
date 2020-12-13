@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 7850876224349925072}
   - component: {fileID: 7850876224349924911}
   - component: {fileID: 7850876224349924909}
+  - component: {fileID: 172813984}
   - component: {fileID: 7850876224349924910}
   - component: {fileID: 7850876224349925073}
-  - component: {fileID: 172813984}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -86,6 +86,25 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7850876224349924908}
   m_Enabled: 1
+--- !u!95 &172813984
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7850876224349924908}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: df7fb1eea50905042a64f3268282420f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &7850876224349924910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,25 +149,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followTarget: {fileID: 0}
---- !u!95 &172813984
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7850876224349924908}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: df7fb1eea50905042a64f3268282420f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7850876225595546117
 GameObject:
   m_ObjectHideFlags: 0

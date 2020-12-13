@@ -73,14 +73,6 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
-                },
-                {
-                    ""name"": ""ResetRotation"",
-                    ""type"": ""Button"",
-                    ""id"": ""f9ad2909-87a6-41ed-9832-4ddc7f590cd0"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -408,7 +400,7 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""id"": ""6e9e0db4-70a9-49fd-9bde-ffb3ad9e2d48"",
                     ""path"": ""<Gamepad>/rightStick/up"",
                     ""interactions"": """",
-                    ""processors"": ""Scale(factor=2)"",
+                    ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Look"",
                     ""isComposite"": false,
@@ -419,7 +411,7 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""id"": ""e7a88b25-b438-46e4-a0c0-42814c0e1a78"",
                     ""path"": ""<Gamepad>/rightStick/down"",
                     ""interactions"": """",
-                    ""processors"": ""Scale(factor=2)"",
+                    ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Look"",
                     ""isComposite"": false,
@@ -430,7 +422,7 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""id"": ""23236941-9250-48a2-a7c1-ea9173ffacaa"",
                     ""path"": ""<Gamepad>/rightStick/left"",
                     ""interactions"": """",
-                    ""processors"": ""Scale(factor=2),Invert"",
+                    ""processors"": ""Scale(factor=2.5),Invert"",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Look"",
                     ""isComposite"": false,
@@ -441,33 +433,66 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""id"": ""b92f966b-8d10-45df-996d-f3f966215217"",
                     ""path"": ""<Gamepad>/rightStick/right"",
                     ""interactions"": """",
-                    ""processors"": ""Scale(factor=2),Invert"",
+                    ""processors"": ""Scale(factor=2.5),Invert"",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""bc96d724-33e5-44d9-92c8-a7fc16d275d8"",
-                    ""path"": ""<Gamepad>/rightStickPress"",
+                    ""name"": ""Mouse"",
+                    ""id"": ""cb35ad89-a89f-4a9e-afdc-3ffa41f80dd8"",
+                    ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""ResetRotation"",
-                    ""isComposite"": false,
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""cfb88d54-c58f-421e-ad3e-11674d079d56"",
-                    ""path"": ""<Keyboard>/tab"",
+                    ""name"": ""up"",
+                    ""id"": ""f93a3408-2dd1-4913-94ee-aae4f92de5ac"",
+                    ""path"": ""<Mouse>/delta/y"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
-                    ""action"": ""ResetRotation"",
+                    ""action"": ""Look"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""b8baceec-18b0-470b-881c-556fe23a53af"",
+                    ""path"": ""<Mouse>/delta/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""7f6b7d2b-9a04-493d-b61e-c81bbae364f0"",
+                    ""path"": ""<Mouse>/delta/x"",
+                    ""interactions"": """",
+                    ""processors"": ""Normalize(min=-1),Scale(factor=0.1)"",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""3669a03f-9f56-4573-83e9-5debf097dabd"",
+                    ""path"": ""<Mouse>/delta/x"",
+                    ""interactions"": """",
+                    ""processors"": ""Normalize(max=1),Scale(factor=0.1)"",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -809,7 +834,6 @@ public class @InputManager : IInputActionCollection, IDisposable
         m_Player_Strike = m_Player.FindAction("Strike", throwIfNotFound: true);
         m_Player_Counter = m_Player.FindAction("Counter", throwIfNotFound: true);
         m_Player_Stun = m_Player.FindAction("Stun", throwIfNotFound: true);
-        m_Player_ResetRotation = m_Player.FindAction("ResetRotation", throwIfNotFound: true);
         // Console
         m_Console = asset.FindActionMap("Console", throwIfNotFound: true);
         m_Console_Show = m_Console.FindAction("Show", throwIfNotFound: true);
@@ -875,7 +899,6 @@ public class @InputManager : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Strike;
     private readonly InputAction m_Player_Counter;
     private readonly InputAction m_Player_Stun;
-    private readonly InputAction m_Player_ResetRotation;
     public struct PlayerActions
     {
         private @InputManager m_Wrapper;
@@ -887,7 +910,6 @@ public class @InputManager : IInputActionCollection, IDisposable
         public InputAction @Strike => m_Wrapper.m_Player_Strike;
         public InputAction @Counter => m_Wrapper.m_Player_Counter;
         public InputAction @Stun => m_Wrapper.m_Player_Stun;
-        public InputAction @ResetRotation => m_Wrapper.m_Player_ResetRotation;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -918,9 +940,6 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Stun.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStun;
                 @Stun.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStun;
                 @Stun.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStun;
-                @ResetRotation.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnResetRotation;
-                @ResetRotation.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnResetRotation;
-                @ResetRotation.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnResetRotation;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -946,9 +965,6 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Stun.started += instance.OnStun;
                 @Stun.performed += instance.OnStun;
                 @Stun.canceled += instance.OnStun;
-                @ResetRotation.started += instance.OnResetRotation;
-                @ResetRotation.performed += instance.OnResetRotation;
-                @ResetRotation.canceled += instance.OnResetRotation;
             }
         }
     }
@@ -1070,7 +1086,6 @@ public class @InputManager : IInputActionCollection, IDisposable
         void OnStrike(InputAction.CallbackContext context);
         void OnCounter(InputAction.CallbackContext context);
         void OnStun(InputAction.CallbackContext context);
-        void OnResetRotation(InputAction.CallbackContext context);
     }
     public interface IConsoleActions
     {

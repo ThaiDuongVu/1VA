@@ -55,7 +55,7 @@ public class PlayerCombatZone : MonoBehaviour
             enemies.Remove(enemy);
 
             // If enemy is locked then unlock it
-            if (enemy.IsLockedOn) player.Unlock(enemy);
+            if (enemy.IsLockedOn) player.Unlock();
 
             // Enemy exit combat
             enemy.Combat.ExitCombat();

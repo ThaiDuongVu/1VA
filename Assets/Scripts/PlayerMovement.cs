@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D _rigidbody2D;
     private Vector2 _movement;
+    private Vector2 _direction;
     private float _currentVelocity;
 
     private const float MaxVelocity = 20f;
@@ -29,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     private const float SnapDistance = 2.5f;
     private const float SnapInterpolationRatio = 0.3f;
 
+    private float lookVelocity;
     private const float LookInterpolationRatio = 0.2f;
     private Camera _mainCamera;
 
@@ -46,6 +48,10 @@ public class PlayerMovement : MonoBehaviour
         _inputManager.Player.MoveGamepad.performed += MoveOnPerformed;
         _inputManager.Player.MoveGamepad.canceled += MoveOnCanceled;
 
+        // Look rotation
+        _inputManager.Player.Look.performed += LookOnPerformed;
+        _inputManager.Player.Look.canceled += LookOnCanceled;
+
         // Handle dash input
         _inputManager.Player.Dash.performed += DashOnPerformed;
 
@@ -60,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
         if (_player.IsDashing || Time.timeScale == 0f) return;
 
         // Set movement vector
-        _movement = Quaternion.Euler(0f, 0f, _mainCamera.transform.eulerAngles.z) * context.ReadValue<Vector2>();
+        _direction = context.ReadValue<Vector2>();
 
         // Play run animation
         _player.Animator.SetBool(IsRunningTrigger, true);
@@ -74,13 +80,23 @@ public class PlayerMovement : MonoBehaviour
         if (Time.timeScale == 0f) return;
 
         // Reset movement vector
-        _movement = Vector2.zero;
+        _direction = Vector2.zero;
 
         // Stop run animation
         _player.Animator.SetBool(IsRunningTrigger, false);
         _player.Animator.SetBool(IsCombatWalkingTrigger, false);
 
         _player.IsRunning = false;
+    }
+
+    private void LookOnPerformed(InputAction.CallbackContext context)
+    {
+        lookVelocity = context.ReadValue<Vector2>().x;
+    }
+
+    private void LookOnCanceled(InputAction.CallbackContext context)
+    {
+        lookVelocity = 0f;
     }
 
     private void DashOnPerformed(InputAction.CallbackContext context)
@@ -118,6 +134,7 @@ public class PlayerMovement : MonoBehaviour
         else Decelerate();
 
         Animate();
+        Rotate();
     }
 
     private void FixedUpdate()
@@ -133,11 +150,8 @@ public class PlayerMovement : MonoBehaviour
     // Move player to movement vector
     private void Run()
     {
-        // Vector2 _movementDirection = Quaternion.Euler(0f, 0f, _mainCamera.transform.eulerAngles.z) * _movement;
+        _movement = Quaternion.Euler(0f, 0f, _mainCamera.transform.eulerAngles.z) * _direction;
         _rigidbody2D.MovePosition(_rigidbody2D.position + _movement * _currentVelocity * Time.fixedDeltaTime);
-
-        // Rotate player to movement direction
-        LookForward();
     }
 
     private void Accelerate()
@@ -168,6 +182,19 @@ public class PlayerMovement : MonoBehaviour
         _currentVelocity = 0f;
     }
 
+    // Rotate to look velocity
+    private void Rotate()
+    {
+        transform.Rotate(0f, 0f, lookVelocity * Time.timeScale, Space.Self);
+    }
+
+    // Look to moving direction
+    private void LookForward()
+    {
+        Quaternion lookRotation = Quaternion.LookRotation(Vector3.forward, _movement);
+        transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, LookInterpolationRatio);
+    }
+
     // Perform a dash move
     private IEnumerator Dash()
     {
@@ -185,7 +212,7 @@ public class PlayerMovement : MonoBehaviour
         _player.Animator.SetTrigger(EnterDashTrigger);
 
         // Add force forward
-        _rigidbody2D.AddForce(transform.up.normalized * DashForce, ForceMode2D.Impulse);
+        _rigidbody2D.AddForce(_movement * DashForce, ForceMode2D.Impulse);
 
         // Shake camera
         CameraShake.Instance.ShakeLight();
@@ -207,16 +234,6 @@ public class PlayerMovement : MonoBehaviour
 
         // Disable player trail
         if (!_player.IsDashing) _player.trail.enabled = false;
-    }
-
-    // Player look at moving direction
-    private void LookForward()
-    {
-        // New look rotation
-        Quaternion lookRotation = Quaternion.LookRotation(Vector3.forward, _movement);
-
-        // Lerp current rotation to new look rotation
-        transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, LookInterpolationRatio * Time.timeScale);
     }
     
     // Scale animation speed to movement speed
@@ -266,7 +283,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Deal damage to locked enemy
         CameraShake.Instance.ShakeNormal();
-        _player.SnapEnemy.GetComponent<IDamageable>().TakeDamage(1f);
+        if (_player.SnapEnemy) _player.SnapEnemy.GetComponent<IDamageable>().TakeDamage(1f);
     }
 
     // Snap to an enemy
