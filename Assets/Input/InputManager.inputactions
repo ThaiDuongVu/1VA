@@ -52,14 +52,6 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
-                },
-                {
-                    "name": "Stun",
-                    "type": "Button",
-                    "id": "6c06f116-9557-447c-84ed-0c10cec926a9",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -346,28 +338,6 @@
                     "processors": "",
                     "groups": "MouseKeyboard",
                     "action": "Counter",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5629cccc-f2b0-4adc-a247-86e9de4ca2d2",
-                    "path": "<Mouse>/middleButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "MouseKeyboard",
-                    "action": "Stun",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6e9a8a87-9896-438e-8f99-3c962c0a695c",
-                    "path": "<Gamepad>/rightShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Stun",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

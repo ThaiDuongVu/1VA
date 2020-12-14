@@ -23,14 +23,15 @@ public class PlayerMovement : MonoBehaviour
 
     private const float CombatVelocity = 10f;
 
-    private const float DashForce = 60f;
-    private const float DashDuration = 0.15f;
+    private const float DashForce = 50f;
+    private const float DashDuration = 0.2f;
 
     private Vector2 _snapPosition;
     private const float SnapDistance = 2.5f;
     private const float SnapInterpolationRatio = 0.3f;
 
     private float lookVelocity;
+    private const float LookScale = 0.75f;
     private const float LookInterpolationRatio = 0.2f;
     private Camera _mainCamera;
 
@@ -91,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void LookOnPerformed(InputAction.CallbackContext context)
     {
-        lookVelocity = context.ReadValue<Vector2>().x;
+        lookVelocity = context.ReadValue<Vector2>().x * LookScale;
     }
 
     private void LookOnCanceled(InputAction.CallbackContext context)

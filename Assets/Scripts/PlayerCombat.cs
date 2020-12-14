@@ -18,7 +18,6 @@ public class PlayerCombat : MonoBehaviour
         // Handle combat input
         _inputManager.Player.Strike.started += StrikeOnPerformed;
         _inputManager.Player.Counter.started += CounterOnPerformed;
-        _inputManager.Player.Stun.started += StunOnPerformed;
 
         _inputManager.Enable();
     }
@@ -33,11 +32,6 @@ public class PlayerCombat : MonoBehaviour
     private void CounterOnPerformed(InputAction.CallbackContext context)
     {
         Counter();
-    }
-
-    private void StunOnPerformed(InputAction.CallbackContext context)
-    {
-        Stun();
     }
 
     #endregion
@@ -93,11 +87,6 @@ public class PlayerCombat : MonoBehaviour
     }
 
     private void Counter()
-    {
-
-    }
-
-    private void Stun()
     {
 
     }

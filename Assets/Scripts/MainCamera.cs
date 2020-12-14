@@ -8,7 +8,7 @@ public class MainCamera : MonoBehaviour
     [SerializeField] private Transform followTarget;
 
     private Player _player;
-    private const float LookInterpolationRatio = 0.2f;
+    private const float LookInterpolationRatio = 0.25f;
 
     private void Awake()
     {
@@ -38,6 +38,7 @@ public class MainCamera : MonoBehaviour
             FollowInterpolationRatio);
     }
 
+    // Rotate to face player direction
     private void RotateToPlayer()
     {
         transform.up = Vector2.Lerp(transform.up, _player.transform.up, LookInterpolationRatio);

@@ -65,14 +65,6 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
-                },
-                {
-                    ""name"": ""Stun"",
-                    ""type"": ""Button"",
-                    ""id"": ""6c06f116-9557-447c-84ed-0c10cec926a9"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -359,28 +351,6 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
                     ""action"": ""Counter"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""5629cccc-f2b0-4adc-a247-86e9de4ca2d2"",
-                    ""path"": ""<Mouse>/middleButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Stun"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6e9a8a87-9896-438e-8f99-3c962c0a695c"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Stun"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -833,7 +803,6 @@ public class @InputManager : IInputActionCollection, IDisposable
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_Strike = m_Player.FindAction("Strike", throwIfNotFound: true);
         m_Player_Counter = m_Player.FindAction("Counter", throwIfNotFound: true);
-        m_Player_Stun = m_Player.FindAction("Stun", throwIfNotFound: true);
         // Console
         m_Console = asset.FindActionMap("Console", throwIfNotFound: true);
         m_Console_Show = m_Console.FindAction("Show", throwIfNotFound: true);
@@ -898,7 +867,6 @@ public class @InputManager : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_Strike;
     private readonly InputAction m_Player_Counter;
-    private readonly InputAction m_Player_Stun;
     public struct PlayerActions
     {
         private @InputManager m_Wrapper;
@@ -909,7 +877,6 @@ public class @InputManager : IInputActionCollection, IDisposable
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @Strike => m_Wrapper.m_Player_Strike;
         public InputAction @Counter => m_Wrapper.m_Player_Counter;
-        public InputAction @Stun => m_Wrapper.m_Player_Stun;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -937,9 +904,6 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Counter.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCounter;
                 @Counter.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCounter;
                 @Counter.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCounter;
-                @Stun.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStun;
-                @Stun.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStun;
-                @Stun.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStun;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -962,9 +926,6 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Counter.started += instance.OnCounter;
                 @Counter.performed += instance.OnCounter;
                 @Counter.canceled += instance.OnCounter;
-                @Stun.started += instance.OnStun;
-                @Stun.performed += instance.OnStun;
-                @Stun.canceled += instance.OnStun;
             }
         }
     }
@@ -1085,7 +1046,6 @@ public class @InputManager : IInputActionCollection, IDisposable
         void OnDash(InputAction.CallbackContext context);
         void OnStrike(InputAction.CallbackContext context);
         void OnCounter(InputAction.CallbackContext context);
-        void OnStun(InputAction.CallbackContext context);
     }
     public interface IConsoleActions
     {
