@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     private const float SnapInterpolationRatio = 0.3f;
 
     private float lookVelocity;
-    private const float LookScale = 0.75f;
+    private const float LookScale = 1f;
     private const float LookInterpolationRatio = 0.2f;
     private Camera _mainCamera;
 
@@ -146,6 +146,8 @@ public class PlayerMovement : MonoBehaviour
         if (_player.IsRunning) Run();
         // If player is snapping then snap
         if (_player.IsSnapping) Snap();
+
+        _player.directionArrow.transform.up = Vector2.Lerp(_player.directionArrow.transform.up, _movement, 0.4f);
     }
 
     // Move player to movement vector
@@ -189,13 +191,6 @@ public class PlayerMovement : MonoBehaviour
         transform.Rotate(0f, 0f, lookVelocity * Time.timeScale, Space.Self);
     }
 
-    // Look to moving direction
-    private void LookForward()
-    {
-        Quaternion lookRotation = Quaternion.LookRotation(Vector3.forward, _movement);
-        transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, LookInterpolationRatio);
-    }
-
     // Perform a dash move
     private IEnumerator Dash()
     {
@@ -236,7 +231,7 @@ public class PlayerMovement : MonoBehaviour
         // Disable player trail
         if (!_player.IsDashing) _player.trail.enabled = false;
     }
-    
+
     // Scale animation speed to movement speed
     private void Animate()
     {

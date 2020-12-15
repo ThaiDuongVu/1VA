@@ -15,7 +15,9 @@ public class Player : MonoBehaviour, IDamageable
 
     public TrailRenderer trail;
 
+    public Transform directionArrow;
     public Transform lockArrow;
+
     public Enemy LockedOnEnemy { get; set; }
     public Enemy SnapEnemy { get; set; }
 
