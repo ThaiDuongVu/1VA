@@ -65,6 +65,14 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""LookToLock"",
+                    ""type"": ""Button"",
+                    ""id"": ""1f638ecb-f399-4912-83e5-b75dbc8a5ff3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -408,6 +416,28 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0e8946b7-939a-4299-9775-e10388d38e6f"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""LookToLock"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""30839b70-ffd0-4a06-a705-adcdb233a053"",
+                    ""path"": ""<Gamepad>/rightStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""LookToLock"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -748,6 +778,7 @@ public class @InputManager : IInputActionCollection, IDisposable
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_Strike = m_Player.FindAction("Strike", throwIfNotFound: true);
         m_Player_Counter = m_Player.FindAction("Counter", throwIfNotFound: true);
+        m_Player_LookToLock = m_Player.FindAction("LookToLock", throwIfNotFound: true);
         // Console
         m_Console = asset.FindActionMap("Console", throwIfNotFound: true);
         m_Console_Show = m_Console.FindAction("Show", throwIfNotFound: true);
@@ -812,6 +843,7 @@ public class @InputManager : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_Strike;
     private readonly InputAction m_Player_Counter;
+    private readonly InputAction m_Player_LookToLock;
     public struct PlayerActions
     {
         private @InputManager m_Wrapper;
@@ -822,6 +854,7 @@ public class @InputManager : IInputActionCollection, IDisposable
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @Strike => m_Wrapper.m_Player_Strike;
         public InputAction @Counter => m_Wrapper.m_Player_Counter;
+        public InputAction @LookToLock => m_Wrapper.m_Player_LookToLock;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -849,6 +882,9 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Counter.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCounter;
                 @Counter.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCounter;
                 @Counter.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCounter;
+                @LookToLock.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLookToLock;
+                @LookToLock.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLookToLock;
+                @LookToLock.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLookToLock;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -871,6 +907,9 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Counter.started += instance.OnCounter;
                 @Counter.performed += instance.OnCounter;
                 @Counter.canceled += instance.OnCounter;
+                @LookToLock.started += instance.OnLookToLock;
+                @LookToLock.performed += instance.OnLookToLock;
+                @LookToLock.canceled += instance.OnLookToLock;
             }
         }
     }
@@ -991,6 +1030,7 @@ public class @InputManager : IInputActionCollection, IDisposable
         void OnDash(InputAction.CallbackContext context);
         void OnStrike(InputAction.CallbackContext context);
         void OnCounter(InputAction.CallbackContext context);
+        void OnLookToLock(InputAction.CallbackContext context);
     }
     public interface IConsoleActions
     {

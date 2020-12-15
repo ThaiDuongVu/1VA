@@ -52,6 +52,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "LookToLock",
+                    "type": "Button",
+                    "id": "1f638ecb-f399-4912-83e5-b75dbc8a5ff3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -395,6 +403,28 @@
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "0e8946b7-939a-4299-9775-e10388d38e6f",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "MouseKeyboard",
+                    "action": "LookToLock",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "30839b70-ffd0-4a06-a705-adcdb233a053",
+                    "path": "<Gamepad>/rightStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "LookToLock",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

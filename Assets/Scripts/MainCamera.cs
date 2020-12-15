@@ -8,7 +8,7 @@ public class MainCamera : MonoBehaviour
     [SerializeField] private Transform followTarget;
 
     private Player _player;
-    private const float LookInterpolationRatio = 0.25f;
+    private const float LookInterpolationRatio = 0.3f;
 
     private void Awake()
     {

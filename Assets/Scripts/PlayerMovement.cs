@@ -53,6 +53,10 @@ public class PlayerMovement : MonoBehaviour
         _inputManager.Player.Look.performed += LookOnPerformed;
         _inputManager.Player.Look.canceled += LookOnCanceled;
 
+        // Look to locked enemy
+        _inputManager.Player.LookToLock.performed += LookToLockOnPerformed;
+        _inputManager.Player.LookToLock.canceled += LookToLockOnCanceled;
+
         // Handle dash input
         _inputManager.Player.Dash.performed += DashOnPerformed;
 
@@ -100,6 +104,16 @@ public class PlayerMovement : MonoBehaviour
         lookVelocity = 0f;
     }
 
+    private void LookToLockOnPerformed(InputAction.CallbackContext context)
+    {
+        _player.IsLookingToLock = true;
+    }
+
+    private void LookToLockOnCanceled(InputAction.CallbackContext context)
+    {
+        _player.IsLookingToLock = false;
+    }
+
     private void DashOnPerformed(InputAction.CallbackContext context)
     {
         if (Time.timeScale == 0f || _player.IsSnapping) return;
@@ -135,7 +149,8 @@ public class PlayerMovement : MonoBehaviour
         else Decelerate();
 
         Animate();
-        Rotate();
+        if (_player.IsLookingToLock) LookToLock();
+        else Rotate();
     }
 
     private void FixedUpdate()
@@ -189,6 +204,14 @@ public class PlayerMovement : MonoBehaviour
     private void Rotate()
     {
         transform.Rotate(0f, 0f, lookVelocity * Time.timeScale, Space.Self);
+    }
+
+    // Rotate to look at locked on enemy
+    private void LookToLock()
+    {
+        if (!_player.LockedOnEnemy) return;
+
+        transform.up = Vector2.Lerp(transform.up, (_player.LockedOnEnemy.transform.position - transform.position).normalized, 0.2f);
     }
 
     // Perform a dash move

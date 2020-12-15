@@ -8,6 +8,7 @@ public class Player : MonoBehaviour, IDamageable
 
     public bool IsInCombat { get; set; }
     public bool IsRunning { get; set; }
+    public bool IsLookingToLock { get; set; }
     public bool IsDashing { get; set; }
     public bool IsSnapping { get; set; }
 
@@ -64,7 +65,7 @@ public class Player : MonoBehaviour, IDamageable
         // Disable lock arrow
         lockArrow.gameObject.SetActive(false);
 
-        // Unlock other
+        // Unlock all enemies
         combatZone.UnlockAll();
 
         // Set lock enemy to null
