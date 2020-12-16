@@ -62,34 +62,37 @@ public class Player : MonoBehaviour, IDamageable
 
     public void Unlock(Enemy other)
     {
-        if (LockedOnEnemy == other)
-        {
-            // Disable lock arrow
-            lockArrow.gameObject.SetActive(false);
+        if (LockedOnEnemy != other) return;
 
-            // Unlock all enemies
-            other.LockOn(false);
+        // Disable lock arrow
+        lockArrow.gameObject.SetActive(false);
 
-            // Set lock enemy to null
-            LockedOnEnemy = null;
-        }
+        // Unlock all enemies
+        other.LockOn(false);
+
+        // Set lock enemy to null
+        LockedOnEnemy = null;
     }
 
     // Lock on enemy
     private void Lock()
     {
+        Transform enemy = LockedOnEnemy.transform;
+        Vector3 enemyPosition = enemy.position;
+
+        Transform transform1 = transform;
+        Vector3 position = transform1.position;
+
         // Set arrow position & rotation
-        lockArrow.position = LockedOnEnemy.transform.position + (LockedOnEnemy.transform.position - transform.position).normalized * 1.5f;
-        lockArrow.rotation = Quaternion.LookRotation(Vector3.forward, (LockedOnEnemy.transform.position - transform.position).normalized);
+        lockArrow.position = enemyPosition + (enemyPosition - position).normalized * 1.5f;
+        lockArrow.rotation = Quaternion.LookRotation(Vector3.forward, (enemyPosition - position).normalized);
     }
 
     void IDamageable.TakeDamage(float damage)
     {
-
     }
 
     void IDamageable.Die()
     {
-
     }
 }

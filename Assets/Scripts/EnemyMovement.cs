@@ -4,6 +4,7 @@ using System.Collections;
 public class EnemyMovement : MonoBehaviour
 {
     private Enemy _enemy;
+    private static readonly int IsRunning = Animator.StringToHash("isRunning");
 
     public Transform LookTarget { get; set; }
     private const float LookInterpolationRatio = 0.2f;
@@ -22,11 +23,6 @@ public class EnemyMovement : MonoBehaviour
         // Get component references
         _enemy = GetComponent<Enemy>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
-    }
-
-    // Start is called before the first frame update
-    private void Start()
-    {
     }
 
     // Update is called once per frame
@@ -69,16 +65,20 @@ public class EnemyMovement : MonoBehaviour
 
     private void Pursuit()
     {
-        Vector2 targetPosition = new Vector2(MoveTarget.position.x + Random.Range(-2.5f, 2.5f), MoveTarget.position.y + Random.Range(-2.5f, 2.5f));
-        _rigidbody2D.MovePosition(_rigidbody2D.position + (targetPosition - (Vector2)transform.position).normalized * PursuitVelocity * Time.fixedDeltaTime);
-        
+        Vector2 moveTargetPosition = MoveTarget.position;
+        Vector2 targetPosition = new Vector2(moveTargetPosition.x + Random.Range(-2.5f, 2.5f),
+            moveTargetPosition.y + Random.Range(-2.5f, 2.5f));
+
+        _rigidbody2D.MovePosition(_rigidbody2D.position + (targetPosition - (Vector2) transform.position).normalized *
+            PursuitVelocity * Time.fixedDeltaTime);
+
         LookAt(MoveTarget);
     }
 
     public void StartPursuit()
     {
         _enemy.State = EnemyState.Pursuit;
-        _enemy.Animator.SetBool("isRunning", true);
+        _enemy.Animator.SetBool(IsRunning, true);
     }
 
     public IEnumerator KnockBack()

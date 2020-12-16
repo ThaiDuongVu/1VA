@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
@@ -30,9 +30,8 @@ public class PlayerMovement : MonoBehaviour
     private const float SnapDistance = 2.5f;
     private const float SnapInterpolationRatio = 0.35f;
 
-    private float lookVelocity;
+    private float _lookVelocity;
     private const float LookScale = 1f;
-    private const float LookInterpolationRatio = 0.2f;
     private Camera _mainCamera;
 
     private InputManager _inputManager;
@@ -67,6 +66,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void MoveOnPerformed(InputAction.CallbackContext context)
     {
+        // Debug.Log(context.control.device == InputSystem.devices[0]);
+
         // If player is in a middle of a dash then return
         if (_player.IsDashing || Time.timeScale == 0f) return;
 
@@ -96,12 +97,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void LookOnPerformed(InputAction.CallbackContext context)
     {
-        lookVelocity = context.ReadValue<Vector2>().x * LookScale;
+        _lookVelocity = context.ReadValue<Vector2>().x * LookScale;
     }
 
     private void LookOnCanceled(InputAction.CallbackContext context)
     {
-        lookVelocity = 0f;
+        _lookVelocity = 0f;
     }
 
     private void LookToLockOnPerformed(InputAction.CallbackContext context)
@@ -203,7 +204,7 @@ public class PlayerMovement : MonoBehaviour
     // Rotate to look velocity
     private void Rotate()
     {
-        transform.Rotate(0f, 0f, lookVelocity * Time.timeScale, Space.Self);
+        transform.Rotate(0f, 0f, _lookVelocity * Time.timeScale, Space.Self);
     }
 
     // Rotate to look at locked on enemy
@@ -211,7 +212,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!_player.LockedOnEnemy) return;
 
-        transform.up = Vector2.Lerp(transform.up, (_player.LockedOnEnemy.transform.position - transform.position).normalized, 0.2f);
+        Transform transform1 = transform;
+        transform.up = Vector2.Lerp(transform1.up,
+            (_player.LockedOnEnemy.transform.position - transform1.position).normalized, 0.2f);
     }
 
     // Perform a dash move
@@ -298,7 +301,8 @@ public class PlayerMovement : MonoBehaviour
         // Disable trail
         _player.trail.enabled = false;
 
-        transform.rotation = Quaternion.LookRotation(Vector3.forward, ((Vector2)_snapPosition - (Vector2)transform.position).normalized);
+        transform.rotation =
+            Quaternion.LookRotation(Vector3.forward, (_snapPosition - (Vector2) transform.position).normalized);
 
         // Deal damage to locked enemy
         CameraShaker.Instance.Shake(CameraShakeMode.Normal);
@@ -309,14 +313,18 @@ public class PlayerMovement : MonoBehaviour
     private void Snap()
     {
         // Snap position
-        transform.position = Vector2.Lerp(transform.position, _snapPosition, SnapInterpolationRatio);
+        Vector3 position = transform.position;
+        position = Vector2.Lerp(position, _snapPosition, SnapInterpolationRatio);
+        transform.position = position;
 
         // Snap rotation
-        Quaternion lookRotation = Quaternion.LookRotation(Vector3.forward, ((Vector2)_snapPosition - (Vector2)transform.position).normalized);
+        Quaternion lookRotation =
+            Quaternion.LookRotation(Vector3.forward, (_snapPosition - (Vector2) position).normalized);
         transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, SnapInterpolationRatio * Time.timeScale);
 
         // If snapped then stop snapping
-        if (GlobalController.CloseTo(transform.position.x, _snapPosition.x, SnapDistance) && GlobalController.CloseTo(transform.position.y, _snapPosition.y, SnapDistance))
+        if (GlobalController.CloseTo(transform.position.x, _snapPosition.x, SnapDistance) &&
+            GlobalController.CloseTo(transform.position.y, _snapPosition.y, SnapDistance))
             StopSnapping();
     }
 }

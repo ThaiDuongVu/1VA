@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public float Health { get; set; } = 100f;
 
-    IDamageable damageable;
+    private IDamageable _damageable;
     public ParticleSystem bloodSpat;
 
     private void Awake()
@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour, IDamageable
         Combat = GetComponent<EnemyCombat>();
         Movement = GetComponent<EnemyMovement>();
 
-        damageable = GetComponent<IDamageable>();
+        _damageable = GetComponent<IDamageable>();
     }
 
     // Start is called before the first frame update
@@ -63,7 +63,7 @@ public class Enemy : MonoBehaviour, IDamageable
     // Update is called once per frame
     private void Update()
     {
-        if (Health <= 0f) damageable.Die();
+        if (Health <= 0f) _damageable.Die();
     }
 
     // Generate a random appearance
@@ -93,7 +93,8 @@ public class Enemy : MonoBehaviour, IDamageable
         StartCoroutine(Movement.KnockBack());
         Health -= damage;
 
-        Instantiate(bloodSpat, transform.position, transform.rotation);
+        Transform transform1 = transform;
+        Instantiate(bloodSpat, transform1.position, transform1.rotation);
     }
 
     void IDamageable.Die()

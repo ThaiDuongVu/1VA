@@ -3,10 +3,9 @@ using System.Collections.Generic;
 
 public class PlayerViewCone : MonoBehaviour
 {
-    [SerializeField] private Player _player;
+    [SerializeField] private Player player;
 
-    private List<Enemy> _enemies = new List<Enemy>();
-
+    private readonly List<Enemy> _enemies = new List<Enemy>();
 
     #region Trigger Methods
 
@@ -18,7 +17,7 @@ public class PlayerViewCone : MonoBehaviour
             Enemy otherEnemy = other.GetComponent<Enemy>();
 
             _enemies.Add(otherEnemy);
-            _player.StartLock(otherEnemy);
+            player.StartLock(otherEnemy);
         }
     }
 
@@ -29,10 +28,10 @@ public class PlayerViewCone : MonoBehaviour
         {
             Enemy otherEnemy = other.GetComponent<Enemy>();
 
-            _player.Unlock(otherEnemy);
+            player.Unlock(otherEnemy);
             _enemies.Remove(otherEnemy);
 
-            if (_enemies.Count > 0) _player.StartLock(_enemies[_enemies.Count - 1]);
+            if (_enemies.Count > 0) player.StartLock(_enemies[_enemies.Count - 1]);
         }
     }
 

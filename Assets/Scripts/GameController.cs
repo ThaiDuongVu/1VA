@@ -39,11 +39,6 @@ public class GameController : MonoBehaviour
         GlobalController.Instance.LockCursor();
     }
 
-    // Update is called once per frame
-    private void Update()
-    {
-    }
-
     // Pause game
     public void Pause()
     {

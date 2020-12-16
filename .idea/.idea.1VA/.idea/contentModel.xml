@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Program Files\Unity\Hub\Editor\2020.1.16f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor" t="Include">
+    <e p="C:\Program Files\Unity\Hub\Editor\2020.2.0f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor" t="Include">
       <e p="AssemblyInfo.cs" t="Include" />
       <e p="Interface" t="Include">
         <e p="IAssetDatabase.cs" t="Include" />
@@ -12,6 +12,13 @@
         <e p="ISpriteEditorDataProvider.cs" t="Include" />
         <e p="ITexture.cs" t="Include" />
         <e p="IUndoSystem.cs" t="Include" />
+      </e>
+      <e p="ObjectMenuCreation" t="Include">
+        <e p="ItemCreationUtility.cs" t="Include" />
+        <e p="MenuItems.cs" t="Include" />
+      </e>
+      <e p="Obsolete" t="Include">
+        <e p="ObsoleteSupport.cs" t="Include" />
       </e>
       <e p="ShapeEditor" t="Include">
         <e p="ShapeEditor.cs" t="Include" />
@@ -51,7 +58,7 @@
       </e>
       <e p="Unity.2D.Sprite.Editor.asmdef" t="Include" />
     </e>
-    <e p="C:\Program Files\Unity\Hub\Editor\2020.1.16f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor" t="Include">
+    <e p="C:\Program Files\Unity\Hub\Editor\2020.2.0f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor" t="Include">
       <e p="AssemblyInfo.cs" t="Include" />
       <e p="CreateTileFromPaletteAttribute.cs" t="Include" />
       <e p="EditorTools" t="Include">
@@ -77,20 +84,27 @@
       <e p="GridPaintTargetsDropdown.cs" t="Include" />
       <e p="GridPaletteAddPopup.cs" t="Include" />
       <e p="GridPaletteBrushes.cs" t="Include" />
+      <e p="GridPaletteEditor.cs" t="Include" />
       <e p="GridPalettes.cs" t="Include" />
       <e p="GridPalettesDropdown.cs" t="Include" />
       <e p="GridPaletteUtility.cs" t="Include" />
       <e p="GridSelection.cs" t="Include" />
       <e p="GridSelectionEditor.cs" t="Include" />
+      <e p="ObjectCreationMenu" t="Include">
+        <e p="DefaultAssetCreation.cs" t="Include" />
+        <e p="GameObjectCreation.cs" t="Include" />
+      </e>
       <e p="PaintableGrid.cs" t="Include" />
       <e p="PaintableSceneViewGrid.cs" t="Include" />
       <e p="SceneViewGridManager.cs" t="Include" />
+      <e p="SceneViewOpenTilePaletteHelper.cs" t="Include" />
       <e p="TileDragAndDrop.cs" t="Include" />
       <e p="TileDragAndDropManager.cs" t="Include" />
+      <e p="TilemapPrefabStageHelper.cs" t="Include" />
       <e p="TileUtility.cs" t="Include" />
       <e p="Unity.2D.Tilemap.Editor.asmdef" t="Include" />
     </e>
-    <e p="C:\Program Files\Unity\Hub\Editor\2020.1.16f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Editor" t="Include">
+    <e p="C:\Program Files\Unity\Hub\Editor\2020.2.0f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Editor" t="Include">
       <e p="EventSystem" t="Include">
         <e p="EventSystemEditor.cs" t="Include" />
         <e p="EventTriggerEditor.cs" t="Include" />
@@ -138,7 +152,7 @@
       </e>
       <e p="UnityEditor.UI.asmdef" t="Include" />
     </e>
-    <e p="C:\Program Files\Unity\Hub\Editor\2020.1.16f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime" t="Include">
+    <e p="C:\Program Files\Unity\Hub\Editor\2020.2.0f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime" t="Include">
       <e p="EventSystem" t="Include">
         <e p="EventData" t="Include">
           <e p="AxisEventData.cs" t="Include" />
@@ -254,8 +268,8 @@
       </e>
       <e p="UnityEngine.UI.asmdef" t="Include" />
     </e>
-    <e p="C:\Users\Duong\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Duong\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_1VA.1376082577.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Duong\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Duong\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_1VA.1376082577.00" t="ExcludeRecursive" />
     <e p="C:\Users\Duong\Documents\Development\Projects\1VA" t="IncludeRecursive">
       <e p="1VA.sln" t="IncludeFlat" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
@@ -282,17 +296,23 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="CameraShake.cs" t="Include" />
-          <e p="CombatZone.cs" t="Include" />
+          <e p="CameraShakeMode.cs" t="Include" />
+          <e p="CameraShaker.cs" t="Include" />
           <e p="Enemy.cs" t="Include" />
           <e p="EnemyCombat.cs" t="Include" />
           <e p="EnemyMovement.cs" t="Include" />
+          <e p="EnemyState.cs" t="Include" />
           <e p="GameController.cs" t="Include" />
+          <e p="GamepadRumbleMode.cs" t="Include" />
+          <e p="GamepadRumbler.cs" t="Include" />
           <e p="GlobalController.cs" t="Include" />
+          <e p="IDamageable.cs" t="Include" />
           <e p="MainCamera.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="PlayerCombat.cs" t="Include" />
+          <e p="PlayerCombatZone.cs" t="Include" />
           <e p="PlayerMovement.cs" t="Include" />
+          <e p="PlayerViewCone.cs" t="Include" />
           <e p="SceneLoader.cs" t="Include" />
           <e p="UIController.cs" t="Include" />
         </e>
@@ -343,7 +363,7 @@
       <e p="com.unity.cinemachine.editor.csproj" t="IncludeRecursive" />
       <e p="Library" t="Include">
         <e p="PackageCache" t="Include">
-          <e p="com.unity.2d.animation@4.2.6" t="Include">
+          <e p="com.unity.2d.animation@5.0.3" t="Include">
             <e p="Editor" t="Include">
               <e p="Analytics.cs" t="Include" />
               <e p="AssemblyInfo.cs" t="Include" />
@@ -593,6 +613,40 @@
               </e>
               <e p="Unity.2D.Animation.Editor.asmdef" t="Include" />
             </e>
+            <e p="IK" t="Include">
+              <e p="Editor" t="Include">
+                <e p="AssemblyInfo.cs" t="Include" />
+                <e p="IKEditorManager.cs" t="Include" />
+                <e p="IKGizmos.cs" t="Include" />
+                <e p="inspectors" t="Include">
+                  <e p="CCDSolver2DEditor.cs" t="Include" />
+                  <e p="FabrikSolver2DEditor.cs" t="Include" />
+                  <e p="IKManager2DEditor.cs" t="Include" />
+                  <e p="LimbSolver2DEditor.cs" t="Include" />
+                  <e p="Solver2DEditor.cs" t="Include" />
+                </e>
+                <e p="Unity.2D.IK.Editor.asmdef" t="Include" />
+              </e>
+              <e p="Runtime" t="Include">
+                <e p="AssemblyInfo.cs" t="Include" />
+                <e p="CCDSolver2D.cs" t="Include" />
+                <e p="FabrikSolver2D.cs" t="Include" />
+                <e p="IKChain2D.cs" t="Include" />
+                <e p="IKEditorManagerHelper.cs" t="Include" />
+                <e p="IKManager2D.cs" t="Include" />
+                <e p="IKManager2DEditorData.cs" t="Include" />
+                <e p="IKUtility.cs" t="Include" />
+                <e p="LimbSolver2D.cs" t="Include" />
+                <e p="Solver2D.cs" t="Include" />
+                <e p="Solver2DMenuAttribute.cs" t="Include" />
+                <e p="Solvers" t="Include">
+                  <e p="CCD2D.cs" t="Include" />
+                  <e p="FABRIK2D.cs" t="Include" />
+                  <e p="Limb.cs" t="Include" />
+                </e>
+                <e p="Unity.2D.IK.Runtime.asmdef" t="Include" />
+              </e>
+            </e>
             <e p="Runtime" t="Include">
               <e p="AssemblyInfo.cs" t="Include" />
               <e p="Components.cs" t="Include" />
@@ -733,7 +787,7 @@
               <e p="UpdateBoundsSystem.cs" t="Include" />
             </e>
           </e>
-          <e p="com.unity.2d.common@3.0.1" t="Include">
+          <e p="com.unity.2d.common@4.0.3" t="Include">
             <e p="Editor" t="Include">
               <e p="AssemblyInfo.cs" t="Include" />
               <e p="ImagePacker" t="Include">
@@ -748,6 +802,9 @@
                 <e p="AssemblyInfo.cs" t="Include" />
                 <e p="InternalBridgeDef.asmdef" t="Include" />
                 <e p="InternalEditorBridge.cs" t="Include" />
+                <e p="TexturePlatformSettings" t="Include">
+                  <e p="TexturePlatformSettings.cs" t="Include" />
+                </e>
               </e>
               <e p="TextureGenerator" t="Include">
                 <e p="TextureGeneratorHelper.cs" t="Include" />
@@ -764,7 +821,7 @@
               <e p="Unity.2D.Common.Runtime.asmdef" t="Include" />
             </e>
           </e>
-          <e p="com.unity.2d.path@3.0.2" t="Include">
+          <e p="com.unity.2d.path@4.0.1" t="Include">
             <e p="Editor" t="Include">
               <e p="EditablePath" t="Include">
                 <e p="BezierUtility.cs" t="Include" />
@@ -829,9 +886,12 @@
               <e p="Unity.2D.Path.Editor.asmdef" t="Include" />
             </e>
           </e>
-          <e p="com.unity.2d.pixel-perfect@3.0.2" t="Include">
+          <e p="com.unity.2d.pixel-perfect@4.0.1" t="Include">
             <e p="Editor" t="Include">
               <e p="CinemachinePixelPerfectEditor.cs" t="Include" />
+              <e p="ObjectMenuCreation" t="Include">
+                <e p="GameObjectCreation.cs" t="Include" />
+              </e>
               <e p="PixelPerfectCameraEditor.cs" t="Include" />
               <e p="Unity.2D.PixelPerfect.Editor.asmdef" t="Include" />
             </e>
@@ -843,7 +903,7 @@
               <e p="Unity.2D.PixelPerfect.asmdef" t="Include" />
             </e>
           </e>
-          <e p="com.unity.2d.psdimporter@3.1.6" t="Include">
+          <e p="com.unity.2d.psdimporter@4.0.2" t="Include">
             <e p="Editor" t="Include">
               <e p="Analytics.cs" t="Include" />
               <e p="AssemblyInfo.cs" t="Include" />
@@ -927,17 +987,22 @@
               <e p="Unity.2D.Psdimporter.Editor.asmdef" t="Include" />
             </e>
           </e>
-          <e p="com.unity.2d.spriteshape@4.1.4" t="Include">
+          <e p="com.unity.2d.spriteshape@5.1.0" t="Include">
             <e p="Editor" t="Include">
               <e p="AngleRangeController.cs" t="Include" />
               <e p="AngleRangeGUI.cs" t="Include" />
               <e p="AngleRangeView.cs" t="Include" />
+              <e p="AssemblyInfo.cs" t="Include" />
               <e p="ContextMenu.cs" t="Include" />
               <e p="EditorSpriteGUIUtility.cs" t="Include" />
               <e p="Handles" t="Include">
                 <e p="Shaders" t="Include">
                   <e p="Sprites-Inspector.shader" t="Include" />
                 </e>
+              </e>
+              <e p="ObjectMenuCreation" t="Include">
+                <e p="AssetCreation.cs" t="Include" />
+                <e p="GameObjectCreation.cs" t="Include" />
               </e>
               <e p="SceneDragAndDrop.cs" t="Include" />
               <e p="SpriteSelector.cs" t="Include" />
@@ -975,6 +1040,10 @@
               <e p="SpriteShapeGenerator.cs" t="Include" />
               <e p="SpriteShapeGeometryCache.cs" t="Include" />
               <e p="Unity.2D.SpriteShape.Runtime.asmdef" t="Include" />
+              <e p="UTess2D" t="Include">
+                <e p="ArraySlice.cs" t="Include" />
+                <e p="Tessellator.cs" t="Include" />
+              </e>
             </e>
           </e>
           <e p="com.unity.cinemachine@2.6.3" t="Include">
@@ -1343,7 +1412,7 @@
               </e>
             </e>
           </e>
-          <e p="com.unity.ide.rider@1.2.1" t="Include">
+          <e p="com.unity.ide.rider@2.0.7" t="Include">
             <e p="Rider" t="Include">
               <e p="Editor" t="Include">
                 <e p="com.unity.ide.rider.asmdef" t="Include" />
@@ -1355,10 +1424,21 @@
                   <e p="RiderAssetPostprocessor.cs" t="Include" />
                 </e>
                 <e p="ProjectGeneration" t="Include">
+                  <e p="AssemblyNameProvider.cs" t="Include" />
                   <e p="FileIOProvider.cs" t="Include" />
                   <e p="GUIDProvider.cs" t="Include" />
+                  <e p="IAssemblyNameProvider.cs" t="Include" />
+                  <e p="IFileIO.cs" t="Include" />
+                  <e p="IGenerator.cs" t="Include" />
+                  <e p="IGUIDGenerator.cs" t="Include" />
                   <e p="ProjectGeneration.cs" t="Include" />
+                  <e p="ProjectGenerationFlag.cs" t="Include" />
+                  <e p="SolutionGuidGenerator.cs" t="Include" />
                 </e>
+                <e p="Properties" t="Include">
+                  <e p="AssemblyInfo.cs" t="Include" />
+                </e>
+                <e p="RiderFileSystemWatcher.cs" t="Include" />
                 <e p="RiderInitializer.cs" t="Include" />
                 <e p="RiderScriptEditor.cs" t="Include" />
                 <e p="RiderScriptEditorData.cs" t="Include" />
@@ -1376,7 +1456,7 @@
                   <e p="FileSystemUtil.cs" t="Include" />
                   <e p="LibcNativeInterop.cs" t="Include" />
                   <e p="RiderMenu.cs" t="Include" />
-                  <e p="UnityUtils.cs" t="Include" />
+                  <e p="SerializableVersion.cs" t="Include" />
                 </e>
               </e>
             </e>
@@ -1903,7 +1983,7 @@
               <e p="Unity.Mathematics.Editor.asmdef" t="Include" />
             </e>
           </e>
-          <e p="com.unity.render-pipelines.core@8.3.1" t="Include">
+          <e p="com.unity.render-pipelines.core@10.2.2" t="Include">
             <e p="Editor" t="Include">
               <e p="CameraEditorUtils.cs" t="Include" />
               <e p="ContextualMenuDispatcher.cs" t="Include" />
@@ -1929,6 +2009,11 @@
               <e p="InspectorCurveEditor.cs" t="Include" />
               <e p="Lighting" t="Include">
                 <e p="CoreLightEditorUtilities.cs" t="Include" />
+                <e p="IESEngine.cs" t="Include" />
+                <e p="IESImporter.cs" t="Include" />
+                <e p="IESImporterEditor.cs" t="Include" />
+                <e p="IESObject.cs" t="Include" />
+                <e p="IESReader.cs" t="Include" />
               </e>
               <e p="LookDev" t="Include">
                 <e p="CameraController.cs" t="Include" />
@@ -1956,6 +2041,9 @@
               <e p="MaterialUpgrader.cs" t="Include" />
               <e p="PropertyFetcher.cs" t="Include" />
               <e p="QuaternionPropertyDrawer.cs" t="Include" />
+              <e p="RenderGraph" t="Include">
+                <e p="RenderGraphViewer.cs" t="Include" />
+              </e>
               <e p="ShaderGenerator" t="Include">
                 <e p="CSharpToHLSL.cs" t="Include" />
                 <e p="ShaderGeneratorMenu.cs" t="Include" />
@@ -1994,10 +2082,13 @@
                 <e p="CommandBufferPool.cs" t="Include" />
                 <e p="CommonStructs.cs" t="Include" />
                 <e p="ComponentSingleton.cs" t="Include" />
+                <e p="ConstantBuffer.cs" t="Include" />
+                <e p="CoreAttributes.cs" t="Include" />
                 <e p="CoreUnsafeUtils.cs" t="Include" />
                 <e p="DynamicArray.cs" t="Include" />
                 <e p="DynamicResolutionHandler.cs" t="Include" />
                 <e p="GlobalDynamicResolutionSettings.cs" t="Include" />
+                <e p="IVirtualTexturingEnabledRenderPipeline.cs" t="Include" />
                 <e p="ListBuffer.cs" t="Include" />
                 <e p="ObjectPools.cs" t="Include" />
                 <e p="ObservableList.cs" t="Include" />
@@ -2032,6 +2123,7 @@
                     <e p="DebugUIHandlerIntField.cs" t="Include" />
                     <e p="DebugUIHandlerPanel.cs" t="Include" />
                     <e p="DebugUIHandlerPersistentCanvas.cs" t="Include" />
+                    <e p="DebugUIHandlerRow.cs" t="Include" />
                     <e p="DebugUIHandlerToggle.cs" t="Include" />
                     <e p="DebugUIHandlerToggleHistory.cs" t="Include" />
                     <e p="DebugUIHandlerUIntField.cs" t="Include" />
@@ -2059,11 +2151,14 @@
               <e p="RenderGraph" t="Include">
                 <e p="RenderGraph.cs" t="Include" />
                 <e p="RenderGraphBuilder.cs" t="Include" />
+                <e p="RenderGraphDefaultResources.cs" t="Include" />
                 <e p="RenderGraphLogger.cs" t="Include" />
                 <e p="RenderGraphObjectPool.cs" t="Include" />
+                <e p="RenderGraphPass.cs" t="Include" />
                 <e p="RenderGraphProfileId.cs" t="Include" />
-                <e p="RenderGraphResource.cs" t="Include" />
+                <e p="RenderGraphResourcePool.cs" t="Include" />
                 <e p="RenderGraphResourceRegistry.cs" t="Include" />
+                <e p="RenderGraphResources.cs" t="Include" />
               </e>
               <e p="ShaderGenerator" t="Include">
                 <e p="ShaderGeneratorAttributes.cs" t="Include" />
@@ -2082,6 +2177,7 @@
                 <e p="BitArray.cs" t="Include" />
                 <e p="CameraCaptureBridge.cs" t="Include" />
                 <e p="ColorUtils.cs" t="Include" />
+                <e p="CoreMatrixUtils.cs" t="Include" />
                 <e p="CoreRenderPipelinePreferences.cs" t="Include" />
                 <e p="CoreUtils.cs" t="Include" />
                 <e p="DelegateUtility.cs" t="Include" />
@@ -2101,6 +2197,9 @@
                 <e p="VolumeParameter.cs" t="Include" />
                 <e p="VolumeProfile.cs" t="Include" />
                 <e p="VolumeStack.cs" t="Include" />
+              </e>
+              <e p="XR" t="Include">
+                <e p="XRGraphicsAutomatedTests.cs" t="Include" />
               </e>
             </e>
             <e p="ShaderLibrary" t="Include">
@@ -2129,10 +2228,12 @@
               <e p="EntityLighting.hlsl" t="Include" />
               <e p="Filtering.hlsl" t="Include" />
               <e p="GeometricTools.hlsl" t="Include" />
+              <e p="GraniteShaderLibBase.hlsl" t="Include" />
               <e p="ImageBasedLighting.hlsl" t="Include" />
               <e p="Macros.hlsl" t="Include" />
               <e p="NormalSurfaceGradient.hlsl" t="Include" />
               <e p="Packing.hlsl" t="Include" />
+              <e p="ParallaxMapping.hlsl" t="Include" />
               <e p="PerPixelDisplacement.hlsl" t="Include" />
               <e p="PhysicalCamera.hlsl" t="Include" />
               <e p="Random.hlsl" t="Include" />
@@ -2152,13 +2253,16 @@
               <e p="SpaceFillingCurves.hlsl" t="Include" />
               <e p="SpaceTransforms.hlsl" t="Include" />
               <e p="Tessellation.hlsl" t="Include" />
+              <e p="TextureStack.hlsl" t="Include" />
               <e p="Unity.RenderPipelines.Core.ShaderLibrary.asmdef" t="Include" />
+              <e p="UnityDOTSInstancing.hlsl" t="Include" />
               <e p="UnityInstancing.hlsl" t="Include" />
               <e p="Version.hlsl" t="Include" />
+              <e p="VirtualTexturing.hlsl" t="Include" />
               <e p="VolumeRendering.hlsl" t="Include" />
             </e>
           </e>
-          <e p="com.unity.render-pipelines.universal@8.3.1" t="Include">
+          <e p="com.unity.render-pipelines.universal@10.2.2" t="Include">
             <e p="Editor" t="Include">
               <e p="2D" t="Include">
                 <e p="CinemachineUniversalPixelPerfectEditor.cs" t="Include" />
@@ -2237,6 +2341,7 @@
                 </e>
                 <e p="SortingLayerDropDown.cs" t="Include" />
               </e>
+              <e p="AssemblyInfo.cs" t="Include" />
               <e p="AssetPostProcessors" t="Include">
                 <e p="AutodeskInteractiveMaterialImport.cs" t="Include" />
                 <e p="FBXArnoldSurfaceMaterialDescriptionPreprocessor.cs" t="Include" />
@@ -2276,6 +2381,7 @@
                 <e p="NewRendererFeature.cs.txt" t="Include" />
                 <e p="NewRendererFeatureDropdownItem.cs" t="Include" />
                 <e p="RenderObjectsPassFeatureEditor.cs" t="Include" />
+                <e p="ScreenSpaceAmbientOcclusionEditor.cs" t="Include" />
               </e>
               <e p="RenderStateDataEditor.cs" t="Include" />
               <e p="SavedParameter.cs" t="Include" />
@@ -2283,14 +2389,19 @@
               <e p="ScriptableRendererFeatureEditor.cs" t="Include" />
               <e p="ShaderGraph" t="Include">
                 <e p="AssetCallbacks" t="Include">
+                  <e p="CreateLitShaderGraph.cs" t="Include" />
                   <e p="CreateSpriteLitShaderGraph.cs" t="Include" />
                   <e p="CreateSpriteUnlitShaderGraph.cs" t="Include" />
+                  <e p="CreateUnlitShaderGraph.cs" t="Include" />
                 </e>
                 <e p="Includes" t="Include">
+                  <e p="DepthNormalsOnlyPass.hlsl" t="Include" />
                   <e p="DepthOnlyPass.hlsl" t="Include" />
                   <e p="LightingMetaPass.hlsl" t="Include" />
                   <e p="PBR2DPass.hlsl" t="Include" />
                   <e p="PBRForwardPass.hlsl" t="Include" />
+                  <e p="PBRGBufferPass.hlsl" t="Include" />
+                  <e p="ShaderPass.hlsl" t="Include" />
                   <e p="ShadowCasterPass.hlsl" t="Include" />
                   <e p="SpriteForwardPass.hlsl" t="Include" />
                   <e p="SpriteLitPass.hlsl" t="Include" />
@@ -2299,27 +2410,17 @@
                   <e p="UnlitPass.hlsl" t="Include" />
                   <e p="Varyings.hlsl" t="Include" />
                 </e>
-                <e p="Interfaces" t="Include">
-                  <e p="ISpriteLitSubShader.cs" t="Include" />
-                  <e p="ISpriteUnlitSubShader.cs" t="Include" />
+                <e p="Targets" t="Include">
+                  <e p="UniversalLitSubTarget.cs" t="Include" />
+                  <e p="UniversalSpriteLitSubTarget.cs" t="Include" />
+                  <e p="UniversalSpriteUnlitSubTarget.cs" t="Include" />
+                  <e p="UniversalTarget.cs" t="Include" />
+                  <e p="UniversalUnlitSubTarget.cs" t="Include" />
                 </e>
-                <e p="MasterNodes" t="Include">
-                  <e p="SpriteLitMasterNode.cs" t="Include" />
-                  <e p="SpriteSettingsView.cs" t="Include" />
-                  <e p="SpriteUnlitMasterNode.cs" t="Include" />
-                </e>
-                <e p="SubShaders" t="Include">
-                  <e p="UniversalPBRSubShader.cs" t="Include" />
-                  <e p="UniversalSpriteLitSubShader.cs" t="Include" />
-                  <e p="UniversalSpriteUnlitSubShader.cs" t="Include" />
-                  <e p="UniversalUnlitSubShader.cs" t="Include" />
-                </e>
-                <e p="Templates" t="Include">
-                  <e p="BuildSurfaceDescriptionInputs.template.hlsl" t="Include" />
-                  <e p="BuildVertexDescriptionInputs.template.hlsl" t="Include" />
-                </e>
-                <e p="UniversalShaderGraphResources.cs" t="Include" />
-                <e p="UniversalShaderGraphUtils.cs" t="Include" />
+                <e p="UniversalBlockFields.cs" t="Include" />
+                <e p="UniversalFields.cs" t="Include" />
+                <e p="UniversalStructFields.cs" t="Include" />
+                <e p="UniversalStructs.cs" t="Include" />
               </e>
               <e p="ShaderGUI" t="Include">
                 <e p="BaseShaderGUI.cs" t="Include" />
@@ -2335,6 +2436,7 @@
                 </e>
                 <e p="ShadingModels" t="Include">
                   <e p="BakedLitGUI.cs" t="Include" />
+                  <e p="LitDetailGUI.cs" t="Include" />
                   <e p="LitGUI.cs" t="Include" />
                   <e p="SimpleLitGUI.cs" t="Include" />
                 </e>
@@ -2358,14 +2460,17 @@
             <e p="Runtime" t="Include">
               <e p="2D" t="Include">
                 <e p="CinemachineUniversalPixelPerfect.cs" t="Include" />
-                <e p="CompositeShadowCaster2D.cs" t="Include" />
                 <e p="Light2D.cs" t="Include" />
+                <e p="Light2DAuthoring.cs" t="Include" />
                 <e p="Light2DBlendStyle.cs" t="Include" />
+                <e p="Light2DCullResult.cs" t="Include" />
+                <e p="Light2DManager.cs" t="Include" />
                 <e p="Light2DPoint.cs" t="Include" />
                 <e p="Light2DShape.cs" t="Include" />
                 <e p="Light2DStub.cs" t="Include" />
                 <e p="LightUtility.cs" t="Include" />
                 <e p="Passes" t="Include">
+                  <e p="IRenderPass2D.cs" t="Include" />
                   <e p="Render2DLightingPass.cs" t="Include" />
                   <e p="Utility" t="Include">
                     <e p="Light2DLookupTexture.cs" t="Include" />
@@ -2376,20 +2481,29 @@
                 <e p="PixelPerfectCameraInternal.cs" t="Include" />
                 <e p="Renderer2D.cs" t="Include" />
                 <e p="Renderer2DData.cs" t="Include" />
-                <e p="ShadowCaster2D.cs" t="Include" />
+                <e p="Renderer2DDataAuthoring.cs" t="Include" />
                 <e p="Shadows" t="Include">
+                  <e p="CompositeShadowCaster2D.cs" t="Include" />
+                  <e p="ShadowCaster2D.cs" t="Include" />
                   <e p="ShadowCasterGroup2D.cs" t="Include" />
                   <e p="ShadowCasterGroup2DManager.cs" t="Include" />
+                  <e p="ShadowRendering.cs" t="Include" />
                   <e p="ShadowUtility.cs" t="Include" />
                 </e>
               </e>
               <e p="AssemblyInfo.cs" t="Include" />
+              <e p="ComponentUtility.cs" t="Include" />
               <e p="Data" t="Include">
                 <e p="PostProcessData.cs" t="Include" />
                 <e p="RenderStateData.cs" t="Include" />
                 <e p="UniversalRenderPipelineAsset.cs" t="Include" />
                 <e p="UniversalRenderPipelineEditorResources.cs" t="Include" />
+                <e p="XRSystemData.cs" t="Include" />
               </e>
+              <e p="DeferredLights.cs" t="Include" />
+              <e p="DeferredShaderData.cs" t="Include" />
+              <e p="DeferredTiler.cs" t="Include" />
+              <e p="Deprecated.cs" t="Include" />
               <e p="External" t="Include">
                 <e p="LibTessDotNet" t="Include">
                   <e p="Dict.cs" t="Include" />
@@ -2431,10 +2545,13 @@
                 <e p="ColorGradingLutPass.cs" t="Include" />
                 <e p="CopyColorPass.cs" t="Include" />
                 <e p="CopyDepthPass.cs" t="Include" />
+                <e p="DeferredPass.cs" t="Include" />
+                <e p="DepthNormalOnlyPass.cs" t="Include" />
                 <e p="DepthOnlyPass.cs" t="Include" />
                 <e p="DrawObjectsPass.cs" t="Include" />
                 <e p="DrawSkyboxPass.cs" t="Include" />
                 <e p="FinalBlitPass.cs" t="Include" />
+                <e p="GBufferPass.cs" t="Include" />
                 <e p="InvokeOnRenderObjectCallbackPass.cs" t="Include" />
                 <e p="MainLightShadowCasterPass.cs" t="Include" />
                 <e p="PostProcessPass.cs" t="Include" />
@@ -2442,11 +2559,15 @@
                 <e p="SceneViewDepthCopy.cs" t="Include" />
                 <e p="ScreenSpaceShadowResolvePass.cs" t="Include" />
                 <e p="ScriptableRenderPass.cs" t="Include" />
+                <e p="TileDepthRangePass.cs" t="Include" />
                 <e p="TransparentSettingsPass.cs" t="Include" />
+                <e p="XROcclusionMeshPass.cs" t="Include" />
               </e>
               <e p="PostProcessUtils.cs" t="Include" />
               <e p="RendererFeatures" t="Include">
+                <e p="DisallowMultipleRendererFeature.cs" t="Include" />
                 <e p="RenderObjects.cs" t="Include" />
+                <e p="ScreenSpaceAmbientOcclusion.cs" t="Include" />
               </e>
               <e p="RenderingUtils.cs" t="Include" />
               <e p="RenderTargetHandle.cs" t="Include" />
@@ -2458,28 +2579,41 @@
               <e p="ShaderData.cs" t="Include" />
               <e p="ShaderUtils.cs" t="Include" />
               <e p="ShadowUtils.cs" t="Include" />
+              <e p="StencilUsage.cs" t="Include" />
               <e p="Unity.RenderPipelines.Universal.Runtime.asmdef" t="Include" />
               <e p="UniversalAdditionalCameraData.cs" t="Include" />
               <e p="UniversalAdditionalLightData.cs" t="Include" />
               <e p="UniversalRenderPipeline.cs" t="Include" />
               <e p="UniversalRenderPipelineCore.cs" t="Include" />
+              <e p="XR" t="Include">
+                <e p="XRLayout.cs" t="Include" />
+                <e p="XRPass.cs" t="Include" />
+                <e p="XRSystem.cs" t="Include" />
+              </e>
             </e>
             <e p="ShaderLibrary" t="Include">
               <e p="Core.hlsl" t="Include" />
               <e p="DeclareDepthTexture.hlsl" t="Include" />
+              <e p="DeclareNormalsTexture.hlsl" t="Include" />
               <e p="DeclareOpaqueTexture.hlsl" t="Include" />
               <e p="Deprecated.hlsl" t="Include" />
               <e p="Input.hlsl" t="Include" />
               <e p="Lighting.hlsl" t="Include" />
               <e p="MetaInput.hlsl" t="Include" />
               <e p="Particles.hlsl" t="Include" />
+              <e p="ParticlesInstancing.hlsl" t="Include" />
               <e p="ShaderGraphFunctions.hlsl" t="Include" />
               <e p="ShaderTypes.cs" t="Include" />
               <e p="ShaderTypes.cs.hlsl" t="Include" />
+              <e p="ShaderVariablesFunctions.hlsl" t="Include" />
               <e p="Shadows.hlsl" t="Include" />
+              <e p="SSAO.hlsl" t="Include" />
+              <e p="SurfaceData.hlsl" t="Include" />
               <e p="SurfaceInput.hlsl" t="Include" />
               <e p="Unity.RenderPipelines.Universal.ShaderLibrary.asmdef" t="Include" />
+              <e p="UnityGBuffer.hlsl" t="Include" />
               <e p="UnityInput.hlsl" t="Include" />
+              <e p="UniversalDOTSInstancing.hlsl" t="Include" />
             </e>
             <e p="Shaders" t="Include">
               <e p="2D" t="Include">
@@ -2499,9 +2633,12 @@
               <e p="BakedLit.shader" t="Include" />
               <e p="BakedLitInput.hlsl" t="Include" />
               <e p="BakedLitMetaPass.hlsl" t="Include" />
+              <e p="ComplexLit.shader" t="Include" />
+              <e p="DepthNormalsPass.hlsl" t="Include" />
               <e p="DepthOnlyPass.hlsl" t="Include" />
               <e p="Lit.shader" t="Include" />
               <e p="LitForwardPass.hlsl" t="Include" />
+              <e p="LitGBufferPass.hlsl" t="Include" />
               <e p="LitInput.hlsl" t="Include" />
               <e p="LitMetaPass.hlsl" t="Include" />
               <e p="Nature" t="Include">
@@ -2518,11 +2655,15 @@
                 <e p="SpeedTree8Passes.hlsl" t="Include" />
               </e>
               <e p="Particles" t="Include">
+                <e p="ParticlesEditorPass.hlsl" t="Include" />
+                <e p="ParticlesInput.hlsl" t="Include" />
                 <e p="ParticlesLit.shader" t="Include" />
                 <e p="ParticlesLitForwardPass.hlsl" t="Include" />
+                <e p="ParticlesLitGbufferPass.hlsl" t="Include" />
                 <e p="ParticlesLitInput.hlsl" t="Include" />
                 <e p="ParticlesSimpleLit.shader" t="Include" />
                 <e p="ParticlesSimpleLitForwardPass.hlsl" t="Include" />
+                <e p="ParticlesSimpleLitGBufferPass.hlsl" t="Include" />
                 <e p="ParticlesSimpleLitInput.hlsl" t="Include" />
                 <e p="ParticlesUnlit.shader" t="Include" />
                 <e p="ParticlesUnlitForwardPass.hlsl" t="Include" />
@@ -2548,6 +2689,7 @@
               <e p="ShadowCasterPass.hlsl" t="Include" />
               <e p="SimpleLit.shader" t="Include" />
               <e p="SimpleLitForwardPass.hlsl" t="Include" />
+              <e p="SimpleLitGBufferPass.hlsl" t="Include" />
               <e p="SimpleLitInput.hlsl" t="Include" />
               <e p="SimpleLitMetaPass.hlsl" t="Include" />
               <e p="Terrain" t="Include">
@@ -2572,14 +2714,24 @@
                 <e p="Blit.shader" t="Include" />
                 <e p="CopyDepth.shader" t="Include" />
                 <e p="CopyDepthPass.hlsl" t="Include" />
+                <e p="Deferred.hlsl" t="Include" />
                 <e p="FallbackError.shader" t="Include" />
+                <e p="Fullscreen.hlsl" t="Include" />
+                <e p="MaterialError.shader" t="Include" />
                 <e p="Sampling.shader" t="Include" />
+                <e p="ScreenSpaceAmbientOcclusion.shader" t="Include" />
                 <e p="ScreenSpaceShadows.shader" t="Include" />
+                <e p="StencilDeferred.shader" t="Include" />
                 <e p="Universal2D.hlsl" t="Include" />
+              </e>
+              <e p="XR" t="Include">
+                <e p="XRMirrorView.hlsl" t="Include" />
+                <e p="XRMirrorView.shader" t="Include" />
+                <e p="XROcclusionMesh.shader" t="Include" />
               </e>
             </e>
           </e>
-          <e p="com.unity.searcher@4.0.9" t="Include">
+          <e p="com.unity.searcher@4.3.1" t="Include">
             <e p="Editor" t="Include">
               <e p="AssemblyInfo.cs" t="Include" />
               <e p="Resources" t="Include">
@@ -2600,31 +2752,24 @@
               <e p="Unity.Searcher.Editor.asmdef" t="Include" />
             </e>
           </e>
-          <e p="com.unity.shadergraph@8.3.1" t="Include">
+          <e p="com.unity.shadergraph@10.2.2" t="Include">
             <e p="Editor" t="Include">
               <e p="AssemblyInfo.cs" t="Include" />
               <e p="AssetCallbacks" t="Include">
                 <e p="CreateShaderGraph.cs" t="Include" />
                 <e p="CreateShaderSubGraph.cs" t="Include" />
-              </e>
-              <e p="CodeGen" t="Include">
-                <e p="ActiveFields.cs" t="Include" />
-                <e p="GenerationResults.cs" t="Include" />
-                <e p="GenerationUtils.cs" t="Include" />
-                <e p="GraphCompilationResult.cs" t="Include" />
-                <e p="MatrixNames.cs" t="Include" />
-                <e p="PropertyCollector.cs" t="Include" />
-                <e p="ShaderGenerator.cs" t="Include" />
-                <e p="ShaderGeneratorNames.cs" t="Include" />
-                <e p="ShaderSourceMap.cs" t="Include" />
-                <e p="ShaderSpliceUtil.cs" t="Include" />
-                <e p="ShaderStringBuilder.cs" t="Include" />
-                <e p="SubShaderGenerator.cs" t="Include" />
+                <e p="CreateVFXShaderGraph.cs" t="Include" />
               </e>
               <e p="Data" t="Include">
                 <e p="Attributes" t="Include">
                   <e p="BuiltinKeywordAttribute.cs" t="Include" />
+                  <e p="ContextFilterableAttribute.cs" t="Include" />
+                  <e p="InspectableAttribute.cs" t="Include" />
+                  <e p="NeverAllowedByTargetAttribute.cs" t="Include" />
+                  <e p="SGPropertyDrawerAttribute.cs" t="Include" />
+                  <e p="SRPFilterAttribute.cs" t="Include" />
                 </e>
+                <e p="ContextData.cs" t="Include" />
                 <e p="Enumerations" t="Include">
                   <e p="Precision.cs" t="Include" />
                 </e>
@@ -2646,10 +2791,15 @@
                   <e p="GradientInputMaterialSlot.cs" t="Include" />
                   <e p="GradientMaterialSlot.cs" t="Include" />
                   <e p="GradientShaderProperty.cs" t="Include" />
+                  <e p="GraphConcretization.cs" t="Include" />
                   <e p="GraphData.cs" t="Include" />
+                  <e p="GraphDataUtils.cs" t="Include" />
+                  <e p="GraphSetup.cs" t="Include" />
+                  <e p="GraphValidation.cs" t="Include" />
                   <e p="GroupData.cs" t="Include" />
                   <e p="IMaterialGraphAsset.cs" t="Include" />
                   <e p="IMaterialSlotHasValue.cs" t="Include" />
+                  <e p="LightmappingShaderProperties.cs" t="Include" />
                   <e p="MaterialSlot.cs" t="Include" />
                   <e p="Matrix2MaterialSlot.cs" t="Include" />
                   <e p="Matrix2ShaderProperty.cs" t="Include" />
@@ -2672,6 +2822,7 @@
                   <e p="SerializableMesh.cs" t="Include" />
                   <e p="SerializableTexture.cs" t="Include" />
                   <e p="SerializableTextureArray.cs" t="Include" />
+                  <e p="SerializableVirtualTexture.cs" t="Include" />
                   <e p="ShaderGraphRequirements.cs" t="Include" />
                   <e p="ShaderInput.cs" t="Include" />
                   <e p="ShaderKeyword.cs" t="Include" />
@@ -2700,6 +2851,9 @@
                   <e p="VectorShaderProperty.cs" t="Include" />
                   <e p="VertexColorMaterialSlot.cs" t="Include" />
                   <e p="ViewDirectionMaterialSlot.cs" t="Include" />
+                  <e p="VirtualTextureInputMaterialSlot.cs" t="Include" />
+                  <e p="VirtualTextureMaterialSlot.cs" t="Include" />
+                  <e p="VirtualTextureShaderProperty.cs" t="Include" />
                 </e>
                 <e p="Implementation" t="Include">
                   <e p="Edge.cs" t="Include" />
@@ -2717,14 +2871,13 @@
                     <e p="IEdge.cs" t="Include" />
                     <e p="INode.cs" t="Include" />
                     <e p="IOnAssetEnabled.cs" t="Include" />
-                    <e p="ISlot.cs" t="Include" />
                     <e p="SlotReference.cs" t="Include" />
                   </e>
                   <e p="ICanChangeShaderGUI.cs" t="Include" />
                   <e p="IGeneratesBodyCode.cs" t="Include" />
                   <e p="IGeneratesFunction.cs" t="Include" />
                   <e p="IGroupItem.cs" t="Include" />
-                  <e p="IHasSettings.cs" t="Include" />
+                  <e p="IInspectable.cs" t="Include" />
                   <e p="IMayRequireBitangent.cs" t="Include" />
                   <e p="IMayRequireCameraOpaqueTexture.cs" t="Include" />
                   <e p="IMayRequireDepthTexture.cs" t="Include" />
@@ -2736,22 +2889,28 @@
                   <e p="IMayRequireTangent.cs" t="Include" />
                   <e p="IMayRequireTime.cs" t="Include" />
                   <e p="IMayRequireVertexColor.cs" t="Include" />
+                  <e p="IMayRequireVertexID.cs" t="Include" />
                   <e p="IMayRequireVertexSkinning.cs" t="Include" />
                   <e p="IMayRequireViewDirection.cs" t="Include" />
+                  <e p="IPropertyDrawer.cs" t="Include" />
                   <e p="NeededCoordinateSpace.cs" t="Include" />
                 </e>
-                <e p="MasterNodes" t="Include">
-                  <e p="AlphaMode.cs" t="Include" />
-                  <e p="DistortionMode.cs" t="Include" />
-                  <e p="DoubleSidedMode.cs" t="Include" />
-                  <e p="EmissionGIMode.cs" t="Include" />
-                  <e p="IPBRSubShader.cs" t="Include" />
-                  <e p="ISubShader.cs" t="Include" />
-                  <e p="IUnlitSubShader.cs" t="Include" />
-                  <e p="PBRMasterNode.cs" t="Include" />
-                  <e p="SpecularOcclusionMode.cs" t="Include" />
-                  <e p="UnlitMasterNode.cs" t="Include" />
-                  <e p="VfxMasterNode.cs" t="Include" />
+                <e p="Legacy" t="Include">
+                  <e p="AbstractMaterialNode0.cs" t="Include" />
+                  <e p="Edge0.cs" t="Include" />
+                  <e p="GraphData0.cs" t="Include" />
+                  <e p="GroupData0.cs" t="Include" />
+                  <e p="ILegacyTarget.cs" t="Include" />
+                  <e p="IMasterNode1.cs" t="Include" />
+                  <e p="PBRMasterNode1.cs" t="Include" />
+                  <e p="SerializableGuid.cs" t="Include" />
+                  <e p="ShaderInput0.cs" t="Include" />
+                  <e p="SlotReference0.cs" t="Include" />
+                  <e p="SpriteLitMasterNode1.cs" t="Include" />
+                  <e p="SpriteUnlitMasterNode1.cs" t="Include" />
+                  <e p="StickyNoteData0.cs" t="Include" />
+                  <e p="UnlitMasterNode1.cs" t="Include" />
+                  <e p="VisualEffectMasterNode1.cs" t="Include" />
                 </e>
                 <e p="Nodes" t="Include">
                   <e p="AbstractMaterialNode.cs" t="Include" />
@@ -2788,6 +2947,7 @@
                       <e p="ColorspaceConversion.cs" t="Include" />
                     </e>
                   </e>
+                  <e p="BlockNode.cs" t="Include" />
                   <e p="Channel" t="Include">
                     <e p="CombineNode.cs" t="Include" />
                     <e p="FlipNode.cs" t="Include" />
@@ -2799,7 +2959,6 @@
                   <e p="FunctionMultiInput.cs" t="Include" />
                   <e p="GeometryNode.cs" t="Include" />
                   <e p="GuidEncoder.cs" t="Include" />
-                  <e p="IMasterNode.cs" t="Include" />
                   <e p="Input" t="Include">
                     <e p="Basic" t="Include">
                       <e p="BooleanNode.cs" t="Include" />
@@ -2854,21 +3013,24 @@
                     </e>
                     <e p="Texture" t="Include">
                       <e p="CubemapAssetNode.cs" t="Include" />
+                      <e p="ProceduralVirtualTextureNode.cs" t="Include" />
                       <e p="SampleCubemapNode.cs" t="Include" />
+                      <e p="SampleRawCubemapNode.cs" t="Include" />
                       <e p="SamplerStateNode.cs" t="Include" />
                       <e p="SampleTexture2DArrayNode.cs" t="Include" />
                       <e p="SampleTexture2DLODNode.cs" t="Include" />
                       <e p="SampleTexture2DNode.cs" t="Include" />
                       <e p="SampleTexture3DNode.cs" t="Include" />
+                      <e p="SampleVirtualTextureNode.cs" t="Include" />
                       <e p="TexelSizeNode.cs" t="Include" />
                       <e p="Texture2DArrayAssetNode.cs" t="Include" />
                       <e p="Texture2DAssetNode.cs" t="Include" />
                       <e p="Texture3DAssetNode.cs" t="Include" />
+                      <e p="TextureStackNode.cs" t="Include" />
                     </e>
                   </e>
                   <e p="IPropertyFromNode.cs" t="Include" />
-                  <e p="MasterNode.cs" t="Include" />
-                  <e p="MaterialMasterNode.cs" t="Include" />
+                  <e p="LegacyUnknownTypeNode.cs" t="Include" />
                   <e p="Math" t="Include">
                     <e p="Advanced" t="Include">
                       <e p="AbsoluteNode.cs" t="Include" />
@@ -2957,6 +3119,11 @@
                       <e p="TriangleWaveNode.cs" t="Include" />
                     </e>
                   </e>
+                  <e p="Mesh Deformation" t="Include">
+                    <e p="ComputeDeformNode.cs" t="Include" />
+                    <e p="LinearBlendSkinningNode.cs" t="Include" />
+                  </e>
+                  <e p="NodeClassCache.cs" t="Include" />
                   <e p="NormalMapSpace.cs" t="Include" />
                   <e p="Procedural" t="Include">
                     <e p="CheckerboardNode.cs" t="Include" />
@@ -2973,6 +3140,7 @@
                       <e p="RoundedRectangleNode.cs" t="Include" />
                     </e>
                   </e>
+                  <e p="RedirectNode.cs" t="Include" />
                   <e p="ShaderStage.cs" t="Include" />
                   <e p="SlotValue.cs" t="Include" />
                   <e p="TitleAttribute.cs" t="Include" />
@@ -2993,10 +3161,14 @@
                       <e p="OrNode.cs" t="Include" />
                     </e>
                     <e p="PreviewNode.cs" t="Include" />
+                    <e p="RedirectNodeData.cs" t="Include" />
+                    <e p="RedirectNodeView.cs" t="Include" />
                     <e p="SubGraphNode.cs" t="Include" />
                   </e>
                   <e p="UV" t="Include">
                     <e p="FlipbookNode.cs" t="Include" />
+                    <e p="ParallaxMappingNode.cs" t="Include" />
+                    <e p="ParallaxOcclusionMappingNode.cs" t="Include" />
                     <e p="PolarCoordinatesNode.cs" t="Include" />
                     <e p="RadialShearNode.cs" t="Include" />
                     <e p="RotateNode.cs" t="Include" />
@@ -3005,20 +3177,10 @@
                     <e p="TriplanarNode.cs" t="Include" />
                     <e p="TwirlNode.cs" t="Include" />
                   </e>
-                  <e p="Vertex Skinning" t="Include">
-                    <e p="LinearBlendSkinningNode.cs" t="Include" />
-                  </e>
                 </e>
                 <e p="SubGraph" t="Include">
                   <e p="SubGraphAsset.cs" t="Include" />
                   <e p="SubGraphOutputNode.cs" t="Include" />
-                </e>
-                <e p="SurfaceModel" t="Include">
-                  <e p="SurfaceMaterialOptions.cs" t="Include" />
-                  <e p="SurfaceMaterialTags.cs" t="Include" />
-                </e>
-                <e p="UniversalPipeline" t="Include">
-                  <e p="UniversalFastBlinnMasterNode.cs" t="Include" />
                 </e>
                 <e p="Util" t="Include">
                   <e p="DictionaryPool.cs" t="Include" />
@@ -3033,6 +3195,7 @@
                   <e p="ListPool.cs" t="Include" />
                   <e p="Logging.cs" t="Include" />
                   <e p="ObjectPool.cs" t="Include" />
+                  <e p="PooledHashSet.cs" t="Include" />
                   <e p="PooledList.cs" t="Include" />
                   <e p="PooledObject.cs" t="Include" />
                   <e p="PrecisionUtil.cs" t="Include" />
@@ -3050,9 +3213,8 @@
               <e p="DefaultShaderIncludes.cs" t="Include" />
               <e p="Drawing" t="Include">
                 <e p="Blackboard" t="Include">
-                  <e p="BlackboardFieldKeywordView.cs" t="Include" />
-                  <e p="BlackboardFieldPropertyView.cs" t="Include" />
                   <e p="BlackboardFieldView.cs" t="Include" />
+                  <e p="BlackboardInputInfo.cs" t="Include" />
                   <e p="BlackboardProvider.cs" t="Include" />
                 </e>
                 <e p="Colors" t="Include">
@@ -3077,6 +3239,7 @@
                   <e p="EnumConversionControl.cs" t="Include" />
                   <e p="GradientControl.cs" t="Include" />
                   <e p="IControlAttribute.cs" t="Include" />
+                  <e p="IdentifierControl.cs" t="Include" />
                   <e p="IntegerControl.cs" t="Include" />
                   <e p="ObjectControl.cs" t="Include" />
                   <e p="PopupControl.cs" t="Include" />
@@ -3090,7 +3253,39 @@
                 <e p="EdgeConnectorListener.cs" t="Include" />
                 <e p="INodeModificationListener.cs" t="Include" />
                 <e p="Inspector" t="Include">
+                  <e p="InspectorView.cs" t="Include" />
                   <e p="MasterPreviewView.cs" t="Include" />
+                  <e p="PropertyDrawers" t="Include">
+                    <e p="AbstractMaterialNodePropertyDrawer.cs" t="Include" />
+                    <e p="BoolPropertyDrawer.cs" t="Include" />
+                    <e p="ColorPropertyDrawer.cs" t="Include" />
+                    <e p="CubemapPropertyDrawer.cs" t="Include" />
+                    <e p="CustomFunctionNodePropertyDrawer.cs" t="Include" />
+                    <e p="DropdownPropertyDrawer.cs" t="Include" />
+                    <e p="EnumPropertyDrawer.cs" t="Include" />
+                    <e p="FloatPropertyDrawer.cs" t="Include" />
+                    <e p="GradientPropertyDrawer.cs" t="Include" />
+                    <e p="GraphDataPropertyDrawer.cs" t="Include" />
+                    <e p="IntegerPropertyDrawer.cs" t="Include" />
+                    <e p="IShaderPropertyDrawer.cs" t="Include" />
+                    <e p="MatrixPropertyDrawer.cs" t="Include" />
+                    <e p="SampleVirtualTextureNodePropertyDrawer.cs" t="Include" />
+                    <e p="ShaderInputPropertyDrawer.cs" t="Include" />
+                    <e p="SubGraphOutputNodePropertyDrawer.cs" t="Include" />
+                    <e p="TextPropertyDrawer.cs" t="Include" />
+                    <e p="Texture2DArrayPropertyDrawer.cs" t="Include" />
+                    <e p="Texture2DPropertyDrawer.cs" t="Include" />
+                    <e p="Texture3DPropertyDrawer.cs" t="Include" />
+                    <e p="ToggleDataPropertyDrawer.cs" t="Include" />
+                    <e p="Vector2PropertyDrawer.cs" t="Include" />
+                    <e p="Vector3PropertyDrawer.cs" t="Include" />
+                    <e p="Vector4PropertyDrawer.cs" t="Include" />
+                  </e>
+                  <e p="PropertyDrawerUtils.cs" t="Include" />
+                  <e p="TabbedView" t="Include">
+                    <e p="TabbedView.cs" t="Include" />
+                    <e p="TabButton.cs" t="Include" />
+                  </e>
                   <e p="WindowDockingLayout.cs" t="Include" />
                 </e>
                 <e p="Manipulators" t="Include">
@@ -3107,22 +3302,25 @@
                 <e p="SearchWindowAdapter.cs" t="Include" />
                 <e p="SearchWindowProvider.cs" t="Include" />
                 <e p="Views" t="Include">
+                  <e p="ContextView.cs" t="Include" />
                   <e p="FloatField.cs" t="Include" />
                   <e p="GradientEdge.cs" t="Include" />
                   <e p="GraphEditorView.cs" t="Include" />
+                  <e p="GraphSubWindow.cs" t="Include" />
+                  <e p="HelpBoxRow.cs" t="Include" />
                   <e p="HlslFunctionView.cs" t="Include" />
+                  <e p="IdentifierField.cs" t="Include" />
                   <e p="IShaderNodeView.cs" t="Include" />
-                  <e p="MasterNodeSettingsView.cs" t="Include" />
                   <e p="MaterialGraphView.cs" t="Include" />
                   <e p="MaterialNodeView.cs" t="Include" />
                   <e p="NodeSettingsView.cs" t="Include" />
-                  <e p="PBRSettingsView.cs" t="Include" />
                   <e p="PortInputView.cs" t="Include" />
                   <e p="PreviewSceneResources.cs" t="Include" />
                   <e p="PropertyNodeView.cs" t="Include" />
                   <e p="PropertyRow.cs" t="Include" />
                   <e p="PropertySheet.cs" t="Include" />
                   <e p="ReorderableSlotListView.cs" t="Include" />
+                  <e p="ReorderableTextListView.cs" t="Include" />
                   <e p="ShaderGroup.cs" t="Include" />
                   <e p="ShaderPort.cs" t="Include" />
                   <e p="Slots" t="Include">
@@ -3140,7 +3338,109 @@
                     <e p="UVSlotControlView.cs" t="Include" />
                   </e>
                   <e p="StickyNote.cs" t="Include" />
-                  <e p="UnlitSettingsView.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Extensions" t="Include">
+                <e p="FieldExtensions.cs" t="Include" />
+                <e p="IConditionalExtensions.cs" t="Include" />
+                <e p="StencilExtensions.cs" t="Include" />
+              </e>
+              <e p="Generation" t="Include">
+                <e p="Attributes" t="Include">
+                  <e p="GenerateBlocksAttribute.cs" t="Include" />
+                </e>
+                <e p="Collections" t="Include">
+                  <e p="AssetCollection.cs" t="Include" />
+                  <e p="DefineCollection.cs" t="Include" />
+                  <e p="DependencyCollection.cs" t="Include" />
+                  <e p="FieldCollection.cs" t="Include" />
+                  <e p="IncludeCollection.cs" t="Include" />
+                  <e p="KeywordCollection.cs" t="Include" />
+                  <e p="PassCollection.cs" t="Include" />
+                  <e p="PragmaCollection.cs" t="Include" />
+                  <e p="RenderStateCollection.cs" t="Include" />
+                  <e p="StructCollection.cs" t="Include" />
+                </e>
+                <e p="Contexts" t="Include">
+                  <e p="TargetActiveBlockContext.cs" t="Include" />
+                  <e p="TargetFieldContext.cs" t="Include" />
+                  <e p="TargetPropertyGUIContext.cs" t="Include" />
+                  <e p="TargetSetupContext.cs" t="Include" />
+                </e>
+                <e p="Controls.cs" t="Include" />
+                <e p="Data" t="Include">
+                  <e p="ConditionalField.cs" t="Include" />
+                  <e p="FieldCondition.cs" t="Include" />
+                  <e p="FieldDependency.cs" t="Include" />
+                  <e p="KeywordEntry.cs" t="Include" />
+                </e>
+                <e p="Descriptors" t="Include">
+                  <e p="BlockFieldDescriptor.cs" t="Include" />
+                  <e p="FieldDescriptor.cs" t="Include" />
+                  <e p="IncludeDescriptor.cs" t="Include" />
+                  <e p="KeywordDescriptor.cs" t="Include" />
+                  <e p="PassDescriptor.cs" t="Include" />
+                  <e p="PragmaDescriptor.cs" t="Include" />
+                  <e p="RenderStateDescriptor.cs" t="Include" />
+                  <e p="StencilDescriptor.cs" t="Include" />
+                  <e p="StructDescriptor.cs" t="Include" />
+                  <e p="SubShaderDescriptor.cs" t="Include" />
+                </e>
+                <e p="Enumerations" t="Include">
+                  <e p="Blend.cs" t="Include" />
+                  <e p="BlendOp.cs" t="Include" />
+                  <e p="Cull.cs" t="Include" />
+                  <e p="IncludeLocation.cs" t="Include" />
+                  <e p="InstancingOptions.cs" t="Include" />
+                  <e p="KeywordDefinition.cs" t="Include" />
+                  <e p="KeywordScope.cs" t="Include" />
+                  <e p="KeywordType.cs" t="Include" />
+                  <e p="NormalDropOffSpace.cs" t="Include" />
+                  <e p="Platform.cs" t="Include" />
+                  <e p="PropertyType.cs" t="Include" />
+                  <e p="RenderQueue.cs" t="Include" />
+                  <e p="RenderType.cs" t="Include" />
+                  <e p="ShaderModel.cs" t="Include" />
+                  <e p="ShaderValueType.cs" t="Include" />
+                  <e p="StructFieldOptions.cs" t="Include" />
+                  <e p="ZTest.cs" t="Include" />
+                  <e p="ZWrite.cs" t="Include" />
+                </e>
+                <e p="GraphCode.cs" t="Include" />
+                <e p="IHasMetaData.cs" t="Include" />
+                <e p="OutputMetadata.cs" t="Include" />
+                <e p="Processors" t="Include">
+                  <e p="ActiveFields.cs" t="Include" />
+                  <e p="GenerationUtils.cs" t="Include" />
+                  <e p="Generator.cs" t="Include" />
+                  <e p="GraphCompilationResult.cs" t="Include" />
+                  <e p="MatrixNames.cs" t="Include" />
+                  <e p="PropertyCollector.cs" t="Include" />
+                  <e p="ShaderGeneratorNames.cs" t="Include" />
+                  <e p="ShaderSpliceUtil.cs" t="Include" />
+                  <e p="ShaderStringBuilder.cs" t="Include" />
+                </e>
+                <e p="ShaderGraphVfxAsset.cs" t="Include" />
+                <e p="SubTarget.cs" t="Include" />
+                <e p="Target.cs" t="Include" />
+                <e p="TargetResources" t="Include">
+                  <e p="BlockFields.cs" t="Include" />
+                  <e p="FieldDependencies.cs" t="Include" />
+                  <e p="Fields.cs" t="Include" />
+                  <e p="StructFields.cs" t="Include" />
+                  <e p="Structs.cs" t="Include" />
+                </e>
+                <e p="Targets" t="Include">
+                  <e p="PreviewTarget.cs" t="Include" />
+                  <e p="VFXTarget.cs" t="Include" />
+                </e>
+                <e p="Templates" t="Include">
+                  <e p="BuildSurfaceDescriptionInputs.template.hlsl" t="Include" />
+                  <e p="BuildVertexDescriptionInputs.template.hlsl" t="Include" />
+                  <e p="PassMesh.template" t="Include" />
+                </e>
+                <e p="Utils" t="Include">
+                  <e p="TargetUtils.cs" t="Include" />
                 </e>
               </e>
               <e p="Importers" t="Include">
@@ -3150,23 +3450,11 @@
                 <e p="ShaderGraphMetadata.cs" t="Include" />
                 <e p="ShaderSubGraphImporter.cs" t="Include" />
                 <e p="ShaderSubGraphImporterEditor.cs" t="Include" />
+                <e p="ShaderSubGraphMetadata.cs" t="Include" />
               </e>
-              <e p="Internal" t="Include">
-                <e p="Data" t="Include">
-                  <e p="KeywordDescriptor.cs" t="Include" />
-                  <e p="KeywordEntry.cs" t="Include" />
-                  <e p="ShaderPass.cs" t="Include" />
-                </e>
-                <e p="Enumerations" t="Include">
-                  <e p="KeywordDefinition.cs" t="Include" />
-                  <e p="KeywordScope.cs" t="Include" />
-                  <e p="KeywordType.cs" t="Include" />
-                  <e p="NormalDropOffSpace.cs" t="Include" />
-                  <e p="PropertyType.cs" t="Include" />
-                </e>
-                <e p="GraphCode.cs" t="Include" />
-                <e p="OutputMetadata.cs" t="Include" />
-                <e p="ShaderGraphVfxAsset.cs" t="Include" />
+              <e p="Interface" t="Include">
+                <e p="IConditional.cs" t="Include" />
+                <e p="IShaderString.cs" t="Include" />
               </e>
               <e p="Resources" t="Include">
                 <e p="Resizable.uss" t="Include" />
@@ -3207,7 +3495,10 @@
                     <e p="UVSlotControlView.uss" t="Include" />
                   </e>
                   <e p="GraphEditorView.uss" t="Include" />
+                  <e p="GraphSubWindow.uss" t="Include" />
+                  <e p="HelpBoxRow.uss" t="Include" />
                   <e p="HlslFunctionView.uss" t="Include" />
+                  <e p="InspectorView.uss" t="Include" />
                   <e p="MasterPreviewView.uss" t="Include" />
                   <e p="MaterialGraph.uss" t="Include" />
                   <e p="MaterialGraphView.uss" t="Include" />
@@ -3219,15 +3510,19 @@
                   <e p="PropertyNodeView.uss" t="Include" />
                   <e p="PropertyRow.uss" t="Include" />
                   <e p="PropertySheet.uss" t="Include" />
+                  <e p="RedirectNode.uss" t="Include" />
                   <e p="ReorderableSlotListView.uss" t="Include" />
                   <e p="ShaderGraphBlackboard.uss" t="Include" />
                   <e p="ShaderPort.uss" t="Include" />
                   <e p="ShaderPropertyView.uss" t="Include" />
+                  <e p="TabbedView.uss" t="Include" />
+                  <e p="TabButtonStyles.uss" t="Include" />
                 </e>
                 <e p="UXML" t="Include">
+                  <e p="GraphInspector.uxml" t="Include" />
+                  <e p="GraphSubWindow.uxml" t="Include" />
                   <e p="GraphView" t="Include">
                     <e p="Blackboard.uxml" t="Include" />
-                    <e p="BlackboardField.uxml" t="Include" />
                     <e p="BlackboardRow.uxml" t="Include" />
                     <e p="BlackboardSection.uxml" t="Include" />
                   </e>
@@ -3235,15 +3530,25 @@
                   <e p="PixelCacheProfiler.uxml" t="Include" />
                   <e p="Resizable.uxml" t="Include" />
                   <e p="StickyNote.uxml" t="Include" />
+                  <e p="TabButton.uxml" t="Include" />
                 </e>
+              </e>
+              <e p="Serialization" t="Include">
+                <e p="FakeJsonObject.cs" t="Include" />
+                <e p="JsonData.cs" t="Include" />
+                <e p="JsonObject.cs" t="Include" />
+                <e p="JsonRef.cs" t="Include" />
+                <e p="MultiJson.cs" t="Include" />
+                <e p="MultiJsonEntry.cs" t="Include" />
+                <e p="MultiJsonInternal.cs" t="Include" />
+                <e p="RefDataEnumerable.cs" t="Include" />
+                <e p="RefValueEnumerable.cs" t="Include" />
+                <e p="SerializationExtensions.cs" t="Include" />
               </e>
               <e p="ShaderGraphAnalytics.cs" t="Include" />
               <e p="ShaderGraphPreferences.cs" t="Include" />
               <e p="ShaderGUI" t="Include">
                 <e p="PBRMasterGUI.cs" t="Include" />
-              </e>
-              <e p="Templates" t="Include">
-                <e p="PassMesh.template" t="Include" />
               </e>
               <e p="Unity.ShaderGraph.Editor.asmdef" t="Include" />
               <e p="Util" t="Include">
@@ -3253,14 +3558,17 @@
                 <e p="Documentation.cs" t="Include" />
                 <e p="FileUtilities.cs" t="Include" />
                 <e p="IndexSet.cs" t="Include" />
+                <e p="ListUtilities.cs" t="Include" />
                 <e p="MessageManager.cs" t="Include" />
                 <e p="TypeMapper.cs" t="Include" />
                 <e p="TypeMapping.cs" t="Include" />
                 <e p="UIUtilities.cs" t="Include" />
+                <e p="ValueUtilities.cs" t="Include" />
               </e>
               <e p="Utilities" t="Include">
                 <e p="AssemblyInfo.cs" t="Include" />
                 <e p="EnumInfo.cs" t="Include" />
+                <e p="GenerationAPIAttribute.cs" t="Include" />
                 <e p="StringBuilderExtensions.cs" t="Include" />
                 <e p="Unity.ShaderGraph.Utilities.asmdef" t="Include" />
               </e>
@@ -3269,6 +3577,8 @@
               <e p="DummyShaderGraphLibrary.cs" t="Include" />
               <e p="Functions.hlsl" t="Include" />
               <e p="GeometricTools.hlsl" t="Include" />
+              <e p="PreviewPass.hlsl" t="Include" />
+              <e p="PreviewVaryings.hlsl" t="Include" />
               <e p="ShaderConfig.cs.hlsl" t="Include" />
               <e p="ShaderVariables.hlsl" t="Include" />
               <e p="ShaderVariablesFunctions.hlsl" t="Include" />
@@ -3276,7 +3586,7 @@
               <e p="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.asmdef" t="Include" />
             </e>
           </e>
-          <e p="com.unity.test-framework@1.1.19" t="Include">
+          <e p="com.unity.test-framework@1.1.20" t="Include">
             <e p="UnityEditor.TestRunner" t="Include">
               <e p="API" t="Include">
                 <e p="CallbacksDelegator.cs" t="Include" />
@@ -3312,6 +3622,7 @@
                 <e p="Executer.cs" t="Include" />
                 <e p="ExecutionSettings.cs" t="Include" />
                 <e p="ExitCallbacks.cs" t="Include" />
+                <e p="ExitCallbacksDataHolder.cs" t="Include" />
                 <e p="ISettingsBuilder.cs" t="Include" />
                 <e p="LogSavingCallbacks.cs" t="Include" />
                 <e p="LogWriter.cs" t="Include" />
@@ -3516,6 +3827,7 @@
                   <e p="EnumerableRetryTestCommand.cs" t="Include" />
                   <e p="EnumerableSetUpTearDownCommand.cs" t="Include" />
                   <e p="EnumerableTestMethodCommand.cs" t="Include" />
+                  <e p="EnumerableTestState.cs" t="Include" />
                   <e p="ImmediateEnumerableCommand.cs" t="Include" />
                   <e p="OuterUnityTestActionCommand.cs" t="Include" />
                   <e p="SetUpTearDownCommand.cs" t="Include" />
@@ -3734,17 +4046,26 @@
               </e>
             </e>
           </e>
-          <e p="com.unity.timeline@1.3.6" t="Include">
+          <e p="com.unity.timeline@1.4.5" t="Include">
             <e p="Editor" t="Include">
               <e p="Actions" t="Include">
+                <e p="ActionContext.cs" t="Include" />
+                <e p="ActionManager.cs" t="Include" />
+                <e p="ClipAction.cs" t="Include" />
                 <e p="ClipsActions.cs" t="Include" />
-                <e p="ItemAction.cs" t="Include" />
+                <e p="IAction.cs" t="Include" />
+                <e p="IMenuChecked.cs" t="Include" />
+                <e p="IMenuName.cs" t="Include" />
+                <e p="Invoker.cs" t="Include" />
+                <e p="MarkerAction.cs" t="Include" />
                 <e p="MarkerActions.cs" t="Include" />
                 <e p="Menus" t="Include">
                   <e p="MenuItemActionBase.cs" t="Include" />
                   <e p="TimelineContextMenu.cs" t="Include" />
                 </e>
+                <e p="TimelineAction.cs" t="Include" />
                 <e p="TimelineActions.cs" t="Include" />
+                <e p="TrackAction.cs" t="Include" />
                 <e p="TrackActions.cs" t="Include" />
               </e>
               <e p="Activation" t="Include">
@@ -3757,6 +4078,7 @@
               <e p="Animation" t="Include">
                 <e p="AnimationClipActions.cs" t="Include" />
                 <e p="AnimationClipCurveCache.cs" t="Include" />
+                <e p="AnimationClipExtensions.cs" t="Include" />
                 <e p="AnimationOffsetMenu.cs" t="Include" />
                 <e p="AnimationPlayableAssetEditor.cs" t="Include" />
                 <e p="AnimationTrackActions.cs" t="Include" />
@@ -3766,12 +4088,14 @@
                 <e p="ClipCurveEditor.cs" t="Include" />
                 <e p="CurveDataSource.cs" t="Include" />
                 <e p="CurvesProxy.cs" t="Include" />
+                <e p="CurveTreeViewNode.cs" t="Include" />
                 <e p="TimelineAnimationUtilities.cs" t="Include" />
               </e>
               <e p="Attributes" t="Include">
                 <e p="ActiveInModeAttribute.cs" t="Include" />
                 <e p="MenuEntryAttribute.cs" t="Include" />
                 <e p="ShortcutAttribute.cs" t="Include" />
+                <e p="TimelineShortcutAttribute.cs" t="Include" />
               </e>
               <e p="Audio" t="Include">
                 <e p="AudioClipPropertiesDrawer.cs" t="Include" />
@@ -3881,7 +4205,7 @@
                   <e p="PlacementValidity.cs" t="Include" />
                 </e>
               </e>
-              <e p="MenuOrder.cs" t="Include" />
+              <e p="MenuPriority.cs" t="Include" />
               <e p="Playables" t="Include">
                 <e p="ControlPlayableInspector.cs" t="Include" />
               </e>
@@ -3987,11 +4311,17 @@
                 </e>
                 <e p="TrackPropertyCurvesDataSource.cs" t="Include" />
               </e>
+              <e p="Undo" t="Include">
+                <e p="ApplyDefaultUndoAttribute.cs" t="Include" />
+                <e p="UndoExtensions.cs" t="Include" />
+                <e p="UndoScope.cs" t="Include" />
+              </e>
               <e p="Unity.Timeline.Editor.asmdef" t="Include" />
               <e p="UnityEditorInternals.cs" t="Include" />
               <e p="Utilities" t="Include">
                 <e p="AnimatedParameterCache.cs" t="Include" />
                 <e p="AnimatedParameterUtility.cs" t="Include" />
+                <e p="AnimatedPropertyUtility.cs" t="Include" />
                 <e p="BindingUtility.cs" t="Include" />
                 <e p="BreadcrumbDrawer.cs" t="Include" />
                 <e p="Clipboard.cs" t="Include" />
@@ -4170,6 +4500,8 @@
       <e p="Unity.2D.Animation.Triangle.Runtime.csproj" t="IncludeRecursive" />
       <e p="Unity.2D.Common.Editor.csproj" t="IncludeRecursive" />
       <e p="Unity.2D.Common.Runtime.csproj" t="IncludeRecursive" />
+      <e p="Unity.2D.IK.Editor.csproj" t="IncludeRecursive" />
+      <e p="Unity.2D.IK.Runtime.csproj" t="IncludeRecursive" />
       <e p="Unity.2D.Path.Editor.csproj" t="IncludeRecursive" />
       <e p="Unity.2D.PixelPerfect.csproj" t="IncludeRecursive" />
       <e p="Unity.2D.PixelPerfect.Editor.csproj" t="IncludeRecursive" />

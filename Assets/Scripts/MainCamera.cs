@@ -16,12 +16,6 @@ public class MainCamera : MonoBehaviour
         _player = FindObjectOfType<Player>();
     }
 
-    // Update is called once per frame
-    private void Update()
-    {
-        if (Time.timeScale == 0f) return;
-    }
-
     private void FixedUpdate()
     {
         Follow(followTarget);
@@ -34,7 +28,10 @@ public class MainCamera : MonoBehaviour
 
         // Lerp to target position
         Vector2 targetPosition = target.position;
-        transform.position = Vector3.Lerp(transform.position, new Vector3(targetPosition.x, targetPosition.y, -10f) + transform.up * YOffset,
+        Transform transform1 = transform;
+
+        transform.position = Vector3.Lerp(transform1.position,
+            new Vector3(targetPosition.x, targetPosition.y, -10f) + transform1.up * YOffset,
             FollowInterpolationRatio);
     }
 

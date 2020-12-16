@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class PlayerCombatZone : MonoBehaviour
 {
-    private List<Enemy> enemies = new List<Enemy>();
+    private readonly List<Enemy> _enemies = new List<Enemy>();
 
     [SerializeField] private Player player;
 
@@ -11,21 +11,21 @@ public class PlayerCombatZone : MonoBehaviour
     private void Update()
     {
         // If more than one enemy within combat zone then player enter combat
-        if (enemies.Count > 0 && !player.IsInCombat)
+        if (_enemies.Count > 0 && !player.IsInCombat)
         {
             player.Combat.EnterCombat();
             player.Movement.Stop();
         }
 
         // If no enemy within combat zone then player exit combat
-        if (enemies.Count == 0 && player.IsInCombat)
+        if (_enemies.Count == 0 && player.IsInCombat)
             player.Combat.ExitCombat();
     }
 
     // Unlock all enemies within combat zone
     public void UnlockAll()
     {
-        foreach (Enemy enemy in enemies)
+        foreach (Enemy enemy in _enemies)
             enemy.LockOn(false);
     }
 
@@ -37,12 +37,14 @@ public class PlayerCombatZone : MonoBehaviour
         {
             // Enemy to list
             Enemy enemy = other.GetComponent<Enemy>();
-            enemies.Add(enemy);
+            _enemies.Add(enemy);
 
             // Enemy enter combat
             enemy.Combat.EnterCombat();
-            enemy.Movement.LookTarget = player.transform;
-            enemy.Movement.MoveTarget = player.transform;
+
+            Transform playerTransform = player.transform;
+            enemy.Movement.LookTarget = playerTransform;
+            enemy.Movement.MoveTarget = playerTransform;
         }
     }
 
@@ -52,7 +54,7 @@ public class PlayerCombatZone : MonoBehaviour
         {
             // Remove enemy from list
             Enemy enemy = other.GetComponent<Enemy>();
-            enemies.Remove(enemy);
+            _enemies.Remove(enemy);
 
             // If enemy is locked then unlock it
             if (enemy.IsLockedOn) player.Unlock(enemy);
