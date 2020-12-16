@@ -33,8 +33,9 @@ public class Enemy : MonoBehaviour, IDamageable
     public bool IsLockedOn { get; set; }
     public bool IsKnockingBack { get; set; }
     public bool IsStagger { get; set; }
+    public bool CanBeTakenDown { get; set; }
 
-    public float Health { get; set; } = 5f;
+    public float Health { get; set; } = 100f;
 
     IDamageable damageable;
     public ParticleSystem bloodSpat;

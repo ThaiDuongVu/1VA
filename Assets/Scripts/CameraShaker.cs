@@ -1,18 +1,18 @@
 ﻿using UnityEngine;
 
-public class CameraShake : MonoBehaviour
+public class CameraShaker : MonoBehaviour
 {
     // Use the singleton pattern to make the class globally accessible
 
     #region Singleton
 
-    private static CameraShake _instance;
+    private static CameraShaker _instance;
 
-    public static CameraShake Instance
+    public static CameraShaker Instance
     {
         get
         {
-            if (_instance == null) _instance = FindObjectOfType<CameraShake>();
+            if (_instance == null) _instance = FindObjectOfType<CameraShaker>();
 
             return _instance;
         }
@@ -68,31 +68,42 @@ public class CameraShake : MonoBehaviour
 
     // Shake the camera at different intensities and duration
 
-    public void ShakeMicro()
+    public void Shake(CameraShakeMode cameraShakeMode)
     {
-        _shakeDuration = 0.1f;
-        _shakeIntensity = 0.3f;
-        _decreaseFactor = 2f;
-    }
+        switch (cameraShakeMode)
+        {
+            case CameraShakeMode.Micro:
+                _shakeDuration = 0.1f;
+                _shakeIntensity = 0.3f;
 
-    public void ShakeLight()
-    {
-        _shakeDuration = 0.15f;
-        _shakeIntensity = 0.4f;
-        _decreaseFactor = 2f;
-    }
+                GamepadRumbler.Instance.Rumble(GamepadRumbleMode.Micro);
+                break;
 
-    public void ShakeNormal()
-    {
-        _shakeDuration = 0.2f;
-        _shakeIntensity = 0.5f;
-        _decreaseFactor = 2f;
-    }
+            case CameraShakeMode.Light:
+                _shakeDuration = 0.2f;
+                _shakeIntensity = 0.4f;
 
-    public void ShakeHard()
-    {
-        _shakeDuration = 0.25f;
-        _shakeIntensity = 0.65f;
+                GamepadRumbler.Instance.Rumble(GamepadRumbleMode.Light);
+                break;
+
+            case CameraShakeMode.Normal:
+                _shakeDuration = 0.3f;
+                _shakeIntensity = 0.5f;
+
+                GamepadRumbler.Instance.Rumble(GamepadRumbleMode.Normal);
+                break;
+
+            case CameraShakeMode.Hard:
+                _shakeDuration = 0.4f;
+                _shakeIntensity = 0.65f;
+
+                GamepadRumbler.Instance.Rumble(GamepadRumbleMode.Hard);
+                break;
+
+            default:
+                return;
+        }
+
         _decreaseFactor = 2f;
     }
 

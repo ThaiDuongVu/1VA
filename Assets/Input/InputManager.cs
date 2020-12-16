@@ -73,6 +73,14 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""TakeDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""b61a3cbd-1b5e-4ef6-99f2-dc2100ba190c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -244,7 +252,7 @@ public class @InputManager : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""093970a2-bf77-4f9f-b1a0-cffe83627506"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -431,11 +439,33 @@ public class @InputManager : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""30839b70-ffd0-4a06-a705-adcdb233a053"",
-                    ""path"": ""<Gamepad>/rightStickPress"",
+                    ""path"": ""<Gamepad>/leftStickPress"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""LookToLock"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9aa635ed-f679-4651-aaf8-66278b545645"",
+                    ""path"": ""<Gamepad>/rightStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""TakeDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""35ad34f4-4333-4a66-966a-73353d2853d8"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""TakeDown"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -779,6 +809,7 @@ public class @InputManager : IInputActionCollection, IDisposable
         m_Player_Strike = m_Player.FindAction("Strike", throwIfNotFound: true);
         m_Player_Counter = m_Player.FindAction("Counter", throwIfNotFound: true);
         m_Player_LookToLock = m_Player.FindAction("LookToLock", throwIfNotFound: true);
+        m_Player_TakeDown = m_Player.FindAction("TakeDown", throwIfNotFound: true);
         // Console
         m_Console = asset.FindActionMap("Console", throwIfNotFound: true);
         m_Console_Show = m_Console.FindAction("Show", throwIfNotFound: true);
@@ -844,6 +875,7 @@ public class @InputManager : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Strike;
     private readonly InputAction m_Player_Counter;
     private readonly InputAction m_Player_LookToLock;
+    private readonly InputAction m_Player_TakeDown;
     public struct PlayerActions
     {
         private @InputManager m_Wrapper;
@@ -855,6 +887,7 @@ public class @InputManager : IInputActionCollection, IDisposable
         public InputAction @Strike => m_Wrapper.m_Player_Strike;
         public InputAction @Counter => m_Wrapper.m_Player_Counter;
         public InputAction @LookToLock => m_Wrapper.m_Player_LookToLock;
+        public InputAction @TakeDown => m_Wrapper.m_Player_TakeDown;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -885,6 +918,9 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @LookToLock.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLookToLock;
                 @LookToLock.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLookToLock;
                 @LookToLock.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLookToLock;
+                @TakeDown.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTakeDown;
+                @TakeDown.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTakeDown;
+                @TakeDown.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTakeDown;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -910,6 +946,9 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @LookToLock.started += instance.OnLookToLock;
                 @LookToLock.performed += instance.OnLookToLock;
                 @LookToLock.canceled += instance.OnLookToLock;
+                @TakeDown.started += instance.OnTakeDown;
+                @TakeDown.performed += instance.OnTakeDown;
+                @TakeDown.canceled += instance.OnTakeDown;
             }
         }
     }
@@ -1031,6 +1070,7 @@ public class @InputManager : IInputActionCollection, IDisposable
         void OnStrike(InputAction.CallbackContext context);
         void OnCounter(InputAction.CallbackContext context);
         void OnLookToLock(InputAction.CallbackContext context);
+        void OnTakeDown(InputAction.CallbackContext context);
     }
     public interface IConsoleActions
     {

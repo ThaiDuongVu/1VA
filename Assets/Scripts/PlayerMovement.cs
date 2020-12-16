@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 _snapPosition;
     private const float SnapDistance = 2.5f;
-    private const float SnapInterpolationRatio = 0.3f;
+    private const float SnapInterpolationRatio = 0.35f;
 
     private float lookVelocity;
     private const float LookScale = 1f;
@@ -234,7 +234,7 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody2D.AddForce(_movement * DashForce, ForceMode2D.Impulse);
 
         // Shake camera
-        CameraShake.Instance.ShakeLight();
+        CameraShaker.Instance.Shake(CameraShakeMode.Light);
 
         yield return new WaitForSeconds(DashDuration);
 
@@ -301,8 +301,8 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(Vector3.forward, ((Vector2)_snapPosition - (Vector2)transform.position).normalized);
 
         // Deal damage to locked enemy
-        CameraShake.Instance.ShakeNormal();
-        if (_player.SnapEnemy) _player.SnapEnemy.GetComponent<IDamageable>().TakeDamage(1f);
+        CameraShaker.Instance.Shake(CameraShakeMode.Normal);
+        if (_player.SnapEnemy) _player.SnapEnemy.GetComponent<IDamageable>().TakeDamage(Random.Range(15f, 25f));
     }
 
     // Snap to an enemy
