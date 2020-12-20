@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class Player : MonoBehaviour, IDamageable
 {
     public PlayerCombat Combat { get; private set; }
     public PlayerMovement Movement { get; private set; }
-    public PlayerCombatZone combatZone;
 
     public bool IsInCombat { get; set; }
     public bool IsRunning { get; set; }
@@ -21,6 +21,9 @@ public class Player : MonoBehaviour, IDamageable
 
     public Enemy LockedOnEnemy { get; set; }
     public Enemy SnapEnemy { get; set; }
+
+    public List<Enemy> EnemiesInCombatZone { get; set; } = new List<Enemy>();
+    public List<Enemy> EnemiesInViewCone { get; set; } = new List<Enemy>();
 
     private void Awake()
     {
@@ -45,6 +48,17 @@ public class Player : MonoBehaviour, IDamageable
     private void Update()
     {
         if (LockedOnEnemy) Lock();
+
+        // If more than one enemy within combat zone then player enter combat
+        if (EnemiesInCombatZone.Count > 0 && !IsInCombat)
+        {
+            Combat.EnterCombat();
+            Movement.Stop();
+        }
+
+        // If no enemy within combat zone then player exit combat
+        if (EnemiesInCombatZone.Count == 0 && IsInCombat)
+            Combat.ExitCombat();
     }
 
     public void StartLock(Enemy other)
@@ -53,7 +67,7 @@ public class Player : MonoBehaviour, IDamageable
         lockArrow.gameObject.SetActive(true);
 
         // Unlock all enemies within combat zone to lock on other
-        combatZone.UnlockAll();
+        UnlockAll();
         other.LockOn(true);
 
         // Set new lock enemy
@@ -86,6 +100,13 @@ public class Player : MonoBehaviour, IDamageable
         // Set arrow position & rotation
         lockArrow.position = enemyPosition + (enemyPosition - position).normalized * 1.5f;
         lockArrow.rotation = Quaternion.LookRotation(Vector3.forward, (enemyPosition - position).normalized);
+    }
+
+    // Unlock all enemies within combat zone
+    public void UnlockAll()
+    {
+        foreach (Enemy enemy in EnemiesInCombatZone)
+            enemy.LockOn(false);
     }
 
     void IDamageable.TakeDamage(float damage)
