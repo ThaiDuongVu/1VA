@@ -256,9 +256,9 @@
      inkscape:document-rotation="0"
      inkscape:current-layer="layer1"
      inkscape:document-units="mm"
-     inkscape:cy="-1952.0563"
-     inkscape:cx="-1676.2797"
-     inkscape:zoom="0.175"
+     inkscape:cy="3087.4337"
+     inkscape:cx="-90.012146"
+     inkscape:zoom="1.4"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0"
      borderopacity="1.0"
@@ -833,5 +833,33 @@
        cx="50"
        id="path914"
        style="fill:#d40000;stroke:#e81414;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />
+    <g
+       inkscape:export-ydpi="25.399998"
+       inkscape:export-xdpi="25.399998"
+       inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1SA\Assets\Sprites\Weapons\Pistol.png"
+       id="g920">
+      <rect
+         style="fill:#ff6600;fill-opacity:1;stroke:#cd3400;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+         id="rect917"
+         width="35.000011"
+         height="95.000008"
+         x="7.4999952"
+         y="752.5"
+         ry="20"
+         inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1SA\Assets\Sprites\Weapons\Pistol.png"
+         inkscape:export-xdpi="25.399998"
+         inkscape:export-ydpi="25.399998" />
+      <rect
+         inkscape:export-ydpi="25.399998"
+         inkscape:export-xdpi="25.399998"
+         inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1SA\Assets\Sprites\Weapons\Pistol.png"
+         ry="20"
+         y="787.5"
+         x="2.499995"
+         height="45.000011"
+         width="45.000011"
+         id="rect915"
+         style="fill:#ff6600;fill-opacity:1;stroke:#cd3400;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />
+    </g>
   </g>
 </svg>

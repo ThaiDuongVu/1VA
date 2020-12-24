@@ -51,25 +51,9 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Strike"",
+                    ""name"": ""Fire"",
                     ""type"": ""Button"",
                     ""id"": ""b122f8d6-83d2-4b4e-aac4-d2907dbbaf28"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Counter"",
-                    ""type"": ""Button"",
-                    ""id"": ""98124155-a76e-4678-ad1c-b8b4385c3078"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""LookToLock"",
-                    ""type"": ""Button"",
-                    ""id"": ""1f638ecb-f399-4912-83e5-b75dbc8a5ff3"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -278,7 +262,7 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Strike"",
+                    ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -289,29 +273,7 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Strike"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ef1336b5-04c6-4011-9ea3-82e836834604"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Counter"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""4de5c78c-0b49-4423-b190-9f4e0b83f333"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""MouseKeyboard"",
-                    ""action"": ""Counter"",
+                    ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -424,28 +386,6 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""0e8946b7-939a-4299-9775-e10388d38e6f"",
-                    ""path"": ""<Keyboard>/tab"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""MouseKeyboard"",
-                    ""action"": ""LookToLock"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""30839b70-ffd0-4a06-a705-adcdb233a053"",
-                    ""path"": ""<Gamepad>/leftStickPress"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""LookToLock"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
@@ -806,9 +746,7 @@ public class @InputManager : IInputActionCollection, IDisposable
         m_Player_MoveGamepad = m_Player.FindAction("MoveGamepad", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
-        m_Player_Strike = m_Player.FindAction("Strike", throwIfNotFound: true);
-        m_Player_Counter = m_Player.FindAction("Counter", throwIfNotFound: true);
-        m_Player_LookToLock = m_Player.FindAction("LookToLock", throwIfNotFound: true);
+        m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_TakeDown = m_Player.FindAction("TakeDown", throwIfNotFound: true);
         // Console
         m_Console = asset.FindActionMap("Console", throwIfNotFound: true);
@@ -872,9 +810,7 @@ public class @InputManager : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_MoveGamepad;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Dash;
-    private readonly InputAction m_Player_Strike;
-    private readonly InputAction m_Player_Counter;
-    private readonly InputAction m_Player_LookToLock;
+    private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_TakeDown;
     public struct PlayerActions
     {
@@ -884,9 +820,7 @@ public class @InputManager : IInputActionCollection, IDisposable
         public InputAction @MoveGamepad => m_Wrapper.m_Player_MoveGamepad;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
-        public InputAction @Strike => m_Wrapper.m_Player_Strike;
-        public InputAction @Counter => m_Wrapper.m_Player_Counter;
-        public InputAction @LookToLock => m_Wrapper.m_Player_LookToLock;
+        public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @TakeDown => m_Wrapper.m_Player_TakeDown;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -909,15 +843,9 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Dash.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
                 @Dash.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
                 @Dash.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
-                @Strike.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStrike;
-                @Strike.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStrike;
-                @Strike.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStrike;
-                @Counter.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCounter;
-                @Counter.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCounter;
-                @Counter.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCounter;
-                @LookToLock.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLookToLock;
-                @LookToLock.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLookToLock;
-                @LookToLock.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLookToLock;
+                @Fire.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
+                @Fire.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
+                @Fire.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                 @TakeDown.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTakeDown;
                 @TakeDown.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTakeDown;
                 @TakeDown.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTakeDown;
@@ -937,15 +865,9 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Dash.started += instance.OnDash;
                 @Dash.performed += instance.OnDash;
                 @Dash.canceled += instance.OnDash;
-                @Strike.started += instance.OnStrike;
-                @Strike.performed += instance.OnStrike;
-                @Strike.canceled += instance.OnStrike;
-                @Counter.started += instance.OnCounter;
-                @Counter.performed += instance.OnCounter;
-                @Counter.canceled += instance.OnCounter;
-                @LookToLock.started += instance.OnLookToLock;
-                @LookToLock.performed += instance.OnLookToLock;
-                @LookToLock.canceled += instance.OnLookToLock;
+                @Fire.started += instance.OnFire;
+                @Fire.performed += instance.OnFire;
+                @Fire.canceled += instance.OnFire;
                 @TakeDown.started += instance.OnTakeDown;
                 @TakeDown.performed += instance.OnTakeDown;
                 @TakeDown.canceled += instance.OnTakeDown;
@@ -1067,9 +989,7 @@ public class @InputManager : IInputActionCollection, IDisposable
         void OnMoveGamepad(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
-        void OnStrike(InputAction.CallbackContext context);
-        void OnCounter(InputAction.CallbackContext context);
-        void OnLookToLock(InputAction.CallbackContext context);
+        void OnFire(InputAction.CallbackContext context);
         void OnTakeDown(InputAction.CallbackContext context);
     }
     public interface IConsoleActions

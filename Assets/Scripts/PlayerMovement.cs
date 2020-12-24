@@ -6,10 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     private Player _player;
     private static readonly int IsRunningTrigger = Animator.StringToHash("isRunning");
-    private static readonly int IsCombatWalkingTrigger = Animator.StringToHash("isCombatWalking");
     private static readonly int EnterDashTrigger = Animator.StringToHash("enterDash");
-    private static readonly int EnterCombatTrigger = Animator.StringToHash("enterCombat");
-    private static readonly int ExitCombatTrigger = Animator.StringToHash("exitCombat");
+    private static readonly int ExitDashTrigger = Animator.StringToHash("exitDash");
 
     private Rigidbody2D _rigidbody2D;
     private Vector2 _movement;
@@ -20,8 +18,6 @@ public class PlayerMovement : MonoBehaviour
     private const float MinVelocity = 0f;
     private const float Acceleration = 50f;
     private const float Deceleration = 25f;
-
-    private const float CombatVelocity = 10f;
 
     private const float DashForce = 50f;
     private const float DashDuration = 0.2f;
@@ -52,10 +48,6 @@ public class PlayerMovement : MonoBehaviour
         _inputManager.Player.Look.performed += LookOnPerformed;
         _inputManager.Player.Look.canceled += LookOnCanceled;
 
-        // Look to locked enemy
-        _inputManager.Player.LookToLock.performed += LookToLockOnPerformed;
-        _inputManager.Player.LookToLock.canceled += LookToLockOnCanceled;
-
         // Handle dash input
         _inputManager.Player.Dash.performed += DashOnPerformed;
 
@@ -76,8 +68,6 @@ public class PlayerMovement : MonoBehaviour
 
         // Play run animation
         _player.Animator.SetBool(IsRunningTrigger, true);
-        _player.Animator.SetBool(IsCombatWalkingTrigger, true);
-
         _player.IsRunning = true;
     }
 
@@ -90,8 +80,6 @@ public class PlayerMovement : MonoBehaviour
 
         // Stop run animation
         _player.Animator.SetBool(IsRunningTrigger, false);
-        _player.Animator.SetBool(IsCombatWalkingTrigger, false);
-
         _player.IsRunning = false;
     }
 
@@ -103,16 +91,6 @@ public class PlayerMovement : MonoBehaviour
     private void LookOnCanceled(InputAction.CallbackContext context)
     {
         _lookVelocity = 0f;
-    }
-
-    private void LookToLockOnPerformed(InputAction.CallbackContext context)
-    {
-        _player.IsLookingToLock = true;
-    }
-
-    private void LookToLockOnCanceled(InputAction.CallbackContext context)
-    {
-        _player.IsLookingToLock = false;
     }
 
     private void DashOnPerformed(InputAction.CallbackContext context)
@@ -150,8 +128,7 @@ public class PlayerMovement : MonoBehaviour
         else Decelerate();
 
         Animate();
-        if (_player.IsLookingToLock) LookToLock();
-        else Rotate();
+        Rotate();
     }
 
     private void FixedUpdate()
@@ -176,14 +153,7 @@ public class PlayerMovement : MonoBehaviour
     private void Accelerate()
     {
         // Accelerate if current velocity is less than max velocity
-        if (!_player.IsInCombat)
-        {
-            if (_currentVelocity < MaxVelocity) _currentVelocity += Acceleration * Time.deltaTime;
-        }
-        else
-        {
-            if (_currentVelocity < CombatVelocity) _currentVelocity += Acceleration * Time.deltaTime;
-        }
+        if (_currentVelocity < MaxVelocity) _currentVelocity += Acceleration * Time.deltaTime;
     }
 
     private void Decelerate()
@@ -205,16 +175,6 @@ public class PlayerMovement : MonoBehaviour
     private void Rotate()
     {
         transform.Rotate(0f, 0f, _lookVelocity * Time.timeScale, Space.Self);
-    }
-
-    // Rotate to look at locked on enemy
-    private void LookToLock()
-    {
-        if (!_player.LockedOnEnemy) return;
-
-        Transform transform1 = transform;
-        transform.up = Vector2.Lerp(transform1.up,
-            (_player.LockedOnEnemy.transform.position - transform1.position).normalized, 0.2f);
     }
 
     // Perform a dash move
@@ -246,7 +206,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Stop dash animation
         _player.Animator.ResetTrigger(EnterDashTrigger);
-        _player.Animator.SetTrigger(_player.IsInCombat ? EnterCombatTrigger : ExitCombatTrigger);
+        _player.Animator.SetTrigger(ExitDashTrigger);
 
         // Reset running state
         _player.IsRunning = wasRunning;
@@ -269,10 +229,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // If not then set animation speed to velocity length
-        if (!_player.IsInCombat)
-            _player.Animator.speed = _currentVelocity / MaxVelocity;
-        else
-            _player.Animator.speed = _currentVelocity / CombatVelocity;
+        _player.Animator.speed = _currentVelocity / MaxVelocity;
     }
 
     // Start snapping
@@ -289,7 +246,7 @@ public class PlayerMovement : MonoBehaviour
         _snapPosition = other.transform.position;
 
         // Set snap enemy
-        _player.SnapEnemy = _player.LockedOnEnemy;
+        _player.SnapEnemy = other;
     }
 
     // Stop snapping
@@ -302,11 +259,9 @@ public class PlayerMovement : MonoBehaviour
         _player.trail.enabled = false;
 
         transform.rotation =
-            Quaternion.LookRotation(Vector3.forward, (_snapPosition - (Vector2) transform.position).normalized);
+            Quaternion.LookRotation(Vector3.forward, (_snapPosition - (Vector2)transform.position).normalized);
 
-        // Deal damage to locked enemy
         CameraShaker.Instance.Shake(CameraShakeMode.Normal);
-        if (_player.SnapEnemy) _player.SnapEnemy.GetComponent<IDamageable>().TakeDamage(Random.Range(15f, 25f));
     }
 
     // Snap to an enemy
@@ -319,7 +274,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Snap rotation
         Quaternion lookRotation =
-            Quaternion.LookRotation(Vector3.forward, (_snapPosition - (Vector2) position).normalized);
+            Quaternion.LookRotation(Vector3.forward, (_snapPosition - (Vector2)position).normalized);
         transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, SnapInterpolationRatio * Time.timeScale);
 
         // If snapped then stop snapping

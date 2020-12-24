@@ -20,7 +20,6 @@ public class Enemy : MonoBehaviour, IDamageable
 
     #endregion
 
-    public EnemyCombat Combat { get; private set; }
     public EnemyMovement Movement { get; private set; }
 
     public EnemyState State { get; set; }
@@ -29,8 +28,6 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public Animator Animator { get; set; }
 
-    public bool IsInCombat { get; set; }
-    public bool IsLockedOn { get; set; }
     public bool IsKnockingBack { get; set; }
     public bool IsStagger { get; set; }
     public bool CanBeTakenDown { get; set; }
@@ -44,8 +41,6 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         // Get component references
         Animator = GetComponent<Animator>();
-
-        Combat = GetComponent<EnemyCombat>();
         Movement = GetComponent<EnemyMovement>();
 
         _damageable = GetComponent<IDamageable>();
@@ -54,9 +49,7 @@ public class Enemy : MonoBehaviour, IDamageable
     // Start is called before the first frame update
     private void Start()
     {
-        LockOn(false);
         GenerateAppearance();
-
         State = EnemyState.Idle;
     }
 
@@ -81,13 +74,6 @@ public class Enemy : MonoBehaviour, IDamageable
         footRight.sprite = footSprite;
     }
 
-    // Enable lock on indicator for enemy
-    public void LockOn(bool value)
-    {
-        IsLockedOn = value;
-        light2D.enabled = value;
-    }
-
     void IDamageable.TakeDamage(float damage)
     {
         StartCoroutine(Movement.KnockBack());
@@ -108,20 +94,4 @@ public class Enemy : MonoBehaviour, IDamageable
         yield return new WaitForSeconds(delay);
         Destroy(gameObject);
     }
-
-    #region Trigger Methods
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-            State = EnemyState.CombatAttack;
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-            State = EnemyState.CombatWander;
-    }
-
-    #endregion
 }

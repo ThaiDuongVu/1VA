@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 0.62352943, b: 0.2627451, a: 1}
   m_Intensity: 1
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 00000000b3d79291f53a23d7c72f52875be104680b1704bd
+  m_ApplyToSortingLayers: 00000000b3d79291f53a23d7c72f52875be104680b1704bde98f4023
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -282,12 +282,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3472519019879507033}
   - component: {fileID: 1655382923768827860}
-  - component: {fileID: 818147474}
   - component: {fileID: 5562538632305318006}
   - component: {fileID: 3472519019879507032}
   - component: {fileID: 3472519019879507014}
   - component: {fileID: 3972416221237547551}
-  - component: {fileID: 5324120963445536030}
+  - component: {fileID: 515234269}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -332,22 +331,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &818147474
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3472519019879507034}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.5
 --- !u!58 &5562538632305318006
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -363,7 +346,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.5
+  m_Radius: 1
 --- !u!95 &3472519019879507032
 Animator:
   serializedVersion: 3
@@ -427,7 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d93b52bbe35bb41b7094a9dad2e25a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5324120963445536030
+--- !u!114 &515234269
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -436,9 +419,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 3472519019879507034}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ac5a56b65c35d84dbd2956d5e41892b, type: 3}
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 0
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000b3d79291f53a23d7c72f52875be104680b1704bde98f4023
+  m_ShapePath:
+  - {x: -0.8845215, y: -0.14765167, z: 0}
+  - {x: -0.0028800964, y: -0.4283924, z: 0}
+  - {x: 0.8735237, y: -0.17514801, z: 0}
+  - {x: 1.1134186, y: 0.12700844, z: 0}
+  - {x: 0.587574, y: 0.6700592, z: 0}
+  - {x: -0.64256287, y: 0.64256287, z: 0}
+  - {x: -1.1136818, y: 0.14900398, z: 0}
+  m_ShapePathHash: 1339006343
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -60600
 --- !u!1 &5333015407158817433
 GameObject:
   m_ObjectHideFlags: 0

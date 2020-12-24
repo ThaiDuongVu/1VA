@@ -4,9 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - CombatZone
   - Enemy
   - Title
+  - Weapon
   layers:
   - Default
   - TransparentFX
@@ -19,7 +19,7 @@ TagManager:
   - PostProcessing
   - Player
   - Enemy
-  - 
+  - Weapon
   - 
   - 
   - 
@@ -58,4 +58,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3171161867
+    locked: 0
+  - name: Weapons
+    uniqueID: 591433705
     locked: 0
