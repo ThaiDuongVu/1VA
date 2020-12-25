@@ -4,42 +4,56 @@ using UnityEngine.InputSystem;
 public class GameController : MonoBehaviour
 {
     public Menu[] menus;
-    private bool _isPaused;
+    private bool isPaused;
 
-    private InputManager _inputManager;
+    private InputManager inputManager;
 
+    /// <summary>
+    /// Unity Event function.
+    /// Initialize input handler on object enabled.
+    /// </summary>
     private void OnEnable()
     {
-        _inputManager = new InputManager();
-
-        _inputManager.Game.Escape.started += EscapeOnPerformed;
-
-        _inputManager.Enable();
+        inputManager = new InputManager();
+        inputManager.Game.Escape.started += EscapeOnPerformed;
+        inputManager.Enable();
     }
 
     #region Input Methods
 
+    /// <summary>
+    /// On escape button pressed.
+    /// </summary>
+    /// <param name="context">Input context</param>
     private void EscapeOnPerformed(InputAction.CallbackContext context)
     {
-        if (!_isPaused) Pause();
+        if (!isPaused) Pause();
         else Resume();
     }
 
     #endregion
 
+    /// <summary>
+    /// Unity Event function.
+    /// Disable input handling on object disabled.
+    /// </summary>
     private void OnDisable()
     {
-        _inputManager.Disable();
+        inputManager.Disable();
     }
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Unity Event function.
+    /// Initialize before first frame update.
+    /// </summary>
     private void Start()
     {
-        // Lock cursor
-        GlobalController.Instance.LockCursor();
+        GlobalController.LockCursor();
     }
 
-    // Pause game
+    /// <summary>
+    /// Pause game.
+    /// </summary>
     public void Pause()
     {
         // Freeze game
@@ -47,15 +61,16 @@ public class GameController : MonoBehaviour
         // Disable depth of field effect
         GlobalController.Instance.EnableDepthOfField();
         // Unlock cursor
-        GlobalController.Instance.UnlockCursor();
-
+        GlobalController.UnlockCursor();
         // Enable pause menu
         menus[0].Enable();
 
-        _isPaused = true;
+        isPaused = true;
     }
 
-    // Resume game
+    /// <summary>
+    /// Resume game.
+    /// </summary>
     public void Resume()
     {
         // Unfreeze game
@@ -63,7 +78,7 @@ public class GameController : MonoBehaviour
         // Disable depth of field effect
         GlobalController.Instance.DisableDepthOfField();
         // Lock cursor
-        GlobalController.Instance.LockCursor();
+        GlobalController.LockCursor();
 
         // Disable pause menu
         foreach (Menu menu in menus)
@@ -72,9 +87,12 @@ public class GameController : MonoBehaviour
             menu.Disable();
         }
 
-        _isPaused = false;
+        isPaused = false;
     }
 
+    /// <summary>
+    /// On game over.
+    /// </summary>
     public void GameOver()
     {
     }

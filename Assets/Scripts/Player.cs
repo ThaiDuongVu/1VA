@@ -20,73 +20,94 @@ public class Player : MonoBehaviour, IDamageable
     public Transform directionArrow;
     public Enemy SnapEnemy { get; set; }
 
+    /// <summary>
+    /// Unity Event function.
+    /// Get component references before first frame update.
+    /// </summary>
     private void Awake()
     {
-        // Get component references
         Movement = GetComponent<PlayerMovement>();
         Animator = GetComponent<Animator>();
     }
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Unity Event function.
+    /// Initialize before first frame update.
+    /// </summary>
     private void Start()
     {
         // Disable trail
         trail.enabled = false;
-        
+
         UnequipWeapon();
     }
 
-    // Equip a weapon with player
-    public void EquipWeapon(Weapon weapon)
+    /// <summary>
+    /// Equip a weapon to player.
+    /// </summary>
+    /// <param name="weapon">Weapon to equip</param>
+    private void EquipWeapon(Weapon weapon)
     {
         Animator.runtimeAnimatorController = weaponAnimator;
         CurrentWeapon = weapon;
     }
 
-    // Unequip current weapon
-    public void UnequipWeapon()
+    /// <summary>
+    /// Unequip current weapon.
+    /// </summary>
+    private void UnequipWeapon()
     {
         Animator.runtimeAnimatorController = regularAnimator;
         CurrentWeapon = null;
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Unity Event function.
+    /// Update once per frame.
+    /// </summary>
     private void Update()
     {
-        if (CurrentWeapon) 
-        {
-            CurrentWeapon.transform.position = weaponTransform.position;
-            CurrentWeapon.transform.rotation = transform.rotation;
-        }
+        if (!CurrentWeapon) return;
+
+        Transform currentWeaponTransform = CurrentWeapon.transform;
+
+        currentWeaponTransform.position = weaponTransform.position;
+        currentWeaponTransform.rotation = transform.rotation;
     }
 
+    /// <summary>
+    /// Deal damage to player.
+    /// </summary>
+    /// <param name="damage">Amount to damage</param>
     void IDamageable.TakeDamage(float damage)
     {
     }
 
+    /// <summary>
+    /// Player die.
+    /// </summary>
     void IDamageable.Die()
     {
     }
 
     #region Trigger Methods
 
+    /// <summary>
+    /// Unity Event function.
+    /// Handle trigger colliding with other colliders.
+    /// </summary>
+    /// <param name="other">Other collider</param>
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Weapon"))
         {
+            if (CurrentWeapon) return;
+
             Weapon otherWeapon = other.GetComponent<Weapon>();
 
-            if (!CurrentWeapon)
-            {
-                EquipWeapon(otherWeapon);
-                otherWeapon.transform.parent = weaponTransform;
-            }
+            EquipWeapon(otherWeapon);
+            otherWeapon.transform.parent = weaponTransform;
         }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-
     }
 
     #endregion

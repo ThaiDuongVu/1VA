@@ -21,24 +21,24 @@
   <component name="ChangeListManager">
     <list default="true" id="f820fed7-56b6-4e79-85d1-f92fec90498d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.1VA/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.1VA/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.1VA/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.1VA/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.1VA/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.1VA/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.1VA/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.1VA/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Instructions.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Instructions.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Pistol.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Pistol.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestLevel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestLevel.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraShaker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraShaker.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyCombat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyCombat.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyMovement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GamepadRumbler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GamepadRumbler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/IDamageable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/IDamageable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GlobalController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GlobalController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainCamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainCamera.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerCombat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerCombat.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerCombatZone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerCombatZone.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerViewCone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerViewCone.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SceneLoader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UIController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapon.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,15 +51,22 @@
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/EnemyCombat.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/EnemyMovement.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/IDamageable.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/MainCamera.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerViewCone.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerCombatZone.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/EnemyMovement.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CameraShaker.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GamepadRumbler.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GlobalController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/MainCamera.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/PlayerCombat.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SceneLoader.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UIController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Weapon.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1lOaZDNpgP7AoqrpPFfeNmlF5au" />
@@ -73,7 +80,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -108,6 +115,7 @@
       <workItem from="1608146751973" duration="10000" />
       <workItem from="1608146789169" duration="997000" />
       <workItem from="1608160976615" duration="81000" />
+      <workItem from="1608856741608" duration="2862000" />
     </task>
     <servers />
   </component>

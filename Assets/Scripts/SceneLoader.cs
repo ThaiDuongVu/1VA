@@ -4,41 +4,50 @@ using System.Collections;
 
 public class SceneLoader : MonoBehaviour
 {
-    private Animator _cameraAnimator;
+    private Animator cameraAnimator;
     [SerializeField] private AnimationClip cameraOutroAnimation;
 
-    private Canvas _canvas;
+    private Canvas canvas;
 
     // Cached string for triggering animations
     private static readonly int Outro = Animator.StringToHash("outro");
 
-    // Awake is called when an object is initialized
+    /// <summary>
+    /// Unity Event function.
+    /// Get component references before first frame update.
+    /// </summary>
     private void Awake()
     {
-        // Get component references
-        if (!(Camera.main is null)) _cameraAnimator = Camera.main.GetComponent<Animator>();
-        _canvas = FindObjectOfType<Canvas>();
+        if (!(Camera.main is null)) cameraAnimator = Camera.main.GetComponent<Animator>();
+        canvas = FindObjectOfType<Canvas>();
     }
 
-    // Load a scene
+    /// <summary>
+    /// Load a scene.
+    /// </summary>
+    /// <param name="scene">Name of scene to load</param>
     public void Load(string scene)
     {
         StartCoroutine(LoadDelay(scene));
     }
 
-    // Load a scene with delay for transition animation to play
+    /// <summary>
+    /// Load a scene with delay for transition animation to play.
+    /// </summary>
+    /// <param name="scene">Name of scene to load</param>
+    /// <returns>Delay duration</returns>
     private IEnumerator LoadDelay(string scene)
     {
         // Reset time scale
         Time.timeScale = 1f;
         // Disable canvas
-        _canvas.enabled = false;
+        canvas.enabled = false;
 
         // Disable depth of field effect
         GlobalController.Instance.DisableDepthOfField();
 
         // Play transition animation
-        _cameraAnimator.SetTrigger(Outro);
+        cameraAnimator.SetTrigger(Outro);
 
         // Load scene in the background while camera is transitioning
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(scene, LoadSceneMode.Single);
@@ -51,7 +60,9 @@ public class SceneLoader : MonoBehaviour
         asyncOperation.allowSceneActivation = true;
     }
 
-    // Quit game
+    /// <summary>
+    /// Quit game.
+    /// </summary>
     public void Quit()
     {
         Application.Quit();

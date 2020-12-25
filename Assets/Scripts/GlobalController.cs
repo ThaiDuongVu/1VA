@@ -9,68 +9,94 @@ public class GlobalController : MonoBehaviour
 
     #region Singleton
 
-    private static GlobalController _instance;
+    private static GlobalController instance;
 
     public static GlobalController Instance
     {
         get
         {
-            if (_instance == null) _instance = FindObjectOfType<GlobalController>();
+            if (instance == null) instance = FindObjectOfType<GlobalController>();
 
-            return _instance;
+            return instance;
         }
     }
 
     #endregion
 
     public VolumeProfile volumeProfile;
-    private DepthOfField _depthOfField;
+    private DepthOfField depthOfField;
 
-    // Awake is called when an object is initialized
+    /// <summary>
+    /// Unity Event function.
+    /// Get component references before first frame update.
+    /// </summary>
     private void Awake()
     {
-        volumeProfile.TryGet(out _depthOfField);
+        volumeProfile.TryGet(out depthOfField);
     }
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Unity Event function.
+    /// Initialize before first frame update.
+    /// </summary>
     private void Start()
     {
         DisableDepthOfField();
     }
 
-    // Enable depth of field effect
+    /// <summary>
+    /// Enable depth of field effect.
+    /// </summary>
     public void EnableDepthOfField()
     {
-        _depthOfField.active = true;
+        depthOfField.active = true;
     }
 
-    // Disable depth of field effect
+    /// <summary>
+    /// Disable depth of field effect.
+    /// </summary>
     public void DisableDepthOfField()
     {
-        _depthOfField.active = false;
+        depthOfField.active = false;
     }
 
-    // Lock cursor
-    public void LockCursor()
+    /// <summary>
+    /// Lock cursor.
+    /// </summary>
+    public static void LockCursor()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
-    // Unlock cursor
-    public void UnlockCursor()
+    /// <summary>
+    /// Unlock cursor. 
+    /// </summary>
+    public static void UnlockCursor()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
 
-    // For logical purposes only
-    // Check whether two numbers are close enough to each other
+    /// <summary>
+    /// For logical purposes only
+    /// Check whether two numbers are close enough to each other
+    /// </summary>
+    /// <param name="x">num1</param>
+    /// <param name="y">num2</param>
+    /// <param name="epsilon">How accurate</param>
+    /// <returns></returns>
     public static bool CloseTo(float x, float y, float epsilon = 0.1f)
     {
         return Mathf.Abs(x - y) <= epsilon;
     }
 
+    /// <summary>
+    /// Perform freeze frame effect
+    /// </summary>
+    /// <param name="scale">How slow to freeze</param>
+    /// <param name="duration">How long to freeze</param>
+    /// <returns>Freeze duration</returns>
     public static IEnumerator FreezeFrame(float scale = 0.5f, float duration = 0.2f)
     {
         Time.timeScale = scale;

@@ -3,11 +3,12 @@ using System.Collections;
 
 public class EnemyMovement : MonoBehaviour
 {
-    private Enemy _enemy;
+    private Enemy enemy;
     private static readonly int IsRunning = Animator.StringToHash("isRunning");
 
     public Transform LookTarget { get; set; }
     private const float LookInterpolationRatio = 0.2f;
+
     public Transform MoveTarget { get; set; }
 
     private const float PursuitVelocity = 10f;
@@ -15,29 +16,34 @@ public class EnemyMovement : MonoBehaviour
     private const float KnockBackForce = 30f;
     private const float KnockBackDuration = 0.1f;
 
-    private Rigidbody2D _rigidbody2D;
+    private Rigidbody2D rigidBody2D;
 
+    /// <summary>
+    /// Unity Event function.
+    /// Get component references before first frame update.
+    /// </summary>
     private void Awake()
     {
-        // Get component references
-        _enemy = GetComponent<Enemy>();
-        _rigidbody2D = GetComponent<Rigidbody2D>();
+        enemy = GetComponent<Enemy>();
+        rigidBody2D = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Unity Event function.
+    /// Update once per frame.
+    /// </summary>
     private void Update()
     {
         LookAt(LookTarget);
 
-        if (!_enemy.IsKnockingBack && _rigidbody2D.velocity != Vector2.zero)
-            _rigidbody2D.velocity = Vector2.zero;
+        if (!enemy.IsKnockingBack && rigidBody2D.velocity != Vector2.zero)
+            rigidBody2D.velocity = Vector2.zero;
     }
 
-    private void FixedUpdate()
-    {
-
-    }
-
+    /// <summary>
+    /// Rotate to look at a target.
+    /// </summary>
+    /// <param name="target">Target to look at</param>
     private void LookAt(Transform target)
     {
         if (!target) return;
@@ -50,16 +56,20 @@ public class EnemyMovement : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, LookInterpolationRatio * Time.timeScale);
     }
 
+    /// <summary>
+    /// Knock enemy back from original position.
+    /// </summary>
+    /// <returns>Number of seconds during knock back</returns>
     public IEnumerator KnockBack()
     {
-        _rigidbody2D.velocity = Vector2.zero;
+        rigidBody2D.velocity = Vector2.zero;
 
-        _enemy.IsKnockingBack = true;
-        _rigidbody2D.AddForce(-transform.up.normalized * KnockBackForce, ForceMode2D.Impulse);
+        enemy.IsKnockingBack = true;
+        rigidBody2D.AddForce(-transform.up.normalized * KnockBackForce, ForceMode2D.Impulse);
 
         yield return new WaitForSeconds(KnockBackDuration);
 
-        _rigidbody2D.velocity = Vector2.zero;
-        _enemy.IsKnockingBack = false;
+        rigidBody2D.velocity = Vector2.zero;
+        enemy.IsKnockingBack = false;
     }
 }

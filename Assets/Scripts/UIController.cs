@@ -7,30 +7,36 @@ public class UIController : MonoBehaviour
 
     #region Singleton
 
-    private static UIController _instance;
+    private static UIController instance;
 
     public static UIController Instance
     {
         get
         {
-            if (_instance == null) _instance = FindObjectOfType<UIController>();
+            if (instance == null) instance = FindObjectOfType<UIController>();
 
-            return _instance;
+            return instance;
         }
     }
 
     #endregion
 
     [SerializeField] private TMP_Text fpsText;
-    private float _timer;
+    private float timer;
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Unity Event function.
+    /// Initialize before first frame update.
+    /// </summary>
     private void Start()
     {
         HideFPS();
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Unity Event function.
+    /// Update once per frame.
+    /// </summary>
     private void Update()
     {
         DisplayFPS();
@@ -38,19 +44,25 @@ public class UIController : MonoBehaviour
 
     #region FPS Methods
 
-    // Show game framerate
+    /// <summary>
+    /// Show game framerate.
+    /// </summary>
     private void DisplayFPS()
     {
         UpdateText(fpsText, ((int) (1f / Time.unscaledDeltaTime)).ToString(), 1f);
     }
 
-    // Show fps text
+    /// <summary>
+    /// Show fps text.
+    /// </summary>
     public void ShowFPS()
     {
         fpsText.gameObject.SetActive(true);
     }
 
-    // Hide fps text
+    /// <summary>
+    /// Hide fps text.
+    /// </summary>
     public void HideFPS()
     {
         fpsText.gameObject.SetActive(false);
@@ -58,12 +70,17 @@ public class UIController : MonoBehaviour
 
     #endregion
 
-    // Update a text on screen with a refresh rate to stop screen from updating every frame
+    /// <summary>
+    /// Update a text on screen with a refresh rate to stop screen from updating every frame.
+    /// </summary>
+    /// <param name="text">Text to update</param>
+    /// <param name="message">String of message to display</param>
+    /// <param name="refreshRate">How many times to refresh per second</param>
     private void UpdateText(TMP_Text text, string message, float refreshRate)
     {
-        if (!(Time.unscaledTime > _timer)) return;
+        if (!(Time.unscaledTime > timer)) return;
 
         text.text = message;
-        _timer = Time.unscaledTime + refreshRate;
+        timer = Time.unscaledTime + refreshRate;
     }
 }

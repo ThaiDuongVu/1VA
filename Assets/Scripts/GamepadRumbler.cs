@@ -8,21 +8,27 @@ public class GamepadRumbler : MonoBehaviour
 
     #region Singleton
 
-    private static GamepadRumbler _instance;
+    private static GamepadRumbler instance;
 
     public static GamepadRumbler Instance
     {
         get
         {
-            if (_instance == null) _instance = FindObjectOfType<GamepadRumbler>();
+            if (instance == null) instance = FindObjectOfType<GamepadRumbler>();
 
-            return _instance;
+            return instance;
         }
     }
 
     #endregion
 
-    private IEnumerator StartRumble(float duration, float intensity)
+    /// <summary>
+    /// Start rumbling gamepad.
+    /// </summary>
+    /// <param name="duration">Number of seconds to rumble</param>
+    /// <param name="intensity">How hard to rumble</param>
+    /// <returns></returns>
+    private static IEnumerator StartRumble(float duration, float intensity)
     {
         Gamepad.current.SetMotorSpeeds(intensity, intensity);
         yield return new WaitForSeconds(duration);
@@ -32,6 +38,10 @@ public class GamepadRumbler : MonoBehaviour
 
     #region Rumble Methods
 
+    /// <summary>
+    /// Rumble gamepad.
+    /// </summary>
+    /// <param name="gamepadRumbleMode">Mode at which to rumble</param>
     public void Rumble(GamepadRumbleMode gamepadRumbleMode)
     {
         switch (gamepadRumbleMode)

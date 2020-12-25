@@ -34,32 +34,42 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public float Health { get; set; } = 100f;
 
-    private IDamageable _damageable;
+    private IDamageable damageable;
     public ParticleSystem bloodSpat;
 
+    /// <summary>
+    /// Unity Event function.
+    /// Get component references before first frame update.
+    /// </summary>
     private void Awake()
     {
-        // Get component references
         Animator = GetComponent<Animator>();
         Movement = GetComponent<EnemyMovement>();
-
-        _damageable = GetComponent<IDamageable>();
+        damageable = GetComponent<IDamageable>();
     }
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Unity Event function.
+    /// Initialize before first frame update.
+    /// </summary>
     private void Start()
     {
         GenerateAppearance();
         State = EnemyState.Idle;
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Unity Event function.
+    /// Update once per frame.
+    /// </summary>
     private void Update()
     {
-        if (Health <= 0f) _damageable.Die();
+        if (Health <= 0f) damageable.Die();
     }
 
-    // Generate a random appearance
+    /// <summary>
+    /// Generate a random enemy appearance.
+    /// </summary>
     private void GenerateAppearance()
     {
         head.sprite = headVariation[Random.Range(0, headVariation.Length)];
@@ -74,6 +84,10 @@ public class Enemy : MonoBehaviour, IDamageable
         footRight.sprite = footSprite;
     }
 
+    /// <summary>
+    /// Deal an amount of damage to enemy.
+    /// </summary>
+    /// <param name="damage">Amount of damage to deal</param>
     void IDamageable.TakeDamage(float damage)
     {
         StartCoroutine(Movement.KnockBack());
@@ -83,12 +97,20 @@ public class Enemy : MonoBehaviour, IDamageable
         Instantiate(bloodSpat, transform1.position, transform1.rotation);
     }
 
+    /// <summary>
+    /// Die.
+    /// </summary>
     void IDamageable.Die()
     {
         GlobalController.Instance.StartCoroutine(GlobalController.FreezeFrame());
         StartCoroutine(DestroyDelay());
     }
 
+    /// <summary>
+    /// Destroy enemy after a delay.
+    /// </summary>
+    /// <param name="delay">Number of seconds to delay</param>
+    /// <returns>Number of seconds to delay</returns>
     private IEnumerator DestroyDelay(float delay = 0.1f)
     {
         yield return new WaitForSeconds(delay);

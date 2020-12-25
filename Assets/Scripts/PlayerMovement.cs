@@ -4,15 +4,15 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Player _player;
+    private Player player;
     private static readonly int IsRunningTrigger = Animator.StringToHash("isRunning");
     private static readonly int EnterDashTrigger = Animator.StringToHash("enterDash");
     private static readonly int ExitDashTrigger = Animator.StringToHash("exitDash");
 
-    private Rigidbody2D _rigidbody2D;
-    private Vector2 _movement;
-    private Vector2 _direction;
-    private float _currentVelocity;
+    private Rigidbody2D rigidBody2D;
+    private Vector2 movement;
+    private Vector2 direction;
+    private float currentVelocity;
 
     private const float MaxVelocity = 20f;
     private const float MinVelocity = 0f;
@@ -22,108 +22,142 @@ public class PlayerMovement : MonoBehaviour
     private const float DashForce = 50f;
     private const float DashDuration = 0.2f;
 
-    private Vector2 _snapPosition;
+    private Vector2 snapPosition;
     private const float SnapDistance = 2.5f;
     private const float SnapInterpolationRatio = 0.35f;
 
-    private float _lookVelocity;
+    private float lookVelocity;
     private const float LookScale = 1f;
-    private Camera _mainCamera;
+    private Camera mainCamera;
 
-    private InputManager _inputManager;
+    private InputManager inputManager;
 
+    /// <summary>
+    /// Unity Event function.
+    /// Initialize input handler on object enabled.
+    /// </summary>
     private void OnEnable()
     {
-        _inputManager = new InputManager();
+        inputManager = new InputManager();
 
         // Handle movement keyboard input
-        _inputManager.Player.MoveKeyboard.performed += MoveOnPerformed;
-        _inputManager.Player.MoveKeyboard.canceled += MoveOnCanceled;
+        inputManager.Player.MoveKeyboard.performed += MoveOnPerformed;
+        inputManager.Player.MoveKeyboard.canceled += MoveOnCanceled;
 
         // Handle movement gamepad input
-        _inputManager.Player.MoveGamepad.performed += MoveOnPerformed;
-        _inputManager.Player.MoveGamepad.canceled += MoveOnCanceled;
+        inputManager.Player.MoveGamepad.performed += MoveOnPerformed;
+        inputManager.Player.MoveGamepad.canceled += MoveOnCanceled;
 
         // Look rotation
-        _inputManager.Player.Look.performed += LookOnPerformed;
-        _inputManager.Player.Look.canceled += LookOnCanceled;
+        inputManager.Player.Look.performed += LookOnPerformed;
+        inputManager.Player.Look.canceled += LookOnCanceled;
 
         // Handle dash input
-        _inputManager.Player.Dash.performed += DashOnPerformed;
+        inputManager.Player.Dash.performed += DashOnPerformed;
 
-        _inputManager.Enable();
+        inputManager.Enable();
     }
 
     #region Input Methods
 
+    /// <summary>
+    /// On move input performed.
+    /// </summary>
+    /// <param name="context">Input context</param>
     private void MoveOnPerformed(InputAction.CallbackContext context)
     {
         // Debug.Log(context.control.device == InputSystem.devices[0]);
 
         // If player is in a middle of a dash then return
-        if (_player.IsDashing || Time.timeScale == 0f) return;
+        if (player.IsDashing || Time.timeScale == 0f) return;
 
         // Set movement vector
-        _direction = context.ReadValue<Vector2>();
+        direction = context.ReadValue<Vector2>();
 
         // Play run animation
-        _player.Animator.SetBool(IsRunningTrigger, true);
-        _player.IsRunning = true;
+        player.Animator.SetBool(IsRunningTrigger, true);
+        player.IsRunning = true;
     }
 
+    /// <summary>
+    /// On move input canceled.
+    /// </summary>
+    /// <param name="context">Input context</param>
     private void MoveOnCanceled(InputAction.CallbackContext context)
     {
         if (Time.timeScale == 0f) return;
 
         // Reset movement vector
-        _direction = Vector2.zero;
+        direction = Vector2.zero;
 
         // Stop run animation
-        _player.Animator.SetBool(IsRunningTrigger, false);
-        _player.IsRunning = false;
+        player.Animator.SetBool(IsRunningTrigger, false);
+        player.IsRunning = false;
     }
 
+    /// <summary>
+    /// On look input performed.
+    /// </summary>
+    /// <param name="context">Input context</param>
     private void LookOnPerformed(InputAction.CallbackContext context)
     {
-        _lookVelocity = context.ReadValue<Vector2>().x * LookScale;
+        lookVelocity = context.ReadValue<Vector2>().x * LookScale;
     }
 
+    /// <summary>
+    /// On look input canceled.
+    /// </summary>
+    /// <param name="context">Input context</param>
     private void LookOnCanceled(InputAction.CallbackContext context)
     {
-        _lookVelocity = 0f;
+        lookVelocity = 0f;
     }
 
+    /// <summary>
+    /// On dash input performed.
+    /// </summary>
+    /// <param name="context">Input context</param>
     private void DashOnPerformed(InputAction.CallbackContext context)
     {
-        if (Time.timeScale == 0f || _player.IsSnapping) return;
+        if (Time.timeScale == 0f || player.IsSnapping) return;
 
         // Start dashing if not already
-        if (!_player.IsDashing) StartCoroutine(Dash());
+        if (!player.IsDashing) StartCoroutine(Dash());
     }
 
     #endregion
 
+    /// <summary>
+    /// Unity Event function.
+    /// Disable input handling on object disabled.
+    /// </summary>
     private void OnDisable()
     {
-        _inputManager.Disable();
+        inputManager.Disable();
     }
 
+    /// <summary>
+    /// Unity Event function.
+    /// Get component references before first frame update.
+    /// </summary>
     private void Awake()
     {
-        // Get component references
-        _player = GetComponent<Player>();
-        _rigidbody2D = GetComponent<Rigidbody2D>();
+        player = GetComponent<Player>();
+        rigidBody2D = GetComponent<Rigidbody2D>();
 
-        _mainCamera = Camera.main;
+        mainCamera = Camera.main;
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Unity Event function.
+    /// Update once per frame.
+    /// </summary>
     private void Update()
     {
         if (Time.timeScale == 0f) return;
 
         // If player is running then accelerate
-        if (_player.IsRunning) Accelerate();
+        if (player.IsRunning) Accelerate();
         // If not then decelerate
         else Decelerate();
 
@@ -131,70 +165,86 @@ public class PlayerMovement : MonoBehaviour
         Rotate();
     }
 
+    /// <summary>
+    /// Unity Event function.
+    /// Update at consistent time.
+    /// </summary>
     private void FixedUpdate()
     {
         if (Time.timeScale == 0f) return;
 
         // If player is running then run
-        if (_player.IsRunning) Run();
+        if (player.IsRunning) Run();
         // If player is snapping then snap
-        if (_player.IsSnapping) Snap();
+        if (player.IsSnapping) Snap();
 
-        _player.directionArrow.transform.up = Vector2.Lerp(_player.directionArrow.transform.up, _movement, 0.4f);
+        player.directionArrow.transform.up = Vector2.Lerp(player.directionArrow.transform.up, movement, 0.4f);
     }
 
-    // Move player to movement vector
+    /// <summary>
+    /// Move player to movement vector.
+    /// </summary>
     private void Run()
     {
-        _movement = Quaternion.Euler(0f, 0f, _mainCamera.transform.eulerAngles.z) * _direction;
-        _rigidbody2D.MovePosition(_rigidbody2D.position + _movement * _currentVelocity * Time.fixedDeltaTime);
+        movement = Quaternion.Euler(0f, 0f, mainCamera.transform.eulerAngles.z) * direction;
+        rigidBody2D.MovePosition(rigidBody2D.position + movement * (currentVelocity * Time.fixedDeltaTime));
     }
 
+    /// <summary>
+    /// Accelerate if current velocity is less than max velocity.
+    /// </summary>
     private void Accelerate()
     {
-        // Accelerate if current velocity is less than max velocity
-        if (_currentVelocity < MaxVelocity) _currentVelocity += Acceleration * Time.deltaTime;
+        if (currentVelocity < MaxVelocity) currentVelocity += Acceleration * Time.deltaTime;
     }
 
+    /// <summary>
+    /// Decelerate if current velocity is greater than min velocity.
+    /// </summary>
     private void Decelerate()
     {
-        // Decelerate if current velocity is greater than min velocity
-        if (_currentVelocity > MinVelocity) _currentVelocity -= Deceleration * Time.deltaTime;
-
+        if (currentVelocity > MinVelocity) currentVelocity -= Deceleration * Time.deltaTime;
         // If player near stopping then stop
-        if (Mathf.Abs(_currentVelocity - MinVelocity) < 0.1f) Stop();
+        if (Mathf.Abs(currentVelocity - MinVelocity) < 0.1f) Stop();
     }
 
-    // Stop running
+    /// <summary>
+    /// Stop running.
+    /// </summary>
     public void Stop()
     {
-        _currentVelocity = 0f;
+        currentVelocity = 0f;
     }
 
-    // Rotate to look velocity
+    /// <summary>
+    /// Rotate to look velocity.
+    /// </summary>
     private void Rotate()
     {
-        transform.Rotate(0f, 0f, _lookVelocity * Time.timeScale, Space.Self);
+        transform.Rotate(0f, 0f, lookVelocity * Time.timeScale, Space.Self);
     }
 
-    // Perform a dash move
+    /// <summary>
+    /// Perform a dash move.
+    /// </summary>
+    /// <returns>Dash duration</returns>
     private IEnumerator Dash()
     {
         // Whether player was running at time of dash
-        bool wasRunning = _player.IsRunning;
+        bool wasRunning = player.IsRunning;
 
         // Set to dash state
-        _player.IsRunning = false;
-        _player.IsDashing = true;
+        player.IsRunning = false;
+        player.IsDashing = true;
 
         // Enable player trail
-        _player.trail.enabled = true;
+        player.trail.enabled = true;
 
         // Play dash animation
-        _player.Animator.SetTrigger(EnterDashTrigger);
+        player.Animator.SetTrigger(EnterDashTrigger);
 
         // Add force forward
-        _rigidbody2D.AddForce(_movement * DashForce, ForceMode2D.Impulse);
+        rigidBody2D.AddForce(movement * DashForce, ForceMode2D.Impulse);
 
         // Shake camera
         CameraShaker.Instance.Shake(CameraShakeMode.Light);
@@ -202,84 +252,93 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(DashDuration);
 
         // Stop player movement
-        _rigidbody2D.velocity = Vector2.zero;
+        rigidBody2D.velocity = Vector2.zero;
 
         // Stop dash animation
-        _player.Animator.ResetTrigger(EnterDashTrigger);
-        _player.Animator.SetTrigger(ExitDashTrigger);
+        player.Animator.ResetTrigger(EnterDashTrigger);
+        player.Animator.SetTrigger(ExitDashTrigger);
 
         // Reset running state
-        _player.IsRunning = wasRunning;
-        _player.IsDashing = false;
+        player.IsRunning = wasRunning;
+        player.IsDashing = false;
 
-        yield return new WaitForSeconds(_player.trail.time);
+        yield return new WaitForSeconds(player.trail.time);
 
         // Disable player trail
-        if (!_player.IsDashing) _player.trail.enabled = false;
+        if (!player.IsDashing) player.trail.enabled = false;
     }
 
-    // Scale animation speed to movement speed
+    /// <summary>
+    /// Scale animation speed to movement speed.
+    /// </summary>
     private void Animate()
     {
         // If player is not running then set animation speed to 1
-        if (!_player.IsRunning)
+        if (!player.IsRunning)
         {
-            _player.Animator.speed = 1f;
+            player.Animator.speed = 1f;
             return;
         }
 
         // If not then set animation speed to velocity length
-        _player.Animator.speed = _currentVelocity / MaxVelocity;
+        player.Animator.speed = currentVelocity / MaxVelocity;
     }
 
-    // Start snapping
+    /// <summary>
+    /// Start snapping.
+    /// </summary>
+    /// <param name="other">enemy to snap to</param>
     public void StartSnapping(Enemy other)
     {
         // Set player snapping to true
-        _player.IsSnapping = true;
-        _player.IsRunning = false;
+        player.IsSnapping = true;
+        player.IsRunning = false;
 
         // Enable trail
-        _player.trail.enabled = true;
+        player.trail.enabled = true;
 
         // Set snap position
-        _snapPosition = other.transform.position;
+        snapPosition = other.transform.position;
 
         // Set snap enemy
-        _player.SnapEnemy = other;
+        player.SnapEnemy = other;
     }
 
-    // Stop snapping
+    /// <summary>
+    /// Stop snapping.
+    /// </summary>
     private void StopSnapping()
     {
         // Set player snapping to false
-        _player.IsSnapping = false;
+        player.IsSnapping = false;
 
         // Disable trail
-        _player.trail.enabled = false;
+        player.trail.enabled = false;
 
         transform.rotation =
-            Quaternion.LookRotation(Vector3.forward, (_snapPosition - (Vector2)transform.position).normalized);
+            Quaternion.LookRotation(Vector3.forward, (snapPosition - (Vector2) transform.position).normalized);
 
         CameraShaker.Instance.Shake(CameraShakeMode.Normal);
     }
 
-    // Snap to an enemy
+    /// <summary>
+    /// Snap to an enemy.
+    /// </summary>
     private void Snap()
     {
         // Snap position
         Vector3 position = transform.position;
-        position = Vector2.Lerp(position, _snapPosition, SnapInterpolationRatio);
+        position = Vector2.Lerp(position, snapPosition, SnapInterpolationRatio);
         transform.position = position;
 
         // Snap rotation
         Quaternion lookRotation =
-            Quaternion.LookRotation(Vector3.forward, (_snapPosition - (Vector2)position).normalized);
+            Quaternion.LookRotation(Vector3.forward, (snapPosition - (Vector2) position).normalized);
         transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, SnapInterpolationRatio * Time.timeScale);
 
         // If snapped then stop snapping
-        if (GlobalController.CloseTo(transform.position.x, _snapPosition.x, SnapDistance) &&
-            GlobalController.CloseTo(transform.position.y, _snapPosition.y, SnapDistance))
+        if (GlobalController.CloseTo(transform.position.x, snapPosition.x, SnapDistance) &&
+            GlobalController.CloseTo(transform.position.y, snapPosition.y, SnapDistance))
             StopSnapping();
     }
 }

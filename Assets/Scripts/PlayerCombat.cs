@@ -1,16 +1,20 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    // Start is called before the first frame update
+    /// <summary>
+    /// Unity Event function.
+    /// Initialize before first frame update.
+    /// </summary>
     private void Start()
     {
-        
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Unity Event function.
+    /// Update once per frame.
+    /// </summary>
     private void Update()
     {
-        
     }
 }
