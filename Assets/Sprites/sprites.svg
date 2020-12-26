@@ -251,9 +251,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="-19.210338"
-     inkscape:cy="2955.6933"
+     inkscape:zoom="0.35"
+     inkscape:cx="-246.04943"
+     inkscape:cy="2833.1633"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -704,32 +704,26 @@
          inkscape:transform-center-y="0.27930895"
          transform="matrix(0,-0.5323329,-0.56224483,0,-381.717,-828.9115)" />
     </g>
-    <g
-       inkscape:export-ydpi="65.019997"
-       inkscape:export-xdpi="65.019997"
-       inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Variation\Foot1.png"
-       id="g919">
-      <rect
-         style="fill:#00aad4;fill-opacity:1;stroke:#008cb6;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="rect933"
-         width="45.000011"
-         height="70.000008"
-         x="2.499995"
-         y="402.5"
-         ry="25"
-         inkscape:export-xdpi="25.399998"
-         inkscape:export-ydpi="25.399998" />
-      <rect
-         inkscape:export-ydpi="25.399998"
-         inkscape:export-xdpi="25.399998"
-         ry="8.9285707"
-         y="435"
-         x="12.5"
-         height="25"
-         width="25"
-         id="rect935"
-         style="fill:#eeeeee;fill-opacity:1;stroke:none;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    </g>
+    <rect
+       inkscape:export-ydpi="25.399998"
+       inkscape:export-xdpi="25.399998"
+       ry="25"
+       y="402.5"
+       x="2.499995"
+       height="70.000008"
+       width="45.000011"
+       id="rect933"
+       style="fill:#00aad4;fill-opacity:1;stroke:#008cb6;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <rect
+       style="fill:#eeeeee;fill-opacity:1;stroke:none;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect935"
+       width="25"
+       height="25"
+       x="12.5"
+       y="435"
+       ry="8.9285707"
+       inkscape:export-xdpi="25.399998"
+       inkscape:export-ydpi="25.399998" />
     <g
        inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Variation\Foot2.png"
        inkscape:export-ydpi="65.019997"
@@ -833,33 +827,38 @@
        r="47.500004"
        inkscape:export-xdpi="65.019997"
        inkscape:export-ydpi="65.019997" />
-    <g
+    <rect
+       style="fill:#ff6600;fill-opacity:1;stroke:#cd3400;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       id="rect917"
+       width="35.000011"
+       height="95.000008"
+       x="7.4999952"
+       y="752.5"
+       ry="20"
+       inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Weapons\Pistol.png"
+       inkscape:export-xdpi="25.399998"
+       inkscape:export-ydpi="25.399998" />
+    <rect
        inkscape:export-ydpi="25.399998"
        inkscape:export-xdpi="25.399998"
        inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Weapons\Pistol.png"
-       id="g926">
-      <rect
-         inkscape:export-ydpi="25.399998"
-         inkscape:export-xdpi="25.399998"
-         inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1SA\Assets\Sprites\Weapons\Pistol.png"
-         ry="20"
-         y="752.5"
-         x="7.4999952"
-         height="95.000008"
-         width="35.000011"
-         id="rect917"
-         style="fill:#ff6600;fill-opacity:1;stroke:#cd3400;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />
-      <rect
-         style="fill:#eeeeee;fill-opacity:1;stroke:#d0d0d0;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
-         id="rect915"
-         width="45.000011"
-         height="45.000011"
-         x="2.499995"
-         y="787.5"
-         ry="20"
-         inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1SA\Assets\Sprites\Weapons\Pistol.png"
-         inkscape:export-xdpi="25.399998"
-         inkscape:export-ydpi="25.399998" />
-    </g>
+       ry="20"
+       y="787.5"
+       x="2.499995"
+       height="45.000011"
+       width="45.000011"
+       id="rect915"
+       style="fill:#00aad4;fill-opacity:1;stroke:#d0d0d0;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />
+    <rect
+       inkscape:export-ydpi="25.399998"
+       inkscape:export-xdpi="25.399998"
+       inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Weapons\Pistol_Bullet.png"
+       ry="10"
+       y="902.49994"
+       x="7.4999952"
+       height="34.999989"
+       width="14.99999"
+       id="rect918"
+       style="fill:#eeeeee;fill-opacity:1;stroke:#d0d0d0;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   </g>
 </svg>

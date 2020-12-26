@@ -68,20 +68,7 @@ public class Player : MonoBehaviour, IDamageable
     /// </summary>
     private void Update()
     {
-        WeaponMoveWithPlayer();
-    }
-
-    /// <summary>
-    /// Move weapon with player position and rotation.
-    /// </summary>
-    public void WeaponMoveWithPlayer()
-    {
-        if (!CurrentWeapon) return;
-
-        Transform currentWeaponTransform = CurrentWeapon.transform;
-
-        currentWeaponTransform.position = Vector2.Lerp(currentWeaponTransform.position, weaponTransform.position, WeaponInterpolationRatio);
-        currentWeaponTransform.rotation = Quaternion.Lerp(currentWeaponTransform.rotation, transform.rotation, WeaponInterpolationRatio);
+        if (CurrentWeapon) CurrentWeapon.MoveWithTarget(weaponTransform);
     }
 
     /// <summary>
