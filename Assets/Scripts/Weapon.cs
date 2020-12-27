@@ -2,23 +2,24 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    // Damage per bullet
-    [SerializeField] private float damage;
+    public Transform barrel;
+    public Bullet bullet;
+    public WeaponAimCone aimCone;
+
     // How far will the bullets go
-    [SerializeField] private float range;
+    public float range;
 
-
-    [SerializeField] private Transform barrel;
-    [SerializeField] private Bullet bullet;
+    public int maxAmmo;
+    private int currentAmmo;
 
     // Spread angle
-    [SerializeField] private float spread;
+    public float spread;
 
     // Number of bullets per second
-    [SerializeField] private float fireRate;
+    public float fireRate;
 
     // Whether is a automatic weapon
-    [SerializeField] private bool isAutomatic;
+    public bool isAutomatic;
 
     private const float WeaponInterpolationRatio = 0.2f;
 
@@ -27,11 +28,11 @@ public class Weapon : MonoBehaviour
     /// </summary>
     public void Shoot()
     {
-        Instantiate(bullet, barrel.position, transform.rotation);
+        Instantiate(bullet, barrel.position, transform.rotation).GetComponent<Bullet>().weapon = this;
     }
 
     /// <summary>
-    /// Move weapon with target position and rotation.
+    /// Move weapon with current holder's position and rotation.
     /// </summary>
     public void MoveWithTarget(Transform target)
     {

@@ -90,11 +90,8 @@ public class Enemy : MonoBehaviour, IDamageable
     /// <param name="damage">Amount of damage to deal</param>
     void IDamageable.TakeDamage(float damage)
     {
-        StartCoroutine(Movement.KnockBack());
         Health -= damage;
-
-        Transform transform1 = transform;
-        Instantiate(bloodSpat, transform1.position, transform1.rotation);
+        Instantiate(bloodSpat, transform.position, transform.rotation);
     }
 
     /// <summary>
@@ -115,5 +112,20 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         yield return new WaitForSeconds(delay);
         Destroy(gameObject);
+    }
+
+    /// <summary>
+    /// Unity Event function.
+    /// Handle trigger collision.
+    /// </summary>
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Bullet"))
+        {
+            StartCoroutine(Movement.KnockBack(other.transform.up));
+            damageable.TakeDamage(other.GetComponent<Bullet>().damage);
+
+            Destroy(other.gameObject);
+        }
     }
 }

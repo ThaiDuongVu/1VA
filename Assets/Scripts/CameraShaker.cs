@@ -50,7 +50,7 @@ public class CameraShaker : MonoBehaviour
     }
 
     /// <summary>
-    /// Randomize camera position by shake intensity if shakes.
+    /// Randomize camera position by shake intensity if is shaking.
     /// </summary>
     private void Randomize()
     {

@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private const float Acceleration = 50f;
     private const float Deceleration = 25f;
 
-    private const float DashForce = 50f;
+    private const float DashForce = 60f;
     private const float DashDuration = 0.2f;
 
     private Vector2 snapPosition;
@@ -27,7 +27,9 @@ public class PlayerMovement : MonoBehaviour
     private const float SnapInterpolationRatio = 0.35f;
 
     private float lookVelocity;
-    private const float LookScale = 1f;
+    public const float MaxLookSensitivity = 1f;
+    public const float MinLookSensitivity = 0.5f;
+    [HideInInspector] public float lookSensitivity = 1f;
     private Camera mainCamera;
 
     private InputManager inputManager;
@@ -101,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
     /// <param name="context">Input context</param>
     private void LookOnPerformed(InputAction.CallbackContext context)
     {
-        lookVelocity = context.ReadValue<Vector2>().x * LookScale;
+        lookVelocity = context.ReadValue<Vector2>().x * lookSensitivity;
     }
 
     /// <summary>
@@ -316,7 +318,7 @@ public class PlayerMovement : MonoBehaviour
         player.trail.enabled = false;
 
         transform.rotation =
-            Quaternion.LookRotation(Vector3.forward, (snapPosition - (Vector2) transform.position).normalized);
+            Quaternion.LookRotation(Vector3.forward, (snapPosition - (Vector2)transform.position).normalized);
 
         CameraShaker.Instance.Shake(CameraShakeMode.Normal);
     }
@@ -333,7 +335,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Snap rotation
         Quaternion lookRotation =
-            Quaternion.LookRotation(Vector3.forward, (snapPosition - (Vector2) position).normalized);
+            Quaternion.LookRotation(Vector3.forward, (snapPosition - (Vector2)position).normalized);
         transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, SnapInterpolationRatio * Time.timeScale);
 
         // If snapped then stop snapping

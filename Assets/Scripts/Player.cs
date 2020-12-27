@@ -39,8 +39,6 @@ public class Player : MonoBehaviour, IDamageable
     {
         // Disable trail
         trail.enabled = false;
-
-        UnequipWeapon();
     }
 
     /// <summary>
@@ -49,6 +47,8 @@ public class Player : MonoBehaviour, IDamageable
     /// <param name="weapon">Weapon to equip</param>
     private void EquipWeapon(Weapon weapon)
     {
+        weapon.aimCone.enabled = true;
+
         Animator.runtimeAnimatorController = weaponAnimator;
         CurrentWeapon = weapon;
     }
@@ -58,6 +58,8 @@ public class Player : MonoBehaviour, IDamageable
     /// </summary>
     private void UnequipWeapon()
     {
+        CurrentWeapon.aimCone.enabled = false;
+
         Animator.runtimeAnimatorController = regularAnimator;
         CurrentWeapon = null;
     }
@@ -68,7 +70,17 @@ public class Player : MonoBehaviour, IDamageable
     /// </summary>
     private void Update()
     {
-        if (CurrentWeapon) CurrentWeapon.MoveWithTarget(weaponTransform);
+        if (CurrentWeapon)
+        {
+            CurrentWeapon.MoveWithTarget(weaponTransform);
+
+            if (CurrentWeapon.aimCone.EnemyCount > 0) Movement.lookSensitivity = PlayerMovement.MinLookSensitivity;
+            else Movement.lookSensitivity = PlayerMovement.MaxLookSensitivity;
+        }
+        else
+        {
+            Movement.lookSensitivity = PlayerMovement.MaxLookSensitivity;
+        }
     }
 
     /// <summary>
