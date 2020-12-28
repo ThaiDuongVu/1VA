@@ -74,12 +74,12 @@ public class Player : MonoBehaviour, IDamageable
         {
             CurrentWeapon.MoveWithTarget(weaponTransform);
 
-            if (CurrentWeapon.aimCone.EnemyCount > 0) Movement.lookSensitivity = PlayerMovement.MinLookSensitivity;
-            else Movement.lookSensitivity = PlayerMovement.MaxLookSensitivity;
+            if (CurrentWeapon.aimCone.EnemyCount > 0) Movement.lookSensitivity = PlayerMovement.AimLookSensitivity;
+            else Movement.lookSensitivity = PlayerMovement.NormalLookSensitivity;
         }
         else
         {
-            Movement.lookSensitivity = PlayerMovement.MaxLookSensitivity;
+            Movement.lookSensitivity = PlayerMovement.NormalLookSensitivity;
         }
     }
 

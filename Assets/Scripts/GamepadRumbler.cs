@@ -44,26 +44,23 @@ public class GamepadRumbler : MonoBehaviour
     /// <param name="gamepadRumbleMode">Mode at which to rumble</param>
     public void Rumble(GamepadRumbleMode gamepadRumbleMode)
     {
+        StopAllCoroutines();
         switch (gamepadRumbleMode)
         {
             case GamepadRumbleMode.Micro:
-                StopAllCoroutines();
                 StartCoroutine(StartRumble(0.05f, 0.05f));
                 break;
 
             case GamepadRumbleMode.Light:
-                StopAllCoroutines();
-                StartCoroutine(StartRumble(0.1f, 0.1f));
+                StartCoroutine(StartRumble(0.075f, 0.075f));
                 break;
 
             case GamepadRumbleMode.Normal:
-                StopAllCoroutines();
-                StartCoroutine(StartRumble(0.2f, 0.2f));
+                StartCoroutine(StartRumble(0.15f, 0.15f));
                 break;
 
             case GamepadRumbleMode.Hard:
-                StopAllCoroutines();
-                StartCoroutine(StartRumble(0.35f, 0.35f));
+                StartCoroutine(StartRumble(0.2f, 0.2f));
                 break;
 
             default:

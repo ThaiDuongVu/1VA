@@ -54,12 +54,12 @@ MonoBehaviour:
   m_UseNormalMap: 0
   m_LightOrder: 0
   m_AlphaBlendOnOverlap: 0
-  m_ShadowIntensity: 0
+  m_ShadowIntensity: 0.75
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1
-  m_PointLightOuterRadius: 2
+  m_PointLightOuterRadius: 3
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 598078148}
   - component: {fileID: 2470960172551714010}
   - component: {fileID: 561536808949089618}
-  m_Layer: 11
+  m_Layer: 2
   m_Name: AimCone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 643976783}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.75, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7650863173176537653}
@@ -341,10 +341,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barrel: {fileID: 643976784}
-  bullet: {fileID: -2195225544167033538, guid: fb2917c485906874d87397fbdacf2534, type: 3}
+  bullet: {fileID: -133947810885826097, guid: fb2917c485906874d87397fbdacf2534, type: 3}
   aimCone: {fileID: 561536808949089618}
+  muzzle: {fileID: 5176900677835981296, guid: 0b8d41f3a5259d448ab5d8d52ac56ff9, type: 3}
   range: 30
   maxAmmo: 45
+  damage: 10
   spread: 10
   fireRate: 5
   isAutomatic: 0

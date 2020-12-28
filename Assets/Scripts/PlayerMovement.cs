@@ -14,12 +14,12 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 direction;
     private float currentVelocity;
 
-    private const float MaxVelocity = 20f;
+    private const float MaxVelocity = 30f;
     private const float MinVelocity = 0f;
-    private const float Acceleration = 50f;
-    private const float Deceleration = 25f;
+    private const float Acceleration = 60f;
+    private const float Deceleration = 30f;
 
-    private const float DashForce = 60f;
+    private const float DashForce = 70f;
     private const float DashDuration = 0.2f;
 
     private Vector2 snapPosition;
@@ -27,8 +27,8 @@ public class PlayerMovement : MonoBehaviour
     private const float SnapInterpolationRatio = 0.35f;
 
     private float lookVelocity;
-    public const float MaxLookSensitivity = 1f;
-    public const float MinLookSensitivity = 0.5f;
+    public const float NormalLookSensitivity = 1f;
+    public const float AimLookSensitivity = 0.35f;
     [HideInInspector] public float lookSensitivity = 1f;
     private Camera mainCamera;
 

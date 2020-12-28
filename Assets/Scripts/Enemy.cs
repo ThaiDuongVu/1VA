@@ -113,19 +113,4 @@ public class Enemy : MonoBehaviour, IDamageable
         yield return new WaitForSeconds(delay);
         Destroy(gameObject);
     }
-
-    /// <summary>
-    /// Unity Event function.
-    /// Handle trigger collision.
-    /// </summary>
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Bullet"))
-        {
-            StartCoroutine(Movement.KnockBack(other.transform.up));
-            damageable.TakeDamage(other.GetComponent<Bullet>().damage);
-
-            Destroy(other.gameObject);
-        }
-    }
 }

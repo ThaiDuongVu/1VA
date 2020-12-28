@@ -235,7 +235,7 @@ MonoBehaviour:
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 1.25
+  m_PointLightInnerRadius: 1
   m_PointLightOuterRadius: 2.5
   m_PointLightDistance: 3
   m_PointLightQuality: 1
@@ -940,7 +940,7 @@ MonoBehaviour:
   - {x: -1.1136818, y: 0.14900398, z: 0}
   m_ShapePathHash: 1339006343
   m_Mesh: {fileID: 0}
-  m_InstanceId: 76288
+  m_InstanceId: 87682
 --- !u!114 &8325402927950416184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -970,6 +970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9671d085064fc7c4c93f4465f7fd3cf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lookSensitivity: 1
 --- !u!114 &1393930187
 MonoBehaviour:
   m_ObjectHideFlags: 0
