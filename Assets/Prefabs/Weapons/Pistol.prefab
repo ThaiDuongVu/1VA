@@ -121,7 +121,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 0, g: 0.6784314, b: 0.70980394, a: 1}
-  m_Intensity: 0.75
+  m_Intensity: 1
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 00000000b3d79291f53a23d7c72f52875be104680b1704bd
   m_LightCookieSprite: {fileID: 0}
@@ -142,11 +142,11 @@ MonoBehaviour:
   m_ShapeLightFalloffSize: 2.5
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
-  - {x: -0.25, y: 0, z: 0}
-  - {x: 0.25, y: 0, z: 0}
-  - {x: 1, y: 30, z: 0}
-  - {x: 0, y: 31, z: 0}
-  - {x: -1, y: 30, z: 0}
+  - {x: -0.2, y: 0, z: 0}
+  - {x: 0.2, y: 0, z: 0}
+  - {x: 0.8, y: 30, z: 0}
+  - {x: 0, y: 30.8, z: 0}
+  - {x: -0.8, y: 30, z: 0}
 --- !u!60 &2470960172551714010
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -172,11 +172,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 32}
-      - {x: -2, y: 30}
-      - {x: -1, y: 0}
-      - {x: 1, y: 0}
-      - {x: 2, y: 30}
+    - - {x: 0, y: 31}
+      - {x: -1, y: 30}
+      - {x: -0.5, y: 0}
+      - {x: 0.5, y: 0}
+      - {x: 1, y: 30}
 --- !u!114 &561536808949089618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,6 +347,6 @@ MonoBehaviour:
   range: 30
   maxAmmo: 45
   damage: 10
-  spread: 10
+  spread: 2
   fireRate: 5
   isAutomatic: 0

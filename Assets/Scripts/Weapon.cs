@@ -26,6 +26,8 @@ public class Weapon : MonoBehaviour
     // Whether is a automatic weapon
     public bool isAutomatic;
 
+    private Vector2 fireDirection;
+
     private const float WeaponInterpolationRatio = 0.2f;
 
     /// <summary>
@@ -33,13 +35,14 @@ public class Weapon : MonoBehaviour
     /// </summary>
     public void Shoot()
     {
-        Instantiate(muzzle, barrel.position, transform.rotation);
+        fireDirection = Quaternion.AngleAxis(Random.Range(-spread, spread), Vector3.forward) * transform.up;
+        Instantiate(muzzle, barrel.position, transform.rotation).transform.parent = barrel;
         
-        RaycastHit2D hit2D = Physics2D.Raycast(barrel.position, transform.up, range);
+        RaycastHit2D hit2D = Physics2D.Raycast(barrel.position, fireDirection, range);
 
         if (hit2D.transform == null)
         {
-            Instantiate(bullet, barrel.position, transform.rotation).GetComponent<Bullet>().endPosition = barrel.position + barrel.up * range;
+            Instantiate(bullet, barrel.position, barrel.rotation).GetComponent<Bullet>().endPosition = barrel.position + (Vector3)fireDirection * range;
             return;
         }
 
@@ -47,9 +50,10 @@ public class Weapon : MonoBehaviour
         {
             Enemy enemy = hit2D.transform.GetComponent<Enemy>();
 
-            Instantiate(bullet, barrel.position, transform.rotation).GetComponent<Bullet>().endPosition = enemy.transform.position;
             enemy.GetComponent<IDamageable>().TakeDamage(damage);
             enemy.Movement.StartCoroutine(enemy.Movement.KnockBack(transform.up));
+            
+            Instantiate(bullet, barrel.position, barrel.rotation).GetComponent<Bullet>().endPosition = enemy.transform.position;
         }
     }
 
@@ -64,6 +68,6 @@ public class Weapon : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawLine(barrel.position, barrel.position + barrel.up * range);
+        Gizmos.DrawLine(barrel.position, barrel.position + (Vector3)fireDirection * range);
     }
 }

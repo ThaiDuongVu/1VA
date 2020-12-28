@@ -495,9 +495,37 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -4132731240909833422, guid: 984a7c1b05751c74da9c3a093075cfe2, type: 2}
     - target: {fileID: 443575149, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
+      propertyPath: propertyName
+      value: AimAssist
+      objectReference: {fileID: 0}
+    - target: {fileID: 443575149, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
       propertyPath: settingsController
       value: 
       objectReference: {fileID: 189808622842258208}
+    - target: {fileID: 443575149, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
+      propertyPath: toggles.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 443575149, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
+      propertyPath: properties.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 443575149, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
+      propertyPath: toggles.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 443575149, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
+      propertyPath: toggles.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 443575149, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
+      propertyPath: properties.Array.data[0]
+      value: On
+      objectReference: {fileID: 0}
+    - target: {fileID: 443575149, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
+      propertyPath: properties.Array.data[1]
+      value: Off
+      objectReference: {fileID: 0}
     - target: {fileID: 1228122610, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -553,8 +581,16 @@ PrefabInstance:
     - target: {fileID: 691804612662843952, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
       propertyPath: upTile
       value: 
-      objectReference: {fileID: 691804611858453237}
+      objectReference: {fileID: 691804612945558876}
     - target: {fileID: 691804612662843952, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
+      propertyPath: downTile
+      value: 
+      objectReference: {fileID: 691804612945558876}
+    - target: {fileID: 691804613219366297, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
+      propertyPath: upTile
+      value: 
+      objectReference: {fileID: 691804611858453237}
+    - target: {fileID: 691804613219366297, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
       propertyPath: downTile
       value: 
       objectReference: {fileID: 691804611858453237}
@@ -588,10 +624,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3849823170566436483, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
       propertyPath: tiles.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3849823170566436483, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
       propertyPath: tiles.Array.data[0]
+      value: 
+      objectReference: {fileID: 691804612945558876}
+    - target: {fileID: 3849823170566436483, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
+      propertyPath: tiles.Array.data[1]
       value: 
       objectReference: {fileID: 691804611858453237}
     - target: {fileID: 3849823170972709246, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
@@ -735,6 +775,10 @@ PrefabInstance:
       value: -250
       objectReference: {fileID: 0}
     - target: {fileID: 4698047409343298819, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
+      propertyPath: m_text
+      value: Aim Assist
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698047409343298819, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: 984a7c1b05751c74da9c3a093075cfe2, type: 2}
@@ -747,8 +791,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -4132731240909833422, guid: 984a7c1b05751c74da9c3a093075cfe2, type: 2}
     - target: {fileID: 4698047409662006731, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
+      propertyPath: m_Name
+      value: AimAssistButon
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698047409662006731, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4698047410026156714, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
       propertyPath: m_fontAsset
@@ -814,6 +862,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea245c6c931fc0c45a739a0d95052cde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &691804612945558876 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 691804613219366297, guid: 63747b4d87527434dace70992c78a5e5, type: 3}
+  m_PrefabInstance: {fileID: 812779717}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 780d2217f8bcd9f4493bdaf7f21924da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &691804611858453237 stripped

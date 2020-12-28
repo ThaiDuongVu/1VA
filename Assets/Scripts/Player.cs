@@ -7,6 +7,7 @@ public class Player : MonoBehaviour, IDamageable
     public bool IsRunning { get; set; }
     public bool IsDashing { get; set; }
     public bool IsSnapping { get; set; }
+    public bool IsAimAssisting { get; set; }
 
     public Animator Animator { get; set; }
     public RuntimeAnimatorController regularAnimator;
@@ -74,10 +75,19 @@ public class Player : MonoBehaviour, IDamageable
         {
             CurrentWeapon.MoveWithTarget(weaponTransform);
 
-            if (CurrentWeapon.aimCone.EnemyCount > 0) Movement.lookSensitivity = PlayerMovement.AimLookSensitivity;
-            else Movement.lookSensitivity = PlayerMovement.NormalLookSensitivity;
+            if ((CurrentWeapon.aimCone.EnemyCount > 0 && PlayerPrefs.GetInt("AimAssist", 0) == 0) && !IsAimAssisting) IsAimAssisting = true;
+            else if ((CurrentWeapon.aimCone.EnemyCount == 0 || PlayerPrefs.GetInt("AimAssist", 0) != 0) && IsAimAssisting) IsAimAssisting = false;
         }
         else
+        {
+            IsAimAssisting = false;
+        }
+
+        if (IsAimAssisting && Movement.lookSensitivity != PlayerMovement.AimLookSensitivity)
+        {
+            Movement.lookSensitivity = PlayerMovement.AimLookSensitivity;
+        }
+        else if (!IsAimAssisting && Movement.lookSensitivity != PlayerMovement.NormalLookSensitivity)
         {
             Movement.lookSensitivity = PlayerMovement.NormalLookSensitivity;
         }

@@ -35,9 +35,6 @@ public class Bullet : MonoBehaviour
     /// </summary>
     private void Fly()
     {
-        // transform.Translate(transform.up * speed * Time.deltaTime, Space.World);
         transform.position = Vector2.Lerp(transform.position, endPosition, 0.25f);
-
-        // transform.position = new Vector2(transform.position.x, transform.position.y + speed * Time.deltaTime) * Vector2.up;
     }
 }
