@@ -75,21 +75,10 @@ public class Player : MonoBehaviour, IDamageable
         {
             CurrentWeapon.MoveWithTarget(weaponTransform);
 
-            if ((CurrentWeapon.aimCone.EnemyCount > 0 && PlayerPrefs.GetInt("AimAssist", 0) == 0) && !IsAimAssisting) IsAimAssisting = true;
-            else if ((CurrentWeapon.aimCone.EnemyCount == 0 || PlayerPrefs.GetInt("AimAssist", 0) != 0) && IsAimAssisting) IsAimAssisting = false;
-        }
-        else
-        {
-            IsAimAssisting = false;
-        }
-
-        if (IsAimAssisting && Movement.lookSensitivity != PlayerMovement.AimLookSensitivity)
-        {
-            Movement.lookSensitivity = PlayerMovement.AimLookSensitivity;
-        }
-        else if (!IsAimAssisting && Movement.lookSensitivity != PlayerMovement.NormalLookSensitivity)
-        {
-            Movement.lookSensitivity = PlayerMovement.NormalLookSensitivity;
+            if (PlayerPrefs.GetInt("AimAssist", 0) == 0)
+                Movement.AimAssist();
+            else
+                Movement.lookSensitivity = PlayerMovement.NormalLookSensitivity;
         }
     }
 
@@ -97,14 +86,14 @@ public class Player : MonoBehaviour, IDamageable
     /// Deal damage to player.
     /// </summary>
     /// <param name="damage">Amount to damage</param>
-    void IDamageable.TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
     }
 
     /// <summary>
     /// Player die.
     /// </summary>
-    void IDamageable.Die()
+    public void Die()
     {
     }
 

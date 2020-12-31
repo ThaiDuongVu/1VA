@@ -14,12 +14,12 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 direction;
     private float currentVelocity;
 
-    private const float MaxVelocity = 30f;
+    private const float MaxVelocity = 20f;
     private const float MinVelocity = 0f;
-    private const float Acceleration = 60f;
-    private const float Deceleration = 30f;
+    private const float Acceleration = 50f;
+    private const float Deceleration = 20f;
 
-    private const float DashForce = 70f;
+    private const float DashForce = 50f;
     private const float DashDuration = 0.2f;
 
     private Vector2 snapPosition;
@@ -224,6 +224,18 @@ public class PlayerMovement : MonoBehaviour
     private void Rotate()
     {
         transform.Rotate(0f, 0f, lookVelocity * Time.timeScale, Space.Self);
+    }
+
+    /// <summary>
+    /// Slightly decrease player look sensitivity when an enemy is in sight.
+    /// </summary>
+    public void AimAssist()
+    {
+        if (player.CurrentWeapon.aimCone.EnemyCount > 0 && lookSensitivity != AimLookSensitivity)
+            lookSensitivity = AimLookSensitivity;
+
+        else if (player.CurrentWeapon.aimCone.EnemyCount == 0 && lookSensitivity != NormalLookSensitivity)
+            lookSensitivity = NormalLookSensitivity;
     }
 
     /// <summary>

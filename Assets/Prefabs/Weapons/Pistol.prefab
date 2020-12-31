@@ -142,11 +142,11 @@ MonoBehaviour:
   m_ShapeLightFalloffSize: 2.5
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
-  - {x: -0.2, y: 0, z: 0}
-  - {x: 0.2, y: 0, z: 0}
-  - {x: 0.8, y: 30, z: 0}
-  - {x: 0, y: 30.8, z: 0}
-  - {x: -0.8, y: 30, z: 0}
+  - {x: -0.25, y: 0, z: 0}
+  - {x: 0.25, y: 0, z: 0}
+  - {x: 0.5, y: 29.5, z: 0}
+  - {x: 0, y: 30, z: 0}
+  - {x: -0.5, y: 29.5, z: 0}
 --- !u!60 &2470960172551714010
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -172,11 +172,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 31}
-      - {x: -1, y: 30}
-      - {x: -0.5, y: 0}
-      - {x: 0.5, y: 0}
-      - {x: 1, y: 30}
+    - - {x: 0, y: 30}
+      - {x: -0.5, y: 29.5}
+      - {x: -0.25, y: 0}
+      - {x: 0.25, y: 0}
+      - {x: 0.5, y: 29.5}
 --- !u!114 &561536808949089618
 MonoBehaviour:
   m_ObjectHideFlags: 0

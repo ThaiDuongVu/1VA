@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
     /// </summary>
     private void Start()
     {
-        
+
     }
 
     /// <summary>

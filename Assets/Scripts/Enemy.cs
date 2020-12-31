@@ -33,8 +33,6 @@ public class Enemy : MonoBehaviour, IDamageable
     public bool CanBeTakenDown { get; set; }
 
     public float Health { get; set; } = 100f;
-
-    private IDamageable damageable;
     public ParticleSystem bloodSpat;
 
     /// <summary>
@@ -45,7 +43,6 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         Animator = GetComponent<Animator>();
         Movement = GetComponent<EnemyMovement>();
-        damageable = GetComponent<IDamageable>();
     }
 
     /// <summary>
@@ -64,7 +61,7 @@ public class Enemy : MonoBehaviour, IDamageable
     /// </summary>
     private void Update()
     {
-        if (Health <= 0f) damageable.Die();
+        if (Health <= 0f) Die();
     }
 
     /// <summary>
@@ -88,7 +85,7 @@ public class Enemy : MonoBehaviour, IDamageable
     /// Deal an amount of damage to enemy.
     /// </summary>
     /// <param name="damage">Amount of damage to deal</param>
-    void IDamageable.TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         Health -= damage;
         Instantiate(bloodSpat, transform.position, transform.rotation);
@@ -97,7 +94,7 @@ public class Enemy : MonoBehaviour, IDamageable
     /// <summary>
     /// Die.
     /// </summary>
-    void IDamageable.Die()
+    public void Die()
     {
         GlobalController.Instance.StartCoroutine(GlobalController.FreezeFrame());
         StartCoroutine(DestroyDelay());

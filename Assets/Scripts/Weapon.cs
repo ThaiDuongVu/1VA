@@ -37,7 +37,7 @@ public class Weapon : MonoBehaviour
     {
         fireDirection = Quaternion.AngleAxis(Random.Range(-spread, spread), Vector3.forward) * transform.up;
         Instantiate(muzzle, barrel.position, transform.rotation).transform.parent = barrel;
-        
+
         RaycastHit2D hit2D = Physics2D.Raycast(barrel.position, fireDirection, range);
 
         if (hit2D.transform == null)
@@ -50,9 +50,9 @@ public class Weapon : MonoBehaviour
         {
             Enemy enemy = hit2D.transform.GetComponent<Enemy>();
 
-            enemy.GetComponent<IDamageable>().TakeDamage(damage);
+            enemy.TakeDamage(damage);
             enemy.Movement.StartCoroutine(enemy.Movement.KnockBack(transform.up));
-            
+
             Instantiate(bullet, barrel.position, barrel.rotation).GetComponent<Bullet>().endPosition = enemy.transform.position;
         }
     }
