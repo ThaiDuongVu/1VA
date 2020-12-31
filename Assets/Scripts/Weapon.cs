@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 public class Weapon : MonoBehaviour
 {
@@ -33,26 +32,50 @@ public class Weapon : MonoBehaviour
     /// <summary>
     /// Fire bullet from weapon.
     /// </summary>
-    public void Shoot()
+    public void StartShoot()
     {
-        fireDirection = Quaternion.AngleAxis(Random.Range(-spread, spread), Vector3.forward) * transform.up;
-        Instantiate(muzzle, barrel.position, transform.rotation).transform.parent = barrel;
+        if (!isAutomatic)
+            Shoot();
+        else
+            InvokeRepeating("Shoot", 0f, 1f / fireRate);
+    }
 
+    /// <summary>
+    /// Stop firing bullets.
+    /// </summary>
+    public void StopShoot()
+    {
+        CancelInvoke();
+    }
+
+    private void Shoot()
+    {
+        // Muzzle flash effect
+        Instantiate(muzzle, barrel.position, transform.rotation).transform.parent = barrel;
+        // Shake camera
+        CameraShaker.Instance.Shake(CameraShakeMode.Light);
+
+        // Direction at which to fire and raycast
+        fireDirection = Quaternion.AngleAxis(Random.Range(-spread, spread), Vector3.forward) * transform.up;
+        // Perform raycast at fire direction
         RaycastHit2D hit2D = Physics2D.Raycast(barrel.position, fireDirection, range);
 
+        // If hit nothing then fire a bullet at range
         if (hit2D.transform == null)
         {
             Instantiate(bullet, barrel.position, barrel.rotation).GetComponent<Bullet>().endPosition = barrel.position + (Vector3)fireDirection * range;
-            return;
         }
-
-        if (hit2D.transform.CompareTag("Enemy"))
+        // If hit enemy
+        else if (hit2D.transform.CompareTag("Enemy"))
         {
             Enemy enemy = hit2D.transform.GetComponent<Enemy>();
 
+            // Deal damage to enemy
             enemy.TakeDamage(damage);
+            // Enemy knock back
             enemy.Movement.StartCoroutine(enemy.Movement.KnockBack(transform.up));
 
+            // Fire a bullet at enemy
             Instantiate(bullet, barrel.position, barrel.rotation).GetComponent<Bullet>().endPosition = enemy.transform.position;
         }
     }
@@ -64,10 +87,5 @@ public class Weapon : MonoBehaviour
     {
         transform.position = Vector2.Lerp(transform.position, target.position, WeaponInterpolationRatio);
         transform.rotation = Quaternion.Lerp(transform.rotation, target.rotation, WeaponInterpolationRatio);
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawLine(barrel.position, barrel.position + (Vector3)fireDirection * range);
     }
 }

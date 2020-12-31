@@ -17,6 +17,7 @@ public class PlayerCombat : MonoBehaviour
 
         // Handle fire input
         inputManager.Player.Fire.started += FireOnPerformed;
+        inputManager.Player.Fire.canceled += FireOnCanceled;
 
         inputManager.Enable();
     }
@@ -31,8 +32,18 @@ public class PlayerCombat : MonoBehaviour
     {
         if (!player.CurrentWeapon) return;
 
-        player.CurrentWeapon.Shoot();
-        CameraShaker.Instance.Shake(CameraShakeMode.Normal);
+        player.CurrentWeapon.StartShoot();
+    }
+
+    /// <summary>
+    /// On fire input release.
+    /// </summary>
+    /// <param name="context">Input context</param>
+    private void FireOnCanceled(InputAction.CallbackContext context)
+    {
+        if (!player.CurrentWeapon) return;
+
+        player.CurrentWeapon.StopShoot();
     }
 
     #endregion

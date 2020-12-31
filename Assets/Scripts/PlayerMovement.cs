@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private const float Acceleration = 50f;
     private const float Deceleration = 20f;
 
-    private const float DashForce = 50f;
+    private const float DashForce = 60f;
     private const float DashDuration = 0.2f;
 
     private Vector2 snapPosition;

@@ -7,15 +7,13 @@ public class Player : MonoBehaviour, IDamageable
     public bool IsRunning { get; set; }
     public bool IsDashing { get; set; }
     public bool IsSnapping { get; set; }
-    public bool IsAimAssisting { get; set; }
 
     public Animator Animator { get; set; }
     public RuntimeAnimatorController regularAnimator;
-    public AnimatorOverrideController weaponAnimator;
+    public AnimatorOverrideController combatAnimator;
 
     public Weapon CurrentWeapon { get; set; }
     public Transform weaponTransform;
-    private const float WeaponInterpolationRatio = 0.2f;
 
     public TrailRenderer trail;
 
@@ -50,7 +48,7 @@ public class Player : MonoBehaviour, IDamageable
     {
         weapon.aimCone.enabled = true;
 
-        Animator.runtimeAnimatorController = weaponAnimator;
+        Animator.runtimeAnimatorController = combatAnimator;
         CurrentWeapon = weapon;
     }
 

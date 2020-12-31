@@ -950,7 +950,7 @@ MonoBehaviour:
   - {x: -1.1136818, y: 0.14900398, z: 0}
   m_ShapePathHash: 1339006343
   m_Mesh: {fileID: 0}
-  m_InstanceId: 39562
+  m_InstanceId: -2944
 --- !u!114 &8325402927950416184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -964,7 +964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   regularAnimator: {fileID: 9100000, guid: 9bc57e5d8440da0468f9ff4a65971f2b, type: 2}
-  weaponAnimator: {fileID: 22100000, guid: 93ee84de6c88185438a3932aa4568b3a, type: 2}
+  combatAnimator: {fileID: 22100000, guid: 93ee84de6c88185438a3932aa4568b3a, type: 2}
   weaponTransform: {fileID: 1360957583}
   trail: {fileID: 1102600746}
   directionArrow: {fileID: 8325402927393651369}
