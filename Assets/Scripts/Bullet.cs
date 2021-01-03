@@ -24,7 +24,7 @@ public class Bullet : MonoBehaviour
     {
         Fly();
 
-        if (GlobalController.CloseTo(transform.position.x, endPosition.x, 0.1f) && GlobalController.CloseTo(transform.position.y, endPosition.y, 0.1f))
+        if (((Vector2)transform.position - endPosition).magnitude < 0.1f)
         {
             Destroy(gameObject);
         }
@@ -35,6 +35,6 @@ public class Bullet : MonoBehaviour
     /// </summary>
     private void Fly()
     {
-        transform.position = Vector2.Lerp(transform.position, endPosition, 0.25f);
+        transform.position = Vector2.Lerp(transform.position, endPosition, speed / 100f);
     }
 }

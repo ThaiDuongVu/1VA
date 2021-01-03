@@ -29,6 +29,14 @@ public class Weapon : MonoBehaviour
 
     private const float WeaponInterpolationRatio = 0.2f;
 
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+        animator.speed = fireRate / 3f;
+    }
+
     /// <summary>
     /// Fire bullet from weapon.
     /// </summary>
@@ -38,6 +46,8 @@ public class Weapon : MonoBehaviour
             Shoot();
         else
             InvokeRepeating("Shoot", 0f, 1f / fireRate);
+
+        animator.SetBool("isFiring", true);
     }
 
     /// <summary>
@@ -46,6 +56,7 @@ public class Weapon : MonoBehaviour
     public void StopShoot()
     {
         CancelInvoke();
+        animator.SetBool("isFiring", false);
     }
 
     private void Shoot()

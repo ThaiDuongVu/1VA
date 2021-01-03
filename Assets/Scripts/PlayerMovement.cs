@@ -14,10 +14,10 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 direction;
     private float currentVelocity;
 
-    private const float MaxVelocity = 20f;
+    private const float MaxVelocity = 25f;
     private const float MinVelocity = 0f;
     private const float Acceleration = 50f;
-    private const float Deceleration = 20f;
+    private const float Deceleration = 25f;
 
     private const float DashForce = 60f;
     private const float DashDuration = 0.2f;
