@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
     /// Unity Event function.
     /// Update once per frame.
     /// </summary>
-    private void Update()
+    private void FixedUpdate()
     {
         Fly();
 

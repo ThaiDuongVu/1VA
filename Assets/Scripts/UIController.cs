@@ -40,7 +40,7 @@ public class UIController : MonoBehaviour
     /// Unity Event function.
     /// Update once per frame.
     /// </summary>
-    private void Update()
+    private void FixedUpdate()
     {
         DisplayFPS();
     }

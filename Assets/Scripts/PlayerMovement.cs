@@ -152,9 +152,9 @@ public class PlayerMovement : MonoBehaviour
 
     /// <summary>
     /// Unity Event function.
-    /// Update once per frame.
+    /// Update at consistent time.
     /// </summary>
-    private void Update()
+    private void FixedUpdate()
     {
         if (Time.timeScale == 0f) return;
 
@@ -165,15 +165,6 @@ public class PlayerMovement : MonoBehaviour
 
         Animate();
         Rotate();
-    }
-
-    /// <summary>
-    /// Unity Event function.
-    /// Update at consistent time.
-    /// </summary>
-    private void FixedUpdate()
-    {
-        if (Time.timeScale == 0f) return;
 
         // If player is running then run
         if (player.IsRunning) Run();

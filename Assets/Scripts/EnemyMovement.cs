@@ -32,7 +32,7 @@ public class EnemyMovement : MonoBehaviour
     /// Unity Event function.
     /// Update once per frame.
     /// </summary>
-    private void Update()
+    private void FixedUpdate()
     {
         LookAt(LookTarget);
 

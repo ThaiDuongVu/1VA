@@ -61,7 +61,7 @@ public class Enemy : MonoBehaviour, IDamageable
     /// Unity Event function.
     /// Update once per frame.
     /// </summary>
-    private void Update()
+    private void FixedUpdate()
     {
         if (Health <= 0f) Die();
     }
@@ -91,6 +91,8 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         Health -= damage;
         Instantiate(bloodSpat, transform.position, transform.rotation);
+
+        ComboController.Instance.AddCombo(1);
     }
 
     /// <summary>
