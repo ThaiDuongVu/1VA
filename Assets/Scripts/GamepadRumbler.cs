@@ -44,6 +44,9 @@ public class GamepadRumbler : MonoBehaviour
     /// <param name="gamepadRumbleMode">Mode at which to rumble</param>
     public void Rumble(GamepadRumbleMode gamepadRumbleMode)
     {
+        // If not gamepad connected then return
+        if (Gamepad.current == null) return;
+
         StopAllCoroutines();
         switch (gamepadRumbleMode)
         {

@@ -24,6 +24,9 @@ public class UIController : MonoBehaviour
     [SerializeField] private TMP_Text fpsText;
     private float timer;
 
+    [SerializeField] private TMP_Text message;
+    [SerializeField] private Animator messageAnimator;
+
     /// <summary>
     /// Unity Event function.
     /// Initialize before first frame update.
@@ -49,7 +52,7 @@ public class UIController : MonoBehaviour
     /// </summary>
     private void DisplayFPS()
     {
-        UpdateText(fpsText, ((int) (1f / Time.unscaledDeltaTime)).ToString(), 1f);
+        UpdateText(fpsText, ((int)(1f / Time.unscaledDeltaTime)).ToString(), 1f);
     }
 
     /// <summary>
@@ -82,5 +85,15 @@ public class UIController : MonoBehaviour
 
         text.text = message;
         timer = Time.unscaledTime + refreshRate;
+    }
+
+    /// <summary>
+    /// Display a text message to player.
+    /// </summary>
+    /// <param name="text">Text to display</param>
+    public void ShowMessage(string text)
+    {
+        message.text = text;
+        messageAnimator.SetTrigger("showMessage");
     }
 }

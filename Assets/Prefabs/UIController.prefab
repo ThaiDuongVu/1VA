@@ -44,3 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fpsText: {fileID: 0}
+  message: {fileID: 0}
+  messageAnimator: {fileID: 0}

@@ -170,12 +170,14 @@ MonoBehaviour:
   bullet: {fileID: -133947810885826097, guid: fb2917c485906874d87397fbdacf2534, type: 3}
   aimCone: {fileID: 5142625500516477915}
   muzzle: {fileID: 5176900677835981296, guid: 0b8d41f3a5259d448ab5d8d52ac56ff9, type: 3}
+  name: Pistol
   range: 30
   maxAmmo: 45
   damage: 10
   spread: 2
   fireRate: 3
   isAutomatic: 1
+  light2D: {fileID: 5142625500120458658}
 --- !u!1 &5142625500120458656
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,7 +203,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5142625500120458656}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.25, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5142625499650327651}
@@ -222,7 +224,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 0, g: 0.6784314, b: 0.70980394, a: 1}
+  m_Color: {r: 0.28235295, g: 0.85882354, b: 0.9843137, a: 1}
   m_Intensity: 0.75
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 00000000b3d79291f53a23d7c72f52875be104680b1704bde98f4023
@@ -296,7 +298,7 @@ MonoBehaviour:
   m_LightType: 1
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 0, g: 0.6784314, b: 0.70980394, a: 1}
+  m_Color: {r: 0.28235295, g: 0.85882354, b: 0.9843137, a: 1}
   m_Intensity: 1
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 00000000b3d79291f53a23d7c72f52875be104680b1704bd
@@ -315,7 +317,7 @@ MonoBehaviour:
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 2.5
+  m_ShapeLightFalloffSize: 2
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
   - {x: -0.25, y: 0, z: 0}

@@ -52,7 +52,9 @@ public class Enemy : MonoBehaviour, IDamageable
     private void Start()
     {
         GenerateAppearance();
+
         State = EnemyState.Idle;
+        OnTargeted(false);
     }
 
     /// <summary>
@@ -109,5 +111,10 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         yield return new WaitForSeconds(delay);
         Destroy(gameObject);
+    }
+
+    public void OnTargeted(bool target)
+    {
+        light2D.enabled = target;
     }
 }

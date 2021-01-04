@@ -47,9 +47,12 @@ public class Player : MonoBehaviour, IDamageable
     private void EquipWeapon(Weapon weapon)
     {
         weapon.aimCone.enabled = true;
+        weapon.light2D.enabled = false;
 
         Animator.runtimeAnimatorController = combatAnimator;
         CurrentWeapon = weapon;
+
+        UIController.Instance.ShowMessage(CurrentWeapon.name + " equiped");
     }
 
     /// <summary>
@@ -57,7 +60,10 @@ public class Player : MonoBehaviour, IDamageable
     /// </summary>
     private void UnequipWeapon()
     {
+        UIController.Instance.ShowMessage(CurrentWeapon.name + " unequiped");
+
         CurrentWeapon.aimCone.enabled = false;
+        CurrentWeapon.light2D.enabled = true;
 
         Animator.runtimeAnimatorController = regularAnimator;
         CurrentWeapon = null;

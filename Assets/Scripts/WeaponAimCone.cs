@@ -54,7 +54,10 @@ public class WeaponAimCone : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            enemies.Add(other.GetComponent<Enemy>());
+            Enemy enemy = other.GetComponent<Enemy>();
+
+            enemies.Add(enemy);
+            enemy.OnTargeted(true);
         }
     }
 
@@ -66,7 +69,10 @@ public class WeaponAimCone : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            enemies.Remove(other.GetComponent<Enemy>());
+            Enemy enemy = other.GetComponent<Enemy>();
+
+            enemies.Remove(enemy);
+            enemy.OnTargeted(false);
         }
     }
 }

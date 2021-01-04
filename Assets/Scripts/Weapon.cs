@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class Weapon : MonoBehaviour
 {
@@ -6,6 +7,9 @@ public class Weapon : MonoBehaviour
     public Bullet bullet;
     public WeaponAimCone aimCone;
     public ParticleSystem muzzle;
+
+    // Weapon name
+    public new string name;
 
     // How far will the bullets go
     public float range;
@@ -24,6 +28,8 @@ public class Weapon : MonoBehaviour
 
     // Whether is a automatic weapon
     public bool isAutomatic;
+
+    public Light2D light2D;
 
     private Vector2 fireDirection;
 
