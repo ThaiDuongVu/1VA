@@ -14,23 +14,25 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 direction;
     private float currentVelocity;
 
-    private const float MaxVelocity = 25f;
+    private const float MaxVelocity = 30f;
     private const float MinVelocity = 0f;
-    private const float Acceleration = 50f;
-    private const float Deceleration = 25f;
+    private const float Acceleration = 60f;
+    private const float Deceleration = 30f;
 
     private const float DashForce = 60f;
     private const float DashDuration = 0.2f;
 
     private Vector2 snapPosition;
     private const float SnapDistance = 2.5f;
-    private const float SnapInterpolationRatio = 0.35f;
+    private const float SnapInterpolationRatio = 0.3f;
 
     private float lookVelocity;
-    public const float NormalLookSensitivity = 1f;
-    public const float AimLookSensitivity = 0.35f;
+    public const float NormalLookSensitivity = 1.2f;
+    public const float AimLookSensitivity = 0.5f;
     [HideInInspector] public float lookSensitivity = 1f;
-    private Camera mainCamera;
+
+    private new Camera camera;
+    private MainCamera mainCamera;
 
     private InputManager inputManager;
 
@@ -147,7 +149,8 @@ public class PlayerMovement : MonoBehaviour
         player = GetComponent<Player>();
         rigidBody2D = GetComponent<Rigidbody2D>();
 
-        mainCamera = Camera.main;
+        camera = Camera.main;
+        mainCamera = camera.GetComponent<MainCamera>();
     }
 
     /// <summary>
@@ -179,7 +182,7 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     private void Run()
     {
-        movement = Quaternion.Euler(0f, 0f, mainCamera.transform.eulerAngles.z) * direction;
+        movement = Quaternion.Euler(0f, 0f, camera.transform.eulerAngles.z) * direction;
         rigidBody2D.MovePosition(rigidBody2D.position + movement * (currentVelocity * Time.fixedDeltaTime));
     }
 
@@ -307,6 +310,9 @@ public class PlayerMovement : MonoBehaviour
 
         // Set snap enemy
         player.SnapEnemy = other;
+
+        // Temporarily disable camera follow until finished snapping
+        mainCamera.followTarget = null;
     }
 
     /// <summary>
@@ -324,6 +330,9 @@ public class PlayerMovement : MonoBehaviour
             Quaternion.LookRotation(Vector3.forward, (snapPosition - (Vector2)transform.position).normalized);
 
         CameraShaker.Instance.Shake(CameraShakeMode.Normal);
+
+        // Re-enable camera follow
+        mainCamera.followTarget = transform;
     }
 
     /// <summary>

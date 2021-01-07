@@ -26,6 +26,12 @@ public class ComboController : MonoBehaviour
     private float timerMax = 5f;
 
     [SerializeField] private TMP_Text text;
+    private RectTransform textTransform;
+
+    private void Awake()
+    {
+        textTransform = text.GetComponent<RectTransform>();
+    }
 
     /// <summary>
     /// Unity Event function.
@@ -35,7 +41,7 @@ public class ComboController : MonoBehaviour
     {
         if (timer > 0f) timer -= Time.fixedDeltaTime;
         else multiplier = 0;
-        
+
         text.transform.localScale = new Vector2(1f, 1f) * (timer / timerMax);
     }
 
@@ -48,6 +54,7 @@ public class ComboController : MonoBehaviour
         multiplier += amount;
         timer = timerMax;
 
+        textTransform.localRotation = new Quaternion(0f, 0f, Random.Range(-0.25f, 0.25f), 1f);
         text.text = "x" + multiplier.ToString();
     }
 }

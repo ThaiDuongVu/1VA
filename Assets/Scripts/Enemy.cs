@@ -30,7 +30,6 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public bool IsKnockingBack { get; set; }
     public bool IsStagger { get; set; }
-    public bool CanBeTakenDown { get; set; }
 
     public float Health { get; set; } = 100f;
     public ParticleSystem bloodSpat;
@@ -55,15 +54,6 @@ public class Enemy : MonoBehaviour, IDamageable
 
         State = EnemyState.Idle;
         OnTargeted(false);
-    }
-
-    /// <summary>
-    /// Unity Event function.
-    /// Update once per frame.
-    /// </summary>
-    private void FixedUpdate()
-    {
-        if (Health <= 0f) Die();
     }
 
     /// <summary>
@@ -93,6 +83,9 @@ public class Enemy : MonoBehaviour, IDamageable
         Instantiate(bloodSpat, transform.position, transform.rotation);
 
         ComboController.Instance.AddCombo(1);
+
+        if (Health <= 0f) Die();
+        if (Health <= 25f) IsStagger = true;
     }
 
     /// <summary>
@@ -100,7 +93,7 @@ public class Enemy : MonoBehaviour, IDamageable
     /// </summary>
     public void Die()
     {
-        GlobalController.Instance.StartCoroutine(GlobalController.FreezeFrame());
+        // GlobalController.Instance.StartCoroutine(GlobalController.FreezeFrame());
         StartCoroutine(DestroyDelay());
     }
 
@@ -115,6 +108,10 @@ public class Enemy : MonoBehaviour, IDamageable
         Destroy(gameObject);
     }
 
+    /// <summary>
+    /// Enemy on targeted by player.
+    /// </summary>
+    /// <param name="target">Whether enemy is targeted</param>
     public void OnTargeted(bool target)
     {
         light2D.enabled = target;

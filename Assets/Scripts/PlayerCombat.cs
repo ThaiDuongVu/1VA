@@ -19,6 +19,9 @@ public class PlayerCombat : MonoBehaviour
         inputManager.Player.Fire.started += FireOnPerformed;
         inputManager.Player.Fire.canceled += FireOnCanceled;
 
+        // Handle take down input
+        inputManager.Player.TakeDown.started += TakeDownOnPerformed;
+
         inputManager.Enable();
     }
 
@@ -44,6 +47,13 @@ public class PlayerCombat : MonoBehaviour
         if (!player.CurrentWeapon) return;
 
         player.CurrentWeapon.StopShoot();
+    }
+
+    private void TakeDownOnPerformed(InputAction.CallbackContext context)
+    {
+        if (!player.CurrentWeapon) return;
+
+        player.CurrentWeapon.TakeDown();
     }
 
     #endregion

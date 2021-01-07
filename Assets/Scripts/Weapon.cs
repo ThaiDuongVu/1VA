@@ -31,6 +31,8 @@ public class Weapon : MonoBehaviour
 
     public Light2D light2D;
 
+    public Player Player { get; set; }
+
     private Vector2 fireDirection;
 
     private const float WeaponInterpolationRatio = 0.2f;
@@ -44,7 +46,7 @@ public class Weapon : MonoBehaviour
     }
 
     /// <summary>
-    /// Fire bullet from weapon.
+    /// Start firing bullets.
     /// </summary>
     public void StartShoot()
     {
@@ -65,6 +67,9 @@ public class Weapon : MonoBehaviour
         animator.SetBool("isFiring", false);
     }
 
+    /// <summary>
+    /// Fire a bullet from weapon.
+    /// </summary>
     private void Shoot()
     {
         // Muzzle flash effect
@@ -94,6 +99,34 @@ public class Weapon : MonoBehaviour
 
             // Fire a bullet at enemy
             Instantiate(bullet, barrel.position, barrel.rotation).GetComponent<Bullet>().endPosition = enemy.transform.position;
+        }
+    }
+
+    /// <summary>
+    /// Perform a take down move.
+    /// </summary>
+    public void TakeDown()
+    {
+        // Perform raycast forward
+        RaycastHit2D hit2D = Physics2D.Raycast(barrel.position, transform.up, range);
+
+        // If hit nothing then do nothing
+        if (hit2D.transform == null)
+        {
+            return;
+        }
+        // If hit enemy
+        else if (hit2D.transform.CompareTag("Enemy"))
+        {
+            Enemy enemy = hit2D.transform.GetComponent<Enemy>();
+            if (!enemy.IsStagger) return;
+
+            Player.Movement.StartSnapping(enemy);
+
+            // Deal damage to enemy
+            enemy.TakeDamage(0f);
+            // Insta kill enemy
+            enemy.Die();
         }
     }
 

@@ -7,6 +7,7 @@ public class Player : MonoBehaviour, IDamageable
     public bool IsRunning { get; set; }
     public bool IsDashing { get; set; }
     public bool IsSnapping { get; set; }
+    public float TakeDownRange = 30f;
 
     public Animator Animator { get; set; }
     public RuntimeAnimatorController regularAnimator;
@@ -49,6 +50,8 @@ public class Player : MonoBehaviour, IDamageable
         weapon.aimCone.enabled = true;
         weapon.light2D.enabled = false;
 
+        weapon.Player = this;
+
         Animator.runtimeAnimatorController = combatAnimator;
         CurrentWeapon = weapon;
 
@@ -64,6 +67,8 @@ public class Player : MonoBehaviour, IDamageable
 
         CurrentWeapon.aimCone.enabled = false;
         CurrentWeapon.light2D.enabled = true;
+
+        CurrentWeapon.Player = null;
 
         Animator.runtimeAnimatorController = regularAnimator;
         CurrentWeapon = null;
