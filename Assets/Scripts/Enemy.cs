@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour, IDamageable
     public EnemyState State { get; set; }
 
     [SerializeField] private Light2D light2D;
+    [SerializeField] private EnemyStaggerLight staggerLight;
 
     public Animator Animator { get; set; }
 
@@ -54,6 +55,21 @@ public class Enemy : MonoBehaviour, IDamageable
 
         State = EnemyState.Idle;
         OnTargeted(false);
+
+        staggerLight.gameObject.SetActive(false);
+    }
+
+    /// <summary>
+    /// Unity Event function.
+    /// Update every frame.
+    /// </summary>
+    private void FixedUpdate()
+    {
+        if (IsStagger)
+        {
+            staggerLight.gameObject.SetActive(true);
+            staggerLight.Flash();
+        }
     }
 
     /// <summary>

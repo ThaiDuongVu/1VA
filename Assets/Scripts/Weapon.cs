@@ -39,6 +39,8 @@ public class Weapon : MonoBehaviour
 
     private Animator animator;
 
+    private bool canShoot = true;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -50,10 +52,12 @@ public class Weapon : MonoBehaviour
     /// </summary>
     public void StartShoot()
     {
-        if (!isAutomatic)
-            Shoot();
-        else
+        if (!canShoot) return;
+
+        if (isAutomatic)
             InvokeRepeating("Shoot", 0f, 1f / fireRate);
+        else
+            Shoot();
 
         animator.SetBool("isFiring", true);
     }
@@ -63,7 +67,7 @@ public class Weapon : MonoBehaviour
     /// </summary>
     public void StopShoot()
     {
-        CancelInvoke();
+        CancelInvoke("Shoot");
         animator.SetBool("isFiring", false);
     }
 
@@ -100,6 +104,9 @@ public class Weapon : MonoBehaviour
             // Fire a bullet at enemy
             Instantiate(bullet, barrel.position, barrel.rotation).GetComponent<Bullet>().endPosition = enemy.transform.position;
         }
+
+        canShoot = false;
+        Invoke("CanShoot", 1f / fireRate);
     }
 
     /// <summary>
@@ -137,5 +144,10 @@ public class Weapon : MonoBehaviour
     {
         transform.position = Vector2.Lerp(transform.position, target.position, WeaponInterpolationRatio);
         transform.rotation = Quaternion.Lerp(transform.rotation, target.rotation, WeaponInterpolationRatio);
+    }
+
+    private void CanShoot()
+    {
+        canShoot = true;
     }
 }

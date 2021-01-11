@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float lookVelocity;
     public const float NormalLookSensitivity = 1.2f;
-    public const float AimLookSensitivity = 0.5f;
+    public const float AimLookSensitivity = 0.4f;
     [HideInInspector] public float lookSensitivity = 1f;
 
     private new Camera camera;
