@@ -33,8 +33,6 @@ public class Weapon : MonoBehaviour
 
     public Player Player { get; set; }
 
-    private Vector2 fireDirection;
-
     private const float WeaponInterpolationRatio = 0.2f;
 
     private Animator animator;
@@ -81,29 +79,21 @@ public class Weapon : MonoBehaviour
         // Shake camera
         CameraShaker.Instance.Shake(CameraShakeMode.Light);
 
-        // Direction at which to fire and raycast
-        fireDirection = Quaternion.AngleAxis(Random.Range(-spread, spread), Vector3.forward) * transform.up;
-        // Perform raycast at fire direction
-        RaycastHit2D hit2D = Physics2D.Raycast(barrel.position, fireDirection, range);
-
-        // If hit nothing then fire a bullet at range
-        if (hit2D.transform == null)
+        if (aimCone.enemies.Count <= 0)
         {
-            Instantiate(bullet, barrel.position, barrel.rotation).GetComponent<Bullet>().endPosition = barrel.position + (Vector3)fireDirection * range;
+            Instantiate(bullet, barrel.position, barrel.rotation).GetComponent<Bullet>().endPosition = barrel.position + transform.up * range;
+            return;
         }
-        // If hit enemy
-        else if (hit2D.transform.CompareTag("Enemy"))
-        {
-            Enemy enemy = hit2D.transform.GetComponent<Enemy>();
 
-            // Deal damage to enemy
-            enemy.TakeDamage(damage);
-            // Enemy knock back
-            enemy.Movement.StartCoroutine(enemy.Movement.KnockBack(transform.up));
+        Enemy enemy = aimCone.enemies[aimCone.enemies.Count - 1];
 
-            // Fire a bullet at enemy
-            Instantiate(bullet, barrel.position, barrel.rotation).GetComponent<Bullet>().endPosition = enemy.transform.position;
-        }
+        Player.Movement.StartSnapLooking((enemy.transform.position - Player.transform.position).normalized);
+
+        // Deal damage to enemy
+        enemy.TakeDamage(damage);
+        // Enemy knock back
+        enemy.Movement.StartCoroutine(enemy.Movement.KnockBack(transform.up));
+        Instantiate(bullet, barrel.position, barrel.rotation).GetComponent<Bullet>().endPosition = enemy.transform.position;
 
         canShoot = false;
         Invoke("CanShoot", 1f / fireRate);
@@ -114,27 +104,18 @@ public class Weapon : MonoBehaviour
     /// </summary>
     public void TakeDown()
     {
-        // Perform raycast forward
-        RaycastHit2D hit2D = Physics2D.Raycast(barrel.position, transform.up, range);
+        if (aimCone.enemies.Count <= 0) return;
 
-        // If hit nothing then do nothing
-        if (hit2D.transform == null)
-        {
-            return;
-        }
-        // If hit enemy
-        else if (hit2D.transform.CompareTag("Enemy"))
-        {
-            Enemy enemy = hit2D.transform.GetComponent<Enemy>();
-            if (!enemy.IsStagger) return;
+        Enemy enemy = aimCone.enemies[aimCone.enemies.Count - 1];
 
-            Player.Movement.StartSnapping(enemy);
+        if (!enemy.IsStagger) return;
 
-            // Deal damage to enemy
-            enemy.TakeDamage(0f);
-            // Insta kill enemy
-            enemy.Die();
-        }
+        Player.Movement.StartSnapping(enemy);
+
+        // Deal damage to enemy
+        enemy.TakeDamage(0f);
+        // Insta kill enemy
+        enemy.Die();
     }
 
     /// <summary>

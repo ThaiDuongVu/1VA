@@ -26,9 +26,13 @@ public class PlayerMovement : MonoBehaviour
     private const float SnapDistance = 2.5f;
     private const float SnapInterpolationRatio = 0.3f;
 
+    private Vector2 snapLookDirection;
+    private const float SnapLookDistance = 0.1f;
+    private const float SnapLookInterpolationRatio = 0.3f;
+
     private float lookVelocity;
     public const float NormalLookSensitivity = 1.2f;
-    public const float AimLookSensitivity = 0.4f;
+    public const float AimLookSensitivity = 0.6f;
     [HideInInspector] public float lookSensitivity = 1f;
 
     private new Camera camera;
@@ -171,8 +175,11 @@ public class PlayerMovement : MonoBehaviour
 
         // If player is running then run
         if (player.IsRunning) Run();
+
         // If player is snapping then snap
         if (player.IsSnapping) Snap();
+
+        if (player.IsSnapLooking) SnapLook();
 
         player.directionArrow.transform.up = Vector2.Lerp(player.directionArrow.transform.up, movement, 0.4f);
     }
@@ -354,5 +361,26 @@ public class PlayerMovement : MonoBehaviour
         if (GlobalController.CloseTo(transform.position.x, snapPosition.x, SnapDistance) &&
             GlobalController.CloseTo(transform.position.y, snapPosition.y, SnapDistance))
             StopSnapping();
+    }
+
+    public void StartSnapLooking(Vector2 direction)
+    {
+        snapLookDirection = direction;
+        player.IsSnapLooking = true;
+    }
+
+    private void StopSnapLooking()
+    {
+        player.IsSnapLooking = false;
+    }
+
+    private void SnapLook()
+    {
+        transform.up = Vector2.Lerp(transform.up, snapLookDirection, SnapLookInterpolationRatio);
+
+        // If snapped then stop snapping
+        if (GlobalController.CloseTo(transform.up.x, snapLookDirection.x, SnapLookDistance) &&
+            GlobalController.CloseTo(transform.up.y, snapLookDirection.y, SnapLookDistance))
+            StopSnapLooking();
     }
 }

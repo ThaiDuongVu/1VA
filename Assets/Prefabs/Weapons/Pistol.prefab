@@ -175,7 +175,7 @@ MonoBehaviour:
   maxAmmo: 45
   damage: 10
   spread: 2
-  fireRate: 3
+  fireRate: 4
   isAutomatic: 1
   light2D: {fileID: 5142625500120458658}
 --- !u!1 &5142625500120458656
@@ -321,6 +321,7 @@ MonoBehaviour:
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
   - {x: -0.25, y: 0, z: 0}
+  - {x: 0, y: -0.5, z: 0}
   - {x: 0.25, y: 0, z: 0}
   - {x: 0.5, y: 29.5, z: 0}
   - {x: 0, y: 30, z: 0}
@@ -373,6 +374,7 @@ MonoBehaviour:
   aimColor:
     serializedVersion: 2
     rgba: 4282621951
+  enemies: []
 --- !u!1 &5142625500993271202
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class Player : MonoBehaviour, IDamageable
     public bool IsRunning { get; set; }
     public bool IsDashing { get; set; }
     public bool IsSnapping { get; set; }
+    public bool IsSnapLooking { get; set; }
     public float TakeDownRange = 30f;
 
     public Animator Animator { get; set; }

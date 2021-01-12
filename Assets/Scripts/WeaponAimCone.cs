@@ -9,7 +9,7 @@ public class WeaponAimCone : MonoBehaviour
     [SerializeField] private Color32 normalColor;
     [SerializeField] private Color32 aimColor;
 
-    private List<Enemy> enemies = new List<Enemy>();
+    public List<Enemy> enemies = new List<Enemy>();
     public int EnemyCount => enemies.Count;
 
     /// <summary>
@@ -37,13 +37,9 @@ public class WeaponAimCone : MonoBehaviour
     private void Update()
     {
         if (enemies.Count > 0)
-        {
             light2D.color = aimColor;
-        }
         else
-        {
             light2D.color = normalColor;
-        }
     }
 
     /// <summary>
