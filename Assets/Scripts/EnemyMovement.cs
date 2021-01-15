@@ -4,14 +4,11 @@ using System.Collections;
 public class EnemyMovement : MonoBehaviour
 {
     private Enemy enemy;
-    private static readonly int IsRunning = Animator.StringToHash("isRunning");
 
     public Transform LookTarget { get; set; }
     private const float LookInterpolationRatio = 0.2f;
 
     public Transform MoveTarget { get; set; }
-
-    private const float PursuitVelocity = 10f;
 
     private const float KnockBackForce = 30f;
     private const float KnockBackDuration = 0.05f;

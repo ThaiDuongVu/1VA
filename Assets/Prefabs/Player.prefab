@@ -1121,7 +1121,7 @@ MonoBehaviour:
   - {x: -1.1, y: 0.15, z: 0}
   m_ShapePathHash: -2012845591
   m_Mesh: {fileID: 0}
-  m_InstanceId: -3004
+  m_InstanceId: 42346
 --- !u!114 &8325402927950416184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1151,7 +1151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9671d085064fc7c4c93f4465f7fd3cf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookSensitivity: 1
 --- !u!114 &1393930187
 MonoBehaviour:
   m_ObjectHideFlags: 0

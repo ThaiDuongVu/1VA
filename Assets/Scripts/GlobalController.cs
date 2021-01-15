@@ -6,7 +6,6 @@ using System.Collections;
 public class GlobalController : MonoBehaviour
 {
     // Use a singleton pattern to make the class globally accessible
-
     #region Singleton
 
     private static GlobalController instance;

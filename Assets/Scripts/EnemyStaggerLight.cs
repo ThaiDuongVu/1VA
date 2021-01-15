@@ -7,9 +7,9 @@ public class EnemyStaggerLight : MonoBehaviour
     private Color targetColor;
 
     // 255, 107, 107
-    private Color redLight = new Color(1f, 0.42f, 0.42f, 1f);
+    private readonly Color redLight = new Color(1f, 0.42f, 0.42f, 1f);
     // 0, 210, 211
-    private Color blueLight = new Color(0f, 0.82f, 0.82f, 1f);
+    private readonly Color blueLight = new Color(0f, 0.82f, 0.82f, 1f);
 
     /// <summary>
     /// Unity Event function.
@@ -21,6 +21,9 @@ public class EnemyStaggerLight : MonoBehaviour
         targetColor = redLight;
     }
 
+    /// <summary>
+    /// Flash light color from red to white and vice versa.
+    /// </summary>
     public void Flash()
     {
         if (light2D.color == targetColor && targetColor == blueLight)

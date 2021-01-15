@@ -50,18 +50,13 @@ public class Bullet : MonoBehaviour
 
     #endregion
 
+    /// <summary>
+    /// Unity Event function.
+    /// Get component references.
+    /// </summary>
     private void Awake()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
-    }
-
-    /// <summary>
-    /// Unity Event function.
-    /// Initialize before first frame update.
-    /// </summary>
-    private void Start()
-    {
-
     }
 
     /// <summary>
@@ -75,7 +70,7 @@ public class Bullet : MonoBehaviour
     }
 
     /// <summary>
-    // Fly bullet forward.
+    /// Fly bullet forward.
     /// </summary>
     private void Fly()
     {
@@ -90,6 +85,9 @@ public class Bullet : MonoBehaviour
         transform.Rotate(0f, 0f, lookVelocity * Time.timeScale, Space.Self);
     }
 
+    /// <summary>
+    /// Explode bullet on destroyed.
+    /// </summary>
     public void Explode()
     {
         Destroy(gameObject);

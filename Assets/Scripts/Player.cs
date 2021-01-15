@@ -52,7 +52,7 @@ public class Player : MonoBehaviour, IDamageable
         Animator.runtimeAnimatorController = combatAnimator;
         CurrentWeapon = weapon;
 
-        UIController.Instance.ShowMessage(CurrentWeapon.name + " equiped");
+        UIController.Instance.ShowMessage(CurrentWeapon.name + " equipped");
     }
 
     /// <summary>
@@ -60,7 +60,7 @@ public class Player : MonoBehaviour, IDamageable
     /// </summary>
     private void UnequipWeapon()
     {
-        UIController.Instance.ShowMessage(CurrentWeapon.name + " unequiped");
+        UIController.Instance.ShowMessage(CurrentWeapon.name + " unequipped");
 
         CurrentWeapon.Player = null;
 

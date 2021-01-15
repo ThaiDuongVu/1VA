@@ -34,7 +34,7 @@ public class Weapon : MonoBehaviour
 
     private void Awake()
     {
-        mainCamera = Camera.main.GetComponent<MainCamera>();
+        if (Camera.main is { }) mainCamera = Camera.main.GetComponent<MainCamera>();
         delay = new WaitForSeconds(delayDuration);
     }
 

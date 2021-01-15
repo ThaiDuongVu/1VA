@@ -26,10 +26,6 @@ public class PlayerMovement : MonoBehaviour
     private const float SnapDistance = 2.5f;
     private const float SnapInterpolationRatio = 0.25f;
 
-    private Vector2 snapLookDirection;
-    private const float SnapLookDistance = 0.1f;
-    private const float SnapLookInterpolationRatio = 0.5f;
-
     private float lookVelocity;
     private float lookSensitivity = 1.5f;
 
@@ -154,7 +150,7 @@ public class PlayerMovement : MonoBehaviour
         rigidBody2D = GetComponent<Rigidbody2D>();
 
         camera = Camera.main;
-        mainCamera = camera.GetComponent<MainCamera>();
+        if (camera is { }) mainCamera = camera.GetComponent<MainCamera>();
     }
 
     /// <summary>

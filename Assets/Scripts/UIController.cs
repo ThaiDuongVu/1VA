@@ -26,6 +26,7 @@ public class UIController : MonoBehaviour
 
     [SerializeField] private TMP_Text message;
     [SerializeField] private Animator messageAnimator;
+    private static readonly int MessageTrigger = Animator.StringToHash("showMessage");
 
     /// <summary>
     /// Unity Event function.
@@ -77,13 +78,13 @@ public class UIController : MonoBehaviour
     /// Update a text on screen with a refresh rate to stop screen from updating every frame.
     /// </summary>
     /// <param name="text">Text to update</param>
-    /// <param name="message">String of message to display</param>
+    /// <param name="textMessage">String of message to display</param>
     /// <param name="refreshRate">How many times to refresh per second</param>
-    private void UpdateText(TMP_Text text, string message, float refreshRate)
+    private void UpdateText(TMP_Text text, string textMessage, float refreshRate)
     {
         if (!(Time.unscaledTime > timer)) return;
 
-        text.text = message;
+        text.text = textMessage;
         timer = Time.unscaledTime + refreshRate;
     }
 
@@ -94,6 +95,6 @@ public class UIController : MonoBehaviour
     public void ShowMessage(string text)
     {
         message.text = text;
-        messageAnimator.SetTrigger("showMessage");
+        messageAnimator.SetTrigger(MessageTrigger);
     }
 }

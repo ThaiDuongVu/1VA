@@ -4,7 +4,6 @@ using TMPro;
 public class ComboController : MonoBehaviour
 {
     // Use the singleton pattern to make the class globally accessible
-
     #region Singleton
 
     private static ComboController instance;
@@ -23,7 +22,7 @@ public class ComboController : MonoBehaviour
 
     public int multiplier;
     private float timer;
-    private float timerMax = 5f;
+    private const float TimerMax = 5f;
 
     [SerializeField] private TMP_Text text;
     private RectTransform textTransform;
@@ -42,7 +41,7 @@ public class ComboController : MonoBehaviour
         if (timer > 0f) timer -= Time.fixedDeltaTime;
         else multiplier = 0;
 
-        text.transform.localScale = new Vector2(1f, 1f) * (timer / timerMax);
+        text.transform.localScale = new Vector2(1f, 1f) * (timer / TimerMax);
     }
 
     /// <summary>
@@ -52,7 +51,7 @@ public class ComboController : MonoBehaviour
     public void AddCombo(int amount)
     {
         multiplier += amount;
-        timer = timerMax;
+        timer = TimerMax;
 
         textTransform.localRotation = new Quaternion(0f, 0f, Random.Range(-0.25f, 0.25f), 1f);
         text.text = "x" + multiplier.ToString();
