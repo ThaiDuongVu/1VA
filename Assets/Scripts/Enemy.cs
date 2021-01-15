@@ -4,35 +4,17 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour, IDamageable
 {
-    # region Appearance Serializations
-
-    [SerializeField] private Sprite[] headVariation;
-    [SerializeField] private Sprite[] bodyVariation;
-    [SerializeField] private Sprite[] handVariation;
-    [SerializeField] private Sprite[] footVariation;
-
-    [SerializeField] private SpriteRenderer head;
-    [SerializeField] private SpriteRenderer body;
-    [SerializeField] private SpriteRenderer handRight;
-    [SerializeField] private SpriteRenderer handLeft;
-    [SerializeField] private SpriteRenderer footRight;
-    [SerializeField] private SpriteRenderer footLeft;
-
-    #endregion
-
     public EnemyMovement Movement { get; private set; }
 
     public EnemyState State { get; set; }
 
     [SerializeField] private Light2D light2D;
-    [SerializeField] private EnemyStaggerLight staggerLight;
 
     public Animator Animator { get; set; }
 
     public bool IsKnockingBack { get; set; }
-    public bool IsStagger { get; set; }
 
-    public float Health { get; set; } = 100f;
+    public float Health { get; set; } = 5f;
     public ParticleSystem bloodSpat;
 
     /// <summary>
@@ -51,42 +33,7 @@ public class Enemy : MonoBehaviour, IDamageable
     /// </summary>
     private void Start()
     {
-        GenerateAppearance();
-
         State = EnemyState.Idle;
-        OnTargeted(false);
-
-        staggerLight.gameObject.SetActive(false);
-    }
-
-    /// <summary>
-    /// Unity Event function.
-    /// Update every frame.
-    /// </summary>
-    private void FixedUpdate()
-    {
-        if (IsStagger)
-        {
-            staggerLight.gameObject.SetActive(true);
-            staggerLight.Flash();
-        }
-    }
-
-    /// <summary>
-    /// Generate a random enemy appearance.
-    /// </summary>
-    private void GenerateAppearance()
-    {
-        head.sprite = headVariation[Random.Range(0, headVariation.Length)];
-        body.sprite = bodyVariation[Random.Range(0, bodyVariation.Length)];
-
-        Sprite handSprite = handVariation[Random.Range(0, handVariation.Length)];
-        handLeft.sprite = handSprite;
-        handRight.sprite = handSprite;
-
-        Sprite footSprite = footVariation[Random.Range(0, footVariation.Length)];
-        footLeft.sprite = footSprite;
-        footRight.sprite = footSprite;
     }
 
     /// <summary>
@@ -101,7 +48,6 @@ public class Enemy : MonoBehaviour, IDamageable
         ComboController.Instance.AddCombo(1);
 
         if (Health <= 0f) Die();
-        if (Health <= 25f) IsStagger = true;
     }
 
     /// <summary>
@@ -122,14 +68,5 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         yield return new WaitForSeconds(delay);
         Destroy(gameObject);
-    }
-
-    /// <summary>
-    /// Enemy on targeted by player.
-    /// </summary>
-    /// <param name="target">Whether enemy is targeted</param>
-    public void OnTargeted(bool target)
-    {
-        light2D.enabled = target;
     }
 }

@@ -6,17 +6,7 @@ public class MainCamera : MonoBehaviour
     private const float YOffset = 15f;
     public Transform followTarget;
 
-    private Player player;
     private const float LookInterpolationRatio = 0.3f;
-
-    /// <summary>
-    /// Unity Event function.
-    /// Get component references before first frame update.
-    /// </summary>
-    private void Awake()
-    {
-        player = FindObjectOfType<Player>();
-    }
 
     /// <summary>
     /// Unity Event function.
@@ -25,7 +15,6 @@ public class MainCamera : MonoBehaviour
     private void FixedUpdate()
     {
         Follow(followTarget);
-        RotateToPlayer();
     }
 
     /// <summary>
@@ -38,18 +27,11 @@ public class MainCamera : MonoBehaviour
 
         // Lerp to target position
         Vector2 targetPosition = target.position;
-        Transform transform1 = transform;
 
-        transform.position = Vector3.Lerp(transform1.position,
-            new Vector3(targetPosition.x, targetPosition.y, -10f) + transform1.up * YOffset,
+        transform.position = Vector3.Lerp(transform.position,
+            new Vector3(targetPosition.x, targetPosition.y, -10f) + transform.up * YOffset,
             FollowInterpolationRatio);
-    }
 
-    /// <summary>
-    /// Rotate to face player direction.
-    /// </summary>
-    private void RotateToPlayer()
-    {
-        transform.up = Vector2.Lerp(transform.up, player.transform.up, LookInterpolationRatio);
+        transform.up = Vector2.Lerp(transform.up, target.transform.up, LookInterpolationRatio);
     }
 }

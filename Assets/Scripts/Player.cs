@@ -4,11 +4,10 @@ public class Player : MonoBehaviour, IDamageable
 {
     public PlayerMovement Movement { get; private set; }
 
+    public bool IsControllable { get; set; } = true;
     public bool IsRunning { get; set; }
     public bool IsDashing { get; set; }
     public bool IsSnapping { get; set; }
-    public bool IsSnapLooking { get; set; }
-    public float TakeDownRange = 30f;
 
     public Animator Animator { get; set; }
     public RuntimeAnimatorController regularAnimator;
@@ -48,9 +47,6 @@ public class Player : MonoBehaviour, IDamageable
     /// <param name="weapon">Weapon to equip</param>
     private void EquipWeapon(Weapon weapon)
     {
-        weapon.aimCone.enabled = true;
-        weapon.light2D.enabled = false;
-
         weapon.Player = this;
 
         Animator.runtimeAnimatorController = combatAnimator;
@@ -66,9 +62,6 @@ public class Player : MonoBehaviour, IDamageable
     {
         UIController.Instance.ShowMessage(CurrentWeapon.name + " unequiped");
 
-        CurrentWeapon.aimCone.enabled = false;
-        CurrentWeapon.light2D.enabled = true;
-
         CurrentWeapon.Player = null;
 
         Animator.runtimeAnimatorController = regularAnimator;
@@ -81,15 +74,7 @@ public class Player : MonoBehaviour, IDamageable
     /// </summary>
     private void FixedUpdate()
     {
-        if (CurrentWeapon)
-        {
-            CurrentWeapon.MoveWithTarget(weaponTransform);
-
-            if (PlayerPrefs.GetInt("AimAssist", 0) == 0)
-                Movement.AimAssist();
-            else
-                Movement.lookSensitivity = PlayerMovement.NormalLookSensitivity;
-        }
+        if (CurrentWeapon) CurrentWeapon.MoveWithTarget(weaponTransform);
     }
 
     /// <summary>

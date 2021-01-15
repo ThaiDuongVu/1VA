@@ -1,18 +1,17 @@
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
+using System.Collections;
 
 public class Weapon : MonoBehaviour
 {
     public Transform barrel;
     public Bullet bullet;
-    public WeaponAimCone aimCone;
+    public Bullet currentBullet;
+
     public ParticleSystem muzzle;
 
     // Weapon name
     public new string name;
-
-    // How far will the bullets go
-    public float range;
 
     public int maxAmmo;
     private int currentAmmo;
@@ -20,14 +19,9 @@ public class Weapon : MonoBehaviour
     // Damage per bullet
     public float damage;
 
-    // Spread angle
-    public float spread;
-
-    // Number of bullets per second
-    public float fireRate;
-
-    // Whether is a automatic weapon
-    public bool isAutomatic;
+    // Delay between shots
+    public float delayDuration;
+    private WaitForSeconds delay;
 
     public Light2D light2D;
 
@@ -35,14 +29,13 @@ public class Weapon : MonoBehaviour
 
     private const float WeaponInterpolationRatio = 0.2f;
 
-    private Animator animator;
-
-    private bool canShoot = true;
+    public bool canShoot = true;
+    private MainCamera mainCamera;
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
-        animator.speed = fireRate / 3f;
+        mainCamera = Camera.main.GetComponent<MainCamera>();
+        delay = new WaitForSeconds(delayDuration);
     }
 
     /// <summary>
@@ -52,12 +45,7 @@ public class Weapon : MonoBehaviour
     {
         if (!canShoot) return;
 
-        if (isAutomatic)
-            InvokeRepeating("Shoot", 0f, 1f / fireRate);
-        else
-            Shoot();
-
-        animator.SetBool("isFiring", true);
+        Shoot();
     }
 
     /// <summary>
@@ -65,8 +53,7 @@ public class Weapon : MonoBehaviour
     /// </summary>
     public void StopShoot()
     {
-        CancelInvoke("Shoot");
-        animator.SetBool("isFiring", false);
+        StartCoroutine(Cancel());
     }
 
     /// <summary>
@@ -74,48 +61,28 @@ public class Weapon : MonoBehaviour
     /// </summary>
     private void Shoot()
     {
-        // Muzzle flash effect
-        Instantiate(muzzle, barrel.position, transform.rotation).transform.parent = barrel;
-        // Shake camera
-        CameraShaker.Instance.Shake(CameraShakeMode.Light);
+        CameraShaker.Instance.Shake(CameraShakeMode.Normal);
 
-        if (aimCone.enemies.Count <= 0)
-        {
-            Instantiate(bullet, barrel.position, barrel.rotation).GetComponent<Bullet>().endPosition = barrel.position + transform.up * range;
-            return;
-        }
+        currentBullet = Instantiate(bullet, barrel.transform.position, transform.rotation).GetComponent<Bullet>();
+        Instantiate(muzzle, barrel.transform.position, transform.rotation);
 
-        Enemy enemy = aimCone.enemies[aimCone.enemies.Count - 1];
-
-        Player.Movement.StartSnapLooking((enemy.transform.position - Player.transform.position).normalized);
-
-        // Deal damage to enemy
-        enemy.TakeDamage(damage);
-        // Enemy knock back
-        enemy.Movement.StartCoroutine(enemy.Movement.KnockBack(transform.up));
-        Instantiate(bullet, barrel.position, barrel.rotation).GetComponent<Bullet>().endPosition = enemy.transform.position;
-
+        mainCamera.followTarget = currentBullet.transform;
         canShoot = false;
-        Invoke("CanShoot", 1f / fireRate);
+        Player.IsControllable = false;
+
+        Player.Movement.Stop();
     }
 
-    /// <summary>
-    /// Perform a take down move.
-    /// </summary>
-    public void TakeDown()
+    private IEnumerator Cancel()
     {
-        if (aimCone.enemies.Count <= 0) return;
+        CameraShaker.Instance.Shake(CameraShakeMode.Normal);
+        currentBullet.Explode();
 
-        Enemy enemy = aimCone.enemies[aimCone.enemies.Count - 1];
+        yield return delay;
 
-        if (!enemy.IsStagger) return;
-
-        Player.Movement.StartSnapping(enemy);
-
-        // Deal damage to enemy
-        enemy.TakeDamage(0f);
-        // Insta kill enemy
-        enemy.Die();
+        mainCamera.followTarget = Player.transform;
+        canShoot = true;
+        Player.IsControllable = true;
     }
 
     /// <summary>
@@ -125,10 +92,5 @@ public class Weapon : MonoBehaviour
     {
         transform.position = Vector2.Lerp(transform.position, target.position, WeaponInterpolationRatio);
         transform.rotation = Quaternion.Lerp(transform.rotation, target.rotation, WeaponInterpolationRatio);
-    }
-
-    private void CanShoot()
-    {
-        canShoot = true;
     }
 }

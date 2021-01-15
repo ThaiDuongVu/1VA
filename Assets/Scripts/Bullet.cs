@@ -1,11 +1,59 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Bullet : MonoBehaviour
 {
     // Bullet speed
     [SerializeField] private float speed;
 
-    public Vector2 endPosition;
+    private Rigidbody2D rigidBody2D;
+
+    private float lookVelocity;
+    private float lookSensitivity = 1.5f;
+
+    private InputManager inputManager;
+
+    /// <summary>
+    /// Unity Event function.
+    /// Initialize input handler on object enabled.
+    /// </summary>
+    private void OnEnable()
+    {
+        inputManager = new InputManager();
+
+        // Look rotation
+        inputManager.Bullet.Look.performed += LookOnPerformed;
+        inputManager.Bullet.Look.canceled += LookOnCanceled;
+
+        inputManager.Enable();
+    }
+
+    #region Input Methods
+
+    /// <summary>
+    /// On look input performed.
+    /// </summary>
+    /// <param name="context">Input context</param>
+    private void LookOnPerformed(InputAction.CallbackContext context)
+    {
+        lookVelocity = context.ReadValue<Vector2>().x * lookSensitivity;
+    }
+
+    /// <summary>
+    /// On look input canceled.
+    /// </summary>
+    /// <param name="context">Input context</param>
+    private void LookOnCanceled(InputAction.CallbackContext context)
+    {
+        lookVelocity = 0f;
+    }
+
+    #endregion
+
+    private void Awake()
+    {
+        rigidBody2D = GetComponent<Rigidbody2D>();
+    }
 
     /// <summary>
     /// Unity Event function.
@@ -23,11 +71,7 @@ public class Bullet : MonoBehaviour
     private void FixedUpdate()
     {
         Fly();
-
-        if (((Vector2)transform.position - endPosition).magnitude < 0.1f)
-        {
-            Destroy(gameObject);
-        }
+        Rotate();
     }
 
     /// <summary>
@@ -35,6 +79,19 @@ public class Bullet : MonoBehaviour
     /// </summary>
     private void Fly()
     {
-        transform.position = Vector2.Lerp(transform.position, endPosition, speed / 100f);
+        rigidBody2D.MovePosition(rigidBody2D.position + (Vector2)transform.up * speed * Time.deltaTime);
+    }
+
+    /// <summary>
+    /// Rotate to look velocity.
+    /// </summary>
+    private void Rotate()
+    {
+        transform.Rotate(0f, 0f, lookVelocity * Time.timeScale, Space.Self);
+    }
+
+    public void Explode()
+    {
+        Destroy(gameObject);
     }
 }

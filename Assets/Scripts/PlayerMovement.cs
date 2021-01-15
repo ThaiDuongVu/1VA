@@ -24,16 +24,14 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 snapPosition;
     private const float SnapDistance = 2.5f;
-    private const float SnapInterpolationRatio = 0.3f;
+    private const float SnapInterpolationRatio = 0.25f;
 
     private Vector2 snapLookDirection;
     private const float SnapLookDistance = 0.1f;
-    private const float SnapLookInterpolationRatio = 0.3f;
+    private const float SnapLookInterpolationRatio = 0.5f;
 
     private float lookVelocity;
-    public const float NormalLookSensitivity = 1.2f;
-    public const float AimLookSensitivity = 0.6f;
-    [HideInInspector] public float lookSensitivity = 1f;
+    private float lookSensitivity = 1.5f;
 
     private new Camera camera;
     private MainCamera mainCamera;
@@ -77,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
         // Debug.Log(context.control.device == InputSystem.devices[0]);
 
         // If player is in a middle of a dash then return
-        if (player.IsDashing || Time.timeScale == 0f) return;
+        if (player.IsDashing || Time.timeScale == 0f || !player.IsControllable) return;
 
         // Set movement vector
         direction = context.ReadValue<Vector2>();
@@ -109,7 +107,9 @@ public class PlayerMovement : MonoBehaviour
     /// <param name="context">Input context</param>
     private void LookOnPerformed(InputAction.CallbackContext context)
     {
-        lookVelocity = context.ReadValue<Vector2>().x * lookSensitivity;
+        if (!player.IsControllable) return;
+
+        lookVelocity = context.ReadValue<Vector2>().x;
     }
 
     /// <summary>
@@ -127,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
     /// <param name="context">Input context</param>
     private void DashOnPerformed(InputAction.CallbackContext context)
     {
-        if (Time.timeScale == 0f || player.IsSnapping) return;
+        if (Time.timeScale == 0f || player.IsSnapping || !player.IsControllable) return;
 
         // Start dashing if not already
         if (!player.IsDashing) StartCoroutine(Dash());
@@ -179,8 +179,6 @@ public class PlayerMovement : MonoBehaviour
         // If player is snapping then snap
         if (player.IsSnapping) Snap();
 
-        if (player.IsSnapLooking) SnapLook();
-
         player.directionArrow.transform.up = Vector2.Lerp(player.directionArrow.transform.up, movement, 0.4f);
     }
 
@@ -217,6 +215,7 @@ public class PlayerMovement : MonoBehaviour
     public void Stop()
     {
         currentVelocity = 0f;
+        direction = Vector2.zero;
     }
 
     /// <summary>
@@ -224,19 +223,9 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     private void Rotate()
     {
-        transform.Rotate(0f, 0f, lookVelocity * Time.timeScale, Space.Self);
-    }
+        if (Mathf.Abs(lookVelocity) <= 0.1f) return;
 
-    /// <summary>
-    /// Slightly decrease player look sensitivity when an enemy is in sight.
-    /// </summary>
-    public void AimAssist()
-    {
-        if (player.CurrentWeapon.aimCone.EnemyCount > 0 && lookSensitivity != AimLookSensitivity)
-            lookSensitivity = AimLookSensitivity;
-
-        else if (player.CurrentWeapon.aimCone.EnemyCount == 0 && lookSensitivity != NormalLookSensitivity)
-            lookSensitivity = NormalLookSensitivity;
+        transform.Rotate(0f, 0f, lookVelocity * lookSensitivity * Time.timeScale, Space.Self);
     }
 
     /// <summary>
@@ -329,6 +318,7 @@ public class PlayerMovement : MonoBehaviour
     {
         // Set player snapping to false
         player.IsSnapping = false;
+        if (direction != Vector2.zero) player.IsRunning = true;
 
         // Disable trail
         player.trail.enabled = false;
@@ -361,26 +351,5 @@ public class PlayerMovement : MonoBehaviour
         if (GlobalController.CloseTo(transform.position.x, snapPosition.x, SnapDistance) &&
             GlobalController.CloseTo(transform.position.y, snapPosition.y, SnapDistance))
             StopSnapping();
-    }
-
-    public void StartSnapLooking(Vector2 direction)
-    {
-        snapLookDirection = direction;
-        player.IsSnapLooking = true;
-    }
-
-    private void StopSnapLooking()
-    {
-        player.IsSnapLooking = false;
-    }
-
-    private void SnapLook()
-    {
-        transform.up = Vector2.Lerp(transform.up, snapLookDirection, SnapLookInterpolationRatio);
-
-        // If snapped then stop snapping
-        if (GlobalController.CloseTo(transform.up.x, snapLookDirection.x, SnapLookDistance) &&
-            GlobalController.CloseTo(transform.up.y, snapLookDirection.y, SnapLookDistance))
-            StopSnapLooking();
     }
 }

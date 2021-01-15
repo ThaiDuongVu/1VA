@@ -57,14 +57,6 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
-                },
-                {
-                    ""name"": ""TakeDown"",
-                    ""type"": ""Button"",
-                    ""id"": ""b61a3cbd-1b5e-4ef6-99f2-dc2100ba190c"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -386,28 +378,151 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                }
+            ]
+        },
+        {
+            ""name"": ""Bullet"",
+            ""id"": ""e8596ff4-3c65-4603-9835-758880ccac97"",
+            ""actions"": [
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Button"",
+                    ""id"": ""cfdc9430-c93a-43b0-acc4-0661ba902f40"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 },
                 {
+                    ""name"": ""Look"",
+                    ""type"": ""Value"",
+                    ""id"": ""791ecc19-be0c-44d2-9a8a-a7ee41a3ed62"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
                     ""name"": """",
-                    ""id"": ""9aa635ed-f679-4651-aaf8-66278b545645"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""id"": ""35ebc565-c327-4d7c-a1b6-53defd645647"",
+                    ""path"": """",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""TakeDown"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""35ad34f4-4333-4a66-966a-73353d2853d8"",
-                    ""path"": ""<Keyboard>/f"",
+                    ""name"": ""Mouse"",
+                    ""id"": ""30a6dd05-8fdc-4990-8163-eb838f293803"",
+                    ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""MouseKeyboard"",
-                    ""action"": ""TakeDown"",
-                    ""isComposite"": false,
+                    ""action"": ""Look"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""1ea18a13-5d29-4ed1-b29f-4a7bdb3099a0"",
+                    ""path"": ""<Mouse>/delta/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""2cae12e1-020f-4cc1-86cf-01aad835c4bc"",
+                    ""path"": ""<Mouse>/delta/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""7a6076bf-a96d-47b9-87c8-e68b23bff815"",
+                    ""path"": ""<Mouse>/delta/x"",
+                    ""interactions"": """",
+                    ""processors"": ""Normalize(min=-1),Scale(factor=0.1)"",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""fda9e89d-74b9-4dc4-b1ca-afa6b61e61cb"",
+                    ""path"": ""<Mouse>/delta/x"",
+                    ""interactions"": """",
+                    ""processors"": ""Normalize(max=1),Scale(factor=0.1)"",
+                    ""groups"": ""MouseKeyboard"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""RightStick"",
+                    ""id"": ""4151aa35-02ae-416b-82e5-e44495275beb"",
+                    ""path"": ""2DVector(mode=2)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Look"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""615279f9-cf64-42a3-9dd2-56a63881a17d"",
+                    ""path"": ""<Gamepad>/rightStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""172a15f4-25e8-4247-87bd-4ce3c6498e44"",
+                    ""path"": ""<Gamepad>/rightStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""f72550bb-d4a4-4013-a01d-f9ef9ce763b9"",
+                    ""path"": ""<Gamepad>/rightStick/left"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale(factor=2.5),Invert"",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""4843e987-e6ae-4c5b-bd3b-408cd6a15a46"",
+                    ""path"": ""<Gamepad>/rightStick/right"",
+                    ""interactions"": """",
+                    ""processors"": ""Scale(factor=2.5),Invert"",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -747,7 +862,10 @@ public class @InputManager : IInputActionCollection, IDisposable
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
-        m_Player_TakeDown = m_Player.FindAction("TakeDown", throwIfNotFound: true);
+        // Bullet
+        m_Bullet = asset.FindActionMap("Bullet", throwIfNotFound: true);
+        m_Bullet_Move = m_Bullet.FindAction("Move", throwIfNotFound: true);
+        m_Bullet_Look = m_Bullet.FindAction("Look", throwIfNotFound: true);
         // Console
         m_Console = asset.FindActionMap("Console", throwIfNotFound: true);
         m_Console_Show = m_Console.FindAction("Show", throwIfNotFound: true);
@@ -811,7 +929,6 @@ public class @InputManager : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_Fire;
-    private readonly InputAction m_Player_TakeDown;
     public struct PlayerActions
     {
         private @InputManager m_Wrapper;
@@ -821,7 +938,6 @@ public class @InputManager : IInputActionCollection, IDisposable
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
-        public InputAction @TakeDown => m_Wrapper.m_Player_TakeDown;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -846,9 +962,6 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Fire.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                 @Fire.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                 @Fire.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-                @TakeDown.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTakeDown;
-                @TakeDown.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTakeDown;
-                @TakeDown.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTakeDown;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -868,13 +981,51 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Fire.started += instance.OnFire;
                 @Fire.performed += instance.OnFire;
                 @Fire.canceled += instance.OnFire;
-                @TakeDown.started += instance.OnTakeDown;
-                @TakeDown.performed += instance.OnTakeDown;
-                @TakeDown.canceled += instance.OnTakeDown;
             }
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Bullet
+    private readonly InputActionMap m_Bullet;
+    private IBulletActions m_BulletActionsCallbackInterface;
+    private readonly InputAction m_Bullet_Move;
+    private readonly InputAction m_Bullet_Look;
+    public struct BulletActions
+    {
+        private @InputManager m_Wrapper;
+        public BulletActions(@InputManager wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_Bullet_Move;
+        public InputAction @Look => m_Wrapper.m_Bullet_Look;
+        public InputActionMap Get() { return m_Wrapper.m_Bullet; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(BulletActions set) { return set.Get(); }
+        public void SetCallbacks(IBulletActions instance)
+        {
+            if (m_Wrapper.m_BulletActionsCallbackInterface != null)
+            {
+                @Move.started -= m_Wrapper.m_BulletActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_BulletActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_BulletActionsCallbackInterface.OnMove;
+                @Look.started -= m_Wrapper.m_BulletActionsCallbackInterface.OnLook;
+                @Look.performed -= m_Wrapper.m_BulletActionsCallbackInterface.OnLook;
+                @Look.canceled -= m_Wrapper.m_BulletActionsCallbackInterface.OnLook;
+            }
+            m_Wrapper.m_BulletActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
+                @Look.started += instance.OnLook;
+                @Look.performed += instance.OnLook;
+                @Look.canceled += instance.OnLook;
+            }
+        }
+    }
+    public BulletActions @Bullet => new BulletActions(this);
 
     // Console
     private readonly InputActionMap m_Console;
@@ -990,7 +1141,11 @@ public class @InputManager : IInputActionCollection, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
-        void OnTakeDown(InputAction.CallbackContext context);
+    }
+    public interface IBulletActions
+    {
+        void OnMove(InputAction.CallbackContext context);
+        void OnLook(InputAction.CallbackContext context);
     }
     public interface IConsoleActions
     {
