@@ -4,12 +4,21 @@ using UnityEngine.InputSystem;
 public class Bullet : MonoBehaviour
 {
     // Bullet speed
-    [SerializeField] private float speed;
+    public float speed;
 
-    private Rigidbody2D rigidBody2D;
+    // Bullet up time
+    public float maxUpTime;
+    private float currentUpTime;
+
+    // Bullet damage
+    public float damage;
+
+    public Weapon Weapon { get; set; }
 
     private float lookVelocity;
     private float lookSensitivity = 1.5f;
+
+    private Rigidbody2D rigidBody2D;
 
     private InputManager inputManager;
 
@@ -57,6 +66,7 @@ public class Bullet : MonoBehaviour
     private void Awake()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
+        currentUpTime = maxUpTime;
     }
 
     /// <summary>
@@ -67,6 +77,9 @@ public class Bullet : MonoBehaviour
     {
         Fly();
         Rotate();
+
+        currentUpTime -= Time.fixedDeltaTime;
+        if (currentUpTime <= 0f) Weapon.StopShoot();
     }
 
     /// <summary>
@@ -92,4 +105,24 @@ public class Bullet : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    #region Trigger Methods
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            Enemy enemy = other.GetComponent<Enemy>();
+
+            // Deal damage to enemy
+            enemy.TakeDamage(damage);
+            // Add enemy knock back effect
+            enemy.Movement.KnockBack(transform.up);
+
+            // Stop bullet
+            Weapon.StopShoot();
+        }
+    }
+
+    #endregion
 }

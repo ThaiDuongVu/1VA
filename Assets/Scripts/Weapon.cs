@@ -16,9 +16,6 @@ public class Weapon : MonoBehaviour
     public int maxAmmo;
     private int currentAmmo;
 
-    // Damage per bullet
-    public float damage;
-
     // Delay between shots
     public float delayDuration;
     private WaitForSeconds delay;
@@ -53,6 +50,8 @@ public class Weapon : MonoBehaviour
     /// </summary>
     public void StopShoot()
     {
+        if (canShoot) return;
+
         StartCoroutine(Cancel());
     }
 
@@ -61,26 +60,39 @@ public class Weapon : MonoBehaviour
     /// </summary>
     private void Shoot()
     {
+        // Shake camera
         CameraShaker.Instance.Shake(CameraShakeMode.Normal);
 
-        currentBullet = Instantiate(bullet, barrel.transform.position, transform.rotation).GetComponent<Bullet>();
+        // Muzzle effect
         Instantiate(muzzle, barrel.transform.position, transform.rotation);
 
+        // Spawn new bullet
+        currentBullet = Instantiate(bullet, barrel.transform.position, transform.rotation).GetComponent<Bullet>();
+        currentBullet.Weapon = this;
+
+        // Camera follow bullet instead of player
         mainCamera.followTarget = currentBullet.transform;
+        // Disable player shooting & controlling
         canShoot = false;
         Player.IsControllable = false;
 
+        // Stop player
         Player.Movement.Stop();
     }
 
     private IEnumerator Cancel()
     {
+        // Shake camera
         CameraShaker.Instance.Shake(CameraShakeMode.Normal);
-        currentBullet.Explode();
+        // Explode & destroy current bullet
+        if (currentBullet) currentBullet.Explode();
 
+        // Add a bit of delay
         yield return delay;
 
+        // Camera follow player again
         mainCamera.followTarget = Player.transform;
+        // Re-enable player shooting & controlling
         canShoot = true;
         Player.IsControllable = true;
     }

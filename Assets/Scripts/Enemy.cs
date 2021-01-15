@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour, IDamageable
         Health -= damage;
         Instantiate(bloodSpat, transform.position, transform.rotation);
 
-        ComboController.Instance.AddCombo(1);
+        FindObjectOfType<Player>().Combo.AddCombo(1);
 
         if (Health <= 0f) Die();
     }

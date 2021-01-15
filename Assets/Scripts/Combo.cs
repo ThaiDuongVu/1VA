@@ -1,25 +1,8 @@
 using UnityEngine;
 using TMPro;
 
-public class ComboController : MonoBehaviour
+public class Combo : MonoBehaviour
 {
-    // Use the singleton pattern to make the class globally accessible
-    #region Singleton
-
-    private static ComboController instance;
-
-    public static ComboController Instance
-    {
-        get
-        {
-            if (instance == null) instance = FindObjectOfType<ComboController>();
-
-            return instance;
-        }
-    }
-
-    #endregion
-
     public int multiplier;
     private float timer;
     private const float TimerMax = 5f;

@@ -3,6 +3,8 @@
 public class Player : MonoBehaviour, IDamageable
 {
     public PlayerMovement Movement { get; private set; }
+    public PlayerCombat Combat { get; private set; }
+    public Combo Combo { get; private set; }
 
     public bool IsControllable { get; set; } = true;
     public bool IsRunning { get; set; }
@@ -28,6 +30,9 @@ public class Player : MonoBehaviour, IDamageable
     private void Awake()
     {
         Movement = GetComponent<PlayerMovement>();
+        Combat = GetComponent<PlayerCombat>();
+        Combo = GetComponent<Combo>();
+
         Animator = GetComponent<Animator>();
     }
 
