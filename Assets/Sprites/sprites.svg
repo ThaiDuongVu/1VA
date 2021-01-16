@@ -7,54 +7,72 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
-   version="1.1"
-   id="svg8"
+   sodipodi:docname="sprites.svg"
    inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
-   sodipodi:docname="sprites.svg">
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 210 297"
+   height="297mm"
+   width="210mm">
   <defs
      id="defs2">
     <inkscape:path-effect
-       effect="powerclip"
+       message="Use fill-rule evenodd on &lt;b&gt;fill and stroke&lt;/b&gt; dialog if no flatten result after convert clip to paths."
+       hide_clip="false"
+       flatten="false"
+       inverse="true"
+       lpeversion="1"
+       is_visible="true"
        id="path-effect911"
-       is_visible="true"
-       lpeversion="1"
-       inverse="true"
-       flatten="false"
-       hide_clip="false"
-       message="Use fill-rule evenodd on &lt;b&gt;fill and stroke&lt;/b&gt; dialog if no flatten result after convert clip to paths." />
+       effect="powerclip" />
     <inkscape:path-effect
-       message="Use fill-rule evenodd on &lt;b&gt;fill and stroke&lt;/b&gt; dialog if no flatten result after convert clip to paths."
-       hide_clip="false"
-       flatten="false"
-       inverse="true"
-       lpeversion="1"
-       is_visible="true"
+       effect="powerclip"
        id="path-effect968"
-       effect="powerclip" />
+       is_visible="true"
+       lpeversion="1"
+       inverse="true"
+       flatten="false"
+       hide_clip="false"
+       message="Use fill-rule evenodd on &lt;b&gt;fill and stroke&lt;/b&gt; dialog if no flatten result after convert clip to paths." />
     <inkscape:path-effect
-       effect="powerclip"
+       message="Use fill-rule evenodd on &lt;b&gt;fill and stroke&lt;/b&gt; dialog if no flatten result after convert clip to paths."
+       hide_clip="false"
+       flatten="false"
+       inverse="true"
+       lpeversion="1"
+       is_visible="true"
        id="path-effect986"
-       is_visible="true"
-       lpeversion="1"
-       inverse="true"
-       flatten="false"
-       hide_clip="false"
-       message="Use fill-rule evenodd on &lt;b&gt;fill and stroke&lt;/b&gt; dialog if no flatten result after convert clip to paths." />
+       effect="powerclip" />
     <inkscape:path-effect
-       effect="powerclip"
+       message="Use fill-rule evenodd on &lt;b&gt;fill and stroke&lt;/b&gt; dialog if no flatten result after convert clip to paths."
+       hide_clip="false"
+       flatten="false"
+       inverse="true"
+       lpeversion="1"
+       is_visible="true"
        id="path-effect864"
-       is_visible="true"
-       lpeversion="1"
-       inverse="true"
-       flatten="false"
-       hide_clip="false"
-       message="Use fill-rule evenodd on &lt;b&gt;fill and stroke&lt;/b&gt; dialog if no flatten result after convert clip to paths." />
+       effect="powerclip" />
     <inkscape:path-effect
-       effect="powerclip"
+       message="Use fill-rule evenodd on &lt;b&gt;fill and stroke&lt;/b&gt; dialog if no flatten result after convert clip to paths."
+       hide_clip="false"
+       flatten="false"
+       inverse="true"
+       lpeversion="1"
+       is_visible="true"
        id="path-effect853"
+       effect="powerclip" />
+    <inkscape:path-effect
+       message="Use fill-rule evenodd on &lt;b&gt;fill and stroke&lt;/b&gt; dialog if no flatten result after convert clip to paths."
+       hide_clip="false"
+       flatten="false"
+       inverse="true"
+       lpeversion="1"
+       is_visible="true"
+       id="path-effect846"
+       effect="powerclip" />
+    <inkscape:path-effect
+       effect="powerclip"
+       id="path-effect1007"
        is_visible="true"
        lpeversion="1"
        inverse="true"
@@ -63,7 +81,7 @@
        message="Use fill-rule evenodd on &lt;b&gt;fill and stroke&lt;/b&gt; dialog if no flatten result after convert clip to paths." />
     <inkscape:path-effect
        effect="powerclip"
-       id="path-effect846"
+       id="path-effect993"
        is_visible="true"
        lpeversion="1"
        inverse="true"
@@ -71,77 +89,46 @@
        hide_clip="false"
        message="Use fill-rule evenodd on &lt;b&gt;fill and stroke&lt;/b&gt; dialog if no flatten result after convert clip to paths." />
     <inkscape:path-effect
-       message="Use fill-rule evenodd on &lt;b&gt;fill and stroke&lt;/b&gt; dialog if no flatten result after convert clip to paths."
-       hide_clip="false"
-       flatten="false"
-       inverse="true"
-       lpeversion="1"
-       is_visible="true"
-       id="path-effect1007"
-       effect="powerclip" />
-    <inkscape:path-effect
-       message="Use fill-rule evenodd on &lt;b&gt;fill and stroke&lt;/b&gt; dialog if no flatten result after convert clip to paths."
-       hide_clip="false"
-       flatten="false"
-       inverse="true"
-       lpeversion="1"
-       is_visible="true"
-       id="path-effect993"
-       effect="powerclip" />
-    <inkscape:path-effect
-       message="Use fill-rule evenodd on &lt;b&gt;fill and stroke&lt;/b&gt; dialog if no flatten result after convert clip to paths."
-       hide_clip="false"
-       flatten="false"
-       inverse="true"
-       lpeversion="1"
-       is_visible="true"
+       effect="powerclip"
        id="path-effect958"
-       effect="powerclip" />
+       is_visible="true"
+       lpeversion="1"
+       inverse="true"
+       flatten="false"
+       hide_clip="false"
+       message="Use fill-rule evenodd on &lt;b&gt;fill and stroke&lt;/b&gt; dialog if no flatten result after convert clip to paths." />
     <clipPath
-       id="clipPath954"
-       clipPathUnits="userSpaceOnUse">
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath954">
       <rect
-         d="m 40,-130 h 20 c 11.08,0 20,8.92 20,20 v 60 c 0,11.08 -8.92,20 -20,20 H 40 c -11.08,0 -20,-8.92 -20,-20 v -60 c 0,-11.08 8.92,-20 20,-20 z"
-         ry="20"
-         y="-130"
-         x="20"
-         height="100"
-         width="60"
+         style="display:none;fill:#999999;fill-opacity:1;stroke:none;stroke-width:5.00002;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect956"
-         style="display:none;fill:#999999;fill-opacity:1;stroke:none;stroke-width:5.00002;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    </clipPath>
-    <clipPath
-       id="clipPath989"
-       clipPathUnits="userSpaceOnUse">
-      <rect
-         d="M -19.999954,-115 H 120.89429 c 16.62002,0 30.00004,13.38002 30.00004,30.000046 v 27.312408 c 0,16.620026 -13.38002,30.000046 -30.00004,30.000046 H -19.999954 C -36.61998,-27.6875 -50,-41.06752 -50,-57.687546 V -84.999954 C -50,-101.61998 -36.61998,-115 -19.999954,-115 Z"
-         ry="30.000046"
-         y="-115"
-         x="-50"
-         height="87.3125"
-         width="200.89433"
-         id="rect991"
-         style="display:none;fill:#e6e6e6;fill-opacity:1;stroke:none;stroke-width:4.99996;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    </clipPath>
-    <clipPath
-       id="clipPath1003"
-       clipPathUnits="userSpaceOnUse">
-      <rect
-         d="m 45,-130 h 10 c 11.08,0 20,8.92 20,20 v 60 c 0,11.08 -8.92,20 -20,20 H 45 c -11.08,0 -20,-8.92 -20,-20 v -60 c 0,-11.08 8.92,-20 20,-20 z"
-         ry="20"
-         y="-130"
-         x="25"
+         width="60"
          height="100"
-         width="50"
-         id="rect1005"
-         style="display:none;fill:#e6e6e6;fill-opacity:1;stroke:none;stroke-width:4.99996;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+         x="20"
+         y="-130"
+         ry="20"
+         d="m 40,-130 h 20 c 11.08,0 20,8.92 20,20 v 60 c 0,11.08 -8.92,20 -20,20 H 40 c -11.08,0 -20,-8.92 -20,-20 v -60 c 0,-11.08 8.92,-20 20,-20 z" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipath_lpe_path-effect846">
+       id="clipPath989">
       <rect
          style="display:none;fill:#e6e6e6;fill-opacity:1;stroke:none;stroke-width:4.99996;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="rect848"
+         id="rect991"
+         width="200.89433"
+         height="87.3125"
+         x="-50"
+         y="-115"
+         ry="30.000046"
+         d="M -19.999954,-115 H 120.89429 c 16.62002,0 30.00004,13.38002 30.00004,30.000046 v 27.312408 c 0,16.620026 -13.38002,30.000046 -30.00004,30.000046 H -19.999954 C -36.61998,-27.6875 -50,-41.06752 -50,-57.687546 V -84.999954 C -50,-101.61998 -36.61998,-115 -19.999954,-115 Z" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1003">
+      <rect
+         style="display:none;fill:#e6e6e6;fill-opacity:1;stroke:none;stroke-width:4.99996;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect1005"
          width="50"
          height="100"
          x="25"
@@ -150,7 +137,7 @@
          d="m 45,-130 h 10 c 11.08,0 20,8.92 20,20 v 60 c 0,11.08 -8.92,20 -20,20 H 45 c -11.08,0 -20,-8.92 -20,-20 v -60 c 0,-11.08 8.92,-20 20,-20 z" />
     </clipPath>
     <clipPath
-       id="clipath_lpe_path-effect853"
+       id="clipath_lpe_path-effect846"
        clipPathUnits="userSpaceOnUse">
       <rect
          d="m 45,-130 h 10 c 11.08,0 20,8.92 20,20 v 60 c 0,11.08 -8.92,20 -20,20 H 45 c -11.08,0 -20,-8.92 -20,-20 v -60 c 0,-11.08 8.92,-20 20,-20 z"
@@ -159,54 +146,86 @@
          x="25"
          height="100"
          width="50"
-         id="rect855"
+         id="rect848"
          style="display:none;fill:#e6e6e6;fill-opacity:1;stroke:none;stroke-width:4.99996;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath860">
+       id="clipath_lpe_path-effect853">
       <rect
-         style="display:block;fill:#e6e6e6;stroke-width:4.99996;stroke-linecap:round;stroke-linejoin:round"
-         id="rect862"
-         width="248.29338"
-         height="91.138901"
-         x="-80.715393"
+         style="display:none;fill:#e6e6e6;fill-opacity:1;stroke:none;stroke-width:4.99996;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect855"
+         width="50"
+         height="100"
+         x="25"
+         y="-130"
+         ry="20"
+         d="m 45,-130 h 10 c 11.08,0 20,8.92 20,20 v 60 c 0,11.08 -8.92,20 -20,20 H 45 c -11.08,0 -20,-8.92 -20,-20 v -60 c 0,-11.08 8.92,-20 20,-20 z" />
+    </clipPath>
+    <clipPath
+       id="clipPath860"
+       clipPathUnits="userSpaceOnUse">
+      <rect
+         ry="20.000013"
          y="-115"
-         ry="20.000013" />
+         x="-80.715393"
+         height="91.138901"
+         width="248.29338"
+         id="rect862"
+         style="display:block;fill:#e6e6e6;stroke-width:4.99996;stroke-linecap:round;stroke-linejoin:round" />
+    </clipPath>
+    <clipPath
+       id="clipPath978"
+       clipPathUnits="userSpaceOnUse">
+      <g
+         style="display:none;stroke-width:0.999999"
+         id="g984">
+        <rect
+           d="m 40.787105,-130 h 18.425794 c 8.746056,0 15.787105,7.04105 15.787105,15.7871 v 18.425795 C 75.000004,-87.041049 67.958955,-80 59.212899,-80 H 40.787105 C 32.041049,-80 25,-87.041049 25,-95.787105 V -114.2129 C 25,-122.95895 32.041049,-130 40.787105,-130 Z"
+           ry="15.787105"
+           y="-130"
+           x="25"
+           height="50"
+           width="50.000004"
+           id="rect980"
+           style="fill:#e6e6e6;stroke-width:4.99997;stroke-linecap:round;stroke-linejoin:round" />
+        <rect
+           d="M 6.4250412,-115 H 93.574959 C 110.98443,-115 125,-100.98443 125,-83.574959 v 17.149918 C 125,-49.015568 110.98443,-35 93.574959,-35 H 6.4250412 C -10.984432,-35 -25,-49.015568 -25,-66.425041 V -83.574959 C -25,-100.98443 -10.984432,-115 6.4250412,-115 Z"
+           ry="31.425041"
+           y="-115"
+           x="-25"
+           height="80"
+           width="150"
+           id="rect982"
+           style="fill:#e6e6e6;stroke-width:4.99997;stroke-linecap:round;stroke-linejoin:round" />
+      </g>
+      <path
+         d="M -4.9999988,-155.00001 H 105.00001 V -45.000009 H -4.9999988 Z M 40.787105,-130 C 32.041049,-130 25,-122.95895 25,-114.2129 v 18.425795 C 25,-87.041049 32.041049,-80 40.787105,-80 h 18.425794 c 8.746056,0 15.787105,-7.041049 15.787105,-15.787105 V -114.2129 c 0,-8.74605 -7.041049,-15.7871 -15.787105,-15.7871 z M 6.4250412,-115 C -10.984432,-115 -25,-100.98443 -25,-83.574959 v 17.149918 C -25,-49.015568 -10.984432,-35 6.4250412,-35 H 93.574959 C 110.98443,-35 125,-49.015568 125,-66.425041 V -83.574959 C 125,-100.98443 110.98443,-115 93.574959,-115 Z"
+         class="powerclip"
+         style="stroke-width:0.999999"
+         id="lpe_path-effect986" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath978">
-      <g
-         id="g984"
-         style="display:none;stroke-width:0.999999">
-        <rect
-           style="fill:#e6e6e6;stroke-width:4.99997;stroke-linecap:round;stroke-linejoin:round"
-           id="rect980"
-           width="50.000004"
-           height="50"
-           x="25"
-           y="-130"
-           ry="15.787105"
-           d="m 40.787105,-130 h 18.425794 c 8.746056,0 15.787105,7.04105 15.787105,15.7871 v 18.425795 C 75.000004,-87.041049 67.958955,-80 59.212899,-80 H 40.787105 C 32.041049,-80 25,-87.041049 25,-95.787105 V -114.2129 C 25,-122.95895 32.041049,-130 40.787105,-130 Z" />
-        <rect
-           style="fill:#e6e6e6;stroke-width:4.99997;stroke-linecap:round;stroke-linejoin:round"
-           id="rect982"
-           width="150"
-           height="80"
-           x="-25"
-           y="-115"
-           ry="31.425041"
-           d="M 6.4250412,-115 H 93.574959 C 110.98443,-115 125,-100.98443 125,-83.574959 v 17.149918 C 125,-49.015568 110.98443,-35 93.574959,-35 H 6.4250412 C -10.984432,-35 -25,-49.015568 -25,-66.425041 V -83.574959 C -25,-100.98443 -10.984432,-115 6.4250412,-115 Z" />
-      </g>
+       id="clipPath964">
+      <ellipse
+         style="display:none;fill:#ff6600;stroke:none;stroke-width:0.499997;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+         id="circle966"
+         cx="-613.89288"
+         cy="-146.75716"
+         inkscape:export-xdpi="25.399998"
+         inkscape:export-ydpi="25.399998"
+         rx="111.48938"
+         ry="229.85318"
+         d="M -502.4035,-146.75716 A 111.48938,229.85318 0 0 1 -613.89288,83.096024 111.48938,229.85318 0 0 1 -725.38226,-146.75716 111.48938,229.85318 0 0 1 -613.89288,-376.61034 111.48938,229.85318 0 0 1 -502.4035,-146.75716" />
       <path
-         id="lpe_path-effect986"
-         style="stroke-width:0.999999"
+         id="lpe_path-effect968"
+         style="fill:#ff6600;stroke:none;stroke-width:0.499997;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
          class="powerclip"
-         d="M -4.9999988,-155.00001 H 105.00001 V -45.000009 H -4.9999988 Z M 40.787105,-130 C 32.041049,-130 25,-122.95895 25,-114.2129 v 18.425795 C 25,-87.041049 32.041049,-80 40.787105,-80 h 18.425794 c 8.746056,0 15.787105,-7.041049 15.787105,-15.787105 V -114.2129 c 0,-8.74605 -7.041049,-15.7871 -15.787105,-15.7871 z M 6.4250412,-115 C -10.984432,-115 -25,-100.98443 -25,-83.574959 v 17.149918 C -25,-49.015568 -10.984432,-35 6.4250412,-35 H 93.574959 C 110.98443,-35 125,-49.015568 125,-66.425041 V -83.574959 C 125,-100.98443 110.98443,-115 93.574959,-115 Z" />
+         d="m -711.80069,-472.59394 h 195.81556 v 172.81165 h -195.81556 z m 209.39719,325.83678 a 111.48938,229.85318 0 0 0 -111.48938,-229.85318 111.48938,229.85318 0 0 0 -111.48938,229.85318 111.48938,229.85318 0 0 0 111.48938,229.853184 111.48938,229.85318 0 0 0 111.48938,-229.853184" />
     </clipPath>
     <clipPath
-       id="clipPath964"
+       id="clipath_lpe_path-effect911"
        clipPathUnits="userSpaceOnUse">
       <ellipse
          d="M -502.4035,-146.75716 A 111.48938,229.85318 0 0 1 -613.89288,83.096024 111.48938,229.85318 0 0 1 -725.38226,-146.75716 111.48938,229.85318 0 0 1 -613.89288,-376.61034 111.48938,229.85318 0 0 1 -502.4035,-146.75716"
@@ -216,55 +235,36 @@
          inkscape:export-xdpi="25.399998"
          cy="-146.75716"
          cx="-613.89288"
-         id="circle966"
+         id="ellipse913"
          style="display:none;fill:#ff6600;stroke:none;stroke-width:0.499997;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none" />
       <path
-         d="m -711.80069,-472.59394 h 195.81556 v 172.81165 h -195.81556 z m 209.39719,325.83678 a 111.48938,229.85318 0 0 0 -111.48938,-229.85318 111.48938,229.85318 0 0 0 -111.48938,229.85318 111.48938,229.85318 0 0 0 111.48938,229.853184 111.48938,229.85318 0 0 0 111.48938,-229.853184"
+         d="m -711.6937,-472.48695 h 195.60158 v 172.59766 H -711.6937 Z m 209.2902,325.72979 a 111.48938,229.85318 0 0 0 -111.48938,-229.85318 111.48938,229.85318 0 0 0 -111.48938,229.85318 111.48938,229.85318 0 0 0 111.48938,229.853184 111.48938,229.85318 0 0 0 111.48938,-229.853184"
          class="powerclip"
          style="fill:#ff6600;stroke:none;stroke-width:0.499997;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
-         id="lpe_path-effect968" />
-    </clipPath>
-    <clipPath
-       clipPathUnits="userSpaceOnUse"
-       id="clipath_lpe_path-effect911">
-      <ellipse
-         style="display:none;fill:#ff6600;stroke:none;stroke-width:0.499997;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
-         id="ellipse913"
-         cx="-613.89288"
-         cy="-146.75716"
-         inkscape:export-xdpi="25.399998"
-         inkscape:export-ydpi="25.399998"
-         rx="111.48938"
-         ry="229.85318"
-         d="M -502.4035,-146.75716 A 111.48938,229.85318 0 0 1 -613.89288,83.096024 111.48938,229.85318 0 0 1 -725.38226,-146.75716 111.48938,229.85318 0 0 1 -613.89288,-376.61034 111.48938,229.85318 0 0 1 -502.4035,-146.75716" />
-      <path
-         id="lpe_path-effect911"
-         style="fill:#ff6600;stroke:none;stroke-width:0.499997;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
-         class="powerclip"
-         d="m -711.6937,-472.48695 h 195.60158 v 172.59766 H -711.6937 Z m 209.2902,325.72979 a 111.48938,229.85318 0 0 0 -111.48938,-229.85318 111.48938,229.85318 0 0 0 -111.48938,229.85318 111.48938,229.85318 0 0 0 111.48938,229.853184 111.48938,229.85318 0 0 0 111.48938,-229.853184" />
+         id="lpe_path-effect911" />
     </clipPath>
   </defs>
   <sodipodi:namedview
-     id="base"
-     pagecolor="#000000"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="0.35000001"
-     inkscape:cx="-268.89097"
-     inkscape:cy="-6610.7293"
-     inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
-     inkscape:document-rotation="0"
-     showgrid="false"
-     inkscape:pagecheckerboard="true"
-     showborder="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1051"
-     inkscape:window-x="2391"
+     inkscape:window-maximized="1"
      inkscape:window-y="425"
-     inkscape:window-maximized="1" />
+     inkscape:window-x="2391"
+     inkscape:window-height="1051"
+     inkscape:window-width="1920"
+     showborder="false"
+     inkscape:pagecheckerboard="true"
+     showgrid="false"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="mm"
+     inkscape:cy="-2978.3927"
+     inkscape:cx="-522.69934"
+     inkscape:zoom="0.25"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#000000"
+     id="base" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -278,96 +278,36 @@
     </rdf:RDF>
   </metadata>
   <g
-     inkscape:label="Layer 1"
+     id="layer1"
      inkscape:groupmode="layer"
-     id="layer1">
+     inkscape:label="Layer 1">
     <ellipse
-       style="fill:#222831;fill-opacity:1;stroke:#363c45;stroke-width:5.00001;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="path1037"
-       cx="50.000004"
-       cy="-150"
-       rx="47.5"
-       ry="47.499992"
-       inkscape:export-xdpi="25.399998"
+       inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Player\Head.png"
        inkscape:export-ydpi="25.399998"
-       inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Player\Head.png" />
+       inkscape:export-xdpi="25.399998"
+       ry="47.499992"
+       rx="47.5"
+       cy="-150"
+       cx="50.000004"
+       id="path1037"
+       style="fill:#222831;fill-opacity:1;stroke:#363c45;stroke-width:5.00001;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <circle
-       inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Variation\Hand1.png"
-       style="fill:#ffaaaa;fill-opacity:1;stroke:#eb9696;stroke-width:4.99997;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="path1062"
-       cx="20"
+       r="17.500015"
+       inkscape:export-ydpi="65.019997"
+       inkscape:export-xdpi="65.019997"
        cy="-30"
-       inkscape:export-xdpi="65.019997"
-       inkscape:export-ydpi="65.019997"
-       r="17.500015" />
+       cx="20"
+       id="path1062"
+       style="fill:#ffaaaa;fill-opacity:1;stroke:#eb9696;stroke-width:4.99997;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Variation\Hand1.png" />
     <g
-       inkscape:export-ydpi="65.019997"
-       inkscape:export-xdpi="65.019997"
+       id="g915"
        inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Player\Body.png"
-       id="g915">
-      <rect
-         inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Player\Body.png"
-         inkscape:export-ydpi="25.399998"
-         inkscape:export-xdpi="25.399998"
-         rx="80"
-         ry="30"
-         y="-297.5"
-         x="2.499995"
-         height="70.000008"
-         width="175.00002"
-         id="rect1041"
-         style="fill:#00adb5;fill-opacity:1;stroke:#0099a1;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <rect
-         inkscape:export-ydpi="25.399998"
-         inkscape:export-xdpi="25.399998"
-         inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Player\Body.png"
-         transform="rotate(-75)"
-         ry="5"
-         y="-48.775764"
-         x="247.26311"
-         height="50"
-         width="10"
-         id="rect1095"
-         style="fill:#eeeeee;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <rect
-         inkscape:export-ydpi="25.399998"
-         inkscape:export-xdpi="25.399998"
-         inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Player\Body.png"
-         style="fill:#eeeeee;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="rect1097"
-         width="10"
-         height="50"
-         x="199.47224"
-         y="-227.1337"
-         ry="5"
-         transform="matrix(-0.25881905,-0.96592583,-0.96592583,0.25881905,0,0)" />
-      <rect
-         style="fill:#eeeeee;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="rect1105"
-         width="10"
-         height="50"
-         x="269.16986"
-         y="-44.29269"
-         ry="5"
-         transform="rotate(-75)"
-         inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Player\Body.png"
-         inkscape:export-xdpi="25.399998"
-         inkscape:export-ydpi="25.399998" />
-      <rect
-         transform="matrix(-0.25881905,-0.96592583,-0.96592583,0.25881905,0,0)"
-         ry="5"
-         y="-222.65103"
-         x="221.37889"
-         height="50"
-         width="10"
-         id="rect1107"
-         style="fill:#eeeeee;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Player\Body.png"
-         inkscape:export-xdpi="25.399998"
-         inkscape:export-ydpi="25.399998" />
+       inkscape:export-xdpi="65.019997"
+       inkscape:export-ydpi="65.019997">
       <rect
          style="fill:#00adb5;fill-opacity:1;stroke:#0099a1;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="rect1109"
+         id="rect1041"
          width="175.00002"
          height="70.000008"
          x="2.499995"
@@ -379,7 +319,7 @@
          inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Player\Body.png" />
       <rect
          style="fill:#eeeeee;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="rect1111"
+         id="rect1095"
          width="10"
          height="50"
          x="247.26311"
@@ -396,7 +336,7 @@
          x="199.47224"
          height="50"
          width="10"
-         id="rect1113"
+         id="rect1097"
          style="fill:#eeeeee;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Player\Body.png"
          inkscape:export-xdpi="25.399998"
@@ -411,211 +351,86 @@
          x="269.16986"
          height="50"
          width="10"
-         id="rect1115"
+         id="rect1105"
          style="fill:#eeeeee;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <rect
          inkscape:export-ydpi="25.399998"
          inkscape:export-xdpi="25.399998"
          inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Player\Body.png"
          style="fill:#eeeeee;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="rect1117"
+         id="rect1107"
          width="10"
          height="50"
          x="221.37889"
          y="-222.65103"
          ry="5"
          transform="matrix(-0.25881905,-0.96592583,-0.96592583,0.25881905,0,0)" />
-    </g>
-    <path
-       inkscape:path-effect="#path-effect968"
-       clip-path="url(#clipPath964)"
-       inkscape:export-ydpi="65.019997"
-       inkscape:export-xdpi="65.019997"
-       transform="matrix(0.53816784,0,0,0.26103619,380.37742,122.05893)"
-       inkscape:transform-center-y="-6.4849674"
-       inkscape:transform-center-x="0.032080822"
-       d="m -527.65474,-311.45239 -86.23817,-0.10323 -86.23817,-0.10322 43.20848,-74.63283 43.20848,-74.63283 43.02969,74.73605 z"
-       inkscape:randomized="0"
-       inkscape:rounded="0"
-       inkscape:flatsided="false"
-       sodipodi:arg2="1.5719933"
-       sodipodi:arg1="0.52479577"
-       sodipodi:r2="49.789665"
-       sodipodi:r1="99.57933"
-       sodipodi:cy="-361.34525"
-       sodipodi:cx="-613.83331"
-       sodipodi:sides="3"
-       id="path880"
-       style="fill:#00adb5;stroke:#eeeeed;stroke-width:13.3402;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
-       sodipodi:type="star"
-       inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Player\DirectionArrow.png" />
-    <g
-       inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Variation\Head1.png"
-       id="g949"
-       inkscape:export-xdpi="65.023994"
-       inkscape:export-ydpi="65.023994">
-      <g
-         transform="translate(0,-0.89582443)"
-         id="g930">
-        <circle
-           r="47.500004"
-           style="fill:#222831;fill-opacity:1;stroke:#363c45;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           id="circle838"
-           cx="50"
-           cy="170.89583" />
-        <g
-           id="g921">
-          <g
-             id="g914">
-            <path
-               style="fill:#ffaaaa;stroke:#363c45;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
-               id="path958"
-               clip-path="url(#clipPath978)"
-               inkscape:path-effect="#path-effect986"
-               sodipodi:type="arc"
-               sodipodi:cx="50.000004"
-               sodipodi:cy="-100.00001"
-               sodipodi:rx="47.500008"
-               sodipodi:ry="47.500004"
-               transform="translate(0,270.89584)"
-               d="m 97.500011,-100.00001 a 47.500008,47.500004 0 0 1 -47.500007,47.500006 47.500008,47.500004 0 0 1 -47.5000078,-47.500006 47.500008,47.500004 0 0 1 47.5000078,-47.5 47.500008,47.500004 0 0 1 47.500007,47.5 z" />
-            <rect
-               style="fill:#ffaaaa;fill-opacity:1;stroke:none;stroke-width:4.99998;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
-               id="rect1024"
-               width="16.338387"
-               height="3"
-               x="7.75"
-               y="154.14583"
-               ry="2" />
-            <rect
-               ry="2"
-               y="154.14583"
-               x="75.900002"
-               height="3"
-               width="16.338387"
-               id="rect1026"
-               style="fill:#ffaaaa;fill-opacity:1;stroke:none;stroke-width:4.99998;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />
-          </g>
-          <rect
-             ry="17.5"
-             y="139.89583"
-             x="24"
-             height="52"
-             width="52"
-             id="rect990"
-             style="fill:#222831;fill-opacity:1;stroke:none;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />
-        </g>
-      </g>
-    </g>
-    <g
-       inkscape:export-ydpi="65.019997"
-       inkscape:export-xdpi="65.019997"
-       inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Variation\Body1.png"
-       id="g928">
       <rect
          inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Player\Body.png"
          inkscape:export-ydpi="25.399998"
          inkscape:export-xdpi="25.399998"
          rx="80"
          ry="30"
-         y="-647.5"
+         y="-297.5"
          x="2.499995"
          height="70.000008"
          width="175.00002"
-         id="rect883"
-         style="fill:#a02c2c;fill-opacity:1;stroke:#8c1818;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+         id="rect1109"
+         style="fill:#00adb5;fill-opacity:1;stroke:#0099a1;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         inkscape:export-ydpi="25.399998"
+         inkscape:export-xdpi="25.399998"
+         inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Player\Body.png"
+         transform="rotate(-75)"
+         ry="5"
+         y="-48.775764"
+         x="247.26311"
+         height="50"
+         width="10"
+         id="rect1111"
+         style="fill:#eeeeee;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         inkscape:export-ydpi="25.399998"
+         inkscape:export-xdpi="25.399998"
+         inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Player\Body.png"
+         style="fill:#eeeeee;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect1113"
+         width="10"
+         height="50"
+         x="199.47224"
+         y="-227.1337"
+         ry="5"
+         transform="matrix(-0.25881905,-0.96592583,-0.96592583,0.25881905,0,0)" />
       <rect
          style="fill:#eeeeee;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="rect885"
+         id="rect1115"
          width="10"
          height="50"
-         x="590"
-         y="25"
+         x="269.16986"
+         y="-44.29269"
          ry="5"
-         transform="rotate(-90)"
+         transform="rotate(-75)"
          inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Player\Body.png"
          inkscape:export-xdpi="25.399998"
          inkscape:export-ydpi="25.399998" />
       <rect
-         inkscape:export-ydpi="25.399998"
-         inkscape:export-xdpi="25.399998"
-         inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Player\Body.png"
-         transform="rotate(-90)"
+         transform="matrix(-0.25881905,-0.96592583,-0.96592583,0.25881905,0,0)"
          ry="5"
-         y="105.44813"
-         x="590"
+         y="-222.65103"
+         x="221.37889"
          height="50"
          width="10"
-         id="rect887"
-         style="fill:#eeeeee;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    </g>
-    <g
-       inkscape:export-ydpi="65.019997"
-       inkscape:export-xdpi="65.019997"
-       inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\EnemyVariation\Foot1.png"
-       id="g920">
-      <rect
-         style="fill:#00aad4;fill-opacity:1;stroke:#008cb6;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="rect933"
-         width="45.000011"
-         height="70.000008"
-         x="2.499995"
-         y="402.5"
-         ry="25"
+         id="rect1117"
+         style="fill:#eeeeee;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Player\Body.png"
          inkscape:export-xdpi="25.399998"
          inkscape:export-ydpi="25.399998" />
-      <rect
-         inkscape:export-ydpi="25.399998"
-         inkscape:export-xdpi="25.399998"
-         ry="8.9285707"
-         y="415"
-         x="12.5"
-         height="25"
-         width="25"
-         id="rect935"
-         style="fill:#eeeeee;fill-opacity:1;stroke:none;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    </g>
-    <g
-       inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA - Copy\Assets\Sprites\DraftEnemy\Foot1.png"
-       inkscape:export-ydpi="65.019997"
-       inkscape:export-xdpi="65.019997"
-       id="g923">
-      <rect
-         inkscape:export-ydpi="25.399998"
-         inkscape:export-xdpi="25.399998"
-         ry="25"
-         y="502.5"
-         x="2.499995"
-         height="70.000008"
-         width="45.000011"
-         id="rect951"
-         style="fill:#a02c2c;fill-opacity:1;stroke:#8c1818;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <path
-         inkscape:export-ydpi="25.399998"
-         inkscape:export-xdpi="25.399998"
-         transform="matrix(0.74782164,0,0,0.78972188,112.25679,206.49418)"
-         inkscape:transform-center-y="-2.9890157"
-         inkscape:transform-center-x="0.62313778"
-         d="m -96.950889,418.23065 c -2.896933,5.15556 -36.405691,5.54634 -39.422071,0.45975 -3.01637,-5.0866 13.39958,-34.30143 19.31289,-34.37039 5.91331,-0.069 23.006113,28.75508 20.109181,33.91064 z"
-         inkscape:randomized="0"
-         inkscape:rounded="0.15"
-         inkscape:flatsided="true"
-         sodipodi:arg2="1.5591347"
-         sodipodi:arg1="0.51193717"
-         sodipodi:r2="11.952657"
-         sodipodi:r1="22.761889"
-         sodipodi:cy="407.08035"
-         sodipodi:cx="-116.79464"
-         sodipodi:sides="3"
-         id="path953"
-         style="fill:#eeeeee;fill-opacity:1;stroke:none;stroke-width:6.50628;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
-         sodipodi:type="star" />
     </g>
     <path
-       inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Player\LockArrow.png"
+       inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Player\DirectionArrow.png"
        sodipodi:type="star"
-       style="fill:#ff9f43;fill-opacity:1;stroke:#eeeeed;stroke-width:13.1262;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="path909"
+       style="fill:#00adb5;stroke:#eeeeed;stroke-width:13.3402;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
+       id="path880"
        sodipodi:sides="3"
        sodipodi:cx="-613.83331"
        sodipodi:cy="-361.34525"
@@ -627,102 +442,295 @@
        inkscape:rounded="0"
        inkscape:randomized="0"
        d="m -527.65474,-311.45239 -86.23817,-0.10323 -86.23817,-0.10322 43.20848,-74.63283 43.20848,-74.63283 43.02969,74.73605 z"
-       inkscape:transform-center-x="0.032416937"
-       inkscape:transform-center-y="6.6269914"
-       transform="matrix(0.54393859,0,0,-0.26675301,383.91791,-21.330137)"
+       inkscape:transform-center-x="0.032080822"
+       inkscape:transform-center-y="-6.4849674"
+       transform="matrix(0.53816784,0,0,0.26103619,380.37742,122.05893)"
        inkscape:export-xdpi="65.019997"
        inkscape:export-ydpi="65.019997"
-       clip-path="url(#clipath_lpe_path-effect911)"
-       inkscape:path-effect="#path-effect911" />
-    <circle
-       style="fill:#d40000;stroke:#e81414;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
-       id="path914"
-       cx="50"
-       cy="-950"
-       r="47.500004"
+       clip-path="url(#clipPath964)"
+       inkscape:path-effect="#path-effect968" />
+    <g
+       inkscape:export-ydpi="65.023994"
+       inkscape:export-xdpi="65.023994"
+       id="g949"
+       inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Variation\Head1.png">
+      <g
+         id="g930"
+         transform="translate(0,-0.89582443)">
+        <circle
+           cy="170.89583"
+           cx="50"
+           id="circle838"
+           style="fill:#222831;fill-opacity:1;stroke:#363c45;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           r="47.500004" />
+        <g
+           id="g921">
+          <g
+             id="g914">
+            <path
+               d="m 97.500011,-100.00001 a 47.500008,47.500004 0 0 1 -47.500007,47.500006 47.500008,47.500004 0 0 1 -47.5000078,-47.500006 47.500008,47.500004 0 0 1 47.5000078,-47.5 47.500008,47.500004 0 0 1 47.500007,47.5 z"
+               transform="translate(0,270.89584)"
+               sodipodi:ry="47.500004"
+               sodipodi:rx="47.500008"
+               sodipodi:cy="-100.00001"
+               sodipodi:cx="50.000004"
+               sodipodi:type="arc"
+               inkscape:path-effect="#path-effect986"
+               clip-path="url(#clipPath978)"
+               id="path958"
+               style="fill:#ffaaaa;stroke:#363c45;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />
+            <rect
+               ry="2"
+               y="154.14583"
+               x="7.75"
+               height="3"
+               width="16.338387"
+               id="rect1024"
+               style="fill:#ffaaaa;fill-opacity:1;stroke:none;stroke-width:4.99998;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />
+            <rect
+               style="fill:#ffaaaa;fill-opacity:1;stroke:none;stroke-width:4.99998;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+               id="rect1026"
+               width="16.338387"
+               height="3"
+               x="75.900002"
+               y="154.14583"
+               ry="2" />
+          </g>
+          <rect
+             style="fill:#222831;fill-opacity:1;stroke:none;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+             id="rect990"
+             width="52"
+             height="52"
+             x="24"
+             y="139.89583"
+             ry="17.5" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="g928"
+       inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Variation\Body1.png"
        inkscape:export-xdpi="65.019997"
-       inkscape:export-ydpi="65.019997" />
+       inkscape:export-ydpi="65.019997">
+      <rect
+         style="fill:#a02c2c;fill-opacity:1;stroke:#8c1818;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect883"
+         width="175.00002"
+         height="70.000008"
+         x="2.499995"
+         y="-647.5"
+         ry="30"
+         rx="80"
+         inkscape:export-xdpi="25.399998"
+         inkscape:export-ydpi="25.399998"
+         inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Player\Body.png" />
+      <rect
+         inkscape:export-ydpi="25.399998"
+         inkscape:export-xdpi="25.399998"
+         inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Player\Body.png"
+         transform="rotate(-90)"
+         ry="5"
+         y="25"
+         x="590"
+         height="50"
+         width="10"
+         id="rect885"
+         style="fill:#eeeeee;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         style="fill:#eeeeee;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect887"
+         width="10"
+         height="50"
+         x="590"
+         y="105.44813"
+         ry="5"
+         transform="rotate(-90)"
+         inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Player\Body.png"
+         inkscape:export-xdpi="25.399998"
+         inkscape:export-ydpi="25.399998" />
+    </g>
+    <g
+       id="g920"
+       inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\EnemyVariation\Foot1.png"
+       inkscape:export-xdpi="65.019997"
+       inkscape:export-ydpi="65.019997">
+      <rect
+         inkscape:export-ydpi="25.399998"
+         inkscape:export-xdpi="25.399998"
+         ry="25"
+         y="402.5"
+         x="2.499995"
+         height="70.000008"
+         width="45.000011"
+         id="rect933"
+         style="fill:#00aad4;fill-opacity:1;stroke:#008cb6;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         style="fill:#eeeeee;fill-opacity:1;stroke:none;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect935"
+         width="25"
+         height="25"
+         x="12.5"
+         y="415"
+         ry="8.9285707"
+         inkscape:export-xdpi="25.399998"
+         inkscape:export-ydpi="25.399998" />
+    </g>
+    <g
+       id="g923"
+       inkscape:export-xdpi="65.019997"
+       inkscape:export-ydpi="65.019997"
+       inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA - Copy\Assets\Sprites\DraftEnemy\Foot1.png">
+      <rect
+         style="fill:#a02c2c;fill-opacity:1;stroke:#8c1818;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect951"
+         width="45.000011"
+         height="70.000008"
+         x="2.499995"
+         y="502.5"
+         ry="25"
+         inkscape:export-xdpi="25.399998"
+         inkscape:export-ydpi="25.399998" />
+      <path
+         sodipodi:type="star"
+         style="fill:#eeeeee;fill-opacity:1;stroke:none;stroke-width:6.50628;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+         id="path953"
+         sodipodi:sides="3"
+         sodipodi:cx="-116.79464"
+         sodipodi:cy="407.08035"
+         sodipodi:r1="22.761889"
+         sodipodi:r2="11.952657"
+         sodipodi:arg1="0.51193717"
+         sodipodi:arg2="1.5591347"
+         inkscape:flatsided="true"
+         inkscape:rounded="0.15"
+         inkscape:randomized="0"
+         d="m -96.950889,418.23065 c -2.896933,5.15556 -36.405691,5.54634 -39.422071,0.45975 -3.01637,-5.0866 13.39958,-34.30143 19.31289,-34.37039 5.91331,-0.069 23.006113,28.75508 20.109181,33.91064 z"
+         inkscape:transform-center-x="0.62313778"
+         inkscape:transform-center-y="-2.9890157"
+         transform="matrix(0.74782164,0,0,0.78972188,112.25679,206.49418)"
+         inkscape:export-xdpi="25.399998"
+         inkscape:export-ydpi="25.399998" />
+    </g>
+    <path
+       inkscape:path-effect="#path-effect911"
+       clip-path="url(#clipath_lpe_path-effect911)"
+       inkscape:export-ydpi="65.019997"
+       inkscape:export-xdpi="65.019997"
+       transform="matrix(0.54393859,0,0,-0.26675301,383.91791,-21.330137)"
+       inkscape:transform-center-y="6.6269914"
+       inkscape:transform-center-x="0.032416937"
+       d="m -527.65474,-311.45239 -86.23817,-0.10323 -86.23817,-0.10322 43.20848,-74.63283 43.20848,-74.63283 43.02969,74.73605 z"
+       inkscape:randomized="0"
+       inkscape:rounded="0"
+       inkscape:flatsided="false"
+       sodipodi:arg2="1.5719933"
+       sodipodi:arg1="0.52479577"
+       sodipodi:r2="49.789665"
+       sodipodi:r1="99.57933"
+       sodipodi:cy="-361.34525"
+       sodipodi:cx="-613.83331"
+       sodipodi:sides="3"
+       id="path909"
+       style="fill:#ff9f43;fill-opacity:1;stroke:#eeeeed;stroke-width:13.1262;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       sodipodi:type="star"
+       inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Player\LockArrow.png" />
+    <circle
+       inkscape:export-ydpi="65.019997"
+       inkscape:export-xdpi="65.019997"
+       r="47.500004"
+       cy="-950"
+       cx="50"
+       id="path914"
+       style="fill:#d40000;stroke:#e81414;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />
     <rect
-       style="fill:#ff6600;fill-opacity:1;stroke:#cd3400;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
-       id="rect917"
-       width="35.000011"
-       height="95.000008"
-       x="7.4999952"
+       inkscape:export-ydpi="25.399998"
+       inkscape:export-xdpi="25.399998"
+       inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Weapons\Pistol.png"
+       ry="20"
        y="752.5"
+       x="7.4999952"
+       height="95.000008"
+       width="35.000011"
+       id="rect917"
+       style="fill:#ff6600;fill-opacity:1;stroke:#cd3400;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />
+    <rect
+       style="fill:#00aad4;fill-opacity:1;stroke:#d0d0d0;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       id="rect915"
+       width="45.000011"
+       height="45.000011"
+       x="2.499995"
+       y="787.5"
        ry="20"
        inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Weapons\Pistol.png"
        inkscape:export-xdpi="25.399998"
        inkscape:export-ydpi="25.399998" />
     <rect
-       inkscape:export-ydpi="25.399998"
-       inkscape:export-xdpi="25.399998"
-       inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Weapons\Pistol.png"
-       ry="20"
-       y="787.5"
-       x="2.499995"
-       height="45.000011"
-       width="45.000011"
-       id="rect915"
-       style="fill:#00aad4;fill-opacity:1;stroke:#d0d0d0;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />
-    <rect
-       inkscape:export-ydpi="25.399998"
-       inkscape:export-xdpi="25.399998"
-       inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Weapons\Pistol_Bullet.png"
-       ry="10"
-       y="902.49994"
-       x="7.4999952"
-       height="34.999989"
-       width="14.99999"
+       style="fill:#eeeeee;fill-opacity:1;stroke:#d0d0d0;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect918"
-       style="fill:#eeeeee;fill-opacity:1;stroke:#d0d0d0;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+       width="14.99999"
+       height="34.999989"
+       x="7.4999952"
+       y="902.49994"
+       ry="10"
+       inkscape:export-filename="C:\Users\Duong\Documents\Development\Projects\1VA\Assets\Sprites\Weapons\Pistol_Bullet.png"
+       inkscape:export-xdpi="25.399998"
+       inkscape:export-ydpi="25.399998" />
     <circle
-       inkscape:export-ydpi="65.019997"
-       inkscape:export-xdpi="65.019997"
-       r="47.500004"
-       cy="-1150"
-       cx="50"
+       style="fill:#ff9f43;stroke:#e1811b;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;fill-opacity:1"
        id="circle917"
-       style="fill:#ff9f43;stroke:#e1811b;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;fill-opacity:1" />
-    <g
-       id="g909"
+       cx="50"
+       cy="-1150"
+       r="47.500004"
        inkscape:export-xdpi="65.019997"
-       inkscape:export-ydpi="65.019997"
+       inkscape:export-ydpi="65.019997" />
+    <g
+       style="stroke-width:0.390625"
        transform="matrix(2.56,0,0,2.56,0,-348)"
-       style="stroke-width:0.390625">
-      <rect
-         inkscape:export-ydpi="65.019997"
-         inkscape:export-xdpi="65.019997"
-         style="fill:#eeeeee;fill-opacity:1;stroke-width:1.95312;stroke-linecap:round;stroke-linejoin:round"
-         id="rect879"
-         width="100"
-         height="100"
-         x="0"
-         y="-450" />
+       inkscape:export-ydpi="65.019997"
+       inkscape:export-xdpi="65.019997"
+       id="g909">
       <rect
          y="-450"
-         x="48.125"
+         x="0"
          height="100"
-         width="2.5"
-         id="rect902"
-         style="fill:#808080;stroke-width:1.95311;stroke-linecap:round;stroke-linejoin:round" />
+         width="100"
+         id="rect879"
+         style="fill:#eeeeee;fill-opacity:1;stroke-width:1.95312;stroke-linecap:round;stroke-linejoin:round"
+         inkscape:export-xdpi="65.019997"
+         inkscape:export-ydpi="65.019997" />
       <rect
-         transform="rotate(90)"
          style="fill:#808080;stroke-width:1.95311;stroke-linecap:round;stroke-linejoin:round"
-         id="rect904"
+         id="rect902"
          width="2.5"
          height="100"
+         x="48.125"
+         y="-450" />
+      <rect
+         y="-100"
          x="-401.25"
-         y="-100" />
+         height="100"
+         width="2.5"
+         id="rect904"
+         style="fill:#808080;stroke-width:1.95311;stroke-linecap:round;stroke-linejoin:round"
+         transform="rotate(90)" />
     </g>
     <rect
-       inkscape:export-ydpi="65.019997"
-       inkscape:export-xdpi="65.019997"
-       ry="10.555556"
-       y="-1897.5"
-       x="2.5"
-       height="95.000008"
-       width="95"
+       style="fill:#ffffff;stroke:#808080;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect905"
-       style="fill:#ffffff;stroke:#808080;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+       width="95"
+       height="95.000008"
+       x="2.5"
+       y="-1897.5"
+       ry="10.555556"
+       inkscape:export-xdpi="65.019997"
+       inkscape:export-ydpi="65.019997" />
+    <circle
+       style="fill:#00adb5;stroke:#14c1c9;stroke-width:4.99999;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;fill-opacity:1"
+       id="circle906"
+       cx="50"
+       cy="-750"
+       r="47.500004"
+       inkscape:export-xdpi="65.019997"
+       inkscape:export-ydpi="65.019997" />
   </g>
 </svg>

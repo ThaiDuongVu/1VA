@@ -28,10 +28,13 @@ public class Weapon : MonoBehaviour
 
     public bool canShoot = true;
     private MainCamera mainCamera;
+    private Animator cameraAnimator;
 
     private void Awake()
     {
         if (Camera.main is { }) mainCamera = Camera.main.GetComponent<MainCamera>();
+        cameraAnimator = mainCamera.GetComponent<Animator>();
+
         delay = new WaitForSeconds(delayDuration);
     }
 
@@ -62,6 +65,8 @@ public class Weapon : MonoBehaviour
     {
         // Shake camera
         CameraShaker.Instance.Shake(CameraShakeMode.Normal);
+        // Camera enter flying state
+        cameraAnimator.SetBool("isFlying", true);
 
         // Muzzle effect
         Instantiate(muzzle, barrel.transform.position, transform.rotation);
@@ -84,11 +89,15 @@ public class Weapon : MonoBehaviour
     {
         // Shake camera
         CameraShaker.Instance.Shake(CameraShakeMode.Normal);
+
         // Explode & destroy current bullet
         if (currentBullet) currentBullet.Explode();
 
         // Add a bit of delay
         yield return delay;
+
+        // Camera exit flying state
+        cameraAnimator.SetBool("isFlying", false);
 
         // Camera follow player again
         mainCamera.followTarget = Player.transform;

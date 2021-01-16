@@ -13,6 +13,8 @@ public class Bullet : MonoBehaviour
     // Bullet damage
     public float damage;
 
+    public ParticleSystem explosion;
+
     public Weapon Weapon { get; set; }
 
     private float lookVelocity;
@@ -103,6 +105,7 @@ public class Bullet : MonoBehaviour
     /// </summary>
     public void Explode()
     {
+        Instantiate(explosion, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 

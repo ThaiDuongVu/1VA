@@ -139,6 +139,7 @@ MonoBehaviour:
   speed: 30
   maxUpTime: 3
   damage: 1
+  explosion: {fileID: 6330559913945509055, guid: a4fefd050e35e5b4ab215e67a83276a4, type: 3}
 --- !u!1 &5655015868119684479
 GameObject:
   m_ObjectHideFlags: 0
