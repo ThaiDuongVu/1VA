@@ -14,6 +14,7 @@ public class Bullet : MonoBehaviour
     public float damage;
 
     public ParticleSystem explosion;
+    public TrailRenderer trail;
 
     public Weapon Weapon { get; set; }
 
@@ -82,6 +83,8 @@ public class Bullet : MonoBehaviour
 
         currentUpTime -= Time.fixedDeltaTime;
         if (currentUpTime <= 0f) Weapon.StopShoot();
+
+        trail.time = (currentUpTime / maxUpTime);
     }
 
     /// <summary>
@@ -120,7 +123,7 @@ public class Bullet : MonoBehaviour
             // Deal damage to enemy
             enemy.TakeDamage(damage);
             // Add enemy knock back effect
-            enemy.Movement.KnockBack(transform.up);
+            enemy.Movement.StartCoroutine(enemy.Movement.KnockBack(transform.up));
 
             // Stop bullet
             Weapon.StopShoot();
