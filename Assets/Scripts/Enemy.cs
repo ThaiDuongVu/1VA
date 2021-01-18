@@ -55,7 +55,7 @@ public class Enemy : MonoBehaviour, IDamageable
     /// </summary>
     public void Die()
     {
-        // GlobalController.Instance.StartCoroutine(GlobalController.FreezeFrame());
+        GlobalController.Instance.StartCoroutine(GlobalController.FreezeFrame());
         StartCoroutine(DestroyDelay());
     }
 

@@ -128,6 +128,16 @@ public class Bullet : MonoBehaviour
             // Stop bullet
             Weapon.StopShoot();
         }
+        else if (other.CompareTag("Player"))
+        {
+            Player player = other.GetComponent<Player>();
+
+            // Deal damage to player
+            player.TakeDamage(damage);
+
+            // Stop bullet
+            Weapon.StopShoot();
+        }
     }
 
     #endregion

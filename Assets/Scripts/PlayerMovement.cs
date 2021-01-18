@@ -212,6 +212,8 @@ public class PlayerMovement : MonoBehaviour
     {
         currentVelocity = 0f;
         direction = Vector2.zero;
+
+        lookVelocity = 0f;
     }
 
     /// <summary>

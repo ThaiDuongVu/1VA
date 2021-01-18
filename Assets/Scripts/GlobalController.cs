@@ -96,7 +96,7 @@ public class GlobalController : MonoBehaviour
     /// <param name="scale">How slow to freeze</param>
     /// <param name="duration">How long to freeze</param>
     /// <returns>Freeze duration</returns>
-    public static IEnumerator FreezeFrame(float scale = 0.5f, float duration = 0.2f)
+    public static IEnumerator FreezeFrame(float scale = 0.4f, float duration = 0.2f)
     {
         Time.timeScale = scale;
         yield return new WaitForSeconds(duration);

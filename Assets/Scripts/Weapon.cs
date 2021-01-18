@@ -36,6 +36,7 @@ public class Weapon : MonoBehaviour
         cameraAnimator = mainCamera.GetComponent<Animator>();
 
         delay = new WaitForSeconds(delayDuration);
+        currentAmmo = maxAmmo;
     }
 
     /// <summary>
@@ -44,8 +45,13 @@ public class Weapon : MonoBehaviour
     public void StartShoot()
     {
         if (!canShoot) return;
+        if (currentAmmo <= 0)
+        {
+            UIController.Instance.ShowMessage("Out of ammo!");
+            return;
+        }
 
-        Shoot();
+        Fire();
     }
 
     /// <summary>
@@ -61,7 +67,7 @@ public class Weapon : MonoBehaviour
     /// <summary>
     /// Fire a bullet from weapon.
     /// </summary>
-    private void Shoot()
+    private void Fire()
     {
         // Shake camera
         CameraShaker.Instance.Shake(CameraShakeMode.Normal);
@@ -83,6 +89,9 @@ public class Weapon : MonoBehaviour
 
         // Stop player
         Player.Movement.Stop();
+
+        // Decrease current ammo
+        currentAmmo--;
     }
 
     private IEnumerator Cancel()
