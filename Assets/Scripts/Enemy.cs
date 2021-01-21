@@ -5,16 +5,16 @@ using System.Collections;
 public class Enemy : MonoBehaviour, IDamageable
 {
     public EnemyMovement Movement { get; private set; }
+    public float Health { get; set; } = 5f;
 
     public EnemyState State { get; set; }
 
-    [SerializeField] private Light2D light2D;
+    public bool IsKnockingBack { get; set; }
 
     public Animator Animator { get; set; }
 
-    public bool IsKnockingBack { get; set; }
+    public Light2D light2D;
 
-    public float Health { get; set; } = 5f;
     public ParticleSystem bloodSpat;
 
     /// <summary>
@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour, IDamageable
         Health -= damage;
         Instantiate(bloodSpat, transform.position, transform.rotation);
 
-        FindObjectOfType<Player>().Combo.AddCombo(1);
+        FindObjectOfType<Player>().Combo.Add(1);
 
         if (Health <= 0f) Die();
     }

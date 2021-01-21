@@ -6,6 +6,8 @@ public class Player : MonoBehaviour, IDamageable
     public PlayerCombat Combat { get; private set; }
     public Combo Combo { get; private set; }
 
+    public float Health { get; set; }
+
     public bool IsControllable { get; set; } = true;
     public bool IsRunning { get; set; }
     public bool IsDashing { get; set; }
@@ -19,6 +21,7 @@ public class Player : MonoBehaviour, IDamageable
     public Transform weaponTransform;
 
     public TrailRenderer trail;
+    public ParticleSystem bloodSpat;
 
     public Transform directionArrow;
     public Enemy SnapEnemy { get; set; }
@@ -88,6 +91,10 @@ public class Player : MonoBehaviour, IDamageable
     /// <param name="damage">Amount to damage</param>
     public void TakeDamage(float damage)
     {
+        Health -= damage;
+        Instantiate(bloodSpat, transform.position, transform.rotation);
+
+        Combo.Cancel();
     }
 
     /// <summary>

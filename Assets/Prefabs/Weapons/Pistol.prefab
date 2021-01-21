@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 5142625499650327644}
   - component: {fileID: -5371322347873137306}
   - component: {fileID: 5142625499650327645}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Pistol
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -167,12 +167,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barrel: {fileID: 5142625500993271203}
   bullet: {fileID: -133947810885826097, guid: fb2917c485906874d87397fbdacf2534, type: 3}
-  currentBullet: {fileID: 0}
   muzzle: {fileID: 5176900677835981296, guid: 0b8d41f3a5259d448ab5d8d52ac56ff9, type: 3}
   name: Pistol
   maxAmmo: 30
   delayDuration: 0.5
-  light2D: {fileID: 5142625500120458658}
   canShoot: 1
 --- !u!1 &5142625500120458656
 GameObject:

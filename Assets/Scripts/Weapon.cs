@@ -6,7 +6,7 @@ public class Weapon : MonoBehaviour
 {
     public Transform barrel;
     public Bullet bullet;
-    public Bullet currentBullet;
+    public Bullet CurrentBullet { get; set; }
 
     public ParticleSystem muzzle;
 
@@ -14,13 +14,11 @@ public class Weapon : MonoBehaviour
     public new string name;
 
     public int maxAmmo;
-    private int currentAmmo;
+    public int CurrentAmmo { get; set; }
 
     // Delay between shots
     public float delayDuration;
     private WaitForSeconds delay;
-
-    public Light2D light2D;
 
     public Player Player { get; set; }
 
@@ -36,7 +34,7 @@ public class Weapon : MonoBehaviour
         cameraAnimator = mainCamera.GetComponent<Animator>();
 
         delay = new WaitForSeconds(delayDuration);
-        currentAmmo = maxAmmo;
+        CurrentAmmo = maxAmmo;
     }
 
     /// <summary>
@@ -45,7 +43,7 @@ public class Weapon : MonoBehaviour
     public void StartShoot()
     {
         if (!canShoot) return;
-        if (currentAmmo <= 0)
+        if (CurrentAmmo <= 0)
         {
             UIController.Instance.ShowMessage("Out of ammo!");
             return;
@@ -78,20 +76,21 @@ public class Weapon : MonoBehaviour
         Instantiate(muzzle, barrel.transform.position, transform.rotation);
 
         // Spawn new bullet
-        currentBullet = Instantiate(bullet, barrel.transform.position, transform.rotation).GetComponent<Bullet>();
-        currentBullet.Weapon = this;
+        CurrentBullet = Instantiate(bullet, barrel.transform.position, transform.rotation).GetComponent<Bullet>();
+        CurrentBullet.Weapon = this;
 
         // Camera follow bullet instead of player
-        mainCamera.followTarget = currentBullet.transform;
+        mainCamera.followTarget = CurrentBullet.transform;
         // Disable player shooting & controlling
         canShoot = false;
         Player.IsControllable = false;
 
-        // Stop player
-        Player.Movement.Stop();
+        // Stop player running & looking
+        Player.Movement.StopMovement();
+        Player.Movement.StopRotation();
 
         // Decrease current ammo
-        currentAmmo--;
+        CurrentAmmo--;
     }
 
     private IEnumerator Cancel()
@@ -100,7 +99,7 @@ public class Weapon : MonoBehaviour
         CameraShaker.Instance.Shake(CameraShakeMode.Normal);
 
         // Explode & destroy current bullet
-        if (currentBullet) currentBullet.Explode();
+        if (CurrentBullet) CurrentBullet.Explode();
 
         // Add a bit of delay
         yield return delay;

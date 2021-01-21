@@ -202,18 +202,16 @@ public class PlayerMovement : MonoBehaviour
     {
         if (currentVelocity > MinVelocity) currentVelocity -= Deceleration * Time.deltaTime;
         // If player near stopping then stop
-        if (Mathf.Abs(currentVelocity - MinVelocity) < 0.1f) Stop();
+        if (Mathf.Abs(currentVelocity - MinVelocity) < 0.1f) StopMovement();
     }
 
     /// <summary>
     /// Stop running.
     /// </summary>
-    public void Stop()
+    public void StopMovement()
     {
         currentVelocity = 0f;
         direction = Vector2.zero;
-
-        lookVelocity = 0f;
     }
 
     /// <summary>
@@ -224,6 +222,14 @@ public class PlayerMovement : MonoBehaviour
         if (Mathf.Abs(lookVelocity) <= 0.1f) return;
 
         transform.Rotate(0f, 0f, lookVelocity * lookSensitivity * Time.timeScale, Space.Self);
+    }
+
+    /// <summary>
+    /// Stop looking.
+    /// </summary>
+    public void StopRotation()
+    {
+        lookVelocity = 0f;
     }
 
     /// <summary>

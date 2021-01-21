@@ -11,6 +11,7 @@ public class Combo : MonoBehaviour
 
     [SerializeField] private TMP_Text text;
     private RectTransform textTransform;
+    private Animator textAnimator;
 
     /// <summary>
     /// Unity Event function.
@@ -19,6 +20,8 @@ public class Combo : MonoBehaviour
     private void Awake()
     {
         textTransform = text.GetComponent<RectTransform>();
+        textAnimator = text.GetComponent<Animator>();
+
         player = GetComponent<Player>();
     }
 
@@ -28,8 +31,10 @@ public class Combo : MonoBehaviour
     /// </summary>
     private void FixedUpdate()
     {
-        if (timer > 0f && player.IsControllable) timer -= Time.fixedDeltaTime;
-        else if (timer <= 0f) multiplier = 0;
+        if (timer > 0f && player.IsControllable)
+            timer -= Time.fixedDeltaTime;
+        else if (timer <= 0f)
+            Cancel();
 
         text.transform.localScale = new Vector2(1f, 1f) * (timer / TimerMax);
     }
@@ -38,12 +43,23 @@ public class Combo : MonoBehaviour
     /// Add combo multiplier.
     /// </summary>
     /// <param name="amount">Amount to multiply</param>
-    public void AddCombo(int amount)
+    public void Add(int amount)
     {
         multiplier += amount;
         timer = TimerMax;
 
+        textAnimator.SetTrigger("add");
+
         textTransform.localRotation = new Quaternion(0f, 0f, Random.Range(-0.25f, 0.25f), 1f);
         text.text = "x" + multiplier.ToString();
+    }
+
+    /// <summary>
+    /// Cancel current combo.
+    /// </summary>
+    public void Cancel()
+    {
+        multiplier = 0;
+        timer = 0f;
     }
 }
