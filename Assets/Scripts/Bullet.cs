@@ -138,6 +138,11 @@ public class Bullet : MonoBehaviour
             // Stop bullet
             Weapon.StopShoot();
         }
+        else if (other.CompareTag("Obstacle"))
+        {
+            // Stop bullet
+            Weapon.StopShoot();
+        }
     }
 
     #endregion
