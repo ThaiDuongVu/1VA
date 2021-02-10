@@ -6,7 +6,8 @@ public class Player : MonoBehaviour, IDamageable
     public PlayerCombat Combat { get; private set; }
     public Combo Combo { get; private set; }
 
-    public float Health { get; set; }
+    public const float MaxHealth = 10f;
+    public float CurrentHealth { get; set; }
 
     public bool IsControllable { get; set; } = true;
     public bool IsRunning { get; set; }
@@ -47,6 +48,9 @@ public class Player : MonoBehaviour, IDamageable
     {
         // Disable trail
         trail.enabled = false;
+
+        // Set initial health
+        CurrentHealth = MaxHealth;
     }
 
     /// <summary>
@@ -83,6 +87,7 @@ public class Player : MonoBehaviour, IDamageable
     private void FixedUpdate()
     {
         if (CurrentWeapon) CurrentWeapon.MoveWithTarget(weaponTransform);
+        UIController.Instance.UpdatePlayerHealthBar(CurrentHealth);
     }
 
     /// <summary>
@@ -91,7 +96,7 @@ public class Player : MonoBehaviour, IDamageable
     /// <param name="damage">Amount to damage</param>
     public void TakeDamage(float damage)
     {
-        Health -= damage;
+        CurrentHealth -= damage;
         Instantiate(bloodSpat, transform.position, transform.rotation);
 
         Combo.Cancel();

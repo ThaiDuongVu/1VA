@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class UIController : MonoBehaviour
     [SerializeField] private TMP_Text message;
     [SerializeField] private Animator messageAnimator;
     private static readonly int MessageTrigger = Animator.StringToHash("showMessage");
+
+    [SerializeField] private Image playerHealthBar;
 
     /// <summary>
     /// Unity Event function.
@@ -96,5 +99,19 @@ public class UIController : MonoBehaviour
     {
         message.text = text;
         messageAnimator.SetTrigger(MessageTrigger);
+    }
+
+    /// <summary>
+    /// Update player's health bar UI image.
+    /// </summary>
+    /// <param name="health">Current player health</param>
+    public void UpdatePlayerHealthBar(float health)
+    {
+        // Current health bar scale
+        Vector2 healthBarScale = playerHealthBar.rectTransform.localScale;
+        // Lerp x scale to current player health
+        healthBarScale = Vector2.Lerp(healthBarScale, new Vector2(health / Player.MaxHealth, healthBarScale.y), 0.25f);
+        // Reassign that scale to health bar UI image
+        playerHealthBar.rectTransform.localScale = healthBarScale;
     }
 }
