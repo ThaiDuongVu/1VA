@@ -13,20 +13,23 @@ public class SettingsController : MonoBehaviour
 
     public Settings targetFPS;
 
-    public Settings motionBlur;
+    public Settings motionBlurSetting;
     public Settings font;
     public TMP_FontAsset[] fonts;
 
     public new Settings audio;
 
     public VolumeProfile volumeProfile;
-    private MotionBlur _motionBlur;
+    private MotionBlur motionBlur;
 
-    // Awake is called when an object is initialized
+    /// <summary>
+    /// Unity Event function.
+    /// Get component references before first frame update.
+    /// </summary>
     private void Awake()
     {
         _volume = FindObjectOfType<Volume>();
-        volumeProfile.TryGet(out _motionBlur);
+        volumeProfile.TryGet(out motionBlur);
     }
 
     // Start is called before the first frame update
@@ -38,22 +41,22 @@ public class SettingsController : MonoBehaviour
     public void Apply()
     {
         Screen.SetResolution(resolution.currentState, resolution.currentState / 16 * 9,
-            (FullScreenMode) fullScreen.currentState);
+            (FullScreenMode)fullScreen.currentState);
 
         _volume.enabled = effects.currentState == 1;
         Application.targetFrameRate = targetFPS.currentState;
 
-        _motionBlur.active = motionBlur.currentState == 1;
+        motionBlur.active = motionBlurSetting.currentState == 1;
 
         foreach (Object o in Resources.FindObjectsOfTypeAll(typeof(TMP_Text)))
         {
-            TMP_Text text = (TMP_Text) o;
+            TMP_Text text = (TMP_Text)o;
             if (!text.transform.CompareTag("Title")) text.font = fonts[font.currentState];
         }
 
         foreach (Object o in Resources.FindObjectsOfTypeAll(typeof(AudioSource)))
         {
-            AudioSource audioSource = (AudioSource) o;
+            AudioSource audioSource = (AudioSource)o;
             audioSource.enabled = false;
         }
     }

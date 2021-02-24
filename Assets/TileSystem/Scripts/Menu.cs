@@ -11,7 +11,10 @@ public class Menu : MonoBehaviour
 
     [SerializeField] private Image background;
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Unity Event function.
+    /// Initialize before first frame update.
+    /// </summary>
     private void Start()
     {
         if (disableOnStartup) Disable();
@@ -19,19 +22,25 @@ public class Menu : MonoBehaviour
         SetInteractable(true);
     }
 
-    // Enable menu
+    /// <summary>
+    /// Enable menu.
+    /// </summary>
     public void Enable()
     {
         gameObject.SetActive(true);
     }
 
-    // Disable menu
+    /// <summary>
+    /// Disable menu.
+    /// </summary>
     public void Disable()
     {
         gameObject.SetActive(false);
     }
 
-    // Set whether a menu is interactable or not
+    /// <summary>
+    /// Set whether a menu is interactable or not.
+    /// </summary>
     public void SetInteractable(bool interactable)
     {
         tileManager.enabled = interactable;
@@ -41,7 +50,7 @@ public class Menu : MonoBehaviour
         if (!interactable)
         {
             tileSelector.Animator.speed = 0f;
-            tileManager.CurrentSelectedTile.OnDeselected();    
+            tileManager.CurrentSelectedTile.OnDeselected();
         }
         else
         {
@@ -49,6 +58,7 @@ public class Menu : MonoBehaviour
             tileManager.CurrentSelectedTile.OnSelected();
         }
 
-        foreach (Button button in tileManager.buttons) button.interactable = interactable;
+        foreach (Button button in tileManager.buttons)
+            button.interactable = interactable;
     }
 }

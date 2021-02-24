@@ -10,23 +10,31 @@ public class TileManager : MonoBehaviour
     public TileSelector selector;
     public Tile CurrentSelectedTile { get; set; }
 
-    private InputManager _inputManager;
+    private InputManager inputManager;
 
+    /// <summary>
+    /// Unity Event function.
+    /// Initialize input handler on object enabled.
+    /// </summary>
     private void OnEnable()
     {
-        _inputManager = new InputManager();
+        inputManager = new InputManager();
 
         // Handle directional input and click tiles
-        _inputManager.Game.Direction.performed += DirectionOnPerformed;
-        _inputManager.Game.Click.performed += ClickOnPerformed;
+        inputManager.Game.Direction.performed += DirectionOnPerformed;
+        inputManager.Game.Click.performed += ClickOnPerformed;
 
-        _inputManager.Enable();
+        inputManager.Enable();
 
         Select(tiles[0]);
     }
 
     #region Input Methods
 
+    /// <summary>
+    /// On direction input performed.
+    /// </summary>
+    /// <param name="context">Input context</param>
     private void DirectionOnPerformed(InputAction.CallbackContext context)
     {
         Vector2 directionValue = context.ReadValue<Vector2>();
@@ -46,6 +54,10 @@ public class TileManager : MonoBehaviour
             Select(CurrentSelectedTile.downTile);
     }
 
+    /// <summary>
+    /// On click input performed.
+    /// </summary>
+    /// <param name="context">Input context</param>
     private void ClickOnPerformed(InputAction.CallbackContext context)
     {
         Click(CurrentSelectedTile);
@@ -53,12 +65,28 @@ public class TileManager : MonoBehaviour
 
     #endregion
 
+    /// <summary>
+    /// Unity Event function.
+    /// Disable input handling on object disabled.
+    /// </summary>
     private void OnDisable()
     {
-        _inputManager.Disable();
+        inputManager.Disable();
     }
 
-    // Select a tile
+    /// <summary>
+    /// Unity Event function.
+    /// Get component references before first frame update.
+    /// </summary>
+    private void Awake()
+    {
+        buttons = new Button[tiles.Length];
+        for (int i = 0; i < tiles.Length; i++) buttons[i] = tiles[i].GetComponent<Button>();
+    }
+
+    /// <summary>
+    /// Select a tile.
+    /// </summary>
     public void Select(Tile tileToSelect)
     {
         // Deselect current tile first
@@ -72,16 +100,11 @@ public class TileManager : MonoBehaviour
         selector.Select(tileToSelect);
     }
 
-    // Click a tile
+    /// <summary>
+    /// Click a tile.`
+    /// </summary>
     private void Click(Tile tileToClick)
     {
         tileToClick.OnClicked();
-    }
-
-    // Awake is called when an object is initialized
-    private void Awake()
-    {
-        buttons = new Button[tiles.Length];
-        for (int i = 0; i < tiles.Length; i++) buttons[i] = tiles[i].GetComponent<Button>();
     }
 }

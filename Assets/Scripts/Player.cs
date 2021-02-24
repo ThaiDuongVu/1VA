@@ -84,7 +84,7 @@ public class Player : MonoBehaviour, IDamageable
     /// Unity Event function.
     /// Update once per frame.
     /// </summary>
-    private void FixedUpdate()
+    private void Update()
     {
         if (CurrentWeapon) CurrentWeapon.MoveWithTarget(weaponTransform);
         UIController.Instance.UpdatePlayerHealthBar(CurrentHealth);

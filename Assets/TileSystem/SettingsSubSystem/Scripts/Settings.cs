@@ -4,7 +4,7 @@ using TMPro;
 public class Settings : MonoBehaviour
 {
     public int[] toggles;
-    private int _toggleIndex;
+    private int toggleIndex;
 
     [HideInInspector] public int currentState;
 
@@ -14,26 +14,32 @@ public class Settings : MonoBehaviour
     public TMP_Text propertyText;
     public string[] properties;
 
-    // Awake is called when object is initialized
+    /// <summary>
+    /// Unity Event function.
+    /// Get component references before first frame update.
+    /// </summary>
     private void Awake()
     {
-        _toggleIndex = PlayerPrefs.GetInt(propertyName, 0);
+        toggleIndex = PlayerPrefs.GetInt(propertyName, 0);
 
-        currentState = toggles[_toggleIndex];
-        propertyText.text = properties[_toggleIndex];
+        currentState = toggles[toggleIndex];
+        propertyText.text = properties[toggleIndex];
     }
 
+    /// <summary>
+    /// Toggle between settings.
+    /// </summary>
     public void Toggle()
     {
-        if (_toggleIndex < toggles.Length - 1)
-            _toggleIndex++;
+        if (toggleIndex < toggles.Length - 1)
+            toggleIndex++;
         else
-            _toggleIndex = 0;
+            toggleIndex = 0;
 
-        currentState = toggles[_toggleIndex];
-        propertyText.text = properties[_toggleIndex];
+        currentState = toggles[toggleIndex];
+        propertyText.text = properties[toggleIndex];
 
-        PlayerPrefs.SetInt(propertyName, _toggleIndex);
+        PlayerPrefs.SetInt(propertyName, toggleIndex);
 
         settingsController.Apply();
     }

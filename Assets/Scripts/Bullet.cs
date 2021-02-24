@@ -48,7 +48,7 @@ public class Bullet : MonoBehaviour
     /// <param name="context">Input context</param>
     private void LookOnPerformed(InputAction.CallbackContext context)
     {
-        lookVelocity = context.ReadValue<Vector2>().x * lookSensitivity;
+        lookVelocity = context.ReadValue<Vector2>().x;
     }
 
     /// <summary>
@@ -82,7 +82,9 @@ public class Bullet : MonoBehaviour
         Rotate();
 
         currentUpTime -= Time.fixedDeltaTime;
-        if (currentUpTime <= 0f) Weapon.StopShoot();
+
+        if (currentUpTime <= 0f)
+            Weapon.StopShoot();
 
         trail.time = (currentUpTime / maxUpTime);
     }
@@ -92,7 +94,7 @@ public class Bullet : MonoBehaviour
     /// </summary>
     private void Fly()
     {
-        rigidBody2D.MovePosition(rigidBody2D.position + (Vector2)transform.up * speed * Time.deltaTime);
+        rigidBody2D.MovePosition(rigidBody2D.position + (Vector2)transform.up * speed * Time.fixedDeltaTime);
     }
 
     /// <summary>
@@ -100,7 +102,7 @@ public class Bullet : MonoBehaviour
     /// </summary>
     private void Rotate()
     {
-        transform.Rotate(0f, 0f, lookVelocity * Time.timeScale, Space.Self);
+        transform.Rotate(0f, 0f, lookVelocity * lookSensitivity * Time.timeScale, Space.Self);
     }
 
     /// <summary>

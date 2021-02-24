@@ -2,50 +2,58 @@
 
 public class TileSelector : MonoBehaviour
 {
-    private RectTransform _rectTransform;
+    private RectTransform rectTransform;
 
-    private float Width => _rectTransform.sizeDelta.x;
+    private float Width => rectTransform.sizeDelta.x;
 
     private const float InterpolationRatio = 0.15f;
-    private bool _isLerping;
-    private Vector2 _lerpPosition;
+    private bool isLerping;
+    private Vector2 lerpPosition;
 
     // Target to rotate to
-    private Transform _lookTarget;
+    private Transform lookTarget;
 
     public Animator Animator => GetComponent<Animator>();
 
-    // Awake is called when an object is initialized
+    /// <summary>
+    /// Unity Event function.
+    /// Get component references before first frame update.
+    /// </summary>
     private void Awake()
     {
-        _rectTransform = GetComponent<RectTransform>();
+        rectTransform = GetComponent<RectTransform>();
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Unity Event function.
+    /// Update once per frame.
+    /// </summary>
     private void Update()
     {
         // If current position is close enough to lerp position
         // Then stop lerping to save on memory
-        if (GlobalController.CloseTo(_rectTransform.position.x, _lerpPosition.x, 0.01f) &&
-            GlobalController.CloseTo(_rectTransform.position.y, _lerpPosition.y, 0.01f)) _isLerping = false;
+        if (GlobalController.CloseTo(rectTransform.position.x, lerpPosition.x, 0.01f) &&
+            GlobalController.CloseTo(rectTransform.position.y, lerpPosition.y, 0.01f)) isLerping = false;
 
         // If is lerping then lerp to position
-        if (_isLerping)
-            _rectTransform.anchoredPosition =
-                Vector2.Lerp(_rectTransform.anchoredPosition, _lerpPosition, InterpolationRatio);
+        if (isLerping)
+            rectTransform.anchoredPosition =
+                Vector2.Lerp(rectTransform.anchoredPosition, lerpPosition, InterpolationRatio);
 
         Transform transform1 = transform;
-        transform.right = Vector2.Lerp(transform1.right, _lookTarget.transform.position - transform1.position,
+        transform.right = Vector2.Lerp(transform1.right, lookTarget.transform.position - transform1.position,
             InterpolationRatio);
     }
 
-    // When a tile is selected
+    /// <summary>
+    /// When a tile is selected.
+    /// </summary>
     public void Select(Tile tile)
     {
         // Set lerp position and start lerping
-        _lerpPosition = new Vector2(tile.Position.x - tile.Width / 2f - Width / 2f - 15f, tile.Position.y);
-        _isLerping = true;
+        lerpPosition = new Vector2(tile.Position.x - tile.Width / 2f - Width / 2f - 15f, tile.Position.y);
+        isLerping = true;
 
-        _lookTarget = tile.transform;
+        lookTarget = tile.transform;
     }
 }

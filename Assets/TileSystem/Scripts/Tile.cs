@@ -4,13 +4,13 @@ using UnityEngine.EventSystems;
 
 public class Tile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    private Button _button;
-    private Animator _animator;
+    private Button button;
+    private Animator animator;
 
-    private bool _isSelected;
+    private bool isSelected;
 
-    private EventSystem _eventSystem;
-    private PointerEventData _eventData;
+    private EventSystem eventSystem;
+    private PointerEventData eventData;
 
     // public Tile leftTile;
     // public Tile rightTile;
@@ -19,72 +19,84 @@ public class Tile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     [SerializeField] private Transform icon;
 
-    private RectTransform _rectTransform;
+    private RectTransform rectTransform;
 
     // Return the height & current position of the tile
-    public float Width => _rectTransform.sizeDelta.x;
-    public float Height => _rectTransform.sizeDelta.y;
+    public float Width => rectTransform.sizeDelta.x;
+    public float Height => rectTransform.sizeDelta.y;
 
-    public Vector2 Position => _rectTransform.anchoredPosition;
+    public Vector2 Position => rectTransform.anchoredPosition;
 
-    private TileManager _tileManager;
+    private TileManager tileManager;
     private static readonly int Selected = Animator.StringToHash("selected");
 
-    // Awake is called when an object is initialized
+    /// <summary>
+    /// Unity Event function.
+    /// Get component references before first frame update.
+    /// </summary>
     private void Awake()
     {
-        // Get references to components
-        _button = GetComponent<Button>();
-        _animator = GetComponent<Animator>();
-        _rectTransform = GetComponent<RectTransform>();
+        button = GetComponent<Button>();
+        animator = GetComponent<Animator>();
+        rectTransform = GetComponent<RectTransform>();
 
-        _eventSystem = EventSystem.current;
-        _eventData = new PointerEventData(_eventSystem);
+        eventSystem = EventSystem.current;
+        eventData = new PointerEventData(eventSystem);
 
-        _tileManager = transform.parent.GetComponent<TileManager>();
+        tileManager = transform.parent.GetComponent<TileManager>();
     }
 
-    // When mouse hover over tile, select it
+    /// <summary>
+    /// When mouse hover over tile, select it.
+    /// </summary>
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
     {
-        _tileManager.Select(this);
+        tileManager.Select(this);
     }
 
-    // Keep selected tile even after mouse exit
+    /// <summary>
+    /// Keep selected tile even after mouse exit.
+    /// </summary>
     void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
     {
-        _tileManager.Select(this);
+        tileManager.Select(this);
     }
 
     #region Select Methods
 
-    // When a tile is selected
+    /// <summary>
+    /// When a tile is selected.
+    /// </summary>
     public void OnSelected()
     {
-        if (_isSelected) return;
+        if (isSelected) return;
 
-        _button.OnPointerEnter(_eventData);
+        button.OnPointerEnter(eventData);
         icon.gameObject.SetActive(true);
 
-        _animator.SetTrigger(Selected);
+        animator.SetTrigger(Selected);
 
-        _isSelected = true;
+        isSelected = true;
     }
 
-    // When a tile is not selected
+    /// <summary>
+    /// When a tile is not selected.
+    /// </summary>
     public void OnDeselected()
     {
-        _button.OnPointerExit(_eventData);
+        button.OnPointerExit(eventData);
         icon.gameObject.SetActive(false);
 
-        _isSelected = false;
+        isSelected = false;
     }
 
     #endregion
 
-    // When the tile is clicked
+    /// <summary>
+    /// When the tile is clicked.
+    /// </summary>
     public void OnClicked()
     {
-        _button.OnPointerClick(_eventData);
+        button.OnPointerClick(eventData);
     }
 }
